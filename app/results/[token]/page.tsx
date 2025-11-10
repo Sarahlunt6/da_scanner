@@ -131,7 +131,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                 </div>
               </div>
 
-              <button className="bg-primary hover:bg-[#1a3a5c] text-white font-bold py-4 px-8 rounded-lg transition-all transform hover:scale-[1.02] shadow-lg text-lg">
+              <button className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white font-bold py-4 px-8 rounded-lg transition-all transform hover:scale-[1.02] shadow-lg text-lg">
                 Book Your Free TAPS Strategy Call
               </button>
             </div>
@@ -243,7 +243,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
               <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
                 Book a 15-minute TAPS Strategy Call to get your personalized action plan and learn how the top 5% of practices dominate their markets.
               </p>
-              <button className="bg-primary hover:bg-[#1a3a5c] text-white font-bold py-4 px-8 rounded-lg transition-all transform hover:scale-[1.02] shadow-lg text-lg">
+              <button className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white font-bold py-4 px-8 rounded-lg transition-all transform hover:scale-[1.02] shadow-lg text-lg">
                 Book Your Strategy Call
               </button>
               <div className="mt-8 flex items-center justify-center space-x-8 text-sm text-gray-600">

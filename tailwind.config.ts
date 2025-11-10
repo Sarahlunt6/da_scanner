@@ -9,8 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#20466F",
-        secondary: "#ffd147",
+        primary: "#2C5F7C", // Opkie navy blue
+        secondary: "#FFC629", // Opkie yellow
+        accent: "#FFC629", // Opkie yellow accent
         success: "#16a34a",
         warning: "#eab308",
         danger: "#dc2626",
