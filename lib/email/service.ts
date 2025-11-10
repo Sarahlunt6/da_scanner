@@ -5,7 +5,7 @@
 
 import { ghlClient } from "./ghl-client";
 import { getConfirmationEmail, getResultsReadyEmail, getFollowUpEmail } from "./templates";
-import { supabaseAdmin } from "../supabase-admin";
+import { supabaseAdmin } from "../supabase";
 
 interface SendConfirmationParams {
   scanId: string;
