@@ -5,6 +5,9 @@ import Header from "@/components/Header";
 export const metadata: Metadata = {
   title: "Digital Authority Scanner | Opkie",
   description: "Find out why high-value patients aren't finding you—and what the top 5% of practices do differently.",
+  other: {
+    'cache-control': 'no-cache, no-store, must-revalidate',
+  },
 };
 
 export default function RootLayout({
