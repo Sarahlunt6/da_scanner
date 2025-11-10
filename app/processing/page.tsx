@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 
 const statusMessages = [
   "Checking Google Business Profile health...",
@@ -11,7 +11,7 @@ const statusMessages = [
   "Calculating your Digital Authority Score...",
 ];
 
-export default function ProcessingPage() {
+function ProcessingContent() {
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
   const [currentMessage, setCurrentMessage] = useState(0);
@@ -66,5 +66,17 @@ export default function ProcessingPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ProcessingPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-primary"></div>
+      </div>
+    }>
+      <ProcessingContent />
+    </Suspense>
   );
 }

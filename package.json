@@ -16,13 +16,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/Sarahlunt6/digital-authority-scanner/issues"
   },
   "homepage": "https://github.com/Sarahlunt6/digital-authority-scanner#readme",
   "dependencies": {
     "@supabase/supabase-js": "^2.81.0",
+    "@tailwindcss/postcss": "^4.1.17",
     "@types/node": "^24.10.0",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
