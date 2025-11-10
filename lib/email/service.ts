@@ -22,6 +22,10 @@ interface SendResultsParams {
   practiceName: string;
   overallScore: number;
   token: string;
+  phase1Score?: number;
+  phase2Score?: number;
+  phase3Score?: number;
+  websiteUrl?: string;
 }
 
 /**
@@ -85,7 +89,7 @@ export async function sendResultsEmail(params: SendResultsParams): Promise<boole
     html: emailTemplate.html,
   });
 
-  // Update contact tags in GHL
+  // Get GHL contact ID from confirmation email log
   const { data: emailLog } = await supabaseAdmin
     .from("email_log")
     .select("ghl_contact_id")
@@ -94,10 +98,27 @@ export async function sendResultsEmail(params: SendResultsParams): Promise<boole
     .single();
 
   if (emailLog?.ghl_contact_id) {
+    // Determine score-based tag
+    const scoreTag = params.overallScore >= 75 ? 'High Score'
+      : params.overallScore >= 50 ? 'Medium Score'
+      : 'Low Score';
+
+    // Add tags to contact
     await ghlClient.addTagsToContact(emailLog.ghl_contact_id, [
       "Scan Completed",
-      `Score: ${params.overallScore}`,
+      scoreTag,
     ]);
+
+    // Update custom fields with scan data
+    await ghlClient.updateContactCustomFields(emailLog.ghl_contact_id, {
+      da_score: params.overallScore.toString(),
+      scan_token: params.token,
+      scan_date: new Date().toISOString().split('T')[0], // YYYY-MM-DD format
+      ...(params.phase1Score && { phase1_score: params.phase1Score.toString() }),
+      ...(params.phase2Score && { phase2_score: params.phase2Score.toString() }),
+      ...(params.phase3Score && { phase3_score: params.phase3Score.toString() }),
+      ...(params.websiteUrl && { website_url: params.websiteUrl }),
+    });
   }
 
   // Log email in database

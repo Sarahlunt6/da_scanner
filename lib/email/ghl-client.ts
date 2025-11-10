@@ -136,6 +136,33 @@ class GHLClient {
       return false;
     }
   }
+
+  /**
+   * Update custom fields for a contact
+   */
+  async updateContactCustomFields(contactId: string, customFields: Record<string, string>): Promise<boolean> {
+    if (!this.apiKey) {
+      return false;
+    }
+
+    try {
+      const response = await fetch(`${this.baseUrl}/contacts/${contactId}`, {
+        method: "PUT",
+        headers: {
+          "Authorization": `Bearer ${this.apiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          customFields,
+        }),
+      });
+
+      return response.ok;
+    } catch (error) {
+      console.error("Error updating custom fields:", error);
+      return false;
+    }
+  }
 }
 
 export const ghlClient = new GHLClient();

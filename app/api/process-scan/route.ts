@@ -76,6 +76,10 @@ export async function POST(request: Request) {
       practiceName: scan.practice_name,
       overallScore: scanResult.overallScore,
       token: scan.unique_token,
+      phase1Score: scanResult.phase1Score,
+      phase2Score: scanResult.phase2Score,
+      phase3Score: scanResult.phase3Score,
+      websiteUrl: scan.website_url,
     }).catch((error) => {
       console.error("Error sending results email:", error);
     });
