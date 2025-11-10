@@ -1,0 +1,87 @@
+// Scan types and interfaces
+
+export interface ScanInput {
+  practiceName: string;
+  websiteUrl: string;
+  email: string;
+  phone: string;
+  contactName: string;
+}
+
+export interface ScanResult {
+  overallScore: number;
+  phase1Score: number;
+  phase2Score: number;
+  phase3Score: number;
+  modules: ModuleResult[];
+  timestamp: string;
+}
+
+export interface ModuleResult {
+  name: string;
+  phase: 1 | 2 | 3;
+  score: number;
+  status: 'excellent' | 'good' | 'needs_work' | 'urgent';
+  weight: number;
+  gapMessage: string;
+  data: Record<string, any>;
+}
+
+// Phase 1 Modules
+export interface ProfitZoneResult {
+  primaryCategory: string;
+  secondaryCategories: string[];
+  hasCosmetic: boolean;
+  hasImplants: boolean;
+  score: number;
+}
+
+export interface ProductShelfResult {
+  servicesCount: number;
+  services: string[];
+  hasHighValueServices: boolean;
+  score: number;
+}
+
+export interface ReviewHealthResult {
+  rating: number;
+  totalReviews: number;
+  score: number;
+}
+
+export interface ReviewVelocityResult {
+  recentReviewsCount: number;
+  recentReviews: Array<{ date: string; text: string }>;
+  velocityScore: number;
+}
+
+export interface NAPConsistencyResult {
+  matchedDirectories: number;
+  totalDirectories: number;
+  inconsistencies: string[];
+  score: number;
+}
+
+// Phase 2 Modules
+export interface Core30Result {
+  foundPages: number;
+  totalPages: number;
+  missingPages: string[];
+  score: number;
+}
+
+export interface TechnicalTrustResult {
+  hasSSL: boolean;
+  mobileScore: number;
+  loadTime: number;
+  hasSchema: boolean;
+  overallScore: number;
+}
+
+// Phase 3 Modules
+export interface DirectoryDominanceResult {
+  presentDirectories: number;
+  totalDirectories: number;
+  missingDirectories: string[];
+  score: number;
+}

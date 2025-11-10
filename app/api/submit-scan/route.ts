@@ -41,8 +41,16 @@ export async function POST(request: Request) {
       );
     }
 
-    // TODO: Add scan job to queue for background processing
-    // For now, we'll just return the token
+    // Trigger scan processing in background
+    // In production, this should use a job queue (Bull, Inngest, etc.)
+    // For now, we'll call it directly but don't await it
+    fetch(`${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/process-scan`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ scanId: scan.id }),
+    }).catch((error) => {
+      console.error("Error triggering scan:", error);
+    });
 
     // TODO: Send confirmation email
     // await sendConfirmationEmail(email, contactName);
