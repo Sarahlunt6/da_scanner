@@ -1,20 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --primary: #2C5F7C;
-  --secondary: #FFC629;
-  --accent: #FFC629;
-  --success: #16a34a;
-  --warning: #eab308;
-  --danger: #dc2626;
+@layer base {
+  :root {
+    --primary: #2C5F7C;
+    --secondary: #FFC629;
+    --accent: #FFC629;
+    --success: #16a34a;
+    --warning: #eab308;
+    --danger: #dc2626;
+  }
 }
 
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@layer base {
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
 @layer utilities {
@@ -23,32 +25,36 @@ body {
   }
 }
 
-/* Ensure inputs have proper styling */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="url"] {
-  appearance: none;
-  -webkit-appearance: none;
-}
-
-/* Custom animations */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
+@layer base {
+  /* Ensure inputs have proper styling */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="url"] {
+    appearance: none;
+    -webkit-appearance: none;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
   }
 }
 
-.animate-fade-in {
-  animation: fade-in 0.5s ease-out;
-}
+@layer utilities {
+  /* Custom animations */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out;
+  }
 }
