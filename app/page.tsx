@@ -65,7 +65,6 @@ export default function HomePage() {
           {/* Header Section */}
           <div className="text-center mb-12 md:mb-16">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-secondary/10 to-primary/10 border-2 border-secondary/30 px-6 py-2.5 rounded-full mb-6">
-              <span className="text-2xl">✨</span>
               <span className="text-sm font-bold tracking-wide uppercase text-primary">
                 Free Digital Authority Scan
               </span>

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
 import { performScan } from "@/lib/scanner";
+import { sendResultsEmail } from "@/lib/email/service";
 
 export async function POST(request: Request) {
   try {
@@ -67,8 +68,17 @@ export async function POST(request: Request) {
       // Don't fail the whole operation if module insert fails
     }
 
-    // TODO: Send results email here
-    // await sendResultsEmail(scan.email, scan.unique_token, scanResult);
+    // Send results email (async, don't block response)
+    sendResultsEmail({
+      scanId: scan.id,
+      email: scan.email,
+      contactName: scan.contact_name,
+      practiceName: scan.practice_name,
+      overallScore: scanResult.overallScore,
+      token: scan.unique_token,
+    }).catch((error) => {
+      console.error("Error sending results email:", error);
+    });
 
     return NextResponse.json({
       success: true,
