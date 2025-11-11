@@ -26,7 +26,12 @@ function ProcessingContent() {
         setCompletedSteps((prev) => [...prev, index]);
       }, step.delay);
     });
-  }, []);
+
+    // Redirect after all steps are complete (18 seconds total)
+    setTimeout(() => {
+      window.location.href = `/scan-complete?token=${token}`;
+    }, 18000);
+  }, [token]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-yellow-50/30 flex items-center justify-center py-12 px-4">
@@ -114,19 +119,6 @@ function ProcessingContent() {
               <span className="font-bold text-primary">2-5 minutes</span>
             </p>
           </div>
-        </div>
-
-        {/* Case Study Link */}
-        <div className="mt-8 text-center">
-          <a
-            href="#"
-            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold text-lg transition-all duration-200 hover:gap-3 group"
-          >
-            <span>While you wait: See how Dr. Martinez went from 12 to 34 new patients/month</span>
-            <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </a>
         </div>
       </div>
     </div>
