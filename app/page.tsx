@@ -295,6 +295,172 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+
+      {/* How It Works Section */}
+      <div id="how-it-works" className="bg-white py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+                How It Works
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Our Digital Authority Scanner analyzes 47 data points across the proven TAPS framework to measure your practice's online visibility
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
+              {/* Step 1 */}
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <span className="text-3xl font-bold text-white">1</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Enter Your Info</h3>
+                <p className="text-gray-600">
+                  Fill out the simple form with your practice name, website, and contact details. Takes less than 2 minutes.
+                </p>
+              </div>
+
+              {/* Step 2 */}
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <span className="text-3xl font-bold text-white">2</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">We Scan Your Presence</h3>
+                <p className="text-gray-600">
+                  Our system analyzes your Google Business Profile, reviews, website, and directory listings in real-time.
+                </p>
+              </div>
+
+              {/* Step 3 */}
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <span className="text-3xl font-bold text-white">3</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Get Your Report</h3>
+                <p className="text-gray-600">
+                  Receive your Digital Authority Score and detailed breakdown via email in 2-5 minutes with actionable next steps.
+                </p>
+              </div>
+            </div>
+
+            {/* TAPS Framework */}
+            <div className="bg-gradient-to-br from-blue-50 to-white rounded-3xl p-8 md:p-12 border-2 border-gray-100">
+              <div className="text-center mb-10">
+                <h3 className="text-3xl font-extrabold text-gray-900 mb-4">
+                  The TAPS Framework
+                </h3>
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                  Trusted Authority Profile System - The proven methodology used by the top 5% of dental practices
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-8">
+                {/* Phase 1 */}
+                <div className="bg-white rounded-2xl p-6 shadow-md">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <span className="text-xl font-bold text-primary">50%</span>
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900">Phase 1</h4>
+                  </div>
+                  <h5 className="font-bold text-gray-900 mb-3">The Foundational Sprint</h5>
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Profit Zone Positioning</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Product Shelf Optimization</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Review Health & Velocity</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>NAP Consistency</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Phase 2 */}
+                <div className="bg-white rounded-2xl p-6 shadow-md">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <span className="text-xl font-bold text-primary">35%</span>
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900">Phase 2</h4>
+                  </div>
+                  <h5 className="font-bold text-gray-900 mb-3">The Asset Engine</h5>
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Core 30 Trust Signals</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Technical Trust Factors</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Website Authority</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Content Quality</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Phase 3 */}
+                <div className="bg-white rounded-2xl p-6 shadow-md">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <span className="text-xl font-bold text-primary">15%</span>
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900">Phase 3</h4>
+                  </div>
+                  <h5 className="font-bold text-gray-900 mb-3">The Long-Term Moat</h5>
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Directory Dominance</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Citation Consistency</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Review Velocity Systems</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Competitive Positioning</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-10 text-center">
+                <p className="text-gray-600 mb-6">
+                  Your score is calculated by measuring performance across all three phases
+                </p>
+                <a
+                  href="#"
+                  onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                  style={{ backgroundColor: '#2C5F7C', color: '#FFFFFF' }}
+                  className="inline-block hover:opacity-90 font-bold py-4 px-8 rounded-xl transition-opacity shadow-lg text-lg"
+                >
+                  Get Your Free Score Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <Footer />
     </>
