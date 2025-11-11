@@ -26,7 +26,7 @@ export async function POST(request: Request) {
         practice_name: practiceName,
         website_url: websiteUrl,
         email,
-        phone,
+        phone: phone || "",
         contact_name: contactName,
         unique_token: uniqueToken,
         status: "processing",
