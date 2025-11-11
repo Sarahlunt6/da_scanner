@@ -35,6 +35,12 @@ export default function HomePage() {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Temporary: Skip API call and go directly to processing page
+    // TODO: Fix API issues and re-enable this
+    window.location.href = `/processing?token=demo-token`;
+    return;
+
+    /* COMMENTED OUT - TO BE FIXED LATER
     try {
       const response = await fetch("/api/submit-scan", {
         method: "POST",
@@ -52,6 +58,7 @@ export default function HomePage() {
     } finally {
       setIsSubmitting(false);
     }
+    */
   };
 
   return (
