@@ -317,11 +317,10 @@ export default function HomePage() {
 
                       <div>
                         <label className="block text-sm font-bold text-gray-900 mb-2">
-                          Phone Number
+                          Phone Number <span className="text-gray-500 font-normal">(Optional)</span>
                         </label>
                         <input
                           type="tel"
-                          required
                           value={formData.phone}
                           onChange={handlePhoneChange}
                           className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900 placeholder-gray-400 hover:border-gray-300"
