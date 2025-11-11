@@ -128,10 +128,10 @@ export default function HomePage() {
 
       <div className="container mx-auto px-4 py-12 md:py-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
             {/* Left Column - Content */}
-            <div className="order-2 lg:order-1 flex flex-col">
+            <div className="order-2 lg:order-1">
               <div className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold mb-6">
                 FREE DIGITAL AUTHORITY SCAN
               </div>
@@ -257,18 +257,18 @@ export default function HomePage() {
             </div>
 
             {/* Right Column - Form */}
-            <div className="order-1 lg:order-2 flex">
-              <div id="scan-form" className="bg-white rounded-3xl p-8 md:p-10 shadow-2xl border-2 border-primary/20 relative overflow-hidden flex-1 flex flex-col">
+            <div className="order-1 lg:order-2">
+              <div id="scan-form" className="bg-white rounded-3xl p-8 md:p-10 shadow-2xl border-2 border-primary/20 relative overflow-hidden">
                 {/* Decorative corner */}
                 <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-secondary/20 to-primary/10 rounded-bl-full"></div>
 
-                <div className="relative flex-1 flex flex-col">
+                <div className="relative">
                   <div className="text-center mb-8">
                     <h2 className="text-3xl font-extrabold text-gray-900 mb-2">Get Your Free Scan</h2>
                     <p className="text-gray-600 font-medium">No credit card required • 2-minute form</p>
                   </div>
 
-                  <form onSubmit={handleSubmit} className="space-y-5 flex-1 flex flex-col">
+                  <form onSubmit={handleSubmit} className="space-y-5">
                     {/* Practice Name */}
                     <div>
                       <label className="block text-sm font-bold text-gray-900 mb-2">
@@ -347,36 +347,35 @@ export default function HomePage() {
                     </div>
 
                     {/* Submit Button */}
-                    <div className="mt-auto">
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        style={{ backgroundColor: '#2C5F7C', color: '#FFFFFF' }}
-                        className="w-full font-bold py-4 px-6 rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg text-lg relative overflow-hidden group"
-                        onMouseEnter={(e) => {
-                          if (!isSubmitting) {
-                            e.currentTarget.style.transform = 'translateY(-2px)';
-                            e.currentTarget.style.boxShadow = '0 20px 25px -5px rgb(0 0 0 / 0.2), 0 8px 10px -6px rgb(0 0 0 / 0.2)';
-                          }
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.transform = '';
-                          e.currentTarget.style.boxShadow = '';
-                        }}
-                      >
-                        <span className="relative z-10 flex items-center justify-center gap-2">
-                          {isSubmitting ? "Analyzing Your Practice..." : "Get My Free Scan Now"}
-                          {!isSubmitting && (
-                            <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                            </svg>
-                          )}
-                        </span>
-                        <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-200"></div>
-                      </button>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      style={{ backgroundColor: '#2C5F7C', color: '#FFFFFF' }}
+                      className="w-full font-bold py-4 px-6 rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg text-lg relative overflow-hidden group"
+                      onMouseEnter={(e) => {
+                        if (!isSubmitting) {
+                          e.currentTarget.style.transform = 'translateY(-2px)';
+                          e.currentTarget.style.boxShadow = '0 20px 25px -5px rgb(0 0 0 / 0.2), 0 8px 10px -6px rgb(0 0 0 / 0.2)';
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = '';
+                        e.currentTarget.style.boxShadow = '';
+                      }}
+                    >
+                      <span className="relative z-10 flex items-center justify-center gap-2">
+                        {isSubmitting ? "Analyzing Your Practice..." : "Get My Free Scan Now"}
+                        {!isSubmitting && (
+                          <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                          </svg>
+                        )}
+                      </span>
+                      <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-200"></div>
+                    </button>
 
-                      {/* Trust Badges */}
-                      <div className="pt-6 flex items-center justify-center gap-5 text-xs text-gray-600 border-t border-gray-100 mt-6">
+                    {/* Trust Badges */}
+                    <div className="pt-6 flex items-center justify-center gap-5 text-xs text-gray-600 border-t border-gray-100">
                       <div className="flex items-center gap-1.5">
                         <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
@@ -395,7 +394,6 @@ export default function HomePage() {
                         </svg>
                         <span className="font-medium">No Obligations</span>
                       </div>
-                    </div>
                     </div>
                   </form>
                 </div>
