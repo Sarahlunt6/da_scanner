@@ -61,20 +61,66 @@ export default function HomePage() {
       <nav className="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50 shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <Image src="/opkie-logo.png" alt="Opkie" width={120} height={40} className="h-10 w-auto" />
+            <div className="flex items-center gap-3 group">
+              <Image
+                src="/opkie-logo.png"
+                alt="Opkie"
+                width={120}
+                height={40}
+                className="h-10 w-auto transform group-hover:scale-105 transition-transform duration-300"
+              />
               <span className="text-sm text-gray-600 hidden sm:inline border-l pl-3 border-gray-300">Digital Authority Scanner</span>
             </div>
             <div className="flex items-center gap-6">
-              <a href="#how-it-works" className="text-sm font-medium text-gray-700 hover:text-primary transition-colors hidden md:inline">
+              <a
+                href="#how-it-works"
+                className="text-sm font-medium text-gray-700 transition-all duration-200 hidden md:inline relative group py-1"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = '#2C5F7C';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = '';
+                }}
+              >
                 How It Works
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
               </a>
-              <a href="#about" className="text-sm font-medium text-gray-700 hover:text-primary transition-colors hidden md:inline">
+              <a
+                href="#about"
+                className="text-sm font-medium text-gray-700 transition-all duration-200 hidden md:inline relative group py-1"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = '#2C5F7C';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = '';
+                }}
+              >
                 About TAPS
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
               </a>
-              <div className="text-sm text-gray-900 bg-secondary px-5 py-2 rounded-lg font-bold shadow-md">
-                FREE SCAN
-              </div>
+              <button
+                onClick={() => {
+                  document.getElementById('scan-form')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="text-sm font-bold px-6 py-3 rounded-lg shadow-lg transform transition-all duration-200 hover:shadow-xl hover:scale-105 relative overflow-hidden group"
+                style={{ backgroundColor: '#FFC629', color: '#1a1a1a' }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'scale(1.05) translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = '';
+                  e.currentTarget.style.boxShadow = '';
+                }}
+              >
+                <span className="relative z-10 flex items-center gap-2">
+                  FREE SCAN
+                  <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </span>
+                <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-200"></div>
+              </button>
             </div>
           </div>
         </div>
@@ -109,38 +155,74 @@ export default function HomePage() {
 
               {/* Benefits List */}
               <div className="space-y-5 mb-10">
-                <div className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center mt-0.5">
-                    <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                <div
+                  className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100 transition-all duration-300 group cursor-default"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.02)';
+                    e.currentTarget.style.boxShadow = '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)';
+                    e.currentTarget.style.borderColor = 'rgba(44, 95, 124, 0.3)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = '';
+                    e.currentTarget.style.boxShadow = '';
+                    e.currentTarget.style.borderColor = '';
+                  }}
+                >
+                  <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center mt-0.5 group-hover:bg-primary/20 transition-colors duration-300">
+                    <svg className="w-5 h-5 text-primary group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                     </svg>
                   </div>
                   <div>
-                    <p className="font-bold text-gray-900 text-lg">47 Data Points Analyzed</p>
+                    <p className="font-bold text-gray-900 text-lg group-hover:text-primary transition-colors duration-300">47 Data Points Analyzed</p>
                     <p className="text-gray-600">Comprehensive scan across Google, reviews, and directories</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center mt-0.5">
-                    <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                <div
+                  className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100 transition-all duration-300 group cursor-default"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.02)';
+                    e.currentTarget.style.boxShadow = '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)';
+                    e.currentTarget.style.borderColor = 'rgba(44, 95, 124, 0.3)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = '';
+                    e.currentTarget.style.boxShadow = '';
+                    e.currentTarget.style.borderColor = '';
+                  }}
+                >
+                  <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center mt-0.5 group-hover:bg-primary/20 transition-colors duration-300">
+                    <svg className="w-5 h-5 text-primary group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                     </svg>
                   </div>
                   <div>
-                    <p className="font-bold text-gray-900 text-lg">Results in 2-5 Minutes</p>
+                    <p className="font-bold text-gray-900 text-lg group-hover:text-primary transition-colors duration-300">Results in 2-5 Minutes</p>
                     <p className="text-gray-600">Get your detailed report delivered via email</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center mt-0.5">
-                    <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                <div
+                  className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100 transition-all duration-300 group cursor-default"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.02)';
+                    e.currentTarget.style.boxShadow = '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)';
+                    e.currentTarget.style.borderColor = 'rgba(44, 95, 124, 0.3)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = '';
+                    e.currentTarget.style.boxShadow = '';
+                    e.currentTarget.style.borderColor = '';
+                  }}
+                >
+                  <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center mt-0.5 group-hover:bg-primary/20 transition-colors duration-300">
+                    <svg className="w-5 h-5 text-primary group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                     </svg>
                   </div>
                   <div>
-                    <p className="font-bold text-gray-900 text-lg">Actionable Recommendations</p>
+                    <p className="font-bold text-gray-900 text-lg group-hover:text-primary transition-colors duration-300">Actionable Recommendations</p>
                     <p className="text-gray-600">Know exactly what to fix to attract more patients</p>
                   </div>
                 </div>
@@ -149,18 +231,26 @@ export default function HomePage() {
               {/* Social Proof Stats */}
               <div
                 style={{ backgroundColor: '#2C5F7C', color: '#FFFFFF' }}
-                className="grid grid-cols-3 gap-6 p-8 rounded-2xl shadow-xl"
+                className="grid grid-cols-3 gap-6 p-8 rounded-2xl shadow-xl group cursor-default"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = '0 25px 50px -12px rgb(0 0 0 / 0.25)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = '';
+                  e.currentTarget.style.boxShadow = '';
+                }}
               >
-                <div className="text-center">
-                  <div className="text-5xl font-extrabold mb-2">200+</div>
+                <div className="text-center transition-transform duration-300 hover:scale-110">
+                  <div className="text-5xl font-extrabold mb-2 transition-colors duration-300 group-hover:text-secondary">200+</div>
                   <div className="text-sm font-medium">Practices Scanned</div>
                 </div>
-                <div className="text-center border-x border-white/30">
-                  <div className="text-5xl font-extrabold mb-2">95%</div>
+                <div className="text-center border-x border-white/30 transition-transform duration-300 hover:scale-110">
+                  <div className="text-5xl font-extrabold mb-2 transition-colors duration-300 group-hover:text-secondary">95%</div>
                   <div className="text-sm font-medium">Score Below 75%</div>
                 </div>
-                <div className="text-center">
-                  <div className="text-5xl font-extrabold mb-2">2.4x</div>
+                <div className="text-center transition-transform duration-300 hover:scale-110">
+                  <div className="text-5xl font-extrabold mb-2 transition-colors duration-300 group-hover:text-secondary">2.4x</div>
                   <div className="text-sm font-medium">Higher Conversion</div>
                 </div>
               </div>
@@ -261,9 +351,27 @@ export default function HomePage() {
                       type="submit"
                       disabled={isSubmitting}
                       style={{ backgroundColor: '#2C5F7C', color: '#FFFFFF' }}
-                      className="w-full hover:opacity-90 font-bold py-4 px-6 rounded-xl transition-opacity disabled:opacity-50 disabled:cursor-not-allowed shadow-lg text-lg"
+                      className="w-full font-bold py-4 px-6 rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg text-lg relative overflow-hidden group"
+                      onMouseEnter={(e) => {
+                        if (!isSubmitting) {
+                          e.currentTarget.style.transform = 'translateY(-2px)';
+                          e.currentTarget.style.boxShadow = '0 20px 25px -5px rgb(0 0 0 / 0.2), 0 8px 10px -6px rgb(0 0 0 / 0.2)';
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = '';
+                        e.currentTarget.style.boxShadow = '';
+                      }}
                     >
-                      {isSubmitting ? "Analyzing Your Practice..." : "Get My Free Scan Now"}
+                      <span className="relative z-10 flex items-center justify-center gap-2">
+                        {isSubmitting ? "Analyzing Your Practice..." : "Get My Free Scan Now"}
+                        {!isSubmitting && (
+                          <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                          </svg>
+                        )}
+                      </span>
+                      <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-200"></div>
                     </button>
 
                     {/* Trust Badges */}
@@ -311,42 +419,60 @@ export default function HomePage() {
 
             <div className="grid md:grid-cols-3 gap-8 mb-16">
               {/* Step 1 */}
-              <div className="text-center">
+              <div className="text-center group cursor-default">
                 <div
                   style={{ backgroundColor: '#2C5F7C', width: '64px', height: '64px' }}
-                  className="rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  className="rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = '#FFC629';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = '#2C5F7C';
+                  }}
                 >
-                  <span style={{ color: '#FFFFFF' }} className="text-3xl font-bold">1</span>
+                  <span style={{ color: '#FFFFFF' }} className="text-3xl font-bold transition-transform duration-300 group-hover:scale-110">1</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Enter Your Info</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 transition-colors duration-300 group-hover:text-primary">Enter Your Info</h3>
                 <p className="text-gray-600">
                   Fill out the simple form with your practice name, website, and contact details. Takes less than 2 minutes.
                 </p>
               </div>
 
               {/* Step 2 */}
-              <div className="text-center">
+              <div className="text-center group cursor-default">
                 <div
                   style={{ backgroundColor: '#2C5F7C', width: '64px', height: '64px' }}
-                  className="rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  className="rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = '#FFC629';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = '#2C5F7C';
+                  }}
                 >
-                  <span style={{ color: '#FFFFFF' }} className="text-3xl font-bold">2</span>
+                  <span style={{ color: '#FFFFFF' }} className="text-3xl font-bold transition-transform duration-300 group-hover:scale-110">2</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">We Scan Your Presence</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 transition-colors duration-300 group-hover:text-primary">We Scan Your Presence</h3>
                 <p className="text-gray-600">
                   Our system analyzes your Google Business Profile, reviews, website, and directory listings in real-time.
                 </p>
               </div>
 
               {/* Step 3 */}
-              <div className="text-center">
+              <div className="text-center group cursor-default">
                 <div
                   style={{ backgroundColor: '#2C5F7C', width: '64px', height: '64px' }}
-                  className="rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  className="rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = '#FFC629';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = '#2C5F7C';
+                  }}
                 >
-                  <span style={{ color: '#FFFFFF' }} className="text-3xl font-bold">3</span>
+                  <span style={{ color: '#FFFFFF' }} className="text-3xl font-bold transition-transform duration-300 group-hover:scale-110">3</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Get Your Report</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 transition-colors duration-300 group-hover:text-primary">Get Your Report</h3>
                 <p className="text-gray-600">
                   Receive your Digital Authority Score and detailed breakdown via email in 2-5 minutes with actionable next steps.
                 </p>
@@ -366,14 +492,26 @@ export default function HomePage() {
 
               <div className="grid md:grid-cols-3 gap-8">
                 {/* Phase 1 */}
-                <div className="bg-white rounded-2xl p-6 shadow-md">
+                <div
+                  className="bg-white rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-default"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.05) translateY(-8px)';
+                    e.currentTarget.style.borderColor = '#2C5F7C';
+                    e.currentTarget.style.borderWidth = '2px';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = '';
+                    e.currentTarget.style.borderColor = '';
+                    e.currentTarget.style.borderWidth = '';
+                  }}
+                >
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <span className="text-xl font-bold text-primary">50%</span>
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
+                      <span className="text-xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">50%</span>
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900">Phase 1</h4>
+                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Phase 1</h4>
                   </div>
-                  <h5 className="font-bold text-gray-900 mb-3">The Foundational Sprint</h5>
+                  <h5 className="font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">The Foundational Sprint</h5>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-1">•</span>
@@ -395,14 +533,26 @@ export default function HomePage() {
                 </div>
 
                 {/* Phase 2 */}
-                <div className="bg-white rounded-2xl p-6 shadow-md">
+                <div
+                  className="bg-white rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-default"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.05) translateY(-8px)';
+                    e.currentTarget.style.borderColor = '#2C5F7C';
+                    e.currentTarget.style.borderWidth = '2px';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = '';
+                    e.currentTarget.style.borderColor = '';
+                    e.currentTarget.style.borderWidth = '';
+                  }}
+                >
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <span className="text-xl font-bold text-primary">35%</span>
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
+                      <span className="text-xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">35%</span>
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900">Phase 2</h4>
+                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Phase 2</h4>
                   </div>
-                  <h5 className="font-bold text-gray-900 mb-3">The Asset Engine</h5>
+                  <h5 className="font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">The Asset Engine</h5>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-1">•</span>
@@ -424,14 +574,26 @@ export default function HomePage() {
                 </div>
 
                 {/* Phase 3 */}
-                <div className="bg-white rounded-2xl p-6 shadow-md">
+                <div
+                  className="bg-white rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-default"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.05) translateY(-8px)';
+                    e.currentTarget.style.borderColor = '#2C5F7C';
+                    e.currentTarget.style.borderWidth = '2px';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = '';
+                    e.currentTarget.style.borderColor = '';
+                    e.currentTarget.style.borderWidth = '';
+                  }}
+                >
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <span className="text-xl font-bold text-primary">15%</span>
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
+                      <span className="text-xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">15%</span>
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900">Phase 3</h4>
+                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Phase 3</h4>
                   </div>
-                  <h5 className="font-bold text-gray-900 mb-3">The Long-Term Moat</h5>
+                  <h5 className="font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">The Long-Term Moat</h5>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-1">•</span>
