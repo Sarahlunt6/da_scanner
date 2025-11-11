@@ -9,9 +9,9 @@ export async function POST(request: Request) {
     const { practiceName, websiteUrl, email, phone, contactName } = body;
 
     // Validate required fields
-    if (!practiceName || !websiteUrl || !email || !phone || !contactName) {
+    if (!practiceName || !websiteUrl || !email || !contactName) {
       return NextResponse.json(
-        { error: "All fields are required" },
+        { error: "Practice name, website, email, and contact name are required" },
         { status: 400 }
       );
     }
