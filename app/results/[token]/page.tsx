@@ -1,6 +1,7 @@
 import { supabase } from "@/lib/supabase";
 import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
+import CalendarWidget from "@/components/CalendarWidget";
 
 interface ResultsPageProps {
   params: Promise<{
@@ -131,9 +132,15 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                 </div>
               </div>
 
-              <button className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white font-bold py-4 px-8 rounded-lg transition-all transform hover:scale-[1.02] shadow-lg text-lg">
-                Book Your Free TAPS Strategy Call
-              </button>
+              <div className="mt-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  Book Your Free Strategy Call
+                </h3>
+                <CalendarWidget
+                  embedCode={process.env.NEXT_PUBLIC_GHL_CALENDAR_EMBED}
+                  className="max-w-2xl mx-auto"
+                />
+              </div>
             </div>
 
             {/* Phase Breakdown */}
@@ -236,16 +243,17 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
             </div>
 
             {/* Footer CTA */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 mt-8 text-center border border-gray-100">
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">
+            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 mt-8 border border-gray-100">
+              <h3 className="text-3xl font-bold text-gray-900 mb-4 text-center">
                 Ready to Fix These Gaps?
               </h3>
-              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto text-center">
                 Book a 15-minute TAPS Strategy Call to get your personalized action plan and learn how the top 5% of practices dominate their markets.
               </p>
-              <button className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white font-bold py-4 px-8 rounded-lg transition-all transform hover:scale-[1.02] shadow-lg text-lg">
-                Book Your Strategy Call
-              </button>
+              <CalendarWidget
+                embedCode={process.env.NEXT_PUBLIC_GHL_CALENDAR_EMBED}
+                className="max-w-3xl mx-auto"
+              />
               <div className="mt-8 flex items-center justify-center space-x-8 text-sm text-gray-600">
                 <div className="flex items-center space-x-2">
                   <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
