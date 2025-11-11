@@ -146,19 +146,19 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Social Proof */}
-              <div className="grid grid-cols-3 gap-6 p-6 bg-gradient-to-br from-primary to-primary/80 rounded-2xl text-white shadow-lg">
+              {/* Social Proof Stats */}
+              <div className="grid grid-cols-3 gap-8 p-8 bg-gradient-to-br from-primary to-primary/80 rounded-2xl text-white shadow-xl mt-4">
                 <div className="text-center">
-                  <div className="text-4xl font-extrabold mb-1">200+</div>
-                  <div className="text-sm text-white/90">Practices Scanned</div>
+                  <div className="text-5xl font-extrabold mb-2">200+</div>
+                  <div className="text-sm font-medium text-white/90">Practices Scanned</div>
                 </div>
-                <div className="text-center border-x border-white/20">
-                  <div className="text-4xl font-extrabold mb-1">95%</div>
-                  <div className="text-sm text-white/90">Score Below 75%</div>
+                <div className="text-center border-x border-white/30 px-4">
+                  <div className="text-5xl font-extrabold mb-2">95%</div>
+                  <div className="text-sm font-medium text-white/90">Score Below 75%</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-extrabold mb-1">2.4x</div>
-                  <div className="text-sm text-white/90">Higher Conversion</div>
+                  <div className="text-5xl font-extrabold mb-2">2.4x</div>
+                  <div className="text-sm font-medium text-white/90">Higher Conversion</div>
                 </div>
               </div>
             </div>
