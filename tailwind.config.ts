@@ -10,8 +10,8 @@ const config: Config = {
     extend: {
       colors: {
         primary: "#2C5F7C", // Opkie navy blue
-        secondary: "#FFC629", // Opkie yellow
-        accent: "#FFC629", // Opkie yellow accent
+        secondary: "#FFD147", // Opkie yellow
+        accent: "#FFD147", // Opkie yellow accent
         success: "#16a34a",
         warning: "#eab308",
         danger: "#dc2626",

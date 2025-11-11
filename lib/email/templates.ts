@@ -3,7 +3,7 @@
  */
 
 const PRIMARY_COLOR = "#2C5F7C";
-const SECONDARY_COLOR = "#FFC629";
+const SECONDARY_COLOR = "#FFD147";
 
 /**
  * Base email wrapper with Opkie branding

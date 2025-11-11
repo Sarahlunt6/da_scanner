@@ -3,8 +3,8 @@
 @layer base {
   :root {
     --primary: #2C5F7C;
-    --secondary: #FFC629;
-    --accent: #FFC629;
+    --secondary: #FFD147;
+    --accent: #FFD147;
     --success: #16a34a;
     --warning: #eab308;
     --danger: #dc2626;

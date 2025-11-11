@@ -103,7 +103,7 @@ export default function HomePage() {
                   document.getElementById('scan-form')?.scrollIntoView({ behavior: 'smooth' });
                 }}
                 className="text-sm font-bold px-6 py-3 rounded-lg shadow-lg transform transition-all duration-200 hover:shadow-xl hover:scale-105 relative overflow-hidden group"
-                style={{ backgroundColor: '#FFC629', color: '#1a1a1a' }}
+                style={{ backgroundColor: '#FFD147', color: '#1a1a1a' }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'scale(1.05) translateY(-2px)';
                   e.currentTarget.style.boxShadow = '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)';
@@ -141,7 +141,7 @@ export default function HomePage() {
                 <span className="text-primary relative inline-block">
                   High-Value Patients
                   <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 200 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 8C40 4 80 2 120 4C160 6 180 8 200 7" stroke="#FFC629" strokeWidth="4" strokeLinecap="round"/>
+                    <path d="M0 8C40 4 80 2 120 4C160 6 180 8 200 7" stroke="#FFD147" strokeWidth="4" strokeLinecap="round"/>
                   </svg>
                 </span>{" "}
                 From Finding You?
@@ -424,7 +424,7 @@ export default function HomePage() {
                   style={{ backgroundColor: '#2C5F7C', width: '64px', height: '64px' }}
                   className="rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#FFC629';
+                    e.currentTarget.style.backgroundColor = '#FFD147';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.backgroundColor = '#2C5F7C';
@@ -444,7 +444,7 @@ export default function HomePage() {
                   style={{ backgroundColor: '#2C5F7C', width: '64px', height: '64px' }}
                   className="rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#FFC629';
+                    e.currentTarget.style.backgroundColor = '#FFD147';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.backgroundColor = '#2C5F7C';
@@ -464,7 +464,7 @@ export default function HomePage() {
                   style={{ backgroundColor: '#2C5F7C', width: '64px', height: '64px' }}
                   className="rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#FFC629';
+                    e.currentTarget.style.backgroundColor = '#FFD147';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.backgroundColor = '#2C5F7C';
