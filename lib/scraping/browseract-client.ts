@@ -17,7 +17,7 @@ export class BrowserActClient {
     this.baseUrl = baseUrl || BROWSERACT_API_URL;
 
     if (!this.apiKey) {
-      throw new Error('BROWSERACT_API_KEY is not configured');
+      console.warn('BROWSERACT_API_KEY is not configured. Scraping features will not work.');
     }
   }
 
