@@ -20,13 +20,13 @@ export async function performScan(scanData: {
   email: string;
   phone: string;
   contactName: string;
+  address: string;
+  city: string;
+  state: string;
 }): Promise<ScanResult> {
   const modules = [];
 
-  // Extract city and state from practice data (you'll need to add these to the form)
-  // For now, we'll use placeholder values
-  const city = "Austin"; // TODO: Extract from form
-  const state = "TX"; // TODO: Extract from form
+  const { city, state } = scanData;
 
   // Phase 1: Local Presence & Trust (40%)
   console.log("Running NAP Consistency Check...");
