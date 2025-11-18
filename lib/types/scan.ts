@@ -6,6 +6,9 @@ export interface ScanInput {
   email: string;
   phone: string;
   contactName: string;
+  address: string;
+  city: string;
+  state: string;
 }
 
 export interface ScanResult {

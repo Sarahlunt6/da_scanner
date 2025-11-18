@@ -3,6 +3,7 @@
 
 import { ScanInput, ScanResult, ModuleResult } from "../types/scan";
 import * as scoring from "./scoring";
+import { checkNAPConsistency } from "../scraping/nap-consistency";
 
 /**
  * Main scan function
@@ -16,7 +17,7 @@ export async function performScan(input: ScanInput): Promise<ScanResult> {
   const productShelfResult = await scanProductShelf(input.websiteUrl);
   const reviewHealthResult = await scanReviewHealth(input.websiteUrl);
   const reviewVelocityResult = await scanReviewVelocity(input.websiteUrl);
-  const napResult = await scanNAPConsistency(input.practiceName, input.websiteUrl);
+  const napResult = await scanNAPConsistencyModule(input.practiceName, input.websiteUrl, input.city, input.state);
 
   // Phase 2 Modules
   const core30Result = await scanCore30(input.websiteUrl);
@@ -161,28 +162,53 @@ async function scanReviewVelocity(websiteUrl: string): Promise<ModuleResult> {
 
 /**
  * Module 1.4: NAP Consistency
- * TODO: Integrate with Yelp API and web scraping
+ * Uses BrowserAct workflows and Google Places API
  */
-async function scanNAPConsistency(practiceName: string, websiteUrl: string): Promise<ModuleResult> {
-  // Mock data
-  const matchedDirectories = 5;
-  const totalDirectories = 7;
+async function scanNAPConsistencyModule(practiceName: string, websiteUrl: string, city: string, state: string): Promise<ModuleResult> {
+  try {
+    const napResult = await checkNAPConsistency({
+      practice_name: practiceName,
+      website_url: websiteUrl,
+      city,
+      state,
+    });
 
-  const { score, gapMessage } = scoring.calculateNAPScore(matchedDirectories, totalDirectories);
+    const matchedDirectories = napResult.consistentDirectories;
+    const totalDirectories = napResult.totalDirectories;
 
-  return {
-    name: 'NAP Consistency',
-    phase: 1,
-    score,
-    status: scoring.getStatus(score),
-    weight: 10,
-    gapMessage,
-    data: {
-      matchedDirectories,
-      totalDirectories,
-      source: 'mock',
-    },
-  };
+    const { score, gapMessage } = scoring.calculateNAPScore(matchedDirectories, totalDirectories);
+
+    return {
+      name: 'NAP Consistency',
+      phase: 1,
+      score: napResult.score, // Use the score from NAP checker
+      status: scoring.getStatus(napResult.score),
+      weight: 10,
+      gapMessage: napResult.mismatches.length > 0
+        ? `Issues found: ${napResult.mismatches.join(', ')}`
+        : 'NAP information is consistent across directories',
+      data: {
+        matchedDirectories,
+        totalDirectories,
+        directories: napResult.directories,
+        source: 'browseract_google',
+      },
+    };
+  } catch (error) {
+    console.error('NAP Consistency scan failed:', error);
+    return {
+      name: 'NAP Consistency',
+      phase: 1,
+      score: 0,
+      status: 'urgent',
+      weight: 10,
+      gapMessage: 'Unable to check NAP consistency',
+      data: {
+        error: error instanceof Error ? error.message : 'Unknown error',
+        source: 'error',
+      },
+    };
+  }
 }
 
 /**

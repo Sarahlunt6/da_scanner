@@ -6,12 +6,12 @@ import crypto from "crypto";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { practiceName, websiteUrl, email, phone, contactName } = body;
+    const { practiceName, websiteUrl, email, phone, contactName, address, city, state } = body;
 
     // Validate required fields
-    if (!practiceName || !websiteUrl || !email || !contactName) {
+    if (!practiceName || !websiteUrl || !email || !contactName || !address || !city || !state) {
       return NextResponse.json(
-        { error: "Practice name, website, email, and contact name are required" },
+        { error: "Practice name, website, email, contact name, address, city, and state are required" },
         { status: 400 }
       );
     }
@@ -28,6 +28,9 @@ export async function POST(request: Request) {
         email,
         phone: phone || "",
         contact_name: contactName,
+        address,
+        city,
+        state,
         unique_token: uniqueToken,
         status: "processing",
       })

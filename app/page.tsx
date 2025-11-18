@@ -38,12 +38,6 @@ export default function HomePage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Temporary: Skip API call and go directly to processing page
-    // TODO: Fix API issues and re-enable this
-    window.location.href = `/processing?token=demo-token`;
-    return;
-
-    /* COMMENTED OUT - TO BE FIXED LATER
     try {
       const response = await fetch("/api/submit-scan", {
         method: "POST",
@@ -54,14 +48,16 @@ export default function HomePage() {
       if (response.ok) {
         const data = await response.json();
         window.location.href = `/processing?token=${data.token}`;
+      } else {
+        const errorData = await response.json();
+        alert(errorData.error || "Failed to submit scan");
+        setIsSubmitting(false);
       }
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("Something went wrong. Please try again.");
-    } finally {
       setIsSubmitting(false);
     }
-    */
   };
 
   return (

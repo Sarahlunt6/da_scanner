@@ -29,6 +29,9 @@ export async function POST(request: Request) {
       email: scan.email,
       phone: scan.phone,
       contactName: scan.contact_name,
+      address: scan.address,
+      city: scan.city,
+      state: scan.state,
     });
 
     // Update scan in database with results
