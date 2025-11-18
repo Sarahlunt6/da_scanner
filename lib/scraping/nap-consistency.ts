@@ -1,12 +1,15 @@
-import {
-  scrapeBingPlaces,
-  scrapeFacebookBusiness,
-  scrapeHealthgrades,
-  scrapeZocdoc,
-  scrapeWebMD,
-  scrapeVitals,
-  DirectoryData
-} from './directory-scrapers';
+import { browserActClient, WorkflowResult } from './browseract-client';
+import { searchGooglePlaces } from './google-places-api';
+
+export interface DirectoryData {
+  name: string;
+  address: string;
+  phone: string;
+  listed: boolean;
+  error?: string;
+  rating?: number;
+  review_count?: number;
+}
 
 export interface NAPConsistencyResult {
   score: number;
@@ -75,29 +78,23 @@ export async function checkNAPConsistency(practiceData: {
 
   console.log(`Checking NAP consistency for ${practice_name}...`);
 
-  // Run all directory checks in parallel
-  const [bingData, facebookData, healthgradesData, zocdocData, webmdData, vitalsData] = await Promise.all([
-    scrapeBingPlaces(practice_name, city, state),
-    scrapeFacebookBusiness(practice_name, city),
-    scrapeHealthgrades(practice_name, city, state),
-    scrapeZocdoc(practice_name, city, state),
-    scrapeWebMD(practice_name, city, state),
-    scrapeVitals(practice_name, city, state)
+  // Run BrowserAct workflows and Google Places API in parallel
+  const [bingData, yellowPagesData, googleData] = await Promise.all([
+    browserActClient.scrapeBingPlaces(practice_name, city, state),
+    browserActClient.scrapeYellowPages(practice_name, city, state),
+    searchGooglePlaces(practice_name, city, state)
   ]);
 
   const directories = [
-    { name: 'Bing Places', data: bingData },
-    { name: 'Facebook', data: facebookData },
-    { name: 'Healthgrades', data: healthgradesData },
-    { name: 'Zocdoc', data: zocdocData },
-    { name: 'WebMD', data: webmdData },
-    { name: 'Vitals', data: vitalsData }
+    { name: 'Bing Places', data: bingData as DirectoryData },
+    { name: 'Yellow Pages', data: yellowPagesData as DirectoryData },
+    { name: 'Google', data: googleData as DirectoryData }
   ];
 
   // Get reference NAP (either provided or from first listed directory)
   let reference: { name: string; address: string; phone: string };
 
-  if (referenceNAP) {
+  if (referenceNAP && (referenceNAP.name || referenceNAP.address || referenceNAP.phone)) {
     reference = {
       name: normalizeString(referenceNAP.name),
       address: normalizeAddress(referenceNAP.address),
@@ -116,7 +113,8 @@ export async function checkNAPConsistency(practiceData: {
         status: 'RED',
         directories: directories.map(dir => ({
           name: dir.name,
-          listed: false
+          listed: false,
+          data: dir.data
         }))
       };
     }
@@ -134,7 +132,7 @@ export async function checkNAPConsistency(practiceData: {
   const directoryResults: Array<{
     name: string;
     listed: boolean;
-    data?: DirectoryData;
+    data?: WorkflowResult;
     issues?: string[];
   }> = [];
 
@@ -176,19 +174,17 @@ export async function checkNAPConsistency(practiceData: {
     }
   }
 
-  // Calculate score (Module 1.4: 10% of total TAPS score)
+  // Calculate score based on 3 directories
   const consistencyPercentage = (matchCount / directories.length) * 100;
   let napScore: number;
 
-  if (matchCount === 6) napScore = 100;
-  else if (matchCount === 5) napScore = 85;
-  else if (matchCount === 4) napScore = 70;
-  else if (matchCount === 3) napScore = 50;
-  else if (matchCount === 2) napScore = 35;
+  if (matchCount === 3) napScore = 100;
+  else if (matchCount === 2) napScore = 75;
+  else if (matchCount === 1) napScore = 40;
   else napScore = 25;
 
   const status: 'GREEN' | 'YELLOW' | 'RED' =
-    napScore >= 85 ? 'GREEN' : napScore >= 50 ? 'YELLOW' : 'RED';
+    napScore >= 80 ? 'GREEN' : napScore >= 50 ? 'YELLOW' : 'RED';
 
   return {
     score: napScore,

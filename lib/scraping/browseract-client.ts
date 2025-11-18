@@ -1,11 +1,18 @@
 import axios from 'axios';
 
 const BROWSERACT_API_KEY = process.env.BROWSERACT_API_KEY;
-const BROWSERACT_API_URL = 'https://api.browseract.com/v1';
+const BROWSERACT_API_URL = 'https://api.browseract.com';
 
-export interface BrowserActSession {
-  sessionId: string;
-  html: string;
+// Workflow IDs from environment
+const WORKFLOW_BING = process.env.BROWSERACT_WORKFLOW_BING;
+const WORKFLOW_YELLOWPAGES = process.env.BROWSERACT_WORKFLOW_YELLOWPAGES;
+
+export interface WorkflowResult {
+  name: string;
+  address: string;
+  phone: string;
+  listed: boolean;
+  error?: string;
 }
 
 export class BrowserActClient {
@@ -22,22 +29,28 @@ export class BrowserActClient {
   }
 
   /**
-   * Start a browser session and get rendered HTML
+   * Run a BrowserAct workflow with input parameters
    */
-  async scrapeUrl(url: string, options: {
-    waitUntil?: 'load' | 'domcontentloaded' | 'networkidle0' | 'networkidle2';
-    timeout?: number;
-  } = {}): Promise<string | null> {
-    let sessionId: string | null = null;
+  async runWorkflow(
+    workflowId: string,
+    inputs: Record<string, string>
+  ): Promise<WorkflowResult> {
+    if (!this.apiKey) {
+      return {
+        name: '',
+        address: '',
+        phone: '',
+        listed: false,
+        error: 'API key not configured'
+      };
+    }
 
     try {
-      // Start a browser session
-      const sessionResponse = await axios.post(
-        `${this.baseUrl}/sessions`,
+      // Start the workflow run
+      const runResponse = await axios.post(
+        `${this.baseUrl}/v1/workflows/${workflowId}/runs`,
         {
-          url: url,
-          waitUntil: options.waitUntil || 'networkidle2',
-          timeout: options.timeout || 30000
+          inputs: inputs
         },
         {
           headers: {
@@ -47,80 +60,132 @@ export class BrowserActClient {
         }
       );
 
-      sessionId = sessionResponse.data.sessionId;
+      const runId = runResponse.data.id || runResponse.data.runId;
 
-      // Get the rendered HTML
-      const contentResponse = await axios.get(
-        `${this.baseUrl}/sessions/${sessionId}/content`,
-        {
-          headers: {
-            'Authorization': `Bearer ${this.apiKey}`
-          }
+      if (!runId) {
+        // If the response contains the result directly
+        if (runResponse.data.output || runResponse.data.result) {
+          const output = runResponse.data.output || runResponse.data.result;
+          return {
+            name: output.name || '',
+            address: output.address || '',
+            phone: output.phone || '',
+            listed: !!(output.name || output.address || output.phone)
+          };
         }
-      );
+        throw new Error('No run ID returned from workflow');
+      }
 
-      return contentResponse.data.html;
+      // Poll for completion
+      let attempts = 0;
+      const maxAttempts = 30; // 30 attempts * 2 seconds = 60 seconds max
+
+      while (attempts < maxAttempts) {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        const statusResponse = await axios.get(
+          `${this.baseUrl}/v1/workflows/${workflowId}/runs/${runId}`,
+          {
+            headers: {
+              'Authorization': `Bearer ${this.apiKey}`
+            }
+          }
+        );
+
+        const status = statusResponse.data.status;
+
+        if (status === 'completed' || status === 'success') {
+          const output = statusResponse.data.output || statusResponse.data.result || {};
+          return {
+            name: output.name || '',
+            address: output.address || '',
+            phone: output.phone || '',
+            listed: !!(output.name || output.address || output.phone)
+          };
+        }
+
+        if (status === 'failed' || status === 'error') {
+          return {
+            name: '',
+            address: '',
+            phone: '',
+            listed: false,
+            error: statusResponse.data.error || 'Workflow failed'
+          };
+        }
+
+        attempts++;
+      }
+
+      return {
+        name: '',
+        address: '',
+        phone: '',
+        listed: false,
+        error: 'Workflow timed out'
+      };
 
     } catch (error: any) {
-      console.error(`BrowserAct scraping failed for ${url}:`, error.message);
-      return null;
-    } finally {
-      // Always try to close the session
-      if (sessionId) {
-        try {
-          await axios.delete(
-            `${this.baseUrl}/sessions/${sessionId}`,
-            {
-              headers: {
-                'Authorization': `Bearer ${this.apiKey}`
-              }
-            }
-          );
-        } catch (cleanupError) {
-          console.error('Failed to close session:', sessionId);
-        }
-      }
+      console.error(`BrowserAct workflow failed:`, error.message);
+      return {
+        name: '',
+        address: '',
+        phone: '',
+        listed: false,
+        error: error.message
+      };
     }
   }
 
   /**
-   * Scrape with automatic retry logic
+   * Run Bing Places workflow
    */
-  async scrapeWithRetry(
-    url: string,
-    maxRetries: number = 3,
-    options?: {
-      waitUntil?: 'load' | 'domcontentloaded' | 'networkidle0' | 'networkidle2';
-      timeout?: number;
-    }
-  ): Promise<string | null> {
-    for (let attempt = 1; attempt <= maxRetries; attempt++) {
-      try {
-        const html = await this.scrapeUrl(url, options);
-
-        if (html) {
-          return html;
-        }
-
-        // If no HTML, retry
-        if (attempt < maxRetries) {
-          console.log(`Attempt ${attempt} failed for ${url}, retrying...`);
-          await new Promise(resolve => setTimeout(resolve, 2000 * attempt)); // Exponential backoff
-        }
-      } catch (error: any) {
-        console.error(`Attempt ${attempt} error for ${url}:`, error.message);
-
-        if (attempt === maxRetries) {
-          return null;
-        }
-
-        await new Promise(resolve => setTimeout(resolve, 2000 * attempt));
-      }
+  async scrapeBingPlaces(
+    practiceName: string,
+    city: string,
+    state: string
+  ): Promise<WorkflowResult> {
+    if (!WORKFLOW_BING) {
+      return {
+        name: '',
+        address: '',
+        phone: '',
+        listed: false,
+        error: 'Bing workflow ID not configured'
+      };
     }
 
-    return null;
+    return this.runWorkflow(WORKFLOW_BING, {
+      practice_name: practiceName,
+      city: city,
+      state: state
+    });
+  }
+
+  /**
+   * Run Yellow Pages workflow
+   */
+  async scrapeYellowPages(
+    practiceName: string,
+    city: string,
+    state: string
+  ): Promise<WorkflowResult> {
+    if (!WORKFLOW_YELLOWPAGES) {
+      return {
+        name: '',
+        address: '',
+        phone: '',
+        listed: false,
+        error: 'Yellow Pages workflow ID not configured'
+      };
+    }
+
+    return this.runWorkflow(WORKFLOW_YELLOWPAGES, {
+      practice_name: practiceName,
+      city: city,
+      state: state
+    });
   }
 }
 
-// Export singleton instance
 export const browserActClient = new BrowserActClient();
