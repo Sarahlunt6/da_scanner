@@ -32,12 +32,18 @@ export async function searchGooglePlaces(
   }
 
   try {
-    // Use Text Search (New) endpoint
+    // Use Text Search (New) endpoint with USA location bias
     const searchResponse = await axios.post(
       'https://places.googleapis.com/v1/places:searchText',
       {
-        textQuery: `${practiceName} dentist ${city} ${state}`,
-        maxResultCount: 5
+        textQuery: `${practiceName} dentist ${city} ${state} USA`,
+        maxResultCount: 5,
+        locationBias: {
+          rectangle: {
+            low: { latitude: 24.396308, longitude: -125.0 },
+            high: { latitude: 49.384358, longitude: -66.93457 }
+          }
+        }
       },
       {
         headers: {
