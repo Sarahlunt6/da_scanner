@@ -158,10 +158,10 @@ export class BrowserActClient {
 
           if (parsedOutput) {
             return {
-              name: parsedOutput.name || parsedOutput.business_name || '',
-              address: parsedOutput.address || parsedOutput.business_address || '',
+              name: parsedOutput.name || parsedOutput.businessName || parsedOutput.business_name || '',
+              address: parsedOutput.address || parsedOutput.street_address || parsedOutput.business_address || '',
               phone: parsedOutput.phone || parsedOutput.business_phone || '',
-              listed: !!(parsedOutput.name || parsedOutput.address || parsedOutput.phone ||
+              listed: !!(parsedOutput.name || parsedOutput.businessName || parsedOutput.address || parsedOutput.street_address || parsedOutput.phone ||
                         parsedOutput.business_name || parsedOutput.business_address || parsedOutput.business_phone)
             };
           }
