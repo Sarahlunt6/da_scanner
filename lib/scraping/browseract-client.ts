@@ -93,29 +93,86 @@ export class BrowserActClient {
         const status = statusResponse.data.status;
 
         if (status === 'finished') {
-          // Parse the output - it comes as a string in output.string
-          const outputString = statusResponse.data.output?.string || '';
+          // Log the full response to debug output format
+          console.log('BrowserAct full response:', JSON.stringify(statusResponse.data, null, 2));
 
-          try {
-            // Try to parse as JSON
-            const output = JSON.parse(outputString);
+          // Try multiple possible output locations
+          const outputData = statusResponse.data.output || statusResponse.data.result || statusResponse.data;
+          console.log('Output data:', JSON.stringify(outputData, null, 2));
+
+          // Check for different output formats
+          let parsedOutput: any = null;
+
+          // Try output.string (JSON string)
+          if (outputData?.string) {
+            try {
+              const parsed = JSON.parse(outputData.string);
+              console.log('Parsed from output.string:', parsed);
+
+              // Handle array of separate objects format: [{name: ...}, {address: ...}, {phone: ...}]
+              if (Array.isArray(parsed)) {
+                parsedOutput = {};
+                for (const item of parsed) {
+                  if (typeof item === 'object') {
+                    Object.assign(parsedOutput, item);
+                  }
+                }
+                console.log('Merged array into object:', parsedOutput);
+              } else {
+                parsedOutput = parsed;
+              }
+            } catch (e) {
+              console.log('Could not parse output.string as JSON:', outputData.string);
+            }
+          }
+
+          // Try output directly as object
+          if (!parsedOutput && typeof outputData === 'object') {
+            // Check if it has our expected fields directly
+            if (outputData.name || outputData.address || outputData.phone) {
+              parsedOutput = outputData;
+              console.log('Using output directly:', parsedOutput);
+            }
+            // Check for nested data
+            if (outputData.data) {
+              parsedOutput = outputData.data;
+              console.log('Using output.data:', parsedOutput);
+            }
+          }
+
+          // Try to find data in any field that looks like our output
+          if (!parsedOutput) {
+            for (const key of Object.keys(outputData || {})) {
+              const val = outputData[key];
+              if (typeof val === 'string' && val.includes('{')) {
+                try {
+                  parsedOutput = JSON.parse(val);
+                  console.log(`Parsed from output.${key}:`, parsedOutput);
+                  break;
+                } catch (e) {
+                  // Not JSON, continue
+                }
+              }
+            }
+          }
+
+          if (parsedOutput) {
             return {
-              name: output.name || '',
-              address: output.address || '',
-              phone: output.phone || '',
-              listed: !!(output.name || output.address || output.phone)
-            };
-          } catch {
-            // If not JSON, try to extract data from string
-            console.log('Raw output:', outputString);
-            return {
-              name: '',
-              address: '',
-              phone: '',
-              listed: false,
-              error: 'Could not parse workflow output'
+              name: parsedOutput.name || parsedOutput.business_name || '',
+              address: parsedOutput.address || parsedOutput.business_address || '',
+              phone: parsedOutput.phone || parsedOutput.business_phone || '',
+              listed: !!(parsedOutput.name || parsedOutput.address || parsedOutput.phone ||
+                        parsedOutput.business_name || parsedOutput.business_address || parsedOutput.business_phone)
             };
           }
+
+          return {
+            name: '',
+            address: '',
+            phone: '',
+            listed: false,
+            error: 'Could not find data in workflow output'
+          };
         }
 
         if (status === 'failed' || status === 'canceled') {

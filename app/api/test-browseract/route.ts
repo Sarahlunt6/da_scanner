@@ -31,3 +31,38 @@ export async function GET(request: Request) {
     );
   }
 }
+
+export async function POST(request: Request) {
+  try {
+    const body = await request.json();
+    const { practice_name, website_url, city, state } = body;
+
+    if (!practice_name || !city || !state) {
+      return NextResponse.json(
+        { success: false, error: "Missing required fields: practice_name, city, state" },
+        { status: 400 }
+      );
+    }
+
+    const result = await checkNAPConsistency({
+      practice_name,
+      website_url: website_url || "",
+      city,
+      state
+    });
+
+    return NextResponse.json({
+      success: true,
+      result
+    });
+  } catch (error: any) {
+    console.error("BrowserAct test error:", error);
+    return NextResponse.json(
+      {
+        success: false,
+        error: error.message
+      },
+      { status: 500 }
+    );
+  }
+}
