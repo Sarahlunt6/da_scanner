@@ -300,12 +300,12 @@ export default function HomePage() {
                         Website URL
                       </label>
                       <input
-                        type="url"
+                        type="text"
                         required
                         value={formData.websiteUrl}
                         onChange={(e) => setFormData({ ...formData, websiteUrl: e.target.value })}
                         className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900 placeholder-gray-400 hover:border-gray-300"
-                        placeholder="https://yourpractice.com"
+                        placeholder="yourpractice.com"
                       />
                     </div>
 
