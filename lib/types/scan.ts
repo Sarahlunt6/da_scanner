@@ -88,3 +88,4 @@ export interface DirectoryDominanceResult {
   missingDirectories: string[];
   score: number;
 }
+// Force rebuild Tue Nov 18 12:15:43 MST 2025
