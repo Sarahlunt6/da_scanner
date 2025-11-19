@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
-import { sendConfirmationEmail } from "@/lib/email/service";
 import crypto from "crypto";
 
 export async function POST(request: Request) {
@@ -44,17 +43,6 @@ export async function POST(request: Request) {
         { status: 500 }
       );
     }
-
-    // Send confirmation email (don't await - run async)
-    sendConfirmationEmail({
-      scanId: scan.id,
-      email,
-      contactName,
-      practiceName,
-      phone,
-    }).catch((error) => {
-      console.error("Error sending confirmation email:", error);
-    });
 
     // Trigger scan processing in background
     // In production, this should use a job queue (Bull, Inngest, etc.)
