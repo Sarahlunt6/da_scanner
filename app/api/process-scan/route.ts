@@ -3,6 +3,9 @@ import { supabaseAdmin } from "@/lib/supabase";
 import { performScan } from "@/lib/scanner";
 import { sendResultsEmail } from "@/lib/email/service";
 
+// Extend timeout to 5 minutes for long-running scans
+export const maxDuration = 300;
+
 export async function POST(request: Request) {
   try {
     const { scanId } = await request.json();
