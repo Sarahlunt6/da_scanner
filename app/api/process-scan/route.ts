@@ -71,6 +71,42 @@ export async function POST(request: Request) {
       // Don't fail the whole operation if module insert fails
     }
 
+    // Send results to GHL webhook
+    const ghlWebhookUrl = process.env.GHL_WEBHOOK_URL;
+    if (ghlWebhookUrl) {
+      fetch(ghlWebhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: scan.email,
+          first_name: scan.contact_name.split(' ')[0],
+          last_name: scan.contact_name.split(' ').slice(1).join(' ') || '',
+          phone: scan.phone,
+          practice_name: scan.practice_name,
+          website_url: scan.website_url,
+          address: scan.address,
+          city: scan.city,
+          state: scan.state,
+          da_score: scanResult.overallScore,
+          phase1_score: scanResult.phase1Score,
+          phase2_score: scanResult.phase2Score,
+          phase3_score: scanResult.phase3Score,
+          scan_token: scan.unique_token,
+          results_url: `${process.env.NEXT_PUBLIC_APP_URL}/results/${scan.unique_token}`,
+        }),
+      }).then(res => {
+        if (res.ok) {
+          console.log("GHL webhook sent successfully");
+        } else {
+          console.error("GHL webhook failed:", res.status);
+        }
+      }).catch((error) => {
+        console.error("Error sending GHL webhook:", error);
+      });
+    } else {
+      console.log("GHL_WEBHOOK_URL not configured - skipping webhook");
+    }
+
     // Send results email (async, don't block response)
     sendResultsEmail({
       scanId: scan.id,
