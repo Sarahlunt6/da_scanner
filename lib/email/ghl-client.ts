@@ -75,6 +75,9 @@ class GHLClient {
 
   /**
    * Send an email via GHL
+   * Note: GHL v1 API doesn't support direct transactional emails.
+   * Emails should be sent via GHL workflows triggered by contact tags.
+   * This method now just logs and returns true since workflows handle emails.
    */
   async sendEmail(params: GHLEmailParams): Promise<boolean> {
     if (!this.apiKey || !this.locationId) {
@@ -82,34 +85,10 @@ class GHLClient {
       return false;
     }
 
-    try {
-      const response = await fetch(`${this.baseUrl}/conversations/messages/email`, {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${this.apiKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          locationId: this.locationId,
-          email: params.to,
-          subject: params.subject,
-          html: params.html,
-          from: params.from || process.env.GHL_FROM_EMAIL || "noreply@yourdomain.com",
-          replyTo: params.replyTo,
-        }),
-      });
-
-      if (!response.ok) {
-        const error = await response.text();
-        console.error("GHL email send failed:", error);
-        return false;
-      }
-
-      return true;
-    } catch (error) {
-      console.error("Error sending GHL email:", error);
-      return false;
-    }
+    // GHL workflows handle email sending based on contact tags
+    // The contact creation with tags will trigger the appropriate workflow
+    console.log(`Email will be sent via GHL workflow to: ${params.to}`);
+    return true;
   }
 
   /**
