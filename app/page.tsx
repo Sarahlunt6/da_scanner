@@ -79,7 +79,7 @@ export default function HomePage() {
             </div>
             <div className="flex items-center gap-6">
               <a
-                href="#how-it-works"
+                href="/how-it-works"
                 className="text-sm font-medium text-gray-700 transition-all duration-200 hidden md:inline relative group py-1"
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = '#2C5F7C';

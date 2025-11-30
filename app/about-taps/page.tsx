@@ -1,6 +1,7 @@
 "use client";
 
 import Footer from "@/components/Footer";
+import ScanForm from "@/components/ScanForm";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -214,31 +215,14 @@ export default function AboutTAPSPage() {
             </div>
           </section>
 
-          {/* CTA with Opkie Branding */}
-          <section className="relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#2C5F7C] to-[#1e4459] rounded-2xl transform rotate-1"></div>
-            <div className="relative bg-gradient-to-r from-[#2C5F7C] to-[#1e4459] rounded-2xl p-12 text-white shadow-2xl">
-              <div className="text-center">
-                <div className="inline-block mb-4">
-                  <Image
-                    src="/opkie-logo.png"
-                    alt="Opkie"
-                    width={150}
-                    height={50}
-                    className="brightness-0 invert opacity-90"
-                  />
-                </div>
-                <h2 className="text-4xl font-bold mb-4">Ready to See Your Score?</h2>
-                <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
-                  Get your free Digital Authority scan and discover how to attract more high-value patients.
-                </p>
-                <Link
-                  href="/"
-                  className="inline-block bg-[#F5C842] hover:bg-[#d4ab1f] text-gray-900 font-bold py-4 px-10 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
-                >
-                  Get Your Free Scan →
-                </Link>
+          {/* Form Section */}
+          <section className="mb-16">
+            <div className="max-w-2xl mx-auto">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to See Your Score?</h2>
+                <p className="text-lg text-gray-600">Fill out the form below to get your Digital Authority Score</p>
               </div>
+              <ScanForm />
             </div>
           </section>
         </div>
