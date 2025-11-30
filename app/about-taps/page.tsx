@@ -1,10 +1,25 @@
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import Footer from "@/components/Footer";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function AboutTAPSPage() {
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
+      {/* Simple Header */}
+      <header className="bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-2">
+            <Image src="/icon.png" alt="Opkie" width={40} height={40} />
+            <span className="text-xl font-bold text-gray-900">Digital Authority Scanner</span>
+          </Link>
+          <Link
+            href="/"
+            className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-2 px-6 rounded-lg transition-colors"
+          >
+            FREE SCAN
+          </Link>
+        </div>
+      </header>
 
       <main className="flex-1 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-4xl mx-auto px-4 py-16">
