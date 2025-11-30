@@ -150,10 +150,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                 <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
                   Book Your Free Strategy Call
                 </h3>
-                <CalendarWidget
-                  embedCode={process.env.NEXT_PUBLIC_GHL_CALENDAR_EMBED}
-                  className="max-w-2xl mx-auto"
-                />
+                <CalendarWidget className="text-center" />
               </div>
             </div>
 
@@ -279,10 +276,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
               <p className="text-base md:text-xl text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto text-center">
                 Book a 15-minute TAPS Strategy Call to get your personalized action plan and learn how the top 5% of practices dominate their markets.
               </p>
-              <CalendarWidget
-                embedCode={process.env.NEXT_PUBLIC_GHL_CALENDAR_EMBED}
-                className="max-w-3xl mx-auto"
-              />
+              <CalendarWidget className="text-center" />
               <div className="mt-6 md:mt-8 flex flex-col md:flex-row items-center justify-center md:space-x-8 space-y-3 md:space-y-0 text-xs md:text-sm text-gray-600">
                 <div className="flex items-center space-x-2">
                   <svg className="w-4 h-4 md:w-5 md:h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
