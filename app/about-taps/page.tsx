@@ -34,9 +34,9 @@ export default function AboutTAPSPage() {
           {/* Hero Header with Animation */}
           <div className="text-center mb-16 animate-fade-in">
             <div className="inline-block mb-4 px-4 py-2 bg-blue-100 rounded-full">
-              <span className="text-blue-700 font-semibold text-sm">Powered by Opkie</span>
+              <span className="text-[#2C5F7C] font-semibold text-sm">Powered by Opkie</span>
             </div>
-            <h1 className="text-6xl font-bold text-gray-900 mb-6 bg-gradient-to-r from-blue-600 to-yellow-500 bg-clip-text text-transparent">
+            <h1 className="text-6xl font-bold text-gray-900 mb-6">
               About TAPS
             </h1>
             <p className="text-2xl text-gray-600 max-w-2xl mx-auto">
