@@ -36,7 +36,7 @@ export default function AboutTAPSPage() {
             <div className="inline-block mb-4 px-4 py-2 bg-blue-100 rounded-full">
               <span className="text-[#2C5F7C] font-semibold text-sm">Powered by Opkie</span>
             </div>
-            <h1 className="text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-6xl font-bold text-[#2C5F7C] mb-6">
               About TAPS
             </h1>
             <p className="text-2xl text-gray-600 max-w-2xl mx-auto">
