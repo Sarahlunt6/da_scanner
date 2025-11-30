@@ -55,7 +55,7 @@ export default function AboutTAPSPage() {
           <section className="mb-12 group">
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
               <div className="flex items-center gap-4 mb-6">
-                <div className="bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                <div className="bg-gradient-to-br from-[#2C5F7C] to-[#1e4459] text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold shadow-lg transform group-hover:scale-110 transition-transform duration-300">
                   1
                 </div>
                 <h2 className="text-4xl font-bold text-gray-900">Foundation</h2>
@@ -87,7 +87,7 @@ export default function AboutTAPSPage() {
           <section className="mb-12 group">
             <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
               <div className="flex items-center gap-4 mb-6">
-                <div className="bg-gradient-to-br from-yellow-500 to-yellow-600 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                <div className="bg-gradient-to-br from-[#F5C842] to-[#d4ab1f] text-gray-900 rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold shadow-lg transform group-hover:scale-110 transition-transform duration-300">
                   2
                 </div>
                 <h2 className="text-4xl font-bold text-gray-900">Visibility</h2>
@@ -121,9 +121,9 @@ export default function AboutTAPSPage() {
 
           {/* Phase 3 */}
           <section className="mb-16 group">
-            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
               <div className="flex items-center gap-4 mb-6">
-                <div className="bg-gradient-to-br from-green-600 to-green-700 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                <div className="bg-gradient-to-br from-[#2C5F7C] to-[#1e4459] text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold shadow-lg transform group-hover:scale-110 transition-transform duration-300">
                   3
                 </div>
                 <h2 className="text-4xl font-bold text-gray-900">Authority</h2>
@@ -159,29 +159,45 @@ export default function AboutTAPSPage() {
           <section className="mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-10 text-center">Why TAPS Matters</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-transparent hover:border-blue-200">
-                <div className="text-4xl mb-4">🎯</div>
+              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-transparent hover:border-[#2C5F7C]">
+                <div className="w-12 h-12 mb-4 rounded-lg bg-blue-50 flex items-center justify-center">
+                  <svg className="w-7 h-7 text-[#2C5F7C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
                 <h3 className="font-bold text-gray-900 mb-3 text-xl">Attract High-Value Patients</h3>
                 <p className="text-gray-700 leading-relaxed">
                   A strong digital authority score helps you attract patients seeking premium dental services, not just price shoppers.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-transparent hover:border-blue-200">
-                <div className="text-4xl mb-4">🤝</div>
+              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-transparent hover:border-[#2C5F7C]">
+                <div className="w-12 h-12 mb-4 rounded-lg bg-blue-50 flex items-center justify-center">
+                  <svg className="w-7 h-7 text-[#2C5F7C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
                 <h3 className="font-bold text-gray-900 mb-3 text-xl">Build Trust Instantly</h3>
                 <p className="text-gray-700 leading-relaxed">
                   Consistent, accurate information across platforms builds credibility before patients even contact you.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-transparent hover:border-blue-200">
-                <div className="text-4xl mb-4">🏆</div>
+              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-transparent hover:border-[#F5C842]">
+                <div className="w-12 h-12 mb-4 rounded-lg bg-yellow-50 flex items-center justify-center">
+                  <svg className="w-7 h-7 text-[#F5C842]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
                 <h3 className="font-bold text-gray-900 mb-3 text-xl">Stay Competitive</h3>
                 <p className="text-gray-700 leading-relaxed">
                   Know exactly where you stand compared to other practices in your area and what to improve.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-transparent hover:border-blue-200">
-                <div className="text-4xl mb-4">📈</div>
+              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-transparent hover:border-[#F5C842]">
+                <div className="w-12 h-12 mb-4 rounded-lg bg-yellow-50 flex items-center justify-center">
+                  <svg className="w-7 h-7 text-[#F5C842]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  </svg>
+                </div>
                 <h3 className="font-bold text-gray-900 mb-3 text-xl">Measurable Growth</h3>
                 <p className="text-gray-700 leading-relaxed">
                   Track your improvements over time with concrete metrics and actionable insights.
