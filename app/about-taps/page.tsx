@@ -208,8 +208,8 @@ export default function AboutTAPSPage() {
 
           {/* CTA with Opkie Branding */}
           <section className="relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl transform rotate-1"></div>
-            <div className="relative bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-12 text-white shadow-2xl">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#2C5F7C] to-[#1e4459] rounded-2xl transform rotate-1"></div>
+            <div className="relative bg-gradient-to-r from-[#2C5F7C] to-[#1e4459] rounded-2xl p-12 text-white shadow-2xl">
               <div className="text-center">
                 <div className="inline-block mb-4">
                   <Image
@@ -226,7 +226,7 @@ export default function AboutTAPSPage() {
                 </p>
                 <Link
                   href="/"
-                  className="inline-block bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-4 px-10 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+                  className="inline-block bg-[#F5C842] hover:bg-[#d4ab1f] text-gray-900 font-bold py-4 px-10 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
                 >
                   Get Your Free Scan →
                 </Link>
