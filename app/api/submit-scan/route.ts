@@ -152,9 +152,8 @@ export async function POST(request: Request) {
       );
     }
 
-    // Process scan in background - don't wait for it
-    // Return immediately so user sees the processing page
-    processScanInBackground(scan);
+    // Don't process the scan here - let the processing page trigger it via process-scan API
+    // This allows instant response
 
     return NextResponse.json({
       success: true,

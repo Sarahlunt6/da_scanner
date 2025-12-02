@@ -124,6 +124,7 @@ export default function HomePage() {
     setIsSubmitting(true);
 
     try {
+      // Start the submission
       const response = await fetch("/api/submit-scan", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -132,7 +133,8 @@ export default function HomePage() {
 
       if (response.ok) {
         const data = await response.json();
-        window.location.href = `/processing?token=${data.token}`;
+        // Redirect immediately - the processing page will trigger the scan and handle the waiting
+        window.location.href = `/processing?token=${data.token}&scanId=${data.scanId}`;
       } else {
         const errorData = await response.json();
         alert(errorData.error || "Failed to submit scan");

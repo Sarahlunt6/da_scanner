@@ -18,20 +18,39 @@ const scanSteps = [
 function ProcessingContent() {
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
+  const scanId = searchParams.get("scanId");
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
 
   useEffect(() => {
+    // Show animated progress steps
     scanSteps.forEach((step, index) => {
       setTimeout(() => {
         setCompletedSteps((prev) => [...prev, index]);
       }, step.delay);
     });
 
+    // Trigger the actual scan processing in the background
+    if (scanId) {
+      fetch('/api/process-scan', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ scanId }),
+      }).then(response => {
+        if (response.ok) {
+          console.log('Scan processing started successfully');
+        } else {
+          console.error('Failed to start scan processing');
+        }
+      }).catch(error => {
+        console.error('Error triggering scan:', error);
+      });
+    }
+
     // Redirect after all steps are complete (18 seconds total)
     setTimeout(() => {
       window.location.href = `/scan-complete?token=${token}`;
     }, 18000);
-  }, [token]);
+  }, [token, scanId]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-yellow-50/30 flex items-center justify-center py-12 px-4">
