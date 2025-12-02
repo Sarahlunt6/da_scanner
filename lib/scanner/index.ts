@@ -4,6 +4,7 @@
 import { ScanInput, ScanResult, ModuleResult } from "../types/scan";
 import * as scoring from "./scoring";
 import { checkNAPConsistency } from "../scraping/nap-consistency";
+import { searchGooglePlaces } from "../scraping/google-places-api";
 
 /**
  * Main scan function
@@ -12,11 +13,14 @@ import { checkNAPConsistency } from "../scraping/nap-consistency";
 export async function performScan(input: ScanInput): Promise<ScanResult> {
   console.log(`Starting scan for ${input.practiceName}...`);
 
+  // Fetch Google Places data once for all Phase 1 modules
+  const googleData = await searchGooglePlaces(input.practiceName, input.city, input.state);
+
   // Phase 1 Modules
-  const profitZoneResult = await scanProfitZone(input.websiteUrl);
-  const productShelfResult = await scanProductShelf(input.websiteUrl);
-  const reviewHealthResult = await scanReviewHealth(input.websiteUrl);
-  const reviewVelocityResult = await scanReviewVelocity(input.websiteUrl);
+  const profitZoneResult = await scanProfitZone(googleData);
+  const productShelfResult = await scanProductShelf(googleData);
+  const reviewHealthResult = await scanReviewHealth(googleData);
+  const reviewVelocityResult = await scanReviewVelocity(googleData);
   const napResult = await scanNAPConsistencyModule(input.practiceName, input.websiteUrl, input.city, input.state);
 
   // Phase 2 Modules
@@ -62,12 +66,33 @@ export async function performScan(input: ScanInput): Promise<ScanResult> {
 
 /**
  * Module 1.1: Profit Zone (GBP Categories)
- * TODO: Integrate with Google Places API
  */
-async function scanProfitZone(websiteUrl: string): Promise<ModuleResult> {
-  // Mock data - Replace with actual Google Places API call
-  const primaryCategory = 'Dentist';
-  const secondaryCategories = ['Cosmetic Dentist']; // Example: missing implants category
+async function scanProfitZone(googleData: any): Promise<ModuleResult> {
+  if (!googleData.listed) {
+    return {
+      name: 'Profit Zone',
+      phase: 1,
+      score: 0,
+      status: 'urgent',
+      weight: 10,
+      gapMessage: 'Practice not found on Google. Cannot analyze categories.',
+      data: {
+        primaryCategory: '',
+        secondaryCategories: [],
+        source: 'google_places',
+        error: googleData.error
+      },
+    };
+  }
+
+  const primaryCategory = googleData.primaryCategory || 'dentist';
+  const categories = googleData.categories || [];
+
+  // Extract meaningful secondary categories from types array
+  const secondaryCategories = categories.filter((cat: string) =>
+    cat !== primaryCategory &&
+    (cat.includes('dentist') || cat.includes('dental'))
+  );
 
   const { score, gapMessage } = scoring.calculateProfitZoneScore(primaryCategory, secondaryCategories);
 
@@ -81,18 +106,34 @@ async function scanProfitZone(websiteUrl: string): Promise<ModuleResult> {
     data: {
       primaryCategory,
       secondaryCategories,
-      source: 'mock', // Will be 'google_places' when integrated
+      source: 'google_places',
     },
   };
 }
 
 /**
  * Module 1.2: Product Shelf (GBP Services)
- * TODO: Integrate with Google Places API
+ * Note: Google Places API doesn't return services list, so we use category count as proxy
  */
-async function scanProductShelf(websiteUrl: string): Promise<ModuleResult> {
-  // Mock data
-  const servicesCount = 8; // Example: needs more services
+async function scanProductShelf(googleData: any): Promise<ModuleResult> {
+  if (!googleData.listed) {
+    return {
+      name: 'Product Shelf',
+      phase: 1,
+      score: 0,
+      status: 'urgent',
+      weight: 10,
+      gapMessage: 'Practice not found on Google. Cannot analyze services.',
+      data: {
+        servicesCount: 0,
+        source: 'google_places'
+      },
+    };
+  }
+
+  // Use categories count as a proxy for services (limited by API)
+  // Most practices with good service listings will have 10+ total categories
+  const servicesCount = (googleData.categories?.length || 0);
 
   const { score, gapMessage } = scoring.calculateProductShelfScore(servicesCount);
 
@@ -102,22 +143,37 @@ async function scanProductShelf(websiteUrl: string): Promise<ModuleResult> {
     score,
     status: scoring.getStatus(score),
     weight: 10,
-    gapMessage,
+    gapMessage: gapMessage || `Found ${servicesCount} category types. Note: Full service count requires Google Business Profile access.`,
     data: {
       servicesCount,
-      source: 'mock',
+      categories: googleData.categories,
+      source: 'google_places',
     },
   };
 }
 
 /**
  * Module 1.3a: Review Health
- * TODO: Integrate with Google Places API
  */
-async function scanReviewHealth(websiteUrl: string): Promise<ModuleResult> {
-  // Mock data
-  const rating = 4.6;
-  const totalReviews = 45;
+async function scanReviewHealth(googleData: any): Promise<ModuleResult> {
+  if (!googleData.listed) {
+    return {
+      name: 'Review Boost',
+      phase: 1,
+      score: 0,
+      status: 'urgent',
+      weight: 15,
+      gapMessage: 'Practice not found on Google. Cannot analyze reviews.',
+      data: {
+        rating: 0,
+        totalReviews: 0,
+        source: 'google_places'
+      },
+    };
+  }
+
+  const rating = googleData.rating || 0;
+  const totalReviews = googleData.review_count || 0;
 
   const { score, gapMessage } = scoring.calculateReviewHealthScore(rating, totalReviews);
 
@@ -131,18 +187,40 @@ async function scanReviewHealth(websiteUrl: string): Promise<ModuleResult> {
     data: {
       rating,
       totalReviews,
-      source: 'mock',
+      source: 'google_places',
     },
   };
 }
 
 /**
  * Module 1.3b: Review Velocity
- * TODO: Integrate with Google Places API
+ * Note: Google Places API doesn't provide review dates, estimate based on total count
  */
-async function scanReviewVelocity(websiteUrl: string): Promise<ModuleResult> {
-  // Mock data
-  const recentCount90Days = 2; // Example: sporadic reviews
+async function scanReviewVelocity(googleData: any): Promise<ModuleResult> {
+  if (!googleData.listed) {
+    return {
+      name: 'Review Velocity',
+      phase: 1,
+      score: 0,
+      status: 'urgent',
+      weight: 5,
+      gapMessage: 'Practice not found on Google. Cannot analyze review velocity.',
+      data: {
+        recentCount90Days: 0,
+        source: 'google_places'
+      },
+    };
+  }
+
+  const totalReviews = googleData.review_count || 0;
+
+  // Estimate recent reviews: assume 20-30% of reviews are recent if they have a good count
+  // This is a rough estimate since API doesn't provide dates
+  let recentCount90Days = 0;
+  if (totalReviews >= 100) recentCount90Days = 5;
+  else if (totalReviews >= 50) recentCount90Days = 3;
+  else if (totalReviews >= 25) recentCount90Days = 2;
+  else recentCount90Days = 1;
 
   const { score, gapMessage } = scoring.calculateReviewVelocityScore(recentCount90Days);
 
@@ -152,10 +230,11 @@ async function scanReviewVelocity(websiteUrl: string): Promise<ModuleResult> {
     score,
     status: scoring.getStatus(score),
     weight: 5,
-    gapMessage,
+    gapMessage: gapMessage + ' (Estimated based on total review count)',
     data: {
       recentCount90Days,
-      source: 'mock',
+      estimatedFrom: totalReviews,
+      source: 'google_places',
     },
   };
 }

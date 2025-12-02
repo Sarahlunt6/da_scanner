@@ -9,6 +9,9 @@ export interface GooglePlacesResult {
   listed: boolean;
   rating?: number;
   review_count?: number;
+  primaryCategory?: string;
+  categories?: string[];
+  websiteUrl?: string;
   error?: string;
 }
 
@@ -49,7 +52,7 @@ export async function searchGooglePlaces(
         headers: {
           'Content-Type': 'application/json',
           'X-Goog-Api-Key': GOOGLE_PLACES_API_KEY,
-          'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.nationalPhoneNumber,places.rating,places.userRatingCount'
+          'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.nationalPhoneNumber,places.rating,places.userRatingCount,places.types,places.primaryType,places.websiteUri'
         }
       }
     );
@@ -83,7 +86,10 @@ export async function searchGooglePlaces(
       phone: bestMatch.nationalPhoneNumber || '',
       listed: true,
       rating: bestMatch.rating,
-      review_count: bestMatch.userRatingCount
+      review_count: bestMatch.userRatingCount,
+      primaryCategory: bestMatch.primaryType || '',
+      categories: bestMatch.types || [],
+      websiteUrl: bestMatch.websiteUri || ''
     };
 
   } catch (error: any) {
