@@ -219,7 +219,7 @@ export default function HomePage() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-bold text-gray-900 text-lg group-hover:text-primary transition-colors duration-300">Results in 2-5 Minutes</p>
+                    <p className="font-bold text-gray-900 text-lg group-hover:text-primary transition-colors duration-300">Results in 5-10 Minutes</p>
                     <p className="text-gray-600">Get your detailed report delivered via email</p>
                   </div>
                 </div>
