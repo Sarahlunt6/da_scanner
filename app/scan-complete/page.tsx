@@ -41,7 +41,7 @@ function ScanCompleteContent() {
                 </h3>
                 <p className="text-gray-700">
                   Your detailed <span className="font-bold text-primary">Digital Authority Score</span> and comprehensive report will be delivered to your inbox in the next{" "}
-                  <span className="font-bold">2-5 minutes</span>.
+                  <span className="font-bold">5-10 minutes</span>.
                 </p>
               </div>
             </div>

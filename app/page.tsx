@@ -104,6 +104,21 @@ export default function HomePage() {
                 About TAPS
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
               </a>
+              <a
+                href="https://link.opkie.com/widget/bookings/strategy-meeting30"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-gray-700 transition-all duration-200 hidden md:inline relative group py-1"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = '#2C5F7C';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = '';
+                }}
+              >
+                Book a Call
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+              </a>
               <button
                 onClick={() => {
                   document.getElementById('scan-form')?.scrollIntoView({ behavior: 'smooth' });
@@ -575,8 +590,33 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3 transition-colors duration-300 group-hover:text-primary">Get Your Report</h3>
                 <p className="text-gray-600">
-                  Receive your Digital Authority Score and detailed breakdown via email in 2-5 minutes with actionable next steps.
+                  Receive your Digital Authority Score and detailed breakdown via email in 5-10 minutes with actionable next steps.
                 </p>
+              </div>
+            </div>
+
+            {/* Video Section */}
+            <div className="mb-16">
+              <div className="text-center mb-8">
+                <h3 className="text-3xl font-extrabold text-gray-900 mb-4">
+                  See How TAPS Works
+                </h3>
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                  Watch this short video to understand how the TAPS framework can transform your practice's digital authority
+                </p>
+              </div>
+              <div className="max-w-4xl mx-auto">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/mSFPaeFZR7g?si=rad5NJyshMqLa4pu"
+                    title="TAPS Framework Explanation"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
             </div>
 

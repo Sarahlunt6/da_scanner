@@ -116,7 +116,7 @@ function ProcessingContent() {
           <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-2xl p-6 text-center">
             <p className="text-gray-700 text-lg">
               Your detailed report will be emailed to you in{" "}
-              <span className="font-bold text-primary">2-5 minutes</span>
+              <span className="font-bold text-primary">5-10 minutes</span>
             </p>
           </div>
         </div>

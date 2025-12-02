@@ -93,7 +93,7 @@ export function getConfirmationEmail(params: {
     </div>
 
     <p style="margin: 0 0 16px 0; color: #374151; font-size: 16px; line-height: 1.6;">
-      Your personalized Digital Authority Score and detailed report will be ready in approximately <strong>2-5 minutes</strong>.
+      Your personalized Digital Authority Score and detailed report will be ready in approximately <strong>5-10 minutes</strong>.
     </p>
 
     <p style="margin: 0; color: #374151; font-size: 16px; line-height: 1.6;">

@@ -42,7 +42,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                 Your scan is still processing...
               </h1>
               <p className="text-gray-700">
-                We're analyzing your practice's digital authority. This usually takes 2-5 minutes.
+                We're analyzing your practice's digital authority. This usually takes 5-10 minutes.
               </p>
               <p className="text-gray-600 mt-4">
                 We'll email you at <span className="font-bold">{scan.email}</span> when

@@ -107,7 +107,7 @@ export default function HowItWorksPage() {
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">Get Your Results</h3>
                   <p className="text-gray-600">
-                    Receive your detailed Digital Authority Score and actionable recommendations via email in 2-5 minutes.
+                    Receive your detailed Digital Authority Score and actionable recommendations via email in 5-10 minutes.
                   </p>
                 </div>
               </div>
