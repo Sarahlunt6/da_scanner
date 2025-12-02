@@ -45,11 +45,18 @@ export async function POST(request: Request) {
     }
 
     // Trigger scan processing in background
-    // In production, this should use a job queue (Bull, Inngest, etc.)
-    // For now, we'll call it directly but don't await it
+    // Using VERCEL_URL which is automatically provided by Vercel
     const baseUrl = process.env.VERCEL_URL
       ? `https://${process.env.VERCEL_URL}`
-      : (process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000');
+      : process.env.NEXT_PUBLIC_APP_URL;
+
+    if (!baseUrl) {
+      console.error("No base URL configured - cannot trigger scan processing");
+      return NextResponse.json(
+        { error: "Server configuration error" },
+        { status: 500 }
+      );
+    }
 
     console.log(`Triggering scan processing at: ${baseUrl}/api/process-scan`);
 
