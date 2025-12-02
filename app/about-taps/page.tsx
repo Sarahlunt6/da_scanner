@@ -10,23 +10,47 @@ export default function AboutTAPSPage() {
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 via-white to-yellow-50/30">
       {/* Header with Opkie Branding */}
       <header className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group">
-            <Image
-              src="/opkie-logo.png"
-              alt="Opkie"
-              width={120}
-              height={40}
-              className="h-10 w-auto transform group-hover:scale-105 transition-transform duration-300"
-            />
-            <span className="text-sm text-gray-600 hidden sm:inline border-l pl-3 border-gray-300">Digital Authority Scanner</span>
-          </Link>
-          <Link
-            href="/"
-            className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-2 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-          >
-            FREE SCAN
-          </Link>
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <Link href="/" className="flex items-center gap-3 group">
+              <Image
+                src="/opkie-logo.png"
+                alt="Opkie"
+                width={120}
+                height={40}
+                className="h-10 w-auto transform group-hover:scale-105 transition-transform duration-300"
+              />
+              <span className="text-sm text-gray-600 hidden sm:inline border-l pl-3 border-gray-300">Digital Authority Scanner</span>
+            </Link>
+            <div className="flex items-center gap-6">
+              <Link
+                href="/how-it-works"
+                className="text-sm font-medium text-gray-700 hover:text-[#2C5F7C] transition-all duration-200"
+              >
+                How It Works
+              </Link>
+              <Link
+                href="/about-taps"
+                className="text-sm font-medium text-[#2C5F7C] hover:text-[#1e4459] transition-all duration-200"
+              >
+                About TAPS
+              </Link>
+              <Link
+                href="https://link.opkie.com/widget/bookings/strategy-meeting30"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-gray-700 hover:text-[#2C5F7C] transition-all duration-200"
+              >
+                Book a Call
+              </Link>
+              <Link
+                href="/"
+                className="bg-[#F5C842] hover:bg-[#d4ab1f] text-gray-900 font-bold py-2 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+              >
+                FREE SCAN
+              </Link>
+            </div>
+          </div>
         </div>
       </header>
 
