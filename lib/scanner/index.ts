@@ -216,8 +216,8 @@ async function scanNAPConsistencyModule(practiceName: string, websiteUrl: string
  * TODO: Implement website crawler
  */
 async function scanCore30(websiteUrl: string): Promise<ModuleResult> {
-  // Mock data
-  const foundPages = 18;
+  // Mock data - realistic for established practices
+  const foundPages = 22;
 
   const { score, gapMessage } = scoring.calculateCore30Score(foundPages);
 
@@ -241,10 +241,10 @@ async function scanCore30(websiteUrl: string): Promise<ModuleResult> {
  * TODO: Integrate with Google PageSpeed API and SSL checker
  */
 async function scanTechnicalTrust(websiteUrl: string): Promise<ModuleResult> {
-  // Mock data
+  // Mock data - realistic for modern dental sites
   const hasSSL = true;
-  const mobileScore = 75;
-  const loadTime = 4.2;
+  const mobileScore = 85;
+  const loadTime = 2.8;
   const hasSchema = false;
 
   const { score, gapMessage } = scoring.calculateTechnicalTrustScore(hasSSL, mobileScore, loadTime, hasSchema);
@@ -271,8 +271,8 @@ async function scanTechnicalTrust(websiteUrl: string): Promise<ModuleResult> {
  * TODO: Integrate with directory APIs and web scraping
  */
 async function scanDirectoryDominance(practiceName: string): Promise<ModuleResult> {
-  // Mock data
-  const presentCount = 4;
+  // Mock data - realistic presence
+  const presentCount = 5;
   const totalDirectories = 7;
 
   const { score, gapMessage } = scoring.calculateDirectoryScore(presentCount, totalDirectories);
