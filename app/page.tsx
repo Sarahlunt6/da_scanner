@@ -80,44 +80,23 @@ export default function HomePage() {
             <div className="flex items-center gap-6">
               <a
                 href="/how-it-works"
-                className="text-sm font-medium text-gray-700 transition-all duration-200 hidden md:inline relative group py-1"
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = '#2C5F7C';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = '';
-                }}
+                className="text-sm font-medium text-gray-700 hover:text-[#2C5F7C] transition-all duration-200"
               >
                 How It Works
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
               </a>
               <a
                 href="/about-taps"
-                className="text-sm font-medium text-gray-700 transition-all duration-200 hidden md:inline relative group py-1"
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = '#2C5F7C';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = '';
-                }}
+                className="text-sm font-medium text-gray-700 hover:text-[#2C5F7C] transition-all duration-200"
               >
                 About TAPS
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
               </a>
               <a
                 href="https://link.opkie.com/widget/bookings/strategy-meeting30"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-medium text-gray-700 transition-all duration-200 hidden md:inline relative group py-1"
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = '#2C5F7C';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = '';
-                }}
+                className="text-sm font-medium text-gray-700 hover:text-[#2C5F7C] transition-all duration-200"
               >
                 Book a Call
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
               </a>
               <button
                 onClick={() => {
