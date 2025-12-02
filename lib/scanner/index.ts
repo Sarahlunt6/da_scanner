@@ -5,6 +5,8 @@ import { ScanInput, ScanResult, ModuleResult } from "../types/scan";
 import * as scoring from "./scoring";
 import { checkNAPConsistency } from "../scraping/nap-consistency";
 import { searchGooglePlaces } from "../scraping/google-places-api";
+import { analyzeWebsitePerformance } from "../scraping/pagespeed-api";
+import { crawlWebsiteForCore30 } from "../scraping/website-crawler";
 
 /**
  * Main scan function
@@ -292,57 +294,131 @@ async function scanNAPConsistencyModule(practiceName: string, websiteUrl: string
 
 /**
  * Module 2.1: Core 30 Authority Pages
- * TODO: Implement website crawler
  */
 async function scanCore30(websiteUrl: string): Promise<ModuleResult> {
-  // Mock data - realistic for established practices
-  const foundPages = 22;
+  if (!websiteUrl) {
+    return {
+      name: 'Core 30 Authority Asset',
+      phase: 2,
+      score: 0,
+      status: 'urgent',
+      weight: 20,
+      gapMessage: 'No website URL provided',
+      data: {
+        foundPages: 0,
+        totalPages: 30,
+        source: 'website_crawler',
+      },
+    };
+  }
 
-  const { score, gapMessage } = scoring.calculateCore30Score(foundPages);
+  try {
+    const crawlResult = await crawlWebsiteForCore30(websiteUrl);
+    const foundPages = crawlResult.foundPages;
 
-  return {
-    name: 'Core 30 Authority Asset',
-    phase: 2,
-    score,
-    status: scoring.getStatus(score),
-    weight: 20,
-    gapMessage,
-    data: {
-      foundPages,
-      totalPages: 30,
-      source: 'mock',
-    },
-  };
+    const { score, gapMessage } = scoring.calculateCore30Score(foundPages);
+
+    return {
+      name: 'Core 30 Authority Asset',
+      phase: 2,
+      score,
+      status: scoring.getStatus(score),
+      weight: 20,
+      gapMessage,
+      data: {
+        foundPages,
+        totalPages: crawlResult.totalPages,
+        missingPages: crawlResult.missingPages,
+        foundPagesList: crawlResult.foundPagesList,
+        source: 'website_crawler',
+      },
+    };
+  } catch (error) {
+    console.error('Core 30 scan failed:', error);
+    return {
+      name: 'Core 30 Authority Asset',
+      phase: 2,
+      score: 0,
+      status: 'urgent',
+      weight: 20,
+      gapMessage: 'Unable to crawl website',
+      data: {
+        foundPages: 0,
+        totalPages: 30,
+        error: error instanceof Error ? error.message : 'Unknown error',
+        source: 'website_crawler',
+      },
+    };
+  }
 }
 
 /**
  * Module 2.2: Technical Trust Signals
- * TODO: Integrate with Google PageSpeed API and SSL checker
  */
 async function scanTechnicalTrust(websiteUrl: string): Promise<ModuleResult> {
-  // Mock data - realistic for modern dental sites
-  const hasSSL = true;
-  const mobileScore = 85;
-  const loadTime = 2.8;
-  const hasSchema = false;
+  if (!websiteUrl) {
+    return {
+      name: 'Technical Trust Signals',
+      phase: 2,
+      score: 0,
+      status: 'urgent',
+      weight: 15,
+      gapMessage: 'No website URL provided',
+      data: {
+        hasSSL: false,
+        mobileScore: 0,
+        loadTime: 0,
+        hasSchema: false,
+        source: 'pagespeed_api',
+      },
+    };
+  }
 
-  const { score, gapMessage } = scoring.calculateTechnicalTrustScore(hasSSL, mobileScore, loadTime, hasSchema);
+  try {
+    const perfResult = await analyzeWebsitePerformance(websiteUrl);
 
-  return {
-    name: 'Technical Trust Signals',
-    phase: 2,
-    score,
-    status: scoring.getStatus(score),
-    weight: 15,
-    gapMessage,
-    data: {
-      hasSSL,
-      mobileScore,
-      loadTime,
-      hasSchema,
-      source: 'mock',
-    },
-  };
+    const hasSSL = perfResult.hasSSL;
+    const mobileScore = perfResult.mobileScore;
+    const loadTime = perfResult.loadTime;
+    const hasSchema = perfResult.hasSchema;
+
+    const { score, gapMessage } = scoring.calculateTechnicalTrustScore(hasSSL, mobileScore, loadTime, hasSchema);
+
+    return {
+      name: 'Technical Trust Signals',
+      phase: 2,
+      score,
+      status: scoring.getStatus(score),
+      weight: 15,
+      gapMessage,
+      data: {
+        hasSSL,
+        mobileScore,
+        desktopScore: perfResult.desktopScore,
+        loadTime,
+        hasSchema,
+        source: 'pagespeed_api',
+      },
+    };
+  } catch (error) {
+    console.error('Technical Trust scan failed:', error);
+    return {
+      name: 'Technical Trust Signals',
+      phase: 2,
+      score: 0,
+      status: 'urgent',
+      weight: 15,
+      gapMessage: 'Unable to analyze website performance',
+      data: {
+        hasSSL: false,
+        mobileScore: 0,
+        loadTime: 0,
+        hasSchema: false,
+        error: error instanceof Error ? error.message : 'Unknown error',
+        source: 'pagespeed_api',
+      },
+    };
+  }
 }
 
 /**
