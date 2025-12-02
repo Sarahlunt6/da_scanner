@@ -1,8 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Footer from "@/components/Footer";
+
+interface PlaceSuggestion {
+  name: string;
+  address: string;
+  phone: string;
+  website: string;
+  city: string;
+  state: string;
+}
 
 // Format phone number as user types
 const formatPhoneNumber = (value: string) => {
@@ -28,6 +37,81 @@ export default function HomePage() {
     state: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [suggestions, setSuggestions] = useState<PlaceSuggestion[]>([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
+  const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const suggestionsRef = useRef<HTMLDivElement>(null);
+
+  // Close suggestions when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (suggestionsRef.current && !suggestionsRef.current.contains(event.target as Node)) {
+        setShowSuggestions(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Search for places when user types practice name
+  const handlePracticeNameChange = (value: string) => {
+    setFormData({ ...formData, practiceName: value });
+
+    // Clear existing timeout
+    if (searchTimeoutRef.current) {
+      clearTimeout(searchTimeoutRef.current);
+    }
+
+    // Only search if there's actual text (at least 3 characters)
+    if (value.trim().length < 3) {
+      setSuggestions([]);
+      setShowSuggestions(false);
+      return;
+    }
+
+    // Debounce the search
+    searchTimeoutRef.current = setTimeout(async () => {
+      setIsSearching(true);
+      try {
+        const response = await fetch("/api/search-places", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            query: value,
+            city: formData.city || undefined,
+            state: formData.state || undefined,
+          }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setSuggestions(data.places || []);
+          setShowSuggestions(data.places && data.places.length > 0);
+        }
+      } catch (error) {
+        console.error("Error searching places:", error);
+      } finally {
+        setIsSearching(false);
+      }
+    }, 500); // Wait 500ms after user stops typing
+  };
+
+  // Handle selecting a suggestion
+  const handleSelectSuggestion = (place: PlaceSuggestion) => {
+    setFormData({
+      ...formData,
+      practiceName: place.name,
+      address: place.address,
+      phone: place.phone ? formatPhoneNumber(place.phone) : "",
+      websiteUrl: place.website,
+      city: place.city,
+      state: place.state,
+    });
+    setShowSuggestions(false);
+    setSuggestions([]);
+  };
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const formatted = formatPhoneNumber(e.target.value);
@@ -269,19 +353,50 @@ export default function HomePage() {
                   </div>
 
                   <form onSubmit={handleSubmit} className="space-y-5">
-                    {/* Practice Name */}
-                    <div>
+                    {/* Practice Name with Autocomplete */}
+                    <div className="relative" ref={suggestionsRef}>
                       <label className="block text-sm font-bold text-gray-900 mb-2">
                         Practice Name
                       </label>
-                      <input
-                        type="text"
-                        required
-                        value={formData.practiceName}
-                        onChange={(e) => setFormData({ ...formData, practiceName: e.target.value })}
-                        className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900 placeholder-gray-400 hover:border-gray-300"
-                        placeholder="Main Street Dental"
-                      />
+                      <div className="relative">
+                        <input
+                          type="text"
+                          required
+                          value={formData.practiceName}
+                          onChange={(e) => handlePracticeNameChange(e.target.value)}
+                          className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900 placeholder-gray-400 hover:border-gray-300"
+                          placeholder="Main Street Dental"
+                          autoComplete="off"
+                        />
+                        {isSearching && (
+                          <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+                            <svg className="animate-spin h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24">
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Suggestions Dropdown */}
+                      {showSuggestions && suggestions.length > 0 && (
+                        <div className="absolute z-50 w-full mt-2 bg-white border-2 border-primary/20 rounded-xl shadow-2xl max-h-80 overflow-y-auto">
+                          {suggestions.map((place, index) => (
+                            <button
+                              key={index}
+                              type="button"
+                              onClick={() => handleSelectSuggestion(place)}
+                              className="w-full text-left px-4 py-3 hover:bg-primary/5 transition-colors border-b border-gray-100 last:border-b-0"
+                            >
+                              <div className="font-semibold text-gray-900">{place.name}</div>
+                              <div className="text-sm text-gray-600 mt-1">{place.address}</div>
+                              {place.phone && (
+                                <div className="text-sm text-gray-500 mt-1">{place.phone}</div>
+                              )}
+                            </button>
+                          ))}
+                        </div>
+                      )}
                     </div>
 
                     {/* Website URL */}
