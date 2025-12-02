@@ -47,9 +47,11 @@ export async function POST(request: Request) {
 
     // Format the results
     const places = data.places.map((place: any) => {
-      // Extract city and state from address components
+      // Extract city, state, and street address from address components
       let city = "";
       let state = "";
+      let streetNumber = "";
+      let route = "";
 
       if (place.addressComponents) {
         for (const component of place.addressComponents) {
@@ -59,12 +61,22 @@ export async function POST(request: Request) {
           if (component.types.includes("administrative_area_level_1")) {
             state = component.shortText || "";
           }
+          if (component.types.includes("street_number")) {
+            streetNumber = component.longText || "";
+          }
+          if (component.types.includes("route")) {
+            route = component.longText || "";
+          }
         }
       }
 
+      // Build street address (just number and street, no city/state)
+      const streetAddress = [streetNumber, route].filter(Boolean).join(" ");
+
       return {
         name: place.displayName?.text || "",
-        address: place.formattedAddress || "",
+        address: streetAddress || place.formattedAddress || "",
+        fullAddress: place.formattedAddress || "",
         phone: place.internationalPhoneNumber || "",
         website: place.websiteUri || "",
         city,

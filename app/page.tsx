@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 interface PlaceSuggestion {
   name: string;
   address: string;
+  fullAddress: string;
   phone: string;
   website: string;
   city: string;
@@ -173,14 +174,6 @@ export default function HomePage() {
                 className="text-sm font-medium text-gray-700 hover:text-[#2C5F7C] transition-all duration-200"
               >
                 About TAPS
-              </a>
-              <a
-                href="https://link.opkie.com/widget/bookings/strategy-meeting30"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-medium text-gray-700 hover:text-[#2C5F7C] transition-all duration-200"
-              >
-                Book a Call
               </a>
               <button
                 onClick={() => {
@@ -389,7 +382,7 @@ export default function HomePage() {
                               className="w-full text-left px-4 py-3 hover:bg-primary/5 transition-colors border-b border-gray-100 last:border-b-0"
                             >
                               <div className="font-semibold text-gray-900">{place.name}</div>
-                              <div className="text-sm text-gray-600 mt-1">{place.address}</div>
+                              <div className="text-sm text-gray-600 mt-1">{place.fullAddress}</div>
                               {place.phone && (
                                 <div className="text-sm text-gray-500 mt-1">{place.phone}</div>
                               )}
