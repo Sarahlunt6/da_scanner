@@ -76,42 +76,50 @@ export async function POST(request: Request) {
 
     // Send results to GHL webhook
     const ghlWebhookUrl = process.env.GHL_WEBHOOK_URL;
+    console.log(`GHL_WEBHOOK_URL configured: ${ghlWebhookUrl ? 'YES' : 'NO'}`);
+
     if (ghlWebhookUrl) {
-      fetch(ghlWebhookUrl, {
+      const webhookData = {
+        email: scan.email,
+        first_name: scan.contact_name.split(' ')[0],
+        last_name: scan.contact_name.split(' ').slice(1).join(' ') || '',
+        phone: scan.phone,
+        practice_name: scan.practice_name,
+        website_url: scan.website_url,
+        address: scan.address,
+        city: scan.city,
+        state: scan.state,
+        da_score: scanResult.overallScore,
+        phase1_score: scanResult.phase1Score,
+        phase2_score: scanResult.phase2Score,
+        phase3_score: scanResult.phase3Score,
+        scan_token: scan.unique_token,
+        results_url: `${process.env.NEXT_PUBLIC_APP_URL}/results/${scan.unique_token}`,
+      };
+
+      console.log('Sending webhook to GHL:', JSON.stringify(webhookData, null, 2));
+
+      await fetch(ghlWebhookUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: scan.email,
-          first_name: scan.contact_name.split(' ')[0],
-          last_name: scan.contact_name.split(' ').slice(1).join(' ') || '',
-          phone: scan.phone,
-          practice_name: scan.practice_name,
-          website_url: scan.website_url,
-          address: scan.address,
-          city: scan.city,
-          state: scan.state,
-          da_score: scanResult.overallScore,
-          phase1_score: scanResult.phase1Score,
-          phase2_score: scanResult.phase2Score,
-          phase3_score: scanResult.phase3Score,
-          scan_token: scan.unique_token,
-          results_url: `${process.env.NEXT_PUBLIC_APP_URL}/results/${scan.unique_token}`,
-        }),
-      }).then(res => {
+        body: JSON.stringify(webhookData),
+      }).then(async res => {
         if (res.ok) {
-          console.log("GHL webhook sent successfully");
+          console.log("✅ GHL webhook sent successfully");
         } else {
-          console.error("GHL webhook failed:", res.status);
+          const errorText = await res.text();
+          console.error("❌ GHL webhook failed:", res.status, errorText);
         }
       }).catch((error) => {
-        console.error("Error sending GHL webhook:", error);
+        console.error("❌ Error sending GHL webhook:", error);
       });
     } else {
-      console.log("GHL_WEBHOOK_URL not configured - skipping webhook");
+      console.log("⚠️ GHL_WEBHOOK_URL not configured - skipping webhook");
     }
 
-    // Send results email (async, don't block response)
-    sendResultsEmail({
+    // Send results email (log to database)
+    console.log('Calling sendResultsEmail...');
+    await sendResultsEmail({
       scanId: scan.id,
       email: scan.email,
       contactName: scan.contact_name,
@@ -122,8 +130,10 @@ export async function POST(request: Request) {
       phase2Score: scanResult.phase2Score,
       phase3Score: scanResult.phase3Score,
       websiteUrl: scan.website_url,
+    }).then(() => {
+      console.log('✅ Email logged successfully');
     }).catch((error) => {
-      console.error("Error sending results email:", error);
+      console.error("❌ Error logging email:", error);
     });
 
     return NextResponse.json({
