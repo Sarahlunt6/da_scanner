@@ -85,12 +85,12 @@ export async function performScan(input: ScanInput): Promise<ScanResult> {
 }
 
 /**
- * Module 1.1: Profit Zone (GBP Categories)
+ * Module 1.1: Business Categories (GBP Categories)
  */
 async function scanProfitZone(googleData: any): Promise<ModuleResult> {
   if (!googleData.listed) {
     return {
-      name: 'Profit Zone',
+      name: 'Business Categories',
       phase: 1,
       score: 0,
       status: 'urgent',
@@ -117,7 +117,7 @@ async function scanProfitZone(googleData: any): Promise<ModuleResult> {
   const { score, gapMessage } = scoring.calculateProfitZoneScore(primaryCategory, secondaryCategories);
 
   return {
-    name: 'Profit Zone',
+    name: 'Business Categories',
     phase: 1,
     score,
     status: scoring.getStatus(score),
@@ -132,13 +132,13 @@ async function scanProfitZone(googleData: any): Promise<ModuleResult> {
 }
 
 /**
- * Module 1.2: Product Shelf (GBP Services)
+ * Module 1.2: Business Services (GBP Services)
  * Note: Google Places API doesn't return services list, so we use category count as proxy
  */
 async function scanProductShelf(googleData: any): Promise<ModuleResult> {
   if (!googleData.listed) {
     return {
-      name: 'Product Shelf',
+      name: 'Business Services',
       phase: 1,
       score: 0,
       status: 'urgent',
@@ -158,7 +158,7 @@ async function scanProductShelf(googleData: any): Promise<ModuleResult> {
   const { score, gapMessage } = scoring.calculateProductShelfScore(servicesCount);
 
   return {
-    name: 'Product Shelf',
+    name: 'Business Services',
     phase: 1,
     score,
     status: scoring.getStatus(score),
