@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
-import { performScan } from "@/lib/scanner";
+import { performScan } from "@/lib/scanner/index";
 import { sendResultsEmail } from "@/lib/email/service";
 
 // Extend timeout to 5 minutes for long-running scans
