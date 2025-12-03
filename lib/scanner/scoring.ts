@@ -120,20 +120,24 @@ export function calculateReviewHealthScore(
 
 /**
  * Calculate Review Velocity score - 5% weight
+ * Checks for at least 3 reviews in the last 30 days
  */
-export function calculateReviewVelocityScore(recentCount90Days: number): { score: number; gapMessage: string } {
+export function calculateReviewVelocityScore(recentCount30Days: number): { score: number; gapMessage: string } {
   let score = 0;
   let gapMessage = '';
 
-  if (recentCount90Days >= 4) {
+  if (recentCount30Days >= 3) {
     score = 100;
-    gapMessage = '';
-  } else if (recentCount90Days >= 2) {
+    gapMessage = 'Excellent review velocity! You have 3+ reviews in the last month.';
+  } else if (recentCount30Days === 2) {
     score = 60;
-    gapMessage = 'Review velocity is moderate. Google favors consistent monthly reviews.';
-  } else {
+    gapMessage = 'Only 2 reviews in the last month. Google favors practices with 3+ monthly reviews for top rankings.';
+  } else if (recentCount30Days === 1) {
     score = 30;
-    gapMessage = "Google's algorithm penalizes sporadic review patterns. You need a system, not a 'campaign.'";
+    gapMessage = 'Only 1 review in the last month. You need at least 3 monthly reviews to stay competitive.';
+  } else {
+    score = 0;
+    gapMessage = "Zero reviews in the last month. Google's algorithm penalizes inactive practices. You need a system, not a 'campaign.'";
   }
 
   return { score, gapMessage };

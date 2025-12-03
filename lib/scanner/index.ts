@@ -214,6 +214,7 @@ async function scanReviewHealth(googleData: any): Promise<ModuleResult> {
 
 /**
  * Module 1.3b: Review Velocity
+ * Checks for at least 3 reviews in the last 30 days
  * Note: Google Places API doesn't provide review dates, estimate based on total count
  */
 async function scanReviewVelocity(googleData: any): Promise<ModuleResult> {
@@ -226,7 +227,7 @@ async function scanReviewVelocity(googleData: any): Promise<ModuleResult> {
       weight: 5,
       gapMessage: 'Practice not found on Google. Cannot analyze review velocity.',
       data: {
-        recentCount90Days: 0,
+        recentCount30Days: 0,
         source: 'google_places'
       },
     };
@@ -234,15 +235,17 @@ async function scanReviewVelocity(googleData: any): Promise<ModuleResult> {
 
   const totalReviews = googleData.review_count || 0;
 
-  // Estimate recent reviews: assume 20-30% of reviews are recent if they have a good count
-  // This is a rough estimate since API doesn't provide dates
-  let recentCount90Days = 0;
-  if (totalReviews >= 100) recentCount90Days = 5;
-  else if (totalReviews >= 50) recentCount90Days = 3;
-  else if (totalReviews >= 25) recentCount90Days = 2;
-  else recentCount90Days = 1;
+  // Estimate recent reviews in last 30 days based on total count
+  // This is a rough estimate since API doesn't provide review dates
+  // Practices with good velocity should have 3+ reviews per month
+  let recentCount30Days = 0;
+  if (totalReviews >= 100) recentCount30Days = 4; // Very active practice
+  else if (totalReviews >= 50) recentCount30Days = 3; // Active practice
+  else if (totalReviews >= 25) recentCount30Days = 2; // Moderate activity
+  else if (totalReviews >= 10) recentCount30Days = 1; // Low activity
+  else recentCount30Days = 0; // Inactive
 
-  const { score, gapMessage } = scoring.calculateReviewVelocityScore(recentCount90Days);
+  const { score, gapMessage } = scoring.calculateReviewVelocityScore(recentCount30Days);
 
   return {
     name: 'Review Velocity',
@@ -252,7 +255,7 @@ async function scanReviewVelocity(googleData: any): Promise<ModuleResult> {
     weight: 5,
     gapMessage: gapMessage + ' (Estimated based on total review count)',
     data: {
-      recentCount90Days,
+      recentCount30Days,
       estimatedFrom: totalReviews,
       source: 'google_places',
     },
