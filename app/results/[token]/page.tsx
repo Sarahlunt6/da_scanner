@@ -59,31 +59,10 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
   }
 
   const getScoreTier = (score: number) => {
-    if (score >= 90) return { label: "Elite Performance", color: "text-green-700", bg: "bg-green-50", accent: "bg-green-600" };
-    if (score >= 75) return { label: "Strong Performer", color: "text-blue-700", bg: "bg-blue-50", accent: "bg-blue-600" };
-    if (score >= 60) return { label: "Opportunity for Growth", color: "text-orange-700", bg: "bg-orange-50", accent: "bg-orange-600" };
-    return { label: "Critical Attention Required", color: "text-red-700", bg: "bg-red-50", accent: "bg-red-600" };
-  };
-
-  const getStatusColor = (status: string) => {
-    if (status === "excellent") return "text-green-700";
-    if (status === "good") return "text-blue-700";
-    if (status === "needs_work") return "text-orange-700";
-    return "text-red-700";
-  };
-
-  const getModuleDescription = (moduleName: string): string => {
-    const descriptions: { [key: string]: string } = {
-      "Profit Zone": "Your Google Business Profile category setup. Are you in the right profit-generating categories for your services?",
-      "Product Shelf": "The services listed on your Google Business Profile. More = better visibility for specific searches.",
-      "Review Boost": "Your overall Google review rating and total review count. This is your trust score.",
-      "Review Velocity": "How consistently you're getting new reviews. Sporadic reviews signal an inactive practice to Google.",
-      "NAP Consistency": "Is your Name, Address, and Phone number identical across all directories? Inconsistencies confuse Google and hurt rankings.",
-      "Core 30 Authority Asset": "Do you have the 30 essential service pages that establish topical authority for dental searches?",
-      "Technical Trust Signals": "Your website's technical health: SSL, mobile speed, schema markup, and load time.",
-      "Directory Dominance": "Are you listed on the key dental directories that Google uses to verify your legitimacy?",
-    };
-    return descriptions[moduleName] || "";
+    if (score >= 90) return { label: "Elite Performance", color: "text-green-700", bgColor: "bg-green-50", borderColor: "border-green-400" };
+    if (score >= 75) return { label: "Strong Performance", color: "text-blue-700", bgColor: "bg-blue-50", borderColor: "border-blue-400" };
+    if (score >= 60) return { label: "Opportunity for Growth", color: "text-orange-700", bgColor: "bg-orange-50", borderColor: "border-orange-400" };
+    return { label: "Critical Attention Required", color: "text-red-700", bgColor: "bg-red-50", borderColor: "border-red-400" };
   };
 
   const tier = getScoreTier(scan.overall_score || 0);
@@ -95,265 +74,257 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-        {/* Header with Opkie branding */}
-        <div className="bg-primary text-white py-6 shadow-md">
-          <div className="container mx-auto px-4 max-w-5xl">
+      <div className="min-h-screen bg-gray-50">
+        {/* Branded Header */}
+        <div className="bg-gradient-to-r from-primary to-primary/95 shadow-lg">
+          <div className="container mx-auto px-6 py-8 max-w-6xl">
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-2xl font-bold">Digital Authority Report</h1>
-                <p className="text-primary-light mt-1 text-sm">Powered by Opkie</p>
+                <div className="text-secondary text-sm font-bold tracking-wider mb-2">OPKIE</div>
+                <h1 className="text-3xl font-extrabold text-white">Digital Authority Report</h1>
               </div>
               <div className="text-right">
-                <div className="text-sm text-primary-light">Practice</div>
-                <div className="font-semibold text-lg">{scan.practice_name}</div>
+                <div className="text-white/80 text-sm font-medium mb-1">Practice Name</div>
+                <div className="text-white font-bold text-xl">{scan.practice_name}</div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="container mx-auto px-4 py-12 max-w-5xl">
-          {/* Executive Summary */}
-          <div className="bg-white rounded-lg shadow-lg border-t-4 border-secondary mb-8 overflow-hidden">
-            <div className="p-8 md:p-12">
-              <h2 className="text-2xl font-bold text-gray-900 mb-8 pb-4 border-b-2 border-gray-100">
-                Executive Summary
-              </h2>
+        <div className="container mx-auto px-6 py-10 max-w-6xl">
+          {/* Executive Summary Card */}
+          <div className="bg-white rounded-xl shadow-lg mb-8 overflow-hidden border border-gray-200">
+            <div className="border-b-4 border-secondary px-8 py-6 bg-gradient-to-r from-gray-50 to-white">
+              <h2 className="text-2xl font-bold text-gray-900">Executive Summary</h2>
+              <p className="text-gray-600 mt-1">Overall Digital Authority Performance</p>
+            </div>
 
-              <div className="grid md:grid-cols-2 gap-8 items-center mb-8">
-                {/* Score Circle */}
-                <div className="flex justify-center">
-                  <div className="relative">
-                    <svg className="w-64 h-64 transform -rotate-90">
+            <div className="p-8">
+              <div className="grid lg:grid-cols-5 gap-8 mb-10">
+                {/* Score Display */}
+                <div className="lg:col-span-2 flex flex-col items-center justify-center">
+                  <div className="relative w-56 h-56 mb-4">
+                    <svg className="w-56 h-56 transform -rotate-90">
                       <circle
-                        cx="128"
-                        cy="128"
-                        r="110"
+                        cx="112"
+                        cy="112"
+                        r="100"
                         stroke="#E5E7EB"
-                        strokeWidth="16"
+                        strokeWidth="20"
                         fill="none"
                       />
                       <circle
-                        cx="128"
-                        cy="128"
-                        r="110"
+                        cx="112"
+                        cy="112"
+                        r="100"
                         stroke="#FFD147"
-                        strokeWidth="16"
+                        strokeWidth="20"
                         fill="none"
-                        strokeDasharray={`${(scan.overall_score / 100) * 691.15} 691.15`}
+                        strokeDasharray={`${(scan.overall_score / 100) * 628.32} 628.32`}
                         strokeLinecap="round"
-                        className="transition-all duration-1000"
                       />
                     </svg>
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="text-center">
-                        <div className="text-6xl font-extrabold text-primary">{scan.overall_score}</div>
-                        <div className="text-2xl text-gray-600 font-semibold">/ 100</div>
-                        <div className={`text-sm font-bold mt-2 ${tier.color}`}>{tier.label}</div>
+                        <div className="text-6xl font-black text-gray-900">{scan.overall_score}</div>
+                        <div className="text-2xl text-gray-500 font-bold mt-1">/ 100</div>
                       </div>
                     </div>
                   </div>
+                  <div className={`px-6 py-3 rounded-full ${tier.bgColor} border-2 ${tier.borderColor}`}>
+                    <div className={`text-sm font-bold ${tier.color} text-center`}>{tier.label}</div>
+                  </div>
                 </div>
 
-                {/* Performance Metrics */}
-                <div className="space-y-4">
-                  <div className="bg-gradient-to-r from-primary/5 to-transparent p-4 rounded-lg border-l-4 border-primary">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-semibold text-gray-700">Phase 1: Local Foundation</span>
-                      <span className="text-2xl font-bold text-primary">{scan.phase1_score}%</span>
+                {/* Phase Metrics */}
+                <div className="lg:col-span-3 space-y-6">
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div>
+                        <div className="text-sm font-bold text-gray-500 uppercase tracking-wide">Phase 1</div>
+                        <div className="text-lg font-bold text-gray-900">Local Foundation</div>
+                      </div>
+                      <div className="text-3xl font-black text-primary">{scan.phase1_score}%</div>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-3">
+                    <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
                       <div
-                        className="bg-primary h-3 rounded-full transition-all duration-1000"
+                        className="bg-gradient-to-r from-primary to-primary/80 h-4 rounded-full transition-all duration-1000"
                         style={{ width: `${scan.phase1_score}%` }}
                       ></div>
                     </div>
-                    <div className="text-xs text-gray-500 mt-1">50% of total score</div>
+                    <div className="text-xs text-gray-500 mt-2 font-medium">Worth 50% of total score</div>
                   </div>
 
-                  <div className="bg-gradient-to-r from-primary/5 to-transparent p-4 rounded-lg border-l-4 border-primary">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-semibold text-gray-700">Phase 2: Digital Assets</span>
-                      <span className="text-2xl font-bold text-primary">{scan.phase2_score}%</span>
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div>
+                        <div className="text-sm font-bold text-gray-500 uppercase tracking-wide">Phase 2</div>
+                        <div className="text-lg font-bold text-gray-900">Digital Assets</div>
+                      </div>
+                      <div className="text-3xl font-black text-primary">{scan.phase2_score}%</div>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-3">
+                    <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
                       <div
-                        className="bg-primary h-3 rounded-full transition-all duration-1000"
+                        className="bg-gradient-to-r from-primary to-primary/80 h-4 rounded-full transition-all duration-1000"
                         style={{ width: `${scan.phase2_score}%` }}
                       ></div>
                     </div>
-                    <div className="text-xs text-gray-500 mt-1">35% of total score</div>
+                    <div className="text-xs text-gray-500 mt-2 font-medium">Worth 35% of total score</div>
                   </div>
 
-                  <div className="bg-gradient-to-r from-primary/5 to-transparent p-4 rounded-lg border-l-4 border-primary">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-semibold text-gray-700">Phase 3: Market Presence</span>
-                      <span className="text-2xl font-bold text-primary">{scan.phase3_score}%</span>
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div>
+                        <div className="text-sm font-bold text-gray-500 uppercase tracking-wide">Phase 3</div>
+                        <div className="text-lg font-bold text-gray-900">Market Presence</div>
+                      </div>
+                      <div className="text-3xl font-black text-primary">{scan.phase3_score}%</div>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-3">
+                    <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
                       <div
-                        className="bg-primary h-3 rounded-full transition-all duration-1000"
+                        className="bg-gradient-to-r from-primary to-primary/80 h-4 rounded-full transition-all duration-1000"
                         style={{ width: `${scan.phase3_score}%` }}
                       ></div>
                     </div>
-                    <div className="text-xs text-gray-500 mt-1">15% of total score</div>
+                    <div className="text-xs text-gray-500 mt-2 font-medium">Worth 15% of total score</div>
                   </div>
                 </div>
               </div>
 
-              {/* Benchmark Comparison */}
-              <div className={`${tier.bg} rounded-lg p-6 border border-gray-200`}>
-                <h3 className="font-bold text-gray-900 mb-4 text-center">Industry Benchmark</h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className={`text-center p-4 rounded-lg transition-all ${scan.overall_score >= 90 ? 'bg-white shadow-md ring-2 ring-green-500' : 'bg-white/60'}`}>
-                    <div className="text-3xl font-bold text-green-600 mb-1">90+</div>
-                    <div className="text-sm font-semibold text-gray-700">Elite</div>
-                    <div className="text-xs text-gray-500 mt-1">Top 5%</div>
+              {/* Industry Benchmark */}
+              <div className="border-t-2 border-gray-100 pt-8">
+                <h3 className="text-lg font-bold text-gray-900 mb-6 text-center">Industry Benchmark</h3>
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div className={`text-center p-6 rounded-lg border-2 transition-all ${scan.overall_score >= 90 ? 'bg-green-50 border-green-500 shadow-lg transform scale-105' : 'bg-gray-50 border-gray-200'}`}>
+                    <div className="text-4xl font-black text-green-600 mb-2">90+</div>
+                    <div className="text-sm font-bold text-gray-900">Elite</div>
+                    <div className="text-xs text-gray-600 mt-1">Top 5%</div>
                   </div>
-                  <div className={`text-center p-4 rounded-lg transition-all ${scan.overall_score >= 75 && scan.overall_score < 90 ? 'bg-white shadow-md ring-2 ring-blue-500' : 'bg-white/60'}`}>
-                    <div className="text-3xl font-bold text-blue-600 mb-1">75-89</div>
-                    <div className="text-sm font-semibold text-gray-700">Strong</div>
-                    <div className="text-xs text-gray-500 mt-1">Top 20%</div>
+                  <div className={`text-center p-6 rounded-lg border-2 transition-all ${scan.overall_score >= 75 && scan.overall_score < 90 ? 'bg-blue-50 border-blue-500 shadow-lg transform scale-105' : 'bg-gray-50 border-gray-200'}`}>
+                    <div className="text-4xl font-black text-blue-600 mb-2">75-89</div>
+                    <div className="text-sm font-bold text-gray-900">Strong</div>
+                    <div className="text-xs text-gray-600 mt-1">Top 20%</div>
                   </div>
-                  <div className={`text-center p-4 rounded-lg transition-all ${scan.overall_score >= 60 && scan.overall_score < 75 ? 'bg-white shadow-md ring-2 ring-orange-500' : 'bg-white/60'}`}>
-                    <div className="text-3xl font-bold text-orange-600 mb-1">60-74</div>
-                    <div className="text-sm font-semibold text-gray-700">Average</div>
-                    <div className="text-xs text-gray-500 mt-1">40%</div>
+                  <div className={`text-center p-6 rounded-lg border-2 transition-all ${scan.overall_score >= 60 && scan.overall_score < 75 ? 'bg-orange-50 border-orange-500 shadow-lg transform scale-105' : 'bg-gray-50 border-gray-200'}`}>
+                    <div className="text-4xl font-black text-orange-600 mb-2">60-74</div>
+                    <div className="text-sm font-bold text-gray-900">Average</div>
+                    <div className="text-xs text-gray-600 mt-1">40%</div>
                   </div>
-                  <div className={`text-center p-4 rounded-lg transition-all ${scan.overall_score < 60 ? 'bg-white shadow-md ring-2 ring-red-500' : 'bg-white/60'}`}>
-                    <div className="text-3xl font-bold text-red-600 mb-1">&lt;60</div>
-                    <div className="text-sm font-semibold text-gray-700">At Risk</div>
-                    <div className="text-xs text-gray-500 mt-1">Bottom 40%</div>
+                  <div className={`text-center p-6 rounded-lg border-2 transition-all ${scan.overall_score < 60 ? 'bg-red-50 border-red-500 shadow-lg transform scale-105' : 'bg-gray-50 border-gray-200'}`}>
+                    <div className="text-4xl font-black text-red-600 mb-2">&lt;60</div>
+                    <div className="text-sm font-bold text-gray-900">At Risk</div>
+                    <div className="text-xs text-gray-600 mt-1">Bottom 40%</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Phase Details */}
-          {/* Phase 1 */}
-          <div className="bg-white rounded-lg shadow-lg border-l-4 border-secondary mb-6 overflow-hidden">
-            <div className="bg-gradient-to-r from-primary to-primary/90 text-white p-6">
+          {/* Phase 1 Details */}
+          <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
+            <div className="bg-gradient-to-r from-primary to-primary/95 px-8 py-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-sm font-semibold text-primary-light mb-1">PHASE 1</div>
-                  <h3 className="text-2xl font-bold">Local Foundation</h3>
-                  <p className="text-sm text-primary-light mt-1">Google Business Profile & Review System</p>
+                  <div className="text-secondary text-xs font-bold uppercase tracking-wider mb-1">Phase 1</div>
+                  <h3 className="text-2xl font-bold text-white">Local Foundation</h3>
+                  <p className="text-white/90 text-sm mt-1">Google Business Profile & Review System</p>
                 </div>
-                <div className="text-right">
-                  <div className="text-5xl font-extrabold">{scan.phase1_score}</div>
-                  <div className="text-sm">out of 100</div>
+                <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-4">
+                  <div className="text-5xl font-black text-white text-center">{scan.phase1_score}</div>
+                  <div className="text-white/90 text-sm font-medium text-center mt-1">Score</div>
                 </div>
               </div>
             </div>
-            <div className="p-6 md:p-8">
-              <div className="space-y-4">
+
+            <div className="p-8">
+              <div className="space-y-5">
                 {phase1Modules.map((module, idx) => (
-                  <div key={idx} className="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow">
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <h4 className="font-bold text-lg text-gray-900">{module.module_name}</h4>
-                          <div className={`px-3 py-1 rounded-full text-sm font-bold ${module.score >= 80 ? 'bg-green-100 text-green-700' : module.score >= 60 ? 'bg-orange-100 text-orange-700' : 'bg-red-100 text-red-700'}`}>
-                            {module.score}%
-                          </div>
-                        </div>
-                        {getModuleDescription(module.module_name) && (
-                          <p className="text-sm text-gray-600 mb-3">{getModuleDescription(module.module_name)}</p>
-                        )}
-                        {module.gap_message && (
-                          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-                            <p className="text-sm text-gray-800 font-medium">{module.gap_message}</p>
-                          </div>
-                        )}
+                  <div key={idx} className="bg-gray-50 border-2 border-gray-200 rounded-lg p-6 hover:border-secondary hover:shadow-md transition-all">
+                    <div className="flex items-start justify-between gap-6 mb-4">
+                      <h4 className="font-bold text-xl text-gray-900 flex-1">{module.module_name}</h4>
+                      <div className={`px-4 py-2 rounded-lg font-black text-2xl ${module.score >= 80 ? 'bg-green-100 text-green-700' : module.score >= 60 ? 'bg-orange-100 text-orange-700' : 'bg-red-100 text-red-700'}`}>
+                        {module.score}%
                       </div>
                     </div>
+                    {module.gap_message && (
+                      <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r">
+                        <p className="text-gray-900 font-medium leading-relaxed">{module.gap_message}</p>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Phase 2 */}
-          <div className="bg-white rounded-lg shadow-lg border-l-4 border-secondary mb-6 overflow-hidden">
-            <div className="bg-gradient-to-r from-primary to-primary/90 text-white p-6">
+          {/* Phase 2 Details */}
+          <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
+            <div className="bg-gradient-to-r from-primary to-primary/95 px-8 py-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-sm font-semibold text-primary-light mb-1">PHASE 2</div>
-                  <h3 className="text-2xl font-bold">Digital Assets</h3>
-                  <p className="text-sm text-primary-light mt-1">Website Authority & Technical Foundation</p>
+                  <div className="text-secondary text-xs font-bold uppercase tracking-wider mb-1">Phase 2</div>
+                  <h3 className="text-2xl font-bold text-white">Digital Assets</h3>
+                  <p className="text-white/90 text-sm mt-1">Website Authority & Technical Foundation</p>
                 </div>
-                <div className="text-right">
-                  <div className="text-5xl font-extrabold">{scan.phase2_score}</div>
-                  <div className="text-sm">out of 100</div>
+                <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-4">
+                  <div className="text-5xl font-black text-white text-center">{scan.phase2_score}</div>
+                  <div className="text-white/90 text-sm font-medium text-center mt-1">Score</div>
                 </div>
               </div>
             </div>
-            <div className="p-6 md:p-8">
-              <div className="space-y-4">
+
+            <div className="p-8">
+              <div className="space-y-5">
                 {phase2Modules.map((module, idx) => (
-                  <div key={idx} className="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow">
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <h4 className="font-bold text-lg text-gray-900">{module.module_name}</h4>
-                          <div className={`px-3 py-1 rounded-full text-sm font-bold ${module.score >= 80 ? 'bg-green-100 text-green-700' : module.score >= 60 ? 'bg-orange-100 text-orange-700' : 'bg-red-100 text-red-700'}`}>
-                            {module.score}%
-                          </div>
-                        </div>
-                        {getModuleDescription(module.module_name) && (
-                          <p className="text-sm text-gray-600 mb-3">{getModuleDescription(module.module_name)}</p>
-                        )}
-                        {module.gap_message && (
-                          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-                            <p className="text-sm text-gray-800 font-medium">{module.gap_message}</p>
-                          </div>
-                        )}
+                  <div key={idx} className="bg-gray-50 border-2 border-gray-200 rounded-lg p-6 hover:border-secondary hover:shadow-md transition-all">
+                    <div className="flex items-start justify-between gap-6 mb-4">
+                      <h4 className="font-bold text-xl text-gray-900 flex-1">{module.module_name}</h4>
+                      <div className={`px-4 py-2 rounded-lg font-black text-2xl ${module.score >= 80 ? 'bg-green-100 text-green-700' : module.score >= 60 ? 'bg-orange-100 text-orange-700' : 'bg-red-100 text-red-700'}`}>
+                        {module.score}%
                       </div>
                     </div>
+                    {module.gap_message && (
+                      <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r">
+                        <p className="text-gray-900 font-medium leading-relaxed">{module.gap_message}</p>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Phase 3 */}
-          <div className="bg-white rounded-lg shadow-lg border-l-4 border-secondary mb-8 overflow-hidden">
-            <div className="bg-gradient-to-r from-primary to-primary/90 text-white p-6">
+          {/* Phase 3 Details */}
+          <div className="bg-white rounded-xl shadow-lg mb-8 overflow-hidden border border-gray-200">
+            <div className="bg-gradient-to-r from-primary to-primary/95 px-8 py-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-sm font-semibold text-primary-light mb-1">PHASE 3</div>
-                  <h3 className="text-2xl font-bold">Market Presence</h3>
-                  <p className="text-sm text-primary-light mt-1">Directory Coverage & Review Consistency</p>
+                  <div className="text-secondary text-xs font-bold uppercase tracking-wider mb-1">Phase 3</div>
+                  <h3 className="text-2xl font-bold text-white">Market Presence</h3>
+                  <p className="text-white/90 text-sm mt-1">Directory Coverage & Review Consistency</p>
                 </div>
-                <div className="text-right">
-                  <div className="text-5xl font-extrabold">{scan.phase3_score}</div>
-                  <div className="text-sm">out of 100</div>
+                <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-4">
+                  <div className="text-5xl font-black text-white text-center">{scan.phase3_score}</div>
+                  <div className="text-white/90 text-sm font-medium text-center mt-1">Score</div>
                 </div>
               </div>
             </div>
-            <div className="p-6 md:p-8">
-              <div className="space-y-4">
+
+            <div className="p-8">
+              <div className="space-y-5">
                 {phase3Modules.map((module, idx) => (
-                  <div key={idx} className="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow">
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <h4 className="font-bold text-lg text-gray-900">{module.module_name}</h4>
-                          <div className={`px-3 py-1 rounded-full text-sm font-bold ${module.score >= 80 ? 'bg-green-100 text-green-700' : module.score >= 60 ? 'bg-orange-100 text-orange-700' : 'bg-red-100 text-red-700'}`}>
-                            {module.score}%
-                          </div>
-                        </div>
-                        {getModuleDescription(module.module_name) && (
-                          <p className="text-sm text-gray-600 mb-3">{getModuleDescription(module.module_name)}</p>
-                        )}
-                        {module.gap_message && (
-                          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-                            <p className="text-sm text-gray-800 font-medium">{module.gap_message}</p>
-                          </div>
-                        )}
+                  <div key={idx} className="bg-gray-50 border-2 border-gray-200 rounded-lg p-6 hover:border-secondary hover:shadow-md transition-all">
+                    <div className="flex items-start justify-between gap-6 mb-4">
+                      <h4 className="font-bold text-xl text-gray-900 flex-1">{module.module_name}</h4>
+                      <div className={`px-4 py-2 rounded-lg font-black text-2xl ${module.score >= 80 ? 'bg-green-100 text-green-700' : module.score >= 60 ? 'bg-orange-100 text-orange-700' : 'bg-red-100 text-red-700'}`}>
+                        {module.score}%
                       </div>
                     </div>
+                    {module.gap_message && (
+                      <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r">
+                        <p className="text-gray-900 font-medium leading-relaxed">{module.gap_message}</p>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -361,43 +332,43 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
           </div>
 
           {/* Call to Action */}
-          <div className="bg-gradient-to-br from-primary via-primary to-primary/90 rounded-lg shadow-xl p-8 md:p-12 text-white">
-            <div className="max-w-3xl mx-auto text-center">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="bg-gradient-to-br from-primary via-primary to-primary/95 rounded-xl shadow-2xl overflow-hidden border-4 border-secondary">
+            <div className="px-8 py-12 text-center">
+              <h3 className="text-4xl font-black text-white mb-4">
                 Ready to Improve Your Score?
               </h3>
-              <p className="text-xl mb-8 text-primary-light">
+              <p className="text-xl text-white/95 mb-10 max-w-3xl mx-auto font-medium">
                 Schedule a complimentary 15-minute strategy session to receive a personalized action plan for dominating your local market.
               </p>
 
-              <div className="bg-white rounded-xl p-6 mb-8">
+              <div className="bg-white rounded-xl p-8 mb-10 max-w-2xl mx-auto shadow-2xl">
                 <CalendarWidget className="text-center" />
               </div>
 
-              <div className="grid md:grid-cols-3 gap-6 text-center">
+              <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                 <div className="flex flex-col items-center">
-                  <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mb-3">
-                    <svg className="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mb-4 shadow-lg">
+                    <svg className="w-10 h-10 text-primary" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <div className="font-semibold">No Long-Term Contracts</div>
+                  <div className="text-white font-bold text-lg">No Long-Term Contracts</div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mb-3">
-                    <svg className="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mb-4 shadow-lg">
+                    <svg className="w-10 h-10 text-primary" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <div className="font-semibold">2X ROI Guarantee</div>
+                  <div className="text-white font-bold text-lg">2X ROI Guarantee</div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mb-3">
-                    <svg className="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mb-4 shadow-lg">
+                    <svg className="w-10 h-10 text-primary" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <div className="font-semibold">Exclusive Territory</div>
+                  <div className="text-white font-bold text-lg">Exclusive Territory</div>
                 </div>
               </div>
             </div>
