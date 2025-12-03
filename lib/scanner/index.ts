@@ -197,13 +197,17 @@ async function scanReviewHealth(googleData: any): Promise<ModuleResult> {
 
   const { score, gapMessage } = scoring.calculateReviewHealthScore(rating, totalReviews);
 
+  // Build descriptive gap message
+  const description = `Your overall Google review rating (${rating} stars) and total review count (${totalReviews} reviews). This is your trust score.`;
+  const fullGapMessage = gapMessage ? `${description} ${gapMessage}` : description;
+
   return {
     name: 'Review Boost',
     phase: 1,
     score,
     status: scoring.getStatus(score),
     weight: 15,
-    gapMessage,
+    gapMessage: fullGapMessage,
     data: {
       rating,
       totalReviews,
