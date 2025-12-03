@@ -13,7 +13,7 @@ import { crawlWebsiteForCore30 } from "../scraping/website-crawler";
  * This will be called by the background job processor
  */
 export async function performScan(input: ScanInput): Promise<ScanResult> {
-  console.log(`Starting scan for ${input.practiceName}...`);
+  console.log(`🚀 SCANNER V2: Starting scan for ${input.practiceName}...`);
 
   // Fetch Google Places data once for all Phase 1 modules
   console.log('Fetching Google Places data...');
