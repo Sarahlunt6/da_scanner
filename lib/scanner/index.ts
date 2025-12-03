@@ -16,21 +16,39 @@ export async function performScan(input: ScanInput): Promise<ScanResult> {
   console.log(`Starting scan for ${input.practiceName}...`);
 
   // Fetch Google Places data once for all Phase 1 modules
+  console.log('Fetching Google Places data...');
   const googleData = await searchGooglePlaces(input.practiceName, input.city, input.state);
+  console.log('✅ Google Places data fetched');
 
   // Phase 1 Modules
+  console.log('=== PHASE 1: Starting ===');
   const profitZoneResult = await scanProfitZone(googleData);
+  console.log('✅ Profit Zone completed');
   const productShelfResult = await scanProductShelf(googleData);
+  console.log('✅ Product Shelf completed');
   const reviewHealthResult = await scanReviewHealth(googleData);
+  console.log('✅ Review Health completed');
   const reviewVelocityResult = await scanReviewVelocity(googleData);
+  console.log('✅ Review Velocity completed');
   const napResult = await scanNAPConsistencyModule(input.practiceName, input.websiteUrl, input.city, input.state);
+  console.log('✅ NAP Consistency completed');
+  console.log('=== PHASE 1: Complete ===');
 
   // Phase 2 Modules
+  console.log('=== PHASE 2: Starting ===');
+  console.log('Running Core 30 scan...');
   const core30Result = await scanCore30(input.websiteUrl);
+  console.log('✅ Core 30 completed, score:', core30Result.score);
+  console.log('Running Technical Trust scan...');
   const technicalResult = await scanTechnicalTrust(input.websiteUrl);
+  console.log('✅ Technical Trust completed, score:', technicalResult.score);
+  console.log('=== PHASE 2: Complete ===');
 
   // Phase 3 Modules
+  console.log('=== PHASE 3: Starting ===');
   const directoryResult = await scanDirectoryDominance(input.practiceName);
+  console.log('✅ Directory Dominance completed, score:', directoryResult.score);
+  console.log('=== PHASE 3: Complete ===');
 
   // Combine all modules
   const allModules: ModuleResult[] = [
