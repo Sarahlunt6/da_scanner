@@ -7,8 +7,10 @@ import { sendResultsEmail } from "@/lib/email/service";
 export const maxDuration = 300;
 
 export async function POST(request: Request) {
+  console.log('🔵 /api/process-scan endpoint called!');
   try {
     const { scanId } = await request.json();
+    console.log('📝 Received scanId:', scanId);
 
     if (!scanId) {
       return NextResponse.json({ error: "scanId is required" }, { status: 400 });
@@ -22,8 +24,12 @@ export async function POST(request: Request) {
       .single();
 
     if (fetchError || !scan) {
+      console.error('❌ Scan not found in database for scanId:', scanId);
       return NextResponse.json({ error: "Scan not found" }, { status: 404 });
     }
+
+    console.log('✅ Scan found in database:', scan.practice_name);
+    console.log('🚀 About to call performScan()...');
 
     // Perform the actual scan
     const scanResult = await performScan({
