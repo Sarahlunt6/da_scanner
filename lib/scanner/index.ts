@@ -247,13 +247,18 @@ async function scanReviewVelocity(googleData: any): Promise<ModuleResult> {
 
   const { score, gapMessage } = scoring.calculateReviewVelocityScore(recentCount30Days);
 
+  // Build descriptive gap message
+  const fullGapMessage = score === 100
+    ? gapMessage
+    : `Checking for 3+ recent reviews in the last 30 days. ${gapMessage}`;
+
   return {
     name: 'Review Velocity',
     phase: 1,
     score,
     status: scoring.getStatus(score),
     weight: 5,
-    gapMessage: gapMessage + ' (Estimated based on total review count)',
+    gapMessage: fullGapMessage,
     data: {
       recentCount30Days,
       estimatedFrom: totalReviews,
