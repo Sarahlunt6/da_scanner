@@ -76,16 +76,16 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
     <>
       <div className="min-h-screen bg-gray-50">
         {/* Branded Header */}
-        <div className="bg-gradient-to-r from-primary to-primary/95 shadow-lg">
+        <div style={{ backgroundColor: '#2C5F7C' }} className="shadow-lg">
           <div className="container mx-auto px-6 py-8 max-w-6xl">
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-secondary text-sm font-bold tracking-wider mb-2">OPKIE</div>
-                <h1 className="text-3xl font-extrabold text-white">Digital Authority Report</h1>
+                <div style={{ color: '#FFD147' }} className="text-sm font-bold tracking-wider mb-2">OPKIE</div>
+                <h1 className="text-3xl font-extrabold" style={{ color: '#FFFFFF' }}>Digital Authority Report</h1>
               </div>
               <div className="text-right">
-                <div className="text-white/80 text-sm font-medium mb-1">Practice Name</div>
-                <div className="text-white font-bold text-xl">{scan.practice_name}</div>
+                <div className="text-sm font-medium mb-1" style={{ color: '#E0E7EE' }}>Practice Name</div>
+                <div className="font-bold text-xl" style={{ color: '#FFFFFF' }}>{scan.practice_name}</div>
               </div>
             </div>
           </div>
@@ -222,16 +222,16 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
 
           {/* Phase 1 Details */}
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
-            <div className="bg-gradient-to-r from-primary to-primary/95 px-8 py-6">
+            <div style={{ backgroundColor: '#2C5F7C' }} className="px-8 py-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-secondary text-xs font-bold uppercase tracking-wider mb-1">Phase 1</div>
-                  <h3 className="text-2xl font-bold text-white">Local Foundation</h3>
-                  <p className="text-white/90 text-sm mt-1">Google Business Profile & Review System</p>
+                  <div style={{ color: '#FFD147' }} className="text-xs font-bold uppercase tracking-wider mb-1">Phase 1</div>
+                  <h3 className="text-2xl font-bold" style={{ color: '#FFFFFF' }}>Local Foundation</h3>
+                  <p className="text-sm mt-1" style={{ color: '#E0E7EE' }}>Google Business Profile & Review System</p>
                 </div>
-                <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-4">
-                  <div className="text-5xl font-black text-white text-center">{scan.phase1_score}</div>
-                  <div className="text-white/90 text-sm font-medium text-center mt-1">Score</div>
+                <div className="bg-white rounded-lg px-6 py-4 shadow-lg">
+                  <div className="text-5xl font-black text-center" style={{ color: '#2C5F7C' }}>{scan.phase1_score}</div>
+                  <div className="text-sm font-medium text-center mt-1 text-gray-600">Score</div>
                 </div>
               </div>
             </div>
@@ -259,16 +259,16 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
 
           {/* Phase 2 Details */}
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
-            <div className="bg-gradient-to-r from-primary to-primary/95 px-8 py-6">
+            <div style={{ backgroundColor: '#2C5F7C' }} className="px-8 py-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-secondary text-xs font-bold uppercase tracking-wider mb-1">Phase 2</div>
-                  <h3 className="text-2xl font-bold text-white">Digital Assets</h3>
-                  <p className="text-white/90 text-sm mt-1">Website Authority & Technical Foundation</p>
+                  <div style={{ color: '#FFD147' }} className="text-xs font-bold uppercase tracking-wider mb-1">Phase 2</div>
+                  <h3 className="text-2xl font-bold" style={{ color: '#FFFFFF' }}>Digital Assets</h3>
+                  <p className="text-sm mt-1" style={{ color: '#E0E7EE' }}>Website Authority & Technical Foundation</p>
                 </div>
-                <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-4">
-                  <div className="text-5xl font-black text-white text-center">{scan.phase2_score}</div>
-                  <div className="text-white/90 text-sm font-medium text-center mt-1">Score</div>
+                <div className="bg-white rounded-lg px-6 py-4 shadow-lg">
+                  <div className="text-5xl font-black text-center" style={{ color: '#2C5F7C' }}>{scan.phase2_score}</div>
+                  <div className="text-sm font-medium text-center mt-1 text-gray-600">Score</div>
                 </div>
               </div>
             </div>
@@ -296,16 +296,16 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
 
           {/* Phase 3 Details */}
           <div className="bg-white rounded-xl shadow-lg mb-8 overflow-hidden border border-gray-200">
-            <div className="bg-gradient-to-r from-primary to-primary/95 px-8 py-6">
+            <div style={{ backgroundColor: '#2C5F7C' }} className="px-8 py-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-secondary text-xs font-bold uppercase tracking-wider mb-1">Phase 3</div>
-                  <h3 className="text-2xl font-bold text-white">Market Presence</h3>
-                  <p className="text-white/90 text-sm mt-1">Directory Coverage & Review Consistency</p>
+                  <div style={{ color: '#FFD147' }} className="text-xs font-bold uppercase tracking-wider mb-1">Phase 3</div>
+                  <h3 className="text-2xl font-bold" style={{ color: '#FFFFFF' }}>Market Presence</h3>
+                  <p className="text-sm mt-1" style={{ color: '#E0E7EE' }}>Directory Coverage & Review Consistency</p>
                 </div>
-                <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-4">
-                  <div className="text-5xl font-black text-white text-center">{scan.phase3_score}</div>
-                  <div className="text-white/90 text-sm font-medium text-center mt-1">Score</div>
+                <div className="bg-white rounded-lg px-6 py-4 shadow-lg">
+                  <div className="text-5xl font-black text-center" style={{ color: '#2C5F7C' }}>{scan.phase3_score}</div>
+                  <div className="text-sm font-medium text-center mt-1 text-gray-600">Score</div>
                 </div>
               </div>
             </div>
@@ -332,12 +332,12 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
           </div>
 
           {/* Call to Action */}
-          <div className="bg-gradient-to-br from-primary via-primary to-primary/95 rounded-xl shadow-2xl overflow-hidden border-4 border-secondary">
+          <div style={{ backgroundColor: '#2C5F7C' }} className="rounded-xl shadow-2xl overflow-hidden border-4 border-secondary">
             <div className="px-8 py-12 text-center">
-              <h3 className="text-4xl font-black text-white mb-4">
+              <h3 className="text-4xl font-black mb-4" style={{ color: '#FFFFFF' }}>
                 Ready to Improve Your Score?
               </h3>
-              <p className="text-xl text-white/95 mb-10 max-w-3xl mx-auto font-medium">
+              <p className="text-xl mb-10 max-w-3xl mx-auto font-medium" style={{ color: '#E0E7EE' }}>
                 Schedule a complimentary 15-minute strategy session to receive a personalized action plan for dominating your local market.
               </p>
 
@@ -347,28 +347,28 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
 
               <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                 <div className="flex flex-col items-center">
-                  <div className="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mb-4 shadow-lg">
-                    <svg className="w-10 h-10 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <div style={{ backgroundColor: '#FFD147' }} className="w-20 h-20 rounded-full flex items-center justify-center mb-4 shadow-lg">
+                    <svg className="w-10 h-10" style={{ color: '#2C5F7C' }} fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <div className="text-white font-bold text-lg">No Long-Term Contracts</div>
+                  <div className="font-bold text-lg" style={{ color: '#FFFFFF' }}>No Long-Term Contracts</div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <div className="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mb-4 shadow-lg">
-                    <svg className="w-10 h-10 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <div style={{ backgroundColor: '#FFD147' }} className="w-20 h-20 rounded-full flex items-center justify-center mb-4 shadow-lg">
+                    <svg className="w-10 h-10" style={{ color: '#2C5F7C' }} fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <div className="text-white font-bold text-lg">2X ROI Guarantee</div>
+                  <div className="font-bold text-lg" style={{ color: '#FFFFFF' }}>2X ROI Guarantee</div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <div className="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mb-4 shadow-lg">
-                    <svg className="w-10 h-10 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <div style={{ backgroundColor: '#FFD147' }} className="w-20 h-20 rounded-full flex items-center justify-center mb-4 shadow-lg">
+                    <svg className="w-10 h-10" style={{ color: '#2C5F7C' }} fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <div className="text-white font-bold text-lg">Exclusive Territory</div>
+                  <div className="font-bold text-lg" style={{ color: '#FFFFFF' }}>Exclusive Territory</div>
                 </div>
               </div>
             </div>
