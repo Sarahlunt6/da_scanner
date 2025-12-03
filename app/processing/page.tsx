@@ -22,6 +22,8 @@ function ProcessingContent() {
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
 
   useEffect(() => {
+    console.log('Processing page loaded with token:', token, 'scanId:', scanId);
+
     // Show animated progress steps
     scanSteps.forEach((step, index) => {
       setTimeout(() => {
@@ -31,19 +33,24 @@ function ProcessingContent() {
 
     // Trigger the actual scan processing in the background
     if (scanId) {
+      console.log('Triggering scan processing for scanId:', scanId);
       fetch('/api/process-scan', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ scanId }),
-      }).then(response => {
+      }).then(async response => {
         if (response.ok) {
-          console.log('Scan processing started successfully');
+          const data = await response.json();
+          console.log('✅ Scan processing started successfully:', data);
         } else {
-          console.error('Failed to start scan processing');
+          const error = await response.text();
+          console.error('❌ Failed to start scan processing:', response.status, error);
         }
       }).catch(error => {
-        console.error('Error triggering scan:', error);
+        console.error('❌ Error triggering scan:', error);
       });
+    } else {
+      console.warn('⚠️ No scanId provided - scan will not be processed!');
     }
 
     // Redirect after all steps are complete (18 seconds total)
