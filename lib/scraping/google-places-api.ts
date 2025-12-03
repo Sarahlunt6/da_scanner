@@ -71,10 +71,12 @@ export async function searchGooglePlaces(
 
     // Find best match (first result or name match)
     let bestMatch = places[0];
+    const practiceNameLower = (practiceName || '').toLowerCase();
+
     for (const place of places) {
-      const placeName = place.displayName?.text?.toLowerCase() || '';
-      if (placeName.includes(practiceName.toLowerCase()) ||
-          practiceName.toLowerCase().includes(placeName)) {
+      const placeName = (place.displayName?.text || '').toLowerCase();
+      if (placeName && practiceNameLower &&
+          (placeName.includes(practiceNameLower) || practiceNameLower.includes(placeName))) {
         bestMatch = place;
         break;
       }
@@ -93,7 +95,8 @@ export async function searchGooglePlaces(
     };
 
   } catch (error: any) {
-    console.error('Google Places API error:', error.response?.data || error.message);
+    console.error('Error in search-places:', error);
+    console.error('Google Places API error details:', error.response?.data || error.message);
     return {
       name: '',
       address: '',
