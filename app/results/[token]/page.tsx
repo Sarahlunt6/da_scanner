@@ -34,14 +34,14 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
   if (scan.status === "processing") {
     return (
       <>
-        <div className="min-h-screen bg-gradient-to-br from-primary/5 via-white to-secondary/10 flex items-center justify-center">
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center">
           <div className="max-w-2xl mx-auto px-4 text-center">
-            <div className="bg-white rounded-3xl shadow-2xl p-12 border-2 border-secondary/20">
+            <div className="bg-white rounded-3xl shadow-xl p-12 border border-gray-200">
               <div className="relative w-20 h-20 mx-auto mb-6">
-                <div className="absolute inset-0 rounded-full border-4 border-secondary/30"></div>
+                <div className="absolute inset-0 rounded-full border-4 border-secondary"></div>
                 <div className="absolute inset-0 rounded-full border-4 border-primary border-t-transparent animate-spin"></div>
               </div>
-              <h1 className="text-3xl font-extrabold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent mb-6">
+              <h1 className="text-3xl font-extrabold text-primary mb-6">
                 Your scan is still processing...
               </h1>
               <p className="text-gray-700 text-lg">
@@ -63,16 +63,16 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
   }
 
   const getScoreTier = (score: number) => {
-    if (score >= 90) return { label: "Elite", color: "text-green-600", bg: "bg-gradient-to-br from-green-50 to-green-100", border: "border-green-300", ring: "ring-green-200" };
-    if (score >= 75) return { label: "Competitive", color: "text-primary", bg: "bg-gradient-to-br from-primary/10 to-primary/20", border: "border-primary/30", ring: "ring-primary/20" };
-    if (score >= 60) return { label: "Needs Work", color: "text-yellow-600", bg: "bg-gradient-to-br from-yellow-50 to-yellow-100", border: "border-yellow-300", ring: "ring-yellow-200" };
-    return { label: "Urgent Attention", color: "text-red-600", bg: "bg-gradient-to-br from-red-50 to-red-100", border: "border-red-300", ring: "ring-red-200" };
+    if (score >= 90) return { label: "Elite", color: "text-green-600", bg: "bg-green-50", border: "border-green-300" };
+    if (score >= 75) return { label: "Competitive", color: "text-blue-600", bg: "bg-blue-50", border: "border-blue-300" };
+    if (score >= 60) return { label: "Needs Work", color: "text-orange-600", bg: "bg-orange-50", border: "border-orange-300" };
+    return { label: "Urgent Attention", color: "text-red-600", bg: "bg-red-50", border: "border-red-300" };
   };
 
   const getStatusColor = (status: string) => {
     if (status === "excellent") return "text-green-600";
-    if (status === "good") return "text-primary";
-    if (status === "needs_work") return "text-yellow-600";
+    if (status === "good") return "text-blue-600";
+    if (status === "needs_work") return "text-orange-600";
     return "text-red-600";
   };
 
@@ -99,63 +99,61 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-primary/5 via-white to-secondary/10">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
         <div className="container mx-auto px-4 py-8 md:py-16">
           <div className="max-w-5xl mx-auto">
             {/* Header Section */}
-            <div className="bg-gradient-to-br from-white to-primary/5 rounded-3xl shadow-2xl p-6 md:p-12 mb-6 md:mb-8 text-center border-2 border-secondary/30 relative overflow-hidden">
-              {/* Decorative accent bars */}
-              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary via-secondary to-primary"></div>
-              <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-primary via-secondary to-primary"></div>
+            <div className="bg-white rounded-3xl shadow-xl p-6 md:p-12 mb-6 md:mb-8 text-center border-2 border-secondary relative overflow-hidden">
+              {/* Top accent bar */}
+              <div className="absolute top-0 left-0 w-full h-3 bg-gradient-to-r from-primary via-secondary to-primary"></div>
 
               <div className="inline-block mb-4 md:mb-6">
-                <span className="text-sm font-bold tracking-wide uppercase text-white bg-gradient-to-r from-primary to-primary/80 px-6 py-2.5 rounded-full shadow-lg">
+                <span className="text-sm font-bold tracking-wide uppercase text-white bg-primary px-6 py-2.5 rounded-full shadow-lg">
                   Digital Authority Report
                 </span>
               </div>
-              <h1 className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent mb-6 md:mb-8">
+
+              <h1 className="text-3xl md:text-5xl font-extrabold text-primary mb-6 md:mb-8">
                 {scan.practice_name}
               </h1>
 
-              {/* Circular score with ring */}
+              {/* Circular score */}
               <div className="mb-8 md:mb-10 relative">
-                <div className={`inline-flex items-center justify-center w-56 h-56 md:w-72 md:h-72 rounded-full ${tier.bg} border-8 ${tier.border} shadow-2xl mx-auto relative`}>
-                  {/* Animated ring */}
-                  <div className={`absolute inset-0 rounded-full ring-8 ${tier.ring} animate-pulse`}></div>
-
-                  <div className="text-center z-10">
-                    <div className="text-7xl md:text-9xl font-extrabold bg-gradient-to-br from-primary to-primary/60 bg-clip-text text-transparent leading-none mb-2">
+                <div className={`inline-flex items-center justify-center w-56 h-56 md:w-64 md:h-64 rounded-full ${tier.bg} border-8 ${tier.border} shadow-xl mx-auto`}>
+                  <div className="text-center">
+                    <div className="text-7xl md:text-8xl font-extrabold text-primary leading-none">
                       {scan.overall_score}
                     </div>
-                    <div className="text-3xl md:text-4xl font-bold text-primary/60">%</div>
+                    <div className="text-3xl md:text-4xl font-bold text-primary/70 mt-1">%</div>
                   </div>
                 </div>
-                <div className={`text-3xl md:text-4xl font-extrabold ${tier.color} mt-6 drop-shadow-sm`}>
+                <div className={`text-3xl md:text-4xl font-extrabold ${tier.color} mt-6`}>
                   {tier.label}
                 </div>
               </div>
 
-              <div className={`${tier.bg} border-2 ${tier.border} rounded-2xl p-6 md:p-8 mb-8 shadow-lg`}>
-                <h3 className="font-extrabold text-primary mb-5 md:mb-6 text-lg md:text-xl">
+              {/* Comparison section */}
+              <div className={`${tier.bg} border-2 ${tier.border} rounded-2xl p-6 md:p-8 mb-8`}>
+                <h3 className="font-bold text-gray-900 mb-5 md:mb-6 text-lg md:text-xl">
                   How You Compare to Other Practices
                 </h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                  <div className={`p-4 rounded-xl transition-all ${scan.overall_score >= 90 ? "bg-white shadow-lg ring-2 ring-green-400 scale-105" : "bg-white/50"}`}>
+                  <div className={`p-4 rounded-xl border-2 transition-all ${scan.overall_score >= 90 ? "bg-white border-green-500 shadow-lg scale-105" : "bg-white border-gray-200"}`}>
                     <div className="font-extrabold text-green-600 text-2xl md:text-3xl mb-1">90%+</div>
                     <div className="text-gray-700 font-semibold text-sm md:text-base">Top 5%</div>
                     <div className="text-xs md:text-sm text-gray-500 mt-1">Elite</div>
                   </div>
-                  <div className={`p-4 rounded-xl transition-all ${scan.overall_score >= 75 && scan.overall_score < 90 ? "bg-white shadow-lg ring-2 ring-primary scale-105" : "bg-white/50"}`}>
-                    <div className="font-extrabold text-primary text-2xl md:text-3xl mb-1">75-89%</div>
+                  <div className={`p-4 rounded-xl border-2 transition-all ${scan.overall_score >= 75 && scan.overall_score < 90 ? "bg-white border-blue-500 shadow-lg scale-105" : "bg-white border-gray-200"}`}>
+                    <div className="font-extrabold text-blue-600 text-2xl md:text-3xl mb-1">75-89%</div>
                     <div className="text-gray-700 font-semibold text-sm md:text-base">Top 20%</div>
                     <div className="text-xs md:text-sm text-gray-500 mt-1">Competitive</div>
                   </div>
-                  <div className={`p-4 rounded-xl transition-all ${scan.overall_score >= 60 && scan.overall_score < 75 ? "bg-white shadow-lg ring-2 ring-yellow-400 scale-105" : "bg-white/50"}`}>
-                    <div className="font-extrabold text-yellow-600 text-2xl md:text-3xl mb-1">60-74%</div>
+                  <div className={`p-4 rounded-xl border-2 transition-all ${scan.overall_score >= 60 && scan.overall_score < 75 ? "bg-white border-orange-500 shadow-lg scale-105" : "bg-white border-gray-200"}`}>
+                    <div className="font-extrabold text-orange-600 text-2xl md:text-3xl mb-1">60-74%</div>
                     <div className="text-gray-700 font-semibold text-sm md:text-base">40%</div>
                     <div className="text-xs md:text-sm text-gray-500 mt-1">Average</div>
                   </div>
-                  <div className={`p-4 rounded-xl transition-all ${scan.overall_score < 60 ? "bg-white shadow-lg ring-2 ring-red-400 scale-105" : "bg-white/50"}`}>
+                  <div className={`p-4 rounded-xl border-2 transition-all ${scan.overall_score < 60 ? "bg-white border-red-500 shadow-lg scale-105" : "bg-white border-gray-200"}`}>
                     <div className="font-extrabold text-red-600 text-2xl md:text-3xl mb-1">&lt;60%</div>
                     <div className="text-gray-700 font-semibold text-sm md:text-base">Bottom 40%</div>
                     <div className="text-xs md:text-sm text-gray-500 mt-1">Needs Help</div>
@@ -163,11 +161,12 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                 </div>
               </div>
 
-              <div className="mt-8 bg-gradient-to-r from-secondary/20 to-secondary/10 rounded-2xl p-6 md:p-8 border-2 border-secondary/30">
-                <h3 className="text-xl md:text-2xl font-extrabold text-primary mb-4">
+              {/* CTA section */}
+              <div className="bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-2xl p-6 md:p-8 border-2 border-secondary/50">
+                <h3 className="text-xl md:text-2xl font-bold text-primary mb-4">
                   Book Your Free Strategy Call
                 </h3>
-                <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
+                <p className="text-gray-700 mb-6 text-base">
                   Discover exactly how to close these gaps and dominate your local market
                 </p>
                 <CalendarWidget className="text-center" />
@@ -177,49 +176,49 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
             {/* Phase Breakdown */}
             <div className="space-y-6">
               {/* Phase 1 */}
-              <div className="bg-gradient-to-br from-white to-primary/5 rounded-3xl shadow-xl p-6 md:p-10 border-2 border-primary/20 hover:border-primary/40 transition-all">
+              <div className="bg-white rounded-3xl shadow-xl p-6 md:p-10 border-l-8 border-secondary">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 md:mb-8">
                   <div className="mb-4 md:mb-0">
                     <div className="inline-block mb-3">
-                      <span className="text-xs font-bold tracking-wider uppercase text-white bg-gradient-to-r from-primary to-primary/80 px-4 py-1.5 rounded-full">
+                      <span className="text-xs font-bold tracking-wider uppercase text-white bg-primary px-4 py-1.5 rounded-full">
                         Phase 1
                       </span>
                     </div>
-                    <h2 className="text-2xl md:text-4xl font-extrabold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                    <h2 className="text-2xl md:text-4xl font-extrabold text-primary">
                       The Foundational Sprint
                     </h2>
                     <p className="text-base md:text-lg text-gray-600 mt-2">Your Google Business Profile and review system</p>
                   </div>
                   <div className="text-left md:text-right">
-                    <div className="inline-flex items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-2xl bg-gradient-to-br from-secondary/30 to-secondary/10 border-4 border-secondary/40 shadow-lg">
+                    <div className="inline-flex items-center justify-center w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-gradient-to-br from-white to-gray-50 border-4 border-primary shadow-lg">
                       <div className="text-center">
                         <div className="text-4xl md:text-5xl font-extrabold text-primary">{scan.phase1_score}</div>
-                        <div className="text-lg md:text-xl font-bold text-primary/60">%</div>
+                        <div className="text-lg md:text-xl font-bold text-primary/70">%</div>
                       </div>
                     </div>
-                    <div className="text-sm text-gray-500 mt-3 font-semibold">50% of total score</div>
+                    <div className="text-sm text-gray-600 mt-3 font-semibold">50% of total score</div>
                   </div>
                 </div>
 
                 <div className="space-y-4">
                   {phase1Modules.map((module, idx) => (
-                    <div key={idx} className="bg-white rounded-xl border-l-4 border-secondary shadow-md hover:shadow-lg transition-all p-4 md:p-5">
+                    <div key={idx} className="bg-gray-50 rounded-xl border-2 border-gray-200 hover:border-secondary hover:shadow-md transition-all p-4 md:p-5">
                       <div className="flex items-start md:items-center justify-between mb-3 gap-3">
                         <div className="flex-1">
-                          <h3 className="font-bold text-primary text-base md:text-lg">{module.module_name}</h3>
+                          <h3 className="font-bold text-gray-900 text-base md:text-lg">{module.module_name}</h3>
                           {getModuleDescription(module.module_name) && (
                             <p className="text-sm text-gray-600 mt-2">{getModuleDescription(module.module_name)}</p>
                           )}
                         </div>
-                        <div className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl ${module.score >= 80 ? 'bg-green-100 ring-2 ring-green-300' : module.score >= 60 ? 'bg-yellow-100 ring-2 ring-yellow-300' : 'bg-red-100 ring-2 ring-red-300'} flex items-center justify-center shadow-md`}>
+                        <div className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl border-4 ${module.score >= 80 ? 'bg-green-50 border-green-500' : module.score >= 60 ? 'bg-orange-50 border-orange-500' : 'bg-red-50 border-red-500'} flex items-center justify-center shadow-md`}>
                           <span className={`text-2xl md:text-3xl font-extrabold ${getStatusColor(module.status)}`}>
                             {module.score}
                           </span>
                         </div>
                       </div>
                       {module.gap_message && (
-                        <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-4 rounded-lg mt-3 border-l-4 border-primary/30">
-                          <p className="text-sm md:text-base text-gray-700 font-medium">
+                        <div className="bg-white p-4 rounded-lg mt-3 border-l-4 border-primary">
+                          <p className="text-sm md:text-base text-gray-700">
                             {module.gap_message}
                           </p>
                         </div>
@@ -230,49 +229,49 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
               </div>
 
               {/* Phase 2 */}
-              <div className="bg-gradient-to-br from-white to-primary/5 rounded-3xl shadow-xl p-6 md:p-10 border-2 border-primary/20 hover:border-primary/40 transition-all">
+              <div className="bg-white rounded-3xl shadow-xl p-6 md:p-10 border-l-8 border-secondary">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 md:mb-8">
                   <div className="mb-4 md:mb-0">
                     <div className="inline-block mb-3">
-                      <span className="text-xs font-bold tracking-wider uppercase text-white bg-gradient-to-r from-primary to-primary/80 px-4 py-1.5 rounded-full">
+                      <span className="text-xs font-bold tracking-wider uppercase text-white bg-primary px-4 py-1.5 rounded-full">
                         Phase 2
                       </span>
                     </div>
-                    <h2 className="text-2xl md:text-4xl font-extrabold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                    <h2 className="text-2xl md:text-4xl font-extrabold text-primary">
                       The Asset Engine
                     </h2>
                     <p className="text-base md:text-lg text-gray-600 mt-2">Your website authority and technical trust signals</p>
                   </div>
                   <div className="text-left md:text-right">
-                    <div className="inline-flex items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-2xl bg-gradient-to-br from-secondary/30 to-secondary/10 border-4 border-secondary/40 shadow-lg">
+                    <div className="inline-flex items-center justify-center w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-gradient-to-br from-white to-gray-50 border-4 border-primary shadow-lg">
                       <div className="text-center">
                         <div className="text-4xl md:text-5xl font-extrabold text-primary">{scan.phase2_score}</div>
-                        <div className="text-lg md:text-xl font-bold text-primary/60">%</div>
+                        <div className="text-lg md:text-xl font-bold text-primary/70">%</div>
                       </div>
                     </div>
-                    <div className="text-sm text-gray-500 mt-3 font-semibold">35% of total score</div>
+                    <div className="text-sm text-gray-600 mt-3 font-semibold">35% of total score</div>
                   </div>
                 </div>
 
                 <div className="space-y-4">
                   {phase2Modules.map((module, idx) => (
-                    <div key={idx} className="bg-white rounded-xl border-l-4 border-secondary shadow-md hover:shadow-lg transition-all p-4 md:p-5">
+                    <div key={idx} className="bg-gray-50 rounded-xl border-2 border-gray-200 hover:border-secondary hover:shadow-md transition-all p-4 md:p-5">
                       <div className="flex items-start md:items-center justify-between mb-3 gap-3">
                         <div className="flex-1">
-                          <h3 className="font-bold text-primary text-base md:text-lg">{module.module_name}</h3>
+                          <h3 className="font-bold text-gray-900 text-base md:text-lg">{module.module_name}</h3>
                           {getModuleDescription(module.module_name) && (
                             <p className="text-sm text-gray-600 mt-2">{getModuleDescription(module.module_name)}</p>
                           )}
                         </div>
-                        <div className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl ${module.score >= 80 ? 'bg-green-100 ring-2 ring-green-300' : module.score >= 60 ? 'bg-yellow-100 ring-2 ring-yellow-300' : 'bg-red-100 ring-2 ring-red-300'} flex items-center justify-center shadow-md`}>
+                        <div className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl border-4 ${module.score >= 80 ? 'bg-green-50 border-green-500' : module.score >= 60 ? 'bg-orange-50 border-orange-500' : 'bg-red-50 border-red-500'} flex items-center justify-center shadow-md`}>
                           <span className={`text-2xl md:text-3xl font-extrabold ${getStatusColor(module.status)}`}>
                             {module.score}
                           </span>
                         </div>
                       </div>
                       {module.gap_message && (
-                        <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-4 rounded-lg mt-3 border-l-4 border-primary/30">
-                          <p className="text-sm md:text-base text-gray-700 font-medium">
+                        <div className="bg-white p-4 rounded-lg mt-3 border-l-4 border-primary">
+                          <p className="text-sm md:text-base text-gray-700">
                             {module.gap_message}
                           </p>
                         </div>
@@ -283,49 +282,49 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
               </div>
 
               {/* Phase 3 */}
-              <div className="bg-gradient-to-br from-white to-primary/5 rounded-3xl shadow-xl p-6 md:p-10 border-2 border-primary/20 hover:border-primary/40 transition-all">
+              <div className="bg-white rounded-3xl shadow-xl p-6 md:p-10 border-l-8 border-secondary">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 md:mb-8">
                   <div className="mb-4 md:mb-0">
                     <div className="inline-block mb-3">
-                      <span className="text-xs font-bold tracking-wider uppercase text-white bg-gradient-to-r from-primary to-primary/80 px-4 py-1.5 rounded-full">
+                      <span className="text-xs font-bold tracking-wider uppercase text-white bg-primary px-4 py-1.5 rounded-full">
                         Phase 3
                       </span>
                     </div>
-                    <h2 className="text-2xl md:text-4xl font-extrabold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                    <h2 className="text-2xl md:text-4xl font-extrabold text-primary">
                       The Long-Term Moat
                     </h2>
                     <p className="text-base md:text-lg text-gray-600 mt-2">Your directory presence and consistent review system</p>
                   </div>
                   <div className="text-left md:text-right">
-                    <div className="inline-flex items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-2xl bg-gradient-to-br from-secondary/30 to-secondary/10 border-4 border-secondary/40 shadow-lg">
+                    <div className="inline-flex items-center justify-center w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-gradient-to-br from-white to-gray-50 border-4 border-primary shadow-lg">
                       <div className="text-center">
                         <div className="text-4xl md:text-5xl font-extrabold text-primary">{scan.phase3_score}</div>
-                        <div className="text-lg md:text-xl font-bold text-primary/60">%</div>
+                        <div className="text-lg md:text-xl font-bold text-primary/70">%</div>
                       </div>
                     </div>
-                    <div className="text-sm text-gray-500 mt-3 font-semibold">15% of total score</div>
+                    <div className="text-sm text-gray-600 mt-3 font-semibold">15% of total score</div>
                   </div>
                 </div>
 
                 <div className="space-y-4">
                   {phase3Modules.map((module, idx) => (
-                    <div key={idx} className="bg-white rounded-xl border-l-4 border-secondary shadow-md hover:shadow-lg transition-all p-4 md:p-5">
+                    <div key={idx} className="bg-gray-50 rounded-xl border-2 border-gray-200 hover:border-secondary hover:shadow-md transition-all p-4 md:p-5">
                       <div className="flex items-start md:items-center justify-between mb-3 gap-3">
                         <div className="flex-1">
-                          <h3 className="font-bold text-primary text-base md:text-lg">{module.module_name}</h3>
+                          <h3 className="font-bold text-gray-900 text-base md:text-lg">{module.module_name}</h3>
                           {getModuleDescription(module.module_name) && (
                             <p className="text-sm text-gray-600 mt-2">{getModuleDescription(module.module_name)}</p>
                           )}
                         </div>
-                        <div className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl ${module.score >= 80 ? 'bg-green-100 ring-2 ring-green-300' : module.score >= 60 ? 'bg-yellow-100 ring-2 ring-yellow-300' : 'bg-red-100 ring-2 ring-red-300'} flex items-center justify-center shadow-md`}>
+                        <div className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl border-4 ${module.score >= 80 ? 'bg-green-50 border-green-500' : module.score >= 60 ? 'bg-orange-50 border-orange-500' : 'bg-red-50 border-red-500'} flex items-center justify-center shadow-md`}>
                           <span className={`text-2xl md:text-3xl font-extrabold ${getStatusColor(module.status)}`}>
                             {module.score}
                           </span>
                         </div>
                       </div>
                       {module.gap_message && (
-                        <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-4 rounded-lg mt-3 border-l-4 border-primary/30">
-                          <p className="text-sm md:text-base text-gray-700 font-medium">
+                        <div className="bg-white p-4 rounded-lg mt-3 border-l-4 border-primary">
+                          <p className="text-sm md:text-base text-gray-700">
                             {module.gap_message}
                           </p>
                         </div>
@@ -337,24 +336,24 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
             </div>
 
             {/* Footer CTA */}
-            <div className="bg-gradient-to-br from-primary to-primary/80 rounded-3xl shadow-2xl p-8 md:p-12 mt-8 border-2 border-secondary/40 relative overflow-hidden">
-              {/* Decorative circles */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/20 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/20 rounded-full blur-3xl"></div>
+            <div className="bg-gradient-to-br from-primary to-primary/90 rounded-3xl shadow-2xl p-8 md:p-12 mt-8 border-2 border-secondary relative overflow-hidden">
+              {/* Decorative accent */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/30 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/30 rounded-full blur-3xl"></div>
 
               <div className="relative z-10">
-                <h3 className="text-3xl md:text-4xl font-extrabold text-white mb-4 text-center drop-shadow-lg">
+                <h3 className="text-3xl md:text-4xl font-extrabold text-white mb-4 text-center">
                   Ready to Fix These Gaps?
                 </h3>
-                <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto text-center">
+                <p className="text-lg md:text-xl text-white mb-8 max-w-3xl mx-auto text-center">
                   Book a 15-minute TAPS Strategy Call to get your personalized action plan and learn how the top 5% of practices dominate their markets.
                 </p>
-                <div className="bg-white rounded-2xl p-6 shadow-xl">
+                <div className="bg-white rounded-2xl p-6 shadow-xl mb-8">
                   <CalendarWidget className="text-center" />
                 </div>
-                <div className="mt-8 flex flex-col md:flex-row items-center justify-center md:space-x-12 space-y-4 md:space-y-0 text-base text-white">
+                <div className="flex flex-col md:flex-row items-center justify-center md:space-x-12 space-y-4 md:space-y-0 text-base text-white">
                   <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
                       <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
@@ -362,7 +361,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                     <span className="font-semibold">No long-term contracts</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
                       <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
@@ -370,7 +369,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                     <span className="font-semibold">2X ROI guarantee</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
                       <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
