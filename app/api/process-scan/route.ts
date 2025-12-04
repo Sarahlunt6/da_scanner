@@ -44,14 +44,18 @@ export async function POST(request: Request) {
     });
 
     // Update scan in database with results
+    // NOTE: Database still has phase columns - mapping area scores to them temporarily
+    // TODO: Migrate database schema to area_scores
     const { error: updateError } = await supabaseAdmin
       .from("scans")
       .update({
         status: "completed",
         overall_score: scanResult.overallScore,
-        phase1_score: scanResult.phase1Score,
-        phase2_score: scanResult.phase2Score,
-        phase3_score: scanResult.phase3Score,
+        // Map 5 area scores to 3 phase columns temporarily
+        phase1_score: scanResult.areaScores.technicalSEO,
+        phase2_score: scanResult.areaScores.strategicSEO,
+        phase3_score: scanResult.areaScores.technicalSite,
+        // Store full results including all 5 area scores in JSON
         results_json: scanResult,
       })
       .eq("id", scanId);
@@ -96,9 +100,16 @@ export async function POST(request: Request) {
         city: scan.city,
         state: scan.state,
         da_score: scanResult.overallScore,
-        phase1_score: scanResult.phase1Score,
-        phase2_score: scanResult.phase2Score,
-        phase3_score: scanResult.phase3Score,
+        // Send area scores (5 areas)
+        technical_seo_score: scanResult.areaScores.technicalSEO,
+        strategic_seo_score: scanResult.areaScores.strategicSEO,
+        technical_site_score: scanResult.areaScores.technicalSite,
+        market_understanding_score: scanResult.areaScores.marketUnderstanding,
+        strategic_site_score: scanResult.areaScores.strategicSite,
+        // Legacy phase scores for backwards compatibility
+        phase1_score: scanResult.areaScores.technicalSEO,
+        phase2_score: scanResult.areaScores.strategicSEO,
+        phase3_score: scanResult.areaScores.technicalSite,
         scan_token: scan.unique_token,
         results_url: `${process.env.NEXT_PUBLIC_APP_URL}/results/${scan.unique_token}`,
       };
@@ -132,9 +143,10 @@ export async function POST(request: Request) {
       practiceName: scan.practice_name,
       overallScore: scanResult.overallScore,
       token: scan.unique_token,
-      phase1Score: scanResult.phase1Score,
-      phase2Score: scanResult.phase2Score,
-      phase3Score: scanResult.phase3Score,
+      // Map area scores to phase scores for email compatibility
+      phase1Score: scanResult.areaScores.technicalSEO,
+      phase2Score: scanResult.areaScores.strategicSEO,
+      phase3Score: scanResult.areaScores.technicalSite,
       websiteUrl: scan.website_url,
     }).then(() => {
       console.log('✅ Email logged successfully');
@@ -147,9 +159,16 @@ export async function POST(request: Request) {
       scanId,
       scores: {
         overall: scanResult.overallScore,
-        phase1: scanResult.phase1Score,
-        phase2: scanResult.phase2Score,
-        phase3: scanResult.phase3Score,
+        // Return area scores
+        technicalSEO: scanResult.areaScores.technicalSEO,
+        strategicSEO: scanResult.areaScores.strategicSEO,
+        technicalSite: scanResult.areaScores.technicalSite,
+        marketUnderstanding: scanResult.areaScores.marketUnderstanding,
+        strategicSite: scanResult.areaScores.strategicSite,
+        // Legacy phase scores for backwards compatibility
+        phase1: scanResult.areaScores.technicalSEO,
+        phase2: scanResult.areaScores.strategicSEO,
+        phase3: scanResult.areaScores.technicalSite,
       },
     });
   } catch (error) {

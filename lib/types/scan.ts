@@ -11,22 +11,29 @@ export interface ScanInput {
   state: string;
 }
 
+export type AreaType = 'Technical SEO' | 'Strategic SEO' | 'Technical Site' | 'Market Understanding' | 'Strategic Site';
+
 export interface ScanResult {
   overallScore: number;
-  phase1Score: number;
-  phase2Score: number;
-  phase3Score: number;
+  areaScores: {
+    technicalSEO: number;
+    strategicSEO: number;
+    technicalSite: number;
+    marketUnderstanding: number;
+    strategicSite: number;
+  };
   modules: ModuleResult[];
   timestamp: string;
 }
 
 export interface ModuleResult {
   name: string;
-  phase: 1 | 2 | 3;
+  area: AreaType;
   score: number;
   status: 'excellent' | 'good' | 'needs_work' | 'urgent';
   weight: number;
-  gapMessage: string;
+  description: string; // What this module measures
+  gapMessage: string; // What was found
   data: Record<string, any>;
 }
 

@@ -1,45 +1,62 @@
-// Scoring calculation engine based on PRD
+// Scoring calculation engine for 5-area system
 
 import { ModuleResult } from "../types/scan";
 
 /**
- * Calculate overall Digital Authority Score
- * Formula: (Phase 1 × 0.50) + (Phase 2 × 0.35) + (Phase 3 × 0.15)
+ * Normalize score to be between 50-89
+ * This ensures all scores fall within the target range
  */
-export function calculateOverallScore(
-  phase1Score: number,
-  phase2Score: number,
-  phase3Score: number
-): number {
-  return Math.round(phase1Score * 0.5 + phase2Score * 0.35 + phase3Score * 0.15);
+export function normalizeScore(rawScore: number): number {
+  // Cap minimum at 50, maximum at 89
+  return Math.min(89, Math.max(50, Math.round(rawScore)));
 }
 
 /**
- * Calculate phase score from module results
+ * Calculate area score from module results
+ * Uses weighted average of all modules in the area
  */
-export function calculatePhaseScore(modules: ModuleResult[]): number {
-  if (modules.length === 0) return 0;
+export function calculateAreaScore(modules: ModuleResult[]): number {
+  if (modules.length === 0) return 50; // Default to minimum if no modules
 
   const totalWeight = modules.reduce((sum, m) => sum + m.weight, 0);
   const weightedScore = modules.reduce((sum, m) => sum + m.score * m.weight, 0);
 
-  return Math.round(weightedScore / totalWeight);
+  const rawScore = Math.round(weightedScore / totalWeight);
+  return normalizeScore(rawScore);
+}
+
+/**
+ * Calculate overall Digital Authority Score from 5 area scores
+ * Equal weighting across all 5 areas (20% each)
+ */
+export function calculateOverallScore(
+  technicalSEO: number,
+  strategicSEO: number,
+  technicalSite: number,
+  marketUnderstanding: number,
+  strategicSite: number
+): number {
+  const rawScore = Math.round(
+    (technicalSEO + strategicSEO + technicalSite + marketUnderstanding + strategicSite) / 5
+  );
+  return normalizeScore(rawScore);
 }
 
 /**
  * Determine status based on score
+ * Updated for new scoring ranges (50-89)
  */
 export function getStatus(score: number): 'excellent' | 'good' | 'needs_work' | 'urgent' {
-  if (score >= 90) return 'excellent';
-  if (score >= 75) return 'good';
-  if (score >= 60) return 'needs_work';
-  return 'urgent';
+  if (score >= 90) return 'excellent'; // Should never happen with normalization
+  if (score >= 70) return 'good'; // Above Average
+  if (score >= 50) return 'needs_work'; // Average
+  return 'urgent'; // Should never happen with normalization
 }
 
 /**
- * Calculate Profit Zone (GBP Categories) score - 10% weight
+ * Calculate GBP Primary Category score
  */
-export function calculateProfitZoneScore(
+export function calculateGBPPrimaryCategoryScore(
   primaryCategory: string,
   secondaryCategories: string[]
 ): { score: number; gapMessage: string } {
@@ -68,9 +85,9 @@ export function calculateProfitZoneScore(
 }
 
 /**
- * Calculate Product Shelf (GBP Services) score - 10% weight
+ * Calculate GBP Services score
  */
-export function calculateProductShelfScore(servicesCount: number): { score: number; gapMessage: string } {
+export function calculateGBPServicesScore(servicesCount: number): { score: number; gapMessage: string } {
   let score = 0;
   let gapMessage = '';
 
@@ -92,9 +109,9 @@ export function calculateProductShelfScore(servicesCount: number): { score: numb
 }
 
 /**
- * Calculate Review Health score - 15% weight
+ * Calculate Review Sentiment score
  */
-export function calculateReviewHealthScore(
+export function calculateReviewSentimentScore(
   rating: number,
   totalReviews: number
 ): { score: number; gapMessage: string } {
@@ -171,9 +188,9 @@ export function calculateNAPScore(matchedDirectories: number, totalDirectories: 
 }
 
 /**
- * Calculate Core 30 score - 20% weight
+ * Calculate Semantic Analysis (Core 30) score
  */
-export function calculateCore30Score(foundPages: number): { score: number; gapMessage: string } {
+export function calculateSemanticAnalysisScore(foundPages: number): { score: number; gapMessage: string } {
   let score = 0;
   let gapMessage = '';
 
@@ -195,64 +212,58 @@ export function calculateCore30Score(foundPages: number): { score: number; gapMe
 }
 
 /**
- * Calculate Technical Trust Signals score - 15% weight
+ * Calculate Site Speed score (split from old Technical Trust)
  */
-export function calculateTechnicalTrustScore(
-  hasSSL: boolean,
-  mobileScore: number,
-  loadTime: number,
-  hasSchema: boolean
+export function calculateSiteSpeedScore(
+  loadTime: number
 ): { score: number; gapMessage: string } {
-  let totalScore = 0;
-  const issues: string[] = [];
+  let score = 0;
+  let gapMessage = '';
 
-  // SSL (25% of module = 25 points)
-  if (hasSSL) {
-    totalScore += 25;
-  } else {
-    issues.push('Missing SSL certificate (HTTPS)');
-  }
-
-  // Mobile Score (25% of module = 25 points)
-  if (mobileScore >= 90) {
-    totalScore += 25;
-  } else if (mobileScore >= 70) {
-    totalScore += 15;
-    issues.push(`Mobile score is ${mobileScore}/100`);
-  } else {
-    totalScore += 7;
-    issues.push(`Poor mobile score (${mobileScore}/100)`);
-  }
-
-  // Load Time (25% of module = 25 points)
-  if (loadTime < 3) {
-    totalScore += 25;
+  if (loadTime < 2) {
+    score = 100;
+    gapMessage = '';
+  } else if (loadTime < 3) {
+    score = 80;
+    gapMessage = `Load time is ${loadTime.toFixed(1)}s. Aim for under 2s for optimal performance.`;
   } else if (loadTime <= 5) {
-    totalScore += 15;
-    issues.push(`Slow load time (${loadTime.toFixed(1)}s)`);
+    score = 50;
+    gapMessage = `Slow load time (${loadTime.toFixed(1)}s). This impacts both rankings and user experience.`;
   } else {
-    totalScore += 7;
-    issues.push(`Very slow load time (${loadTime.toFixed(1)}s)`);
+    score = 25;
+    gapMessage = `Very slow load time (${loadTime.toFixed(1)}s). This is seriously hurting conversions.`;
   }
 
-  // Schema (25% of module = 25 points)
-  if (hasSchema) {
-    totalScore += 25;
-  } else {
-    issues.push('Missing schema markup');
-  }
-
-  const gapMessage = issues.length > 0
-    ? `Technical issues: ${issues.join(', ')}. These hurt both rankings and conversions.`
-    : '';
-
-  return { score: totalScore, gapMessage };
+  return { score, gapMessage };
 }
 
 /**
- * Calculate Directory Dominance score - 10% weight
+ * Calculate Mobile Optimization score (split from old Technical Trust)
  */
-export function calculateDirectoryScore(presentCount: number, totalDirectories: number): { score: number; gapMessage: string } {
+export function calculateMobileOptimizationScore(
+  mobileScore: number
+): { score: number; gapMessage: string } {
+  let score = 0;
+  let gapMessage = '';
+
+  if (mobileScore >= 90) {
+    score = 100;
+    gapMessage = '';
+  } else if (mobileScore >= 70) {
+    score = 60;
+    gapMessage = `Mobile score is ${mobileScore}/100. Google prioritizes mobile-first indexing.`;
+  } else {
+    score = 30;
+    gapMessage = `Poor mobile score (${mobileScore}/100). This is hurting your rankings significantly.`;
+  }
+
+  return { score, gapMessage };
+}
+
+/**
+ * Calculate Citations score (renamed from Directory Dominance)
+ */
+export function calculateCitationsScore(presentCount: number, totalDirectories: number): { score: number; gapMessage: string } {
   let score = 0;
   let gapMessage = '';
 
