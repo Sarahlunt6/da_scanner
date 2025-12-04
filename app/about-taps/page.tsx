@@ -65,7 +65,7 @@ export default function AboutTAPSPage() {
               About TAPS
             </h1>
             <p className="text-2xl text-gray-600 max-w-2xl mx-auto">
-              The Total Authority Performance System
+              The Total Authority Performance System - A comprehensive framework measuring 5 key areas of digital authority
             </p>
           </div>
 
@@ -73,113 +73,176 @@ export default function AboutTAPSPage() {
           <section className="mb-12 text-center max-w-4xl mx-auto">
             <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-blue-100">
               <p className="text-xl text-gray-700 leading-relaxed">
-                TAPS is a comprehensive framework designed to <span className="font-semibold text-[#2C5F7C]">measure and improve your dental practice's digital authority</span>. It evaluates your online presence across three critical phases to help you <span className="font-semibold text-[#F5C842]">attract more high-value patients</span>.
+                TAPS is a comprehensive framework designed to <span className="font-semibold text-[#2C5F7C]">measure and improve your dental practice's digital authority</span>. It evaluates your online presence across five critical areas to help you <span className="font-semibold text-[#F5C842]">attract more high-value patients</span>.
               </p>
             </div>
           </section>
 
-          {/* The Three Phases - Grid Layout */}
+          {/* The Five Areas - Grid Layout */}
           <section className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">The Three Phases</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {/* Phase 1 */}
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">The Five Areas</h2>
+            <div className="grid md:grid-cols-3 gap-6 mb-6">
+              {/* Area 1: Technical SEO */}
               <div className="group">
                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full">
                   <div className="flex flex-col items-center text-center mb-4">
                     <div className="bg-gradient-to-br from-[#2C5F7C] to-[#1e4459] text-white rounded-full w-14 h-14 flex items-center justify-center text-xl font-bold shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3">
                       1
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-900">Foundation</h2>
+                    <h2 className="text-2xl font-bold text-gray-900">Technical SEO</h2>
                   </div>
                   <p className="text-gray-700 leading-relaxed mb-4 text-sm">
-                    Ensure your practice is discoverable and consistently represented across the web.
+                    Foundational elements that help Google find and rank your practice
                   </p>
                   <div className="bg-white rounded-xl p-4 shadow-sm">
                     <h3 className="font-bold text-gray-900 mb-3 text-sm">What We Check:</h3>
                     <ul className="space-y-2 text-gray-700 text-sm">
                       <li className="flex items-start gap-2">
                         <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
-                        <span>NAP Consistency across directories</span>
+                        <span>Review Velocity</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
-                        <span>Business listing presence</span>
+                        <span>GBP Primary Category</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
-                        <span>Accurate contact information</span>
+                        <span>NAP Consistency</span>
+                      </li>
+                      <li className="flex items-start gap-2 opacity-60">
+                        <span className="text-[#2C5F7C] mt-0.5 text-lg">○</span>
+                        <span>Images</span>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
 
-              {/* Phase 2 */}
+              {/* Area 2: Strategic SEO */}
               <div className="group">
                 <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full">
                   <div className="flex flex-col items-center text-center mb-4">
                     <div className="bg-gradient-to-br from-[#F5C842] to-[#d4ab1f] text-gray-900 rounded-full w-14 h-14 flex items-center justify-center text-xl font-bold shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3">
                       2
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-900">Visibility</h2>
+                    <h2 className="text-2xl font-bold text-gray-900">Strategic SEO</h2>
                   </div>
                   <p className="text-gray-700 leading-relaxed mb-4 text-sm">
-                    How easily potential patients can find you online and your digital presence quality.
+                    Strategic signals that demonstrate authority and trustworthiness to search engines
                   </p>
                   <div className="bg-white rounded-xl p-4 shadow-sm">
-                    <h3 className="font-bold text-gray-900 mb-3 text-sm">Coming Soon:</h3>
+                    <h3 className="font-bold text-gray-900 mb-3 text-sm">What We Check:</h3>
                     <ul className="space-y-2 text-gray-700 text-sm">
-                      <li className="flex items-start gap-2 opacity-60">
-                        <span className="text-[#F5C842] mt-0.5 text-lg">○</span>
-                        <span>Search engine visibility</span>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#F5C842] mt-0.5 text-lg font-bold">✓</span>
+                        <span>Review Sentiment</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#F5C842] mt-0.5 text-lg font-bold">✓</span>
+                        <span>Citations</span>
                       </li>
                       <li className="flex items-start gap-2 opacity-60">
                         <span className="text-[#F5C842] mt-0.5 text-lg">○</span>
-                        <span>Review presence & ratings</span>
-                      </li>
-                      <li className="flex items-start gap-2 opacity-60">
-                        <span className="text-[#F5C842] mt-0.5 text-lg">○</span>
-                        <span>Social media engagement</span>
-                      </li>
-                      <li className="flex items-start gap-2 opacity-60">
-                        <span className="text-[#F5C842] mt-0.5 text-lg">○</span>
-                        <span>Website performance</span>
+                        <span>Content Activity</span>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
 
-              {/* Phase 3 */}
+              {/* Area 3: Technical Site */}
               <div className="group">
                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full">
                   <div className="flex flex-col items-center text-center mb-4">
                     <div className="bg-gradient-to-br from-[#2C5F7C] to-[#1e4459] text-white rounded-full w-14 h-14 flex items-center justify-center text-xl font-bold shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3">
                       3
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-900">Authority</h2>
+                    <h2 className="text-2xl font-bold text-gray-900">Technical Site</h2>
                   </div>
                   <p className="text-gray-700 leading-relaxed mb-4 text-sm">
-                    Your practice's credibility and trustworthiness in the digital ecosystem.
+                    Technical performance and user experience factors that impact rankings
+                  </p>
+                  <div className="bg-white rounded-xl p-4 shadow-sm">
+                    <h3 className="font-bold text-gray-900 mb-3 text-sm">What We Check:</h3>
+                    <ul className="space-y-2 text-gray-700 text-sm">
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
+                        <span>Site Speed</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
+                        <span>Mobile Optimization</span>
+                      </li>
+                      <li className="flex items-start gap-2 opacity-60">
+                        <span className="text-[#2C5F7C] mt-0.5 text-lg">○</span>
+                        <span>Video Content</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Second Row - Centered */}
+            <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+              {/* Area 4: Market Understanding */}
+              <div className="group">
+                <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full">
+                  <div className="flex flex-col items-center text-center mb-4">
+                    <div className="bg-gradient-to-br from-[#F5C842] to-[#d4ab1f] text-gray-900 rounded-full w-14 h-14 flex items-center justify-center text-xl font-bold shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3">
+                      4
+                    </div>
+                    <h2 className="text-2xl font-bold text-gray-900">Market Understanding</h2>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed mb-4 text-sm">
+                    How well your practice speaks to local patient needs and community relevance
                   </p>
                   <div className="bg-white rounded-xl p-4 shadow-sm">
                     <h3 className="font-bold text-gray-900 mb-3 text-sm">Coming Soon:</h3>
                     <ul className="space-y-2 text-gray-700 text-sm">
                       <li className="flex items-start gap-2 opacity-60">
-                        <span className="text-[#2C5F7C] mt-0.5 text-lg">○</span>
-                        <span>Domain authority & backlinks</span>
+                        <span className="text-[#F5C842] mt-0.5 text-lg">○</span>
+                        <span>Messaging Clarity</span>
+                      </li>
+                      <li className="flex items-start gap-2 opacity-60">
+                        <span className="text-[#F5C842] mt-0.5 text-lg">○</span>
+                        <span>Local Messages</span>
+                      </li>
+                      <li className="flex items-start gap-2 opacity-60">
+                        <span className="text-[#F5C842] mt-0.5 text-lg">○</span>
+                        <span>Messaging Integrity</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Area 5: Strategic Site */}
+              <div className="group">
+                <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full">
+                  <div className="flex flex-col items-center text-center mb-4">
+                    <div className="bg-gradient-to-br from-[#2C5F7C] to-[#1e4459] text-white rounded-full w-14 h-14 flex items-center justify-center text-xl font-bold shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3">
+                      5
+                    </div>
+                    <h2 className="text-2xl font-bold text-gray-900">Strategic Site</h2>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed mb-4 text-sm">
+                    High-value content that establishes topical authority and expertise
+                  </p>
+                  <div className="bg-white rounded-xl p-4 shadow-sm">
+                    <h3 className="font-bold text-gray-900 mb-3 text-sm">What We Check:</h3>
+                    <ul className="space-y-2 text-gray-700 text-sm">
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
+                        <span>Semantic Analysis</span>
                       </li>
                       <li className="flex items-start gap-2 opacity-60">
                         <span className="text-[#2C5F7C] mt-0.5 text-lg">○</span>
-                        <span>Content quality signals</span>
+                        <span>High Value Content</span>
                       </li>
-                      <li className="flex items-start gap-2 opacity-60">
-                        <span className="text-[#2C5F7C] mt-0.5 text-lg">○</span>
-                        <span>Patient testimonials</span>
-                      </li>
-                      <li className="flex items-start gap-2 opacity-60">
-                        <span className="text-[#2C5F7C] mt-0.5 text-lg">○</span>
-                        <span>Industry recognition</span>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
+                        <span>GBP Services</span>
                       </li>
                     </ul>
                   </div>
