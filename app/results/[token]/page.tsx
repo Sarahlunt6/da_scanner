@@ -105,8 +105,8 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
         <div style={{ backgroundColor: '#2C5F7C' }} className="shadow-lg">
           <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 max-w-6xl">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div>
-                <div style={{ color: '#FFD147' }} className="text-xs sm:text-sm font-bold tracking-wider mb-2">OPKIE</div>
+              <div className="flex items-center gap-4">
+                <img src="/opkie-logo.png" alt="Opkie" className="h-12 sm:h-16" />
                 <h1 className="text-2xl sm:text-3xl font-extrabold" style={{ color: '#FFFFFF' }}>Digital Authority Report</h1>
               </div>
               <div className="sm:text-right">
