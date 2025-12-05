@@ -106,7 +106,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
           <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 max-w-6xl">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div className="flex items-center gap-4">
-                <img src="/opkie-logo.png" alt="Opkie" className="h-12 sm:h-16" />
+                <img src="/opkie-logo.png" alt="Opkie" className="h-16 sm:h-20" />
                 <h1 className="text-2xl sm:text-3xl font-extrabold" style={{ color: '#FFFFFF' }}>Digital Authority Report</h1>
               </div>
               <div className="sm:text-right">
