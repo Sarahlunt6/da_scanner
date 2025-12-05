@@ -35,19 +35,19 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
     return (
       <>
         <div className="min-h-screen bg-white flex items-center justify-center">
-          <div className="max-w-2xl mx-auto px-4 text-center">
-            <div className="bg-white rounded-lg shadow-lg p-12 border border-gray-200">
-              <div className="relative w-20 h-20 mx-auto mb-6">
+          <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+            <div className="bg-white rounded-lg shadow-lg p-6 sm:p-12 border border-gray-200">
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6">
                 <div className="absolute inset-0 rounded-full border-4 border-secondary"></div>
                 <div className="absolute inset-0 rounded-full border-4 border-primary border-t-transparent animate-spin"></div>
               </div>
-              <h1 className="text-3xl font-bold text-primary mb-6">
+              <h1 className="text-2xl sm:text-3xl font-bold text-primary mb-6">
                 Analyzing Your Digital Authority...
               </h1>
-              <p className="text-gray-700 text-lg">
+              <p className="text-gray-700 text-base sm:text-lg">
                 We're running a comprehensive scan of your online presence. This typically takes 5-10 minutes.
               </p>
-              <p className="text-gray-600 mt-4">
+              <p className="text-gray-600 mt-4 text-sm sm:text-base">
                 Results will be emailed to <span className="font-semibold text-primary">{scan.email}</span>
               </p>
             </div>
@@ -103,34 +103,54 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
       <div className="min-h-screen bg-gray-50">
         {/* Branded Header */}
         <div style={{ backgroundColor: '#2C5F7C' }} className="shadow-lg">
-          <div className="container mx-auto px-6 py-8 max-w-6xl">
-            <div className="flex items-center justify-between">
+          <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 max-w-6xl">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
-                <div style={{ color: '#FFD147' }} className="text-sm font-bold tracking-wider mb-2">OPKIE</div>
-                <h1 className="text-3xl font-extrabold" style={{ color: '#FFFFFF' }}>Digital Authority Report</h1>
+                <div style={{ color: '#FFD147' }} className="text-xs sm:text-sm font-bold tracking-wider mb-2">OPKIE</div>
+                <h1 className="text-2xl sm:text-3xl font-extrabold" style={{ color: '#FFFFFF' }}>Digital Authority Report</h1>
               </div>
-              <div className="text-right">
-                <div className="text-sm font-medium mb-1" style={{ color: '#E0E7EE' }}>Practice Name</div>
-                <div className="font-bold text-xl" style={{ color: '#FFFFFF' }}>{scan.practice_name}</div>
+              <div className="sm:text-right">
+                <div className="text-xs sm:text-sm font-medium mb-1" style={{ color: '#E0E7EE' }}>Practice Name</div>
+                <div className="font-bold text-lg sm:text-xl" style={{ color: '#FFFFFF' }}>{scan.practice_name}</div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="container mx-auto px-6 py-10 max-w-6xl">
+        <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-10 max-w-6xl">
           {/* Executive Summary Card */}
-          <div className="bg-white rounded-xl shadow-lg mb-8 overflow-hidden border border-gray-200">
-            <div className="border-b-4 border-secondary px-8 py-6 bg-gradient-to-r from-gray-50 to-white">
-              <h2 className="text-2xl font-bold text-gray-900">Executive Summary</h2>
-              <p className="text-gray-600 mt-1">Overall Digital Authority Performance</p>
+          <div className="bg-white rounded-xl shadow-lg mb-6 sm:mb-8 overflow-hidden border border-gray-200">
+            <div className="border-b-4 border-secondary px-4 sm:px-8 py-4 sm:py-6 bg-gradient-to-r from-gray-50 to-white">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Executive Summary</h2>
+              <p className="text-gray-600 mt-1 text-sm sm:text-base">Overall Digital Authority Performance</p>
             </div>
 
-            <div className="p-8">
-              <div className="flex justify-center mb-10">
+            <div className="p-4 sm:p-8">
+              <div className="flex justify-center mb-6 sm:mb-10">
                 {/* Score Display */}
                 <div className="flex flex-col items-center justify-center">
-                  <div className="relative w-56 h-56 mb-4">
-                    <svg className="w-56 h-56 transform -rotate-90">
+                  <div className="relative w-40 h-40 sm:w-56 sm:h-56 mb-4">
+                    <svg className="w-40 h-40 sm:w-56 sm:h-56 transform -rotate-90">
+                      <circle
+                        cx="80"
+                        cy="80"
+                        r="70"
+                        stroke="#E5E7EB"
+                        strokeWidth="16"
+                        fill="none"
+                        className="sm:hidden"
+                      />
+                      <circle
+                        cx="80"
+                        cy="80"
+                        r="70"
+                        stroke="#FFD147"
+                        strokeWidth="16"
+                        fill="none"
+                        strokeDasharray={`${(scan.overall_score / 100) * 439.82} 439.82`}
+                        strokeLinecap="round"
+                        className="sm:hidden"
+                      />
                       <circle
                         cx="112"
                         cy="112"
@@ -138,6 +158,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                         stroke="#E5E7EB"
                         strokeWidth="20"
                         fill="none"
+                        className="hidden sm:block"
                       />
                       <circle
                         cx="112"
@@ -148,44 +169,45 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                         fill="none"
                         strokeDasharray={`${(scan.overall_score / 100) * 628.32} 628.32`}
                         strokeLinecap="round"
+                        className="hidden sm:block"
                       />
                     </svg>
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="text-center">
-                        <div className="text-6xl font-black text-gray-900">{scan.overall_score}</div>
-                        <div className="text-2xl text-gray-500 font-bold mt-1">/ 100</div>
+                        <div className="text-4xl sm:text-6xl font-black text-gray-900">{scan.overall_score}</div>
+                        <div className="text-lg sm:text-2xl text-gray-500 font-bold mt-1">/ 100</div>
                       </div>
                     </div>
                   </div>
-                  <div className={`px-6 py-3 rounded-full ${tier.bgColor} border-2 ${tier.borderColor}`}>
-                    <div className={`text-sm font-bold ${tier.color} text-center`}>{tier.label}</div>
+                  <div className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full ${tier.bgColor} border-2 ${tier.borderColor}`}>
+                    <div className={`text-xs sm:text-sm font-bold ${tier.color} text-center`}>{tier.label}</div>
                   </div>
                 </div>
               </div>
 
               {/* Industry Benchmark */}
-              <div className="border-t-2 border-gray-100 pt-8">
-                <h3 className="text-lg font-bold text-gray-900 mb-6 text-center">Industry Benchmark</h3>
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                  <div className={`text-center p-6 rounded-lg border-2 transition-all ${scan.overall_score >= 90 ? 'bg-green-50 border-green-500 shadow-lg transform scale-105' : 'bg-gray-50 border-gray-200'}`}>
-                    <div className="text-4xl font-black text-green-600 mb-2">90+</div>
-                    <div className="text-sm font-bold text-gray-900">Elite Performance</div>
-                    <div className="text-xs text-gray-600 mt-1">Top 5% of practices</div>
+              <div className="border-t-2 border-gray-100 pt-6 sm:pt-8">
+                <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-4 sm:mb-6 text-center">Industry Benchmark</h3>
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+                  <div className={`text-center p-4 sm:p-6 rounded-lg border-2 transition-all ${scan.overall_score >= 90 ? 'bg-green-50 border-green-500 shadow-lg sm:transform sm:scale-105' : 'bg-gray-50 border-gray-200'}`}>
+                    <div className="text-2xl sm:text-4xl font-black text-green-600 mb-1 sm:mb-2">90+</div>
+                    <div className="text-xs sm:text-sm font-bold text-gray-900">Elite Performance</div>
+                    <div className="text-xs text-gray-600 mt-1 hidden sm:block">Top 5% of practices</div>
                   </div>
-                  <div className={`text-center p-6 rounded-lg border-2 transition-all ${scan.overall_score >= 70 && scan.overall_score < 90 ? 'bg-blue-50 border-blue-500 shadow-lg transform scale-105' : 'bg-gray-50 border-gray-200'}`}>
-                    <div className="text-4xl font-black text-blue-600 mb-2">70-89</div>
-                    <div className="text-sm font-bold text-gray-900">Above Average</div>
-                    <div className="text-xs text-gray-600 mt-1">Top 25% of practices</div>
+                  <div className={`text-center p-4 sm:p-6 rounded-lg border-2 transition-all ${scan.overall_score >= 70 && scan.overall_score < 90 ? 'bg-blue-50 border-blue-500 shadow-lg sm:transform sm:scale-105' : 'bg-gray-50 border-gray-200'}`}>
+                    <div className="text-2xl sm:text-4xl font-black text-blue-600 mb-1 sm:mb-2">70-89</div>
+                    <div className="text-xs sm:text-sm font-bold text-gray-900">Above Average</div>
+                    <div className="text-xs text-gray-600 mt-1 hidden sm:block">Top 25% of practices</div>
                   </div>
-                  <div className={`text-center p-6 rounded-lg border-2 transition-all ${scan.overall_score >= 50 && scan.overall_score < 70 ? 'bg-orange-50 border-orange-500 shadow-lg transform scale-105' : 'bg-gray-50 border-gray-200'}`}>
-                    <div className="text-4xl font-black text-orange-600 mb-2">50-69</div>
-                    <div className="text-sm font-bold text-gray-900">Average</div>
-                    <div className="text-xs text-gray-600 mt-1">Middle 50% of practices</div>
+                  <div className={`text-center p-4 sm:p-6 rounded-lg border-2 transition-all ${scan.overall_score >= 50 && scan.overall_score < 70 ? 'bg-orange-50 border-orange-500 shadow-lg sm:transform sm:scale-105' : 'bg-gray-50 border-gray-200'}`}>
+                    <div className="text-2xl sm:text-4xl font-black text-orange-600 mb-1 sm:mb-2">50-69</div>
+                    <div className="text-xs sm:text-sm font-bold text-gray-900">Average</div>
+                    <div className="text-xs text-gray-600 mt-1 hidden sm:block">Middle 50% of practices</div>
                   </div>
-                  <div className={`text-center p-6 rounded-lg border-2 transition-all ${scan.overall_score < 50 ? 'bg-red-50 border-red-500 shadow-lg transform scale-105' : 'bg-gray-50 border-gray-200'}`}>
-                    <div className="text-4xl font-black text-red-600 mb-2">&lt;50</div>
-                    <div className="text-sm font-bold text-gray-900">Failing</div>
-                    <div className="text-xs text-gray-600 mt-1">Bottom 25% of practices</div>
+                  <div className={`text-center p-4 sm:p-6 rounded-lg border-2 transition-all ${scan.overall_score < 50 ? 'bg-red-50 border-red-500 shadow-lg sm:transform sm:scale-105' : 'bg-gray-50 border-gray-200'}`}>
+                    <div className="text-2xl sm:text-4xl font-black text-red-600 mb-1 sm:mb-2">&lt;50</div>
+                    <div className="text-xs sm:text-sm font-bold text-gray-900">Failing</div>
+                    <div className="text-xs text-gray-600 mt-1 hidden sm:block">Bottom 25% of practices</div>
                   </div>
                 </div>
               </div>
@@ -194,187 +216,182 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
 
           {/* Technical SEO Area */}
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
-            <div style={{ backgroundColor: '#2C5F7C' }} className="px-8 py-6">
-              <h3 style={{ color: '#FFFFFF' }} className="text-2xl font-bold">Technical SEO</h3>
-              <p style={{ color: '#E0E7EE' }} className="mt-2">Foundational elements that help Google find and rank your practice</p>
+            <div style={{ backgroundColor: '#2C5F7C' }} className="px-4 sm:px-8 py-4 sm:py-6">
+              <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Technical SEO</h3>
+              <p style={{ color: '#E0E7EE' }} className="mt-2 text-sm sm:text-base">Foundational elements that help Google find and rank your practice</p>
             </div>
 
-            <div className="bg-white">
-              <table className="w-full">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Subcategory</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">What Google Looks For</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">What We Found</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {technicalSEOModules.map((module, idx) => (
-                    <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                      <td className="px-6 py-4 font-medium text-gray-900">{module.module_name}</td>
-                      <td className="px-6 py-4 text-sm text-gray-700">{module.data_json?.description || 'N/A'}</td>
-                      <td className="px-6 py-4 text-sm text-gray-700">{module.gap_message}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="p-4 sm:p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                {technicalSEOModules.map((module, idx) => (
+                  <div key={idx} className="bg-white p-4 sm:p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-gray-900 text-base sm:text-lg mb-3">{module.module_name}</h4>
+                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                      {module.data_json?.description || 'Description not available'}
+                    </p>
+                    {module.gap_message && module.gap_message !== 'Coming Soon' && (
+                      <div className="mt-4 pt-4 border-t border-gray-100">
+                        <p className="text-xs sm:text-sm text-gray-600 italic">
+                          <span className="font-semibold">Your Status:</span> {module.gap_message}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* Strategic SEO Area */}
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
-            <div style={{ backgroundColor: '#2C5F7C' }} className="px-8 py-6">
-              <h3 style={{ color: '#FFFFFF' }} className="text-2xl font-bold">Strategic SEO</h3>
-              <p style={{ color: '#E0E7EE' }} className="mt-2">Strategic signals that demonstrate authority and trustworthiness</p>
+            <div style={{ backgroundColor: '#2C5F7C' }} className="px-4 sm:px-8 py-4 sm:py-6">
+              <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Strategic SEO</h3>
+              <p style={{ color: '#E0E7EE' }} className="mt-2 text-sm sm:text-base">Strategic signals that demonstrate authority and trustworthiness</p>
             </div>
 
-            <div className="bg-white">
-              <table className="w-full">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Subcategory</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">What Google Looks For</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">What We Found</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {strategicSEOModules.map((module, idx) => (
-                    <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                      <td className="px-6 py-4 font-medium text-gray-900">{module.module_name}</td>
-                      <td className="px-6 py-4 text-sm text-gray-700">{module.data_json?.description || 'N/A'}</td>
-                      <td className="px-6 py-4 text-sm text-gray-700">{module.gap_message}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="p-4 sm:p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                {strategicSEOModules.map((module, idx) => (
+                  <div key={idx} className="bg-white p-4 sm:p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-gray-900 text-base sm:text-lg mb-3">{module.module_name}</h4>
+                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                      {module.data_json?.description || 'Description not available'}
+                    </p>
+                    {module.gap_message && module.gap_message !== 'Coming Soon' && (
+                      <div className="mt-4 pt-4 border-t border-gray-100">
+                        <p className="text-xs sm:text-sm text-gray-600 italic">
+                          <span className="font-semibold">Your Status:</span> {module.gap_message}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* Technical Site Area */}
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
-            <div style={{ backgroundColor: '#2C5F7C' }} className="px-8 py-6">
-              <h3 style={{ color: '#FFFFFF' }} className="text-2xl font-bold">Technical Site</h3>
-              <p style={{ color: '#E0E7EE' }} className="mt-2">Technical performance and user experience factors</p>
+            <div style={{ backgroundColor: '#2C5F7C' }} className="px-4 sm:px-8 py-4 sm:py-6">
+              <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Technical Site</h3>
+              <p style={{ color: '#E0E7EE' }} className="mt-2 text-sm sm:text-base">Technical performance and user experience factors</p>
             </div>
 
-            <div className="bg-white">
-              <table className="w-full">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Subcategory</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">What Google Looks For</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">What We Found</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {technicalSiteModules.map((module, idx) => (
-                    <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                      <td className="px-6 py-4 font-medium text-gray-900">{module.module_name}</td>
-                      <td className="px-6 py-4 text-sm text-gray-700">{module.data_json?.description || 'N/A'}</td>
-                      <td className="px-6 py-4 text-sm text-gray-700">{module.gap_message}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="p-4 sm:p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                {technicalSiteModules.map((module, idx) => (
+                  <div key={idx} className="bg-white p-4 sm:p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-gray-900 text-base sm:text-lg mb-3">{module.module_name}</h4>
+                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                      {module.data_json?.description || 'Description not available'}
+                    </p>
+                    {module.gap_message && module.gap_message !== 'Coming Soon' && (
+                      <div className="mt-4 pt-4 border-t border-gray-100">
+                        <p className="text-xs sm:text-sm text-gray-600 italic">
+                          <span className="font-semibold">Your Status:</span> {module.gap_message}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* Market Understanding Area */}
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
-            <div style={{ backgroundColor: '#2C5F7C' }} className="px-8 py-6">
-              <h3 style={{ color: '#FFFFFF' }} className="text-2xl font-bold">Market Understanding</h3>
-              <p style={{ color: '#E0E7EE' }} className="mt-2">How well your practice speaks to local patient needs</p>
+            <div style={{ backgroundColor: '#2C5F7C' }} className="px-4 sm:px-8 py-4 sm:py-6">
+              <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Market Understanding</h3>
+              <p style={{ color: '#E0E7EE' }} className="mt-2 text-sm sm:text-base">How well your practice speaks to local patient needs</p>
             </div>
 
-            <div className="bg-white">
-              <table className="w-full">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Subcategory</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">What Google Looks For</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">What We Found</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {marketUnderstandingModules.map((module, idx) => (
-                    <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                      <td className="px-6 py-4 font-medium text-gray-900">{module.module_name}</td>
-                      <td className="px-6 py-4 text-sm text-gray-700">{module.data_json?.description || 'N/A'}</td>
-                      <td className="px-6 py-4 text-sm text-gray-700">{module.gap_message}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="p-4 sm:p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                {marketUnderstandingModules.map((module, idx) => (
+                  <div key={idx} className="bg-white p-4 sm:p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-gray-900 text-base sm:text-lg mb-3">{module.module_name}</h4>
+                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                      {module.data_json?.description || 'Description not available'}
+                    </p>
+                    {module.gap_message && module.gap_message !== 'Coming Soon' && (
+                      <div className="mt-4 pt-4 border-t border-gray-100">
+                        <p className="text-xs sm:text-sm text-gray-600 italic">
+                          <span className="font-semibold">Your Status:</span> {module.gap_message}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* Strategic Site Area */}
-          <div className="bg-white rounded-xl shadow-lg mb-8 overflow-hidden border border-gray-200">
-            <div style={{ backgroundColor: '#2C5F7C' }} className="px-8 py-6">
-              <h3 style={{ color: '#FFFFFF' }} className="text-2xl font-bold">Strategic Site</h3>
-              <p style={{ color: '#E0E7EE' }} className="mt-2">High-value content that establishes topical authority</p>
+          <div className="bg-white rounded-xl shadow-lg mb-6 sm:mb-8 overflow-hidden border border-gray-200">
+            <div style={{ backgroundColor: '#2C5F7C' }} className="px-4 sm:px-8 py-4 sm:py-6">
+              <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Strategic Site</h3>
+              <p style={{ color: '#E0E7EE' }} className="mt-2 text-sm sm:text-base">High-value content that establishes topical authority</p>
             </div>
 
-            <div className="bg-white">
-              <table className="w-full">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Subcategory</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">What Google Looks For</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">What We Found</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {strategicSiteModules.map((module, idx) => (
-                    <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                      <td className="px-6 py-4 font-medium text-gray-900">{module.module_name}</td>
-                      <td className="px-6 py-4 text-sm text-gray-700">{module.data_json?.description || 'N/A'}</td>
-                      <td className="px-6 py-4 text-sm text-gray-700">{module.gap_message}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="p-4 sm:p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                {strategicSiteModules.map((module, idx) => (
+                  <div key={idx} className="bg-white p-4 sm:p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-gray-900 text-base sm:text-lg mb-3">{module.module_name}</h4>
+                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                      {module.data_json?.description || 'Description not available'}
+                    </p>
+                    {module.gap_message && module.gap_message !== 'Coming Soon' && (
+                      <div className="mt-4 pt-4 border-t border-gray-100">
+                        <p className="text-xs sm:text-sm text-gray-600 italic">
+                          <span className="font-semibold">Your Status:</span> {module.gap_message}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* Call to Action */}
-          <div style={{ backgroundColor: '#2C5F7C' }} className="rounded-xl shadow-2xl overflow-hidden border-4 border-secondary">
-            <div className="px-8 py-12 text-center">
-              <h3 className="text-4xl font-black mb-4" style={{ color: '#FFFFFF' }}>
+          <div style={{ backgroundColor: '#2C5F7C' }} className="rounded-xl shadow-2xl overflow-hidden border-2 sm:border-4 border-secondary">
+            <div className="px-4 sm:px-8 py-8 sm:py-12 text-center">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4" style={{ color: '#FFFFFF' }}>
                 Ready to Improve Your Score?
               </h3>
-              <p className="text-xl mb-10 max-w-3xl mx-auto font-medium" style={{ color: '#E0E7EE' }}>
+              <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-10 max-w-3xl mx-auto font-medium" style={{ color: '#E0E7EE' }}>
                 Schedule a complimentary 15-minute strategy session to receive a personalized action plan for dominating your local market.
               </p>
 
-              <div className="bg-white rounded-xl p-8 mb-10 max-w-2xl mx-auto shadow-2xl">
+              <div className="bg-white rounded-xl p-4 sm:p-8 mb-8 sm:mb-10 max-w-2xl mx-auto shadow-2xl">
                 <CalendarWidget className="text-center" />
               </div>
 
-              <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              <div className="grid sm:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
                 <div className="flex flex-col items-center">
-                  <div style={{ backgroundColor: '#FFD147' }} className="w-20 h-20 rounded-full flex items-center justify-center mb-4 shadow-lg">
-                    <svg className="w-10 h-10" style={{ color: '#2C5F7C' }} fill="currentColor" viewBox="0 0 20 20">
+                  <div style={{ backgroundColor: '#FFD147' }} className="w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-lg">
+                    <svg className="w-8 h-8 sm:w-10 sm:h-10" style={{ color: '#2C5F7C' }} fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <div className="font-bold text-lg" style={{ color: '#FFFFFF' }}>No Long-Term Contracts</div>
+                  <div className="font-bold text-base sm:text-lg" style={{ color: '#FFFFFF' }}>No Long-Term Contracts</div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <div style={{ backgroundColor: '#FFD147' }} className="w-20 h-20 rounded-full flex items-center justify-center mb-4 shadow-lg">
-                    <svg className="w-10 h-10" style={{ color: '#2C5F7C' }} fill="currentColor" viewBox="0 0 20 20">
+                  <div style={{ backgroundColor: '#FFD147' }} className="w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-lg">
+                    <svg className="w-8 h-8 sm:w-10 sm:h-10" style={{ color: '#2C5F7C' }} fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <div className="font-bold text-lg" style={{ color: '#FFFFFF' }}>2X ROI Guarantee</div>
+                  <div className="font-bold text-base sm:text-lg" style={{ color: '#FFFFFF' }}>2X ROI Guarantee</div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <div style={{ backgroundColor: '#FFD147' }} className="w-20 h-20 rounded-full flex items-center justify-center mb-4 shadow-lg">
-                    <svg className="w-10 h-10" style={{ color: '#2C5F7C' }} fill="currentColor" viewBox="0 0 20 20">
+                  <div style={{ backgroundColor: '#FFD147' }} className="w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-lg">
+                    <svg className="w-8 h-8 sm:w-10 sm:h-10" style={{ color: '#2C5F7C' }} fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <div className="font-bold text-lg" style={{ color: '#FFFFFF' }}>Exclusive Territory</div>
+                  <div className="font-bold text-base sm:text-lg" style={{ color: '#FFFFFF' }}>Exclusive Territory</div>
                 </div>
               </div>
             </div>
