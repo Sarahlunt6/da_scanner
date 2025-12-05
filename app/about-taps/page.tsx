@@ -101,8 +101,8 @@ export default function AboutTAPSPage() {
                         <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
                         <span>NAP Consistency</span>
                       </li>
-                      <li className="flex items-start gap-2 opacity-60">
-                        <span className="text-[#2C5F7C] mt-0.5 text-lg">○</span>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
                         <span>Images</span>
                       </li>
                     </ul>
@@ -133,8 +133,8 @@ export default function AboutTAPSPage() {
                         <span className="text-[#F5C842] mt-0.5 text-lg font-bold">✓</span>
                         <span>Citations</span>
                       </li>
-                      <li className="flex items-start gap-2 opacity-60">
-                        <span className="text-[#F5C842] mt-0.5 text-lg">○</span>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#F5C842] mt-0.5 text-lg font-bold">✓</span>
                         <span>Content Activity</span>
                       </li>
                     </ul>
@@ -165,8 +165,8 @@ export default function AboutTAPSPage() {
                         <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
                         <span>Mobile Optimization</span>
                       </li>
-                      <li className="flex items-start gap-2 opacity-60">
-                        <span className="text-[#2C5F7C] mt-0.5 text-lg">○</span>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
                         <span>Video Content</span>
                       </li>
                     </ul>
@@ -190,18 +190,18 @@ export default function AboutTAPSPage() {
                     How well your practice speaks to local patient needs and community relevance
                   </p>
                   <div className="bg-white rounded-xl p-4 shadow-sm">
-                    <h3 className="font-bold text-gray-900 mb-3 text-sm">Coming Soon:</h3>
+                    <h3 className="font-bold text-gray-900 mb-3 text-sm">What We Check:</h3>
                     <ul className="space-y-2 text-gray-700 text-sm">
-                      <li className="flex items-start gap-2 opacity-60">
-                        <span className="text-[#F5C842] mt-0.5 text-lg">○</span>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#F5C842] mt-0.5 text-lg font-bold">✓</span>
                         <span>Messaging Clarity</span>
                       </li>
-                      <li className="flex items-start gap-2 opacity-60">
-                        <span className="text-[#F5C842] mt-0.5 text-lg">○</span>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#F5C842] mt-0.5 text-lg font-bold">✓</span>
                         <span>Local Messages</span>
                       </li>
-                      <li className="flex items-start gap-2 opacity-60">
-                        <span className="text-[#F5C842] mt-0.5 text-lg">○</span>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#F5C842] mt-0.5 text-lg font-bold">✓</span>
                         <span>Messaging Integrity</span>
                       </li>
                     </ul>
@@ -228,8 +228,8 @@ export default function AboutTAPSPage() {
                         <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
                         <span>Semantic Analysis</span>
                       </li>
-                      <li className="flex items-start gap-2 opacity-60">
-                        <span className="text-[#2C5F7C] mt-0.5 text-lg">○</span>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
                         <span>High Value Content</span>
                       </li>
                       <li className="flex items-start gap-2">
