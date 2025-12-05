@@ -36,14 +36,6 @@ export default function HowItWorksPage() {
                 About TAPS
               </Link>
               <Link
-                href="https://link.opkie.com/widget/bookings/strategy-meeting30"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-medium text-gray-700 hover:text-[#2C5F7C] transition-all duration-200"
-              >
-                Book a Call
-              </Link>
-              <Link
                 href="/"
                 className="bg-[#F5C842] hover:bg-[#d4ab1f] text-gray-900 font-bold py-2 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
               >
