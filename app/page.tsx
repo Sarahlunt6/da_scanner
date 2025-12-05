@@ -720,8 +720,9 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-8">
-                {/* Phase 1 */}
+              {/* First Row - 3 areas */}
+              <div className="grid md:grid-cols-3 gap-8 mb-8">
+                {/* Area 1: Technical SEO */}
                 <div
                   className="bg-white rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-default"
                   onMouseEnter={(e) => {
@@ -737,32 +738,32 @@ export default function HomePage() {
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
-                      <span className="text-xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">50%</span>
+                      <span className="text-xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">20%</span>
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Phase 1</h4>
+                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Technical SEO</h4>
                   </div>
-                  <h5 className="font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">The Foundational Sprint</h5>
+                  <h5 className="font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">Foundation & Discoverability</h5>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-1">•</span>
-                      <span>Profit Zone Positioning</span>
+                      <span>Review Velocity</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-1">•</span>
-                      <span>Product Shelf Optimization</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>Review Health & Velocity</span>
+                      <span>GBP Primary Category</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-1">•</span>
                       <span>NAP Consistency</span>
                     </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Images</span>
+                    </li>
                   </ul>
                 </div>
 
-                {/* Phase 2 */}
+                {/* Area 2: Strategic SEO */}
                 <div
                   className="bg-white rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-default"
                   onMouseEnter={(e) => {
@@ -778,32 +779,28 @@ export default function HomePage() {
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
-                      <span className="text-xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">35%</span>
+                      <span className="text-xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">20%</span>
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Phase 2</h4>
+                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Strategic SEO</h4>
                   </div>
-                  <h5 className="font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">The Asset Engine</h5>
+                  <h5 className="font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">Authority & Trust Signals</h5>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-1">•</span>
-                      <span>Core 30 Trust Signals</span>
+                      <span>Review Sentiment</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-1">•</span>
-                      <span>Technical Trust Factors</span>
+                      <span>Citations</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-1">•</span>
-                      <span>Website Authority</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>Content Quality</span>
+                      <span>Content Activity</span>
                     </li>
                   </ul>
                 </div>
 
-                {/* Phase 3 */}
+                {/* Area 3: Technical Site */}
                 <div
                   className="bg-white rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-default"
                   onMouseEnter={(e) => {
@@ -819,27 +816,100 @@ export default function HomePage() {
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
-                      <span className="text-xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">15%</span>
+                      <span className="text-xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">20%</span>
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Phase 3</h4>
+                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Technical Site</h4>
                   </div>
-                  <h5 className="font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">The Long-Term Moat</h5>
+                  <h5 className="font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">Performance & User Experience</h5>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-1">•</span>
-                      <span>Directory Dominance</span>
+                      <span>Site Speed</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-1">•</span>
-                      <span>Citation Consistency</span>
+                      <span>Mobile Optimization</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-1">•</span>
-                      <span>Review Velocity Systems</span>
+                      <span>Video Content</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Second Row - 2 areas (centered) */}
+              <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                {/* Area 4: Market Understanding */}
+                <div
+                  className="bg-white rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-default"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.05) translateY(-8px)';
+                    e.currentTarget.style.borderColor = '#2C5F7C';
+                    e.currentTarget.style.borderWidth = '2px';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = '';
+                    e.currentTarget.style.borderColor = '';
+                    e.currentTarget.style.borderWidth = '';
+                  }}
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
+                      <span className="text-xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">20%</span>
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Market Understanding</h4>
+                  </div>
+                  <h5 className="font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">Local Relevance & Messaging</h5>
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Messaging Clarity</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-1">•</span>
-                      <span>Competitive Positioning</span>
+                      <span>Local Messages</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Messaging Integrity</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Area 5: Strategic Site */}
+                <div
+                  className="bg-white rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-default"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.05) translateY(-8px)';
+                    e.currentTarget.style.borderColor = '#2C5F7C';
+                    e.currentTarget.style.borderWidth = '2px';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = '';
+                    e.currentTarget.style.borderColor = '';
+                    e.currentTarget.style.borderWidth = '';
+                  }}
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
+                      <span className="text-xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">20%</span>
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Strategic Site</h4>
+                  </div>
+                  <h5 className="font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">Content Authority & Depth</h5>
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Semantic Analysis</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>High Value Content</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>GBP Services</span>
                     </li>
                   </ul>
                 </div>
@@ -847,7 +917,7 @@ export default function HomePage() {
 
               <div className="mt-10 text-center">
                 <p className="text-gray-600 mb-6">
-                  Your score is calculated by measuring performance across all three phases
+                  Your score is calculated by measuring performance across all five areas
                 </p>
                 <a
                   href="#"
