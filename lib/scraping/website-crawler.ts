@@ -77,7 +77,7 @@ export async function crawlWebsiteForCore30(websiteUrl: string): Promise<Website
   console.log(`Crawling ${baseUrl} for Core 30 pages...`);
 
   // Check each page in parallel (but with rate limiting)
-  const batchSize = 5; // Check 5 pages at a time to avoid overwhelming server
+  const batchSize = 10; // Check 10 pages at a time
   for (let i = 0; i < CORE_30_PAGES.length; i += batchSize) {
     const batch = CORE_30_PAGES.slice(i, i + batchSize);
     const results = await Promise.all(
@@ -92,11 +92,6 @@ export async function crawlWebsiteForCore30(websiteUrl: string): Promise<Website
         missingPages.push(pageName);
       }
     });
-
-    // Small delay between batches to be respectful
-    if (i + batchSize < CORE_30_PAGES.length) {
-      await new Promise(resolve => setTimeout(resolve, 200));
-    }
   }
 
   console.log(`Found ${foundPages.length}/${CORE_30_PAGES.length} Core 30 pages`);
@@ -113,45 +108,31 @@ export async function crawlWebsiteForCore30(websiteUrl: string): Promise<Website
  * Check if a specific page exists on the website
  */
 async function checkPageExists(baseUrl: string, pagePath: string): Promise<boolean> {
+  // Reduced URL variations for speed
   const urlVariations = [
     `${baseUrl}/${pagePath}`,
     `${baseUrl}/${pagePath}/`,
-    `${baseUrl}/services/${pagePath}`,
-    `${baseUrl}/services/${pagePath}/`,
-    `${baseUrl}/${pagePath.replace(/-/g, '')}`,
-    `${baseUrl}/${pagePath.replace(/-/g, '_')}`
+    `${baseUrl}/services/${pagePath}`
   ];
 
   for (const url of urlVariations) {
     try {
+      // Only try HEAD request with shorter timeout
       const response = await axios.head(url, {
-        timeout: 5000,
-        maxRedirects: 3,
-        validateStatus: (status) => status < 400
+        timeout: 2000, // Reduced from 5000ms to 2000ms
+        maxRedirects: 2,
+        validateStatus: (status) => status < 400,
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (compatible; DigitalAuthorityScanner/1.0)'
+        }
       });
 
       if (response.status === 200) {
         return true;
       }
     } catch (error) {
-      // Try GET request if HEAD fails
-      try {
-        const response = await axios.get(url, {
-          timeout: 5000,
-          maxRedirects: 3,
-          validateStatus: (status) => status < 400,
-          headers: {
-            'User-Agent': 'Mozilla/5.0 (compatible; DigitalAuthorityScanner/1.0)'
-          }
-        });
-
-        if (response.status === 200) {
-          return true;
-        }
-      } catch {
-        // Page doesn't exist at this URL, try next variation
-        continue;
-      }
+      // If HEAD fails, skip GET and try next URL variation
+      continue;
     }
   }
 
