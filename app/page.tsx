@@ -326,7 +326,7 @@ export default function HomePage() {
                 </div>
                 <div className="text-center border-x border-white/30 transition-transform duration-300 hover:scale-110">
                   <div className="text-5xl font-extrabold mb-2 transition-colors duration-300 group-hover:text-secondary">95%</div>
-                  <div className="text-sm font-medium">Score Below 75%</div>
+                  <div className="text-sm font-medium">Score Below 80%</div>
                 </div>
                 <div className="text-center transition-transform duration-300 hover:scale-110">
                   <div className="text-5xl font-extrabold mb-2 transition-colors duration-300 group-hover:text-secondary">2.4x</div>
