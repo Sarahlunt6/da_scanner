@@ -266,6 +266,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
             </div>
 
             <div className="p-4 sm:p-6">
+              <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-4">What goes into this score:</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 {technicalSEOModules.map((module, idx) => (
                   <div key={idx} className="bg-white p-4 sm:p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
@@ -296,6 +297,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
             </div>
 
             <div className="p-4 sm:p-6">
+              <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-4">What goes into this score:</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 {strategicSEOModules.map((module, idx) => (
                   <div key={idx} className="bg-white p-4 sm:p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
@@ -326,6 +328,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
             </div>
 
             <div className="p-4 sm:p-6">
+              <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-4">What goes into this score:</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 {technicalSiteModules.map((module, idx) => (
                   <div key={idx} className="bg-white p-4 sm:p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
@@ -356,6 +359,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
             </div>
 
             <div className="p-4 sm:p-6">
+              <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-4">What goes into this score:</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 {marketUnderstandingModules.map((module, idx) => (
                   <div key={idx} className="bg-white p-4 sm:p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
@@ -386,6 +390,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
             </div>
 
             <div className="p-4 sm:p-6">
+              <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-4">What goes into this score:</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 {strategicSiteModules.map((module, idx) => (
                   <div key={idx} className="bg-white p-4 sm:p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
