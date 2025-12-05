@@ -214,6 +214,41 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
             </div>
           </div>
 
+          {/* Area Scores Breakdown */}
+          {scan.results_json?.areaScores && (
+            <div className="bg-white rounded-xl shadow-lg mb-6 sm:mb-8 overflow-hidden border border-gray-200">
+              <div className="border-b-4 border-secondary px-4 sm:px-8 py-4 sm:py-6 bg-gradient-to-r from-gray-50 to-white">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Area Scores</h2>
+                <p className="text-gray-600 mt-1 text-sm sm:text-base">Performance breakdown across all 5 areas</p>
+              </div>
+
+              <div className="p-4 sm:p-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
+                  <div className="text-center p-4 sm:p-6 rounded-lg border-2 border-gray-200 bg-gradient-to-br from-blue-50 to-white hover:shadow-lg transition-all">
+                    <div className="text-4xl sm:text-5xl font-black text-primary mb-2">{scan.results_json.areaScores.technicalSEO}</div>
+                    <div className="text-xs sm:text-sm font-bold text-gray-900">Technical SEO</div>
+                  </div>
+                  <div className="text-center p-4 sm:p-6 rounded-lg border-2 border-gray-200 bg-gradient-to-br from-blue-50 to-white hover:shadow-lg transition-all">
+                    <div className="text-4xl sm:text-5xl font-black text-primary mb-2">{scan.results_json.areaScores.strategicSEO}</div>
+                    <div className="text-xs sm:text-sm font-bold text-gray-900">Strategic SEO</div>
+                  </div>
+                  <div className="text-center p-4 sm:p-6 rounded-lg border-2 border-gray-200 bg-gradient-to-br from-blue-50 to-white hover:shadow-lg transition-all">
+                    <div className="text-4xl sm:text-5xl font-black text-primary mb-2">{scan.results_json.areaScores.technicalSite}</div>
+                    <div className="text-xs sm:text-sm font-bold text-gray-900">Technical Site</div>
+                  </div>
+                  <div className="text-center p-4 sm:p-6 rounded-lg border-2 border-gray-200 bg-gradient-to-br from-blue-50 to-white hover:shadow-lg transition-all">
+                    <div className="text-4xl sm:text-5xl font-black text-primary mb-2">{scan.results_json.areaScores.marketUnderstanding}</div>
+                    <div className="text-xs sm:text-sm font-bold text-gray-900">Market Understanding</div>
+                  </div>
+                  <div className="text-center p-4 sm:p-6 rounded-lg border-2 border-gray-200 bg-gradient-to-br from-blue-50 to-white hover:shadow-lg transition-all">
+                    <div className="text-4xl sm:text-5xl font-black text-primary mb-2">{scan.results_json.areaScores.strategicSite}</div>
+                    <div className="text-xs sm:text-sm font-bold text-gray-900">Strategic Site</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Technical SEO Area */}
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
             <div style={{ backgroundColor: '#2C5F7C' }} className="px-4 sm:px-8 py-4 sm:py-6">
@@ -229,13 +264,6 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                     <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                       {module.data_json?.description || 'Description not available'}
                     </p>
-                    {module.gap_message && module.gap_message !== 'Coming Soon' && (
-                      <div className="mt-4 pt-4 border-t border-gray-100">
-                        <p className="text-xs sm:text-sm text-gray-600 italic">
-                          <span className="font-semibold">Your Status:</span> {module.gap_message}
-                        </p>
-                      </div>
-                    )}
                   </div>
                 ))}
               </div>
@@ -257,13 +285,6 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                     <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                       {module.data_json?.description || 'Description not available'}
                     </p>
-                    {module.gap_message && module.gap_message !== 'Coming Soon' && (
-                      <div className="mt-4 pt-4 border-t border-gray-100">
-                        <p className="text-xs sm:text-sm text-gray-600 italic">
-                          <span className="font-semibold">Your Status:</span> {module.gap_message}
-                        </p>
-                      </div>
-                    )}
                   </div>
                 ))}
               </div>
@@ -285,13 +306,6 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                     <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                       {module.data_json?.description || 'Description not available'}
                     </p>
-                    {module.gap_message && module.gap_message !== 'Coming Soon' && (
-                      <div className="mt-4 pt-4 border-t border-gray-100">
-                        <p className="text-xs sm:text-sm text-gray-600 italic">
-                          <span className="font-semibold">Your Status:</span> {module.gap_message}
-                        </p>
-                      </div>
-                    )}
                   </div>
                 ))}
               </div>
@@ -313,13 +327,6 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                     <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                       {module.data_json?.description || 'Description not available'}
                     </p>
-                    {module.gap_message && module.gap_message !== 'Coming Soon' && (
-                      <div className="mt-4 pt-4 border-t border-gray-100">
-                        <p className="text-xs sm:text-sm text-gray-600 italic">
-                          <span className="font-semibold">Your Status:</span> {module.gap_message}
-                        </p>
-                      </div>
-                    )}
                   </div>
                 ))}
               </div>
@@ -341,13 +348,6 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                     <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                       {module.data_json?.description || 'Description not available'}
                     </p>
-                    {module.gap_message && module.gap_message !== 'Coming Soon' && (
-                      <div className="mt-4 pt-4 border-t border-gray-100">
-                        <p className="text-xs sm:text-sm text-gray-600 italic">
-                          <span className="font-semibold">Your Status:</span> {module.gap_message}
-                        </p>
-                      </div>
-                    )}
                   </div>
                 ))}
               </div>

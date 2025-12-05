@@ -72,7 +72,10 @@ export async function POST(request: Request) {
       score: module.score,
       status: module.status,
       gap_message: module.gapMessage,
-      data_json: module.data,
+      data_json: {
+        ...module.data,
+        description: module.description, // Include description in data_json for results page
+      },
     }));
 
     const { error: moduleError } = await supabaseAdmin
