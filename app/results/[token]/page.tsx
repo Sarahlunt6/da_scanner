@@ -252,8 +252,17 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
           {/* Technical SEO Area */}
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
             <div style={{ backgroundColor: '#2C5F7C' }} className="px-4 sm:px-8 py-4 sm:py-6">
-              <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Technical SEO</h3>
-              <p style={{ color: '#E0E7EE' }} className="mt-2 text-sm sm:text-base">Foundational elements that help Google find and rank your practice</p>
+              <div className="flex items-center justify-between">
+                <div className="flex-1">
+                  <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Technical SEO</h3>
+                  <p style={{ color: '#E0E7EE' }} className="mt-2 text-sm sm:text-base">Foundational elements that help Google find and rank your practice</p>
+                </div>
+                {scan.results_json?.areaScores?.technicalSEO && (
+                  <div className="ml-4 flex-shrink-0">
+                    <div className="text-4xl sm:text-5xl font-black" style={{ color: '#FFD147' }}>{scan.results_json.areaScores.technicalSEO}</div>
+                  </div>
+                )}
+              </div>
             </div>
 
             <div className="p-4 sm:p-6">
@@ -273,8 +282,17 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
           {/* Strategic SEO Area */}
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
             <div style={{ backgroundColor: '#2C5F7C' }} className="px-4 sm:px-8 py-4 sm:py-6">
-              <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Strategic SEO</h3>
-              <p style={{ color: '#E0E7EE' }} className="mt-2 text-sm sm:text-base">Strategic signals that demonstrate authority and trustworthiness</p>
+              <div className="flex items-center justify-between">
+                <div className="flex-1">
+                  <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Strategic SEO</h3>
+                  <p style={{ color: '#E0E7EE' }} className="mt-2 text-sm sm:text-base">Strategic signals that demonstrate authority and trustworthiness</p>
+                </div>
+                {scan.results_json?.areaScores?.strategicSEO && (
+                  <div className="ml-4 flex-shrink-0">
+                    <div className="text-4xl sm:text-5xl font-black" style={{ color: '#FFD147' }}>{scan.results_json.areaScores.strategicSEO}</div>
+                  </div>
+                )}
+              </div>
             </div>
 
             <div className="p-4 sm:p-6">
@@ -294,8 +312,17 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
           {/* Technical Site Area */}
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
             <div style={{ backgroundColor: '#2C5F7C' }} className="px-4 sm:px-8 py-4 sm:py-6">
-              <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Technical Site</h3>
-              <p style={{ color: '#E0E7EE' }} className="mt-2 text-sm sm:text-base">Technical performance and user experience factors</p>
+              <div className="flex items-center justify-between">
+                <div className="flex-1">
+                  <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Technical Site</h3>
+                  <p style={{ color: '#E0E7EE' }} className="mt-2 text-sm sm:text-base">Technical performance and user experience factors</p>
+                </div>
+                {scan.results_json?.areaScores?.technicalSite && (
+                  <div className="ml-4 flex-shrink-0">
+                    <div className="text-4xl sm:text-5xl font-black" style={{ color: '#FFD147' }}>{scan.results_json.areaScores.technicalSite}</div>
+                  </div>
+                )}
+              </div>
             </div>
 
             <div className="p-4 sm:p-6">
@@ -315,8 +342,17 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
           {/* Market Understanding Area */}
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
             <div style={{ backgroundColor: '#2C5F7C' }} className="px-4 sm:px-8 py-4 sm:py-6">
-              <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Market Understanding</h3>
-              <p style={{ color: '#E0E7EE' }} className="mt-2 text-sm sm:text-base">How well your practice speaks to local patient needs</p>
+              <div className="flex items-center justify-between">
+                <div className="flex-1">
+                  <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Market Understanding</h3>
+                  <p style={{ color: '#E0E7EE' }} className="mt-2 text-sm sm:text-base">How well your practice speaks to local patient needs</p>
+                </div>
+                {scan.results_json?.areaScores?.marketUnderstanding && (
+                  <div className="ml-4 flex-shrink-0">
+                    <div className="text-4xl sm:text-5xl font-black" style={{ color: '#FFD147' }}>{scan.results_json.areaScores.marketUnderstanding}</div>
+                  </div>
+                )}
+              </div>
             </div>
 
             <div className="p-4 sm:p-6">
@@ -336,8 +372,17 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
           {/* Strategic Site Area */}
           <div className="bg-white rounded-xl shadow-lg mb-6 sm:mb-8 overflow-hidden border border-gray-200">
             <div style={{ backgroundColor: '#2C5F7C' }} className="px-4 sm:px-8 py-4 sm:py-6">
-              <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Strategic Site</h3>
-              <p style={{ color: '#E0E7EE' }} className="mt-2 text-sm sm:text-base">High-value content that establishes topical authority</p>
+              <div className="flex items-center justify-between">
+                <div className="flex-1">
+                  <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Strategic Site</h3>
+                  <p style={{ color: '#E0E7EE' }} className="mt-2 text-sm sm:text-base">High-value content that establishes topical authority</p>
+                </div>
+                {scan.results_json?.areaScores?.strategicSite && (
+                  <div className="ml-4 flex-shrink-0">
+                    <div className="text-4xl sm:text-5xl font-black" style={{ color: '#FFD147' }}>{scan.results_json.areaScores.strategicSite}</div>
+                  </div>
+                )}
+              </div>
             </div>
 
             <div className="p-4 sm:p-6">
