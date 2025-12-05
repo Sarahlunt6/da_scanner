@@ -736,10 +736,7 @@ export default function HomePage() {
                     e.currentTarget.style.borderWidth = '';
                   }}
                 >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
-                      <span className="text-xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">20%</span>
-                    </div>
+                  <div className="mb-4">
                     <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Technical SEO</h4>
                   </div>
                   <h5 className="font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">Foundation & Discoverability</h5>
@@ -777,10 +774,7 @@ export default function HomePage() {
                     e.currentTarget.style.borderWidth = '';
                   }}
                 >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
-                      <span className="text-xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">20%</span>
-                    </div>
+                  <div className="mb-4">
                     <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Strategic SEO</h4>
                   </div>
                   <h5 className="font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">Authority & Trust Signals</h5>
@@ -814,10 +808,7 @@ export default function HomePage() {
                     e.currentTarget.style.borderWidth = '';
                   }}
                 >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
-                      <span className="text-xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">20%</span>
-                    </div>
+                  <div className="mb-4">
                     <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Technical Site</h4>
                   </div>
                   <h5 className="font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">Performance & User Experience</h5>
@@ -854,10 +845,7 @@ export default function HomePage() {
                     e.currentTarget.style.borderWidth = '';
                   }}
                 >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
-                      <span className="text-xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">20%</span>
-                    </div>
+                  <div className="mb-4">
                     <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Market Understanding</h4>
                   </div>
                   <h5 className="font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">Local Relevance & Messaging</h5>
@@ -891,10 +879,7 @@ export default function HomePage() {
                     e.currentTarget.style.borderWidth = '';
                   }}
                 >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
-                      <span className="text-xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">20%</span>
-                    </div>
+                  <div className="mb-4">
                     <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Strategic Site</h4>
                   </div>
                   <h5 className="font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">Content Authority & Depth</h5>
