@@ -43,8 +43,10 @@ export async function performScan(input: ScanInput): Promise<ScanResult> {
   console.log('✅ Review Sentiment completed');
   const citationsResult = await scanCitations(input.practiceName);
   console.log('✅ Citations completed');
-  const contentActivityResult = createPlaceholderModule('Content Activity', 'Strategic SEO', 'Regular content updates and blog posts that target high-value keywords and patient questions.');
+  const contentActivityResult = createPlaceholderModule('Content Activity', 'Strategic SEO', 'Regular Google Business Profile Content Updates that target high value keywords and patient questions and consistent response to patient reviews.');
   console.log('✅ Content Activity (placeholder) completed');
+  const gbpServicesResult = await scanGBPServices(googleData);
+  console.log('✅ GBP Services completed');
   console.log('=== STRATEGIC SEO: Complete ===');
 
   // === TECHNICAL SITE AREA ===
@@ -70,8 +72,6 @@ export async function performScan(input: ScanInput): Promise<ScanResult> {
   const semanticAnalysisResult = await scanSemanticAnalysis(input.websiteUrl);
   console.log('✅ Semantic Analysis completed');
   const highValueContentResult = createPlaceholderModule('High Value Content', 'Strategic Site', 'Content focused on high-value procedures like implants and cosmetic dentistry that attracts profitable patients.');
-  const gbpServicesResult = await scanGBPServices(googleData);
-  console.log('✅ GBP Services completed');
   console.log('=== STRATEGIC SITE: Complete ===');
 
   // Combine all modules
@@ -85,6 +85,7 @@ export async function performScan(input: ScanInput): Promise<ScanResult> {
     reviewSentimentResult,
     citationsResult,
     contentActivityResult,
+    gbpServicesResult,
     // Technical Site
     siteSpeedResult,
     mobileOptimizationResult,
@@ -96,7 +97,6 @@ export async function performScan(input: ScanInput): Promise<ScanResult> {
     // Strategic Site
     semanticAnalysisResult,
     highValueContentResult,
-    gbpServicesResult,
   ];
 
   // Calculate area scores
@@ -520,13 +520,13 @@ async function scanSemanticAnalysis(websiteUrl: string): Promise<ModuleResult> {
 }
 
 /**
- * STRATEGIC SITE: GBP Services
+ * STRATEGIC SEO: GBP Services
  */
 async function scanGBPServices(googleData: any): Promise<ModuleResult> {
   if (!googleData.listed) {
     return {
       name: 'GBP Services',
-      area: 'Strategic Site',
+      area: 'Strategic SEO',
       score: 0,
       status: 'urgent',
       weight: 10,
@@ -546,7 +546,7 @@ async function scanGBPServices(googleData: any): Promise<ModuleResult> {
 
   return {
     name: 'GBP Services',
-    area: 'Strategic Site',
+    area: 'Strategic SEO',
     score,
     status: scoring.getStatus(score),
     weight: 10,

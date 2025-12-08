@@ -137,6 +137,10 @@ export default function AboutTAPSPage() {
                         <span className="text-[#F5C842] mt-0.5 text-lg font-bold">✓</span>
                         <span>Content Activity</span>
                       </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#F5C842] mt-0.5 text-lg font-bold">✓</span>
+                        <span>GBP Services</span>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -231,10 +235,6 @@ export default function AboutTAPSPage() {
                       <li className="flex items-start gap-2">
                         <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
                         <span>High Value Content</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
-                        <span>GBP Services</span>
                       </li>
                     </ul>
                   </div>

@@ -81,7 +81,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
   const strategicSEOModules = modules?.filter(m => {
     const name = m.module_name;
     return name === 'Review Sentiment' || name === 'Citations' ||
-           name === 'Content Activity';
+           name === 'Content Activity' || name === 'GBP Services';
   }) || [];
 
   const technicalSiteModules = modules?.filter(m => {
@@ -98,8 +98,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
 
   const strategicSiteModules = modules?.filter(m => {
     const name = m.module_name;
-    return name === 'Semantic Analysis' || name === 'High Value Content' ||
-           name === 'GBP Services';
+    return name === 'Semantic Analysis' || name === 'High Value Content';
   }) || [];
 
   return (

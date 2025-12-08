@@ -791,6 +791,10 @@ export default function HomePage() {
                       <span className="text-primary mt-1">•</span>
                       <span>Content Activity</span>
                     </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>GBP Services</span>
+                    </li>
                   </ul>
                 </div>
 
@@ -891,10 +895,6 @@ export default function HomePage() {
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-1">•</span>
                       <span>High Value Content</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>GBP Services</span>
                     </li>
                   </ul>
                 </div>
