@@ -62,7 +62,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
     // Always return "An Undiscovered Expert" for all scores
     return {
       label: "An Undiscovered Expert",
-      subtext: "You're great, but Google doesn't know it yet",
+      subtext: "You're great, so why doesn't Google know it?",
       color: "text-blue-700",
       bgColor: "bg-blue-50",
       borderColor: "border-blue-400"
