@@ -59,33 +59,13 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
   }
 
   const getScoreTier = (score: number) => {
-    if (score >= 90) return {
-      label: "A Digital Powerhouse",
-      subtext: "You're crushing it",
-      color: "text-green-700",
-      bgColor: "bg-green-50",
-      borderColor: "border-green-400"
-    };
-    if (score >= 70) return {
+    // Always return "An Undiscovered Expert" for all scores
+    return {
       label: "An Undiscovered Expert",
       subtext: "You're great, but Google doesn't know it yet",
       color: "text-blue-700",
       bgColor: "bg-blue-50",
       borderColor: "border-blue-400"
-    };
-    if (score >= 50) return {
-      label: "An Invisible Practice",
-      subtext: "Patients can't find you if you don't exist online",
-      color: "text-orange-700",
-      bgColor: "bg-orange-50",
-      borderColor: "border-orange-400"
-    };
-    return {
-      label: "A Hidden Practice",
-      subtext: "Time to step into the spotlight",
-      color: "text-red-700",
-      bgColor: "bg-red-50",
-      borderColor: "border-red-400"
     };
   };
 
