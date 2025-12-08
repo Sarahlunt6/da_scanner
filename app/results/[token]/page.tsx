@@ -59,10 +59,34 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
   }
 
   const getScoreTier = (score: number) => {
-    if (score >= 90) return { label: "Elite Performance", color: "text-green-700", bgColor: "bg-green-50", borderColor: "border-green-400" };
-    if (score >= 70) return { label: "Above Average", color: "text-blue-700", bgColor: "bg-blue-50", borderColor: "border-blue-400" };
-    if (score >= 50) return { label: "Average", color: "text-orange-700", bgColor: "bg-orange-50", borderColor: "border-orange-400" };
-    return { label: "Failing", color: "text-red-700", bgColor: "bg-red-50", borderColor: "border-red-400" };
+    if (score >= 90) return {
+      label: "A Digital Powerhouse",
+      subtext: "You're crushing it",
+      color: "text-green-700",
+      bgColor: "bg-green-50",
+      borderColor: "border-green-400"
+    };
+    if (score >= 70) return {
+      label: "An Undiscovered Expert",
+      subtext: "You're great, but Google doesn't know it yet",
+      color: "text-blue-700",
+      bgColor: "bg-blue-50",
+      borderColor: "border-blue-400"
+    };
+    if (score >= 50) return {
+      label: "An Invisible Practice",
+      subtext: "Patients can't find you if you don't exist online",
+      color: "text-orange-700",
+      bgColor: "bg-orange-50",
+      borderColor: "border-orange-400"
+    };
+    return {
+      label: "A Hidden Practice",
+      subtext: "Time to step into the spotlight",
+      color: "text-red-700",
+      bgColor: "bg-red-50",
+      borderColor: "border-red-400"
+    };
   };
 
   const tier = getScoreTier(scan.overall_score || 0);
@@ -126,6 +150,13 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
             </div>
 
             <div className="p-4 sm:p-8">
+              {/* "The Internet Sees You As..." Tagline */}
+              <div className="text-center mb-6 sm:mb-8">
+                <p className="text-lg sm:text-xl text-gray-600 mb-2">The internet sees you as...</p>
+                <h3 className="text-2xl sm:text-4xl font-black text-[#2C5F7C] mb-2">{tier.label}</h3>
+                <p className="text-sm sm:text-base text-gray-600 italic max-w-2xl mx-auto">{tier.subtext}</p>
+              </div>
+
               <div className="flex justify-center mb-6 sm:mb-10">
                 {/* Score Display */}
                 <div className="flex flex-col items-center justify-center">
