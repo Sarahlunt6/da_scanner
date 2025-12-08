@@ -322,7 +322,7 @@ async function scanReviewSentiment(googleData: any): Promise<ModuleResult> {
       score: 0,
       status: 'urgent',
       weight: 15,
-      description: 'Your overall Google review rating and total count. This is your trust score - practices with 100+ reviews at 4.8+ stars rank highest.',
+      description: 'What your patients are highlighting. The services your patients mention and way they talk about you in your reviews let\'s Google know what kinds of searches and what kind of searcher profiles to focus on when deciding when to show your practice.',
       gapMessage: 'Practice not found on Google. Cannot analyze reviews.',
       data: {
         rating: 0,
@@ -343,7 +343,7 @@ async function scanReviewSentiment(googleData: any): Promise<ModuleResult> {
     score,
     status: scoring.getStatus(score),
     weight: 15,
-    description: 'Your overall Google review rating and total count. This is your trust score - practices with 100+ reviews at 4.8+ stars rank highest.',
+    description: 'What your patients are highlighting. The services your patients mention and way they talk about you in your reviews let\'s Google know what kinds of searches and what kind of searcher profiles to focus on when deciding when to show your practice.',
     gapMessage,
     data: {
       rating,
