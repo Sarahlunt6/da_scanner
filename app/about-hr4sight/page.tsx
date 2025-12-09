@@ -105,9 +105,9 @@ export default function AboutHR4SightPage() {
 
           {/* Why HR Professionals Need This */}
           <section className="mb-16">
-            <div className="bg-gradient-to-br from-primary to-primary/80 text-white rounded-2xl p-8 md:p-12 shadow-xl">
-              <h2 className="text-3xl font-bold mb-6">We Know You Work Hard</h2>
-              <div className="space-y-4 text-lg">
+            <div className="bg-gradient-to-br from-[#1e2654] to-[#29377f] text-white rounded-2xl p-8 md:p-12 shadow-xl border-2 border-secondary/30">
+              <h2 className="text-3xl font-bold mb-6 text-white">We Know You Work Hard</h2>
+              <div className="space-y-4 text-lg text-white">
                 <p>
                   Let's be honest. As an HR Professional, it's easy to feel overwhelmed. Whether it's recruiting, onboarding, retraining or working with employees, your responsibilities are never-ending.
                 </p>
@@ -226,9 +226,9 @@ export default function AboutHR4SightPage() {
 
           {/* CTA Section */}
           <section className="text-center">
-            <div className="bg-gradient-to-r from-primary to-primary/80 text-white rounded-2xl p-12 shadow-2xl">
-              <h2 className="text-4xl font-bold mb-4">Ready to Get Started?</h2>
-              <p className="text-xl mb-8 max-w-2xl mx-auto">
+            <div className="bg-gradient-to-r from-[#1e2654] to-[#29377f] text-white rounded-2xl p-12 shadow-2xl border-2 border-secondary/30">
+              <h2 className="text-4xl font-bold mb-4 text-white">Ready to Get Started?</h2>
+              <p className="text-xl mb-8 max-w-2xl mx-auto text-white">
                 Visit HR4Sight.com to learn more about our membership plans and start your free trial today.
               </p>
               <a
