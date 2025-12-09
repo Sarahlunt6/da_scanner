@@ -557,7 +557,7 @@ export default function HomePage() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full font-bold py-4 px-6 rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg text-lg relative overflow-hidden group bg-primary text-white"
+                      className="w-full font-bold py-4 px-6 rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg text-lg relative overflow-hidden group bg-[#fbab3f] text-gray-900 hover:bg-[#e89a2d]"
                       onMouseEnter={(e) => {
                         if (!isSubmitting) {
                           e.currentTarget.style.transform = 'translateY(-2px)';
