@@ -4,39 +4,30 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-primary to-[#1a2855] text-white mt-20 relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-[#1e2a5e] to-[#0f1733] text-white mt-20 relative overflow-hidden">
       {/* Animated background accent */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-secondary opacity-5 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute top-0 right-0 w-64 h-64 bg-secondary opacity-10 rounded-full blur-3xl animate-pulse"></div>
 
       <div className="container mx-auto px-4 py-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <h3 className="text-3xl font-bold mb-4 text-secondary">HR4Sight</h3>
-            <p className="text-sm text-gray-200 leading-relaxed">
+            <h3 className="text-3xl font-bold mb-4 text-white">HR4Sight</h3>
+            <p className="text-sm text-gray-300 leading-relaxed">
               The all-in-one source for current HR and employment laws, helping you stay compliant and reduce employer risk.
             </p>
           </div>
 
           {/* Links */}
           <div>
-            <h4 className="text-sm font-semibold mb-4 text-secondary">
+            <h4 className="text-sm font-semibold mb-4 text-white uppercase tracking-wider">
               Legal
             </h4>
             <ul className="space-y-3">
               <li>
                 <Link
                   href="/privacy"
-                  className="text-sm inline-block py-2 px-3 -ml-3 rounded-lg transition-all duration-200 group"
-                  style={{ color: '#FFFFFF' }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = 'rgba(251, 171, 63, 0.15)';
-                    e.currentTarget.style.color = '#fbab3f';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.color = '#FFFFFF';
-                  }}
+                  className="text-sm inline-block py-2 px-3 -ml-3 rounded-lg transition-all duration-200 group text-gray-300 hover:text-secondary hover:bg-white/5"
                 >
                   Privacy Policy
                 </Link>
@@ -44,16 +35,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/terms"
-                  className="text-sm inline-block py-2 px-3 -ml-3 rounded-lg transition-all duration-200 group"
-                  style={{ color: '#FFFFFF' }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = 'rgba(251, 171, 63, 0.15)';
-                    e.currentTarget.style.color = '#fbab3f';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.color = '#FFFFFF';
-                  }}
+                  className="text-sm inline-block py-2 px-3 -ml-3 rounded-lg transition-all duration-200 group text-gray-300 hover:text-secondary hover:bg-white/5"
                 >
                   Terms of Service
                 </Link>
@@ -63,19 +45,10 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-sm font-semibold mb-4 text-secondary">Contact</h4>
+            <h4 className="text-sm font-semibold mb-4 text-white uppercase tracking-wider">Contact</h4>
             <a
               href="mailto:support@hr4sight.com"
-              className="text-sm inline-flex items-center gap-2 py-2 px-3 -ml-3 rounded-lg transition-all duration-200"
-              style={{ color: '#FFFFFF' }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = 'rgba(251, 171, 63, 0.15)';
-                e.currentTarget.style.color = '#fbab3f';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'transparent';
-                e.currentTarget.style.color = '#FFFFFF';
-              }}
+              className="text-sm inline-flex items-center gap-2 py-2 px-3 -ml-3 rounded-lg transition-all duration-200 text-gray-300 hover:text-secondary hover:bg-white/5"
             >
               <svg
                 className="w-4 h-4"
@@ -90,8 +63,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-primary/30 text-center">
-          <p className="text-sm text-gray-300">
+        <div className="mt-8 pt-8 border-t border-white/10 text-center">
+          <p className="text-sm text-gray-400">
             © {new Date().getFullYear()} HR4Sight. All rights reserved.
           </p>
         </div>
