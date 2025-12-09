@@ -219,19 +219,19 @@ export default function HomePage() {
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
-                Is Your Practice{" "}
+                Is Your Business{" "}
                 <span className="text-primary relative inline-block">
                   Invisible
                   <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 200 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 8C40 4 80 2 120 4C160 6 180 8 200 7" stroke="#fbab3f" strokeWidth="4" strokeLinecap="round"/>
                   </svg>
                 </span>{" "}
-                to New Patients Online?
+                to New Customers Online?
               </h1>
 
               <p className="text-xl text-gray-600 mb-10 leading-relaxed">
                 Get your <span className="font-bold text-gray-900">Digital Authority Score</span> and discover if{" "}
-                <span className="font-bold text-primary">your practice is losing patients</span> to competitors with stronger online visibility.
+                <span className="font-bold text-primary">your business is losing customers</span> to competitors with stronger online visibility.
               </p>
 
               {/* Benefits List */}
@@ -377,7 +377,7 @@ export default function HomePage() {
                         value={formData.websiteUrl}
                         onChange={(e) => setFormData({ ...formData, websiteUrl: e.target.value })}
                         className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900 placeholder-gray-400 hover:border-gray-300"
-                        placeholder="yourpractice.com"
+                        placeholder="yourbusiness.com"
                         autoComplete="url"
                       />
                     </div>
@@ -693,7 +693,7 @@ export default function HomePage() {
                   The TAPS Framework
                 </h3>
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                  A comprehensive 5-pillar system that measures your practice's digital authority and online visibility
+                  A comprehensive 5-pillar system that measures your business's digital authority and online visibility
                 </p>
               </div>
 
@@ -761,7 +761,7 @@ export default function HomePage() {
                     <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Positioning</h4>
                   </div>
                   <p className="text-sm text-gray-600">
-                    GBP categories, services, messaging clarity, and local relevance that differentiate your practice
+                    GBP categories, services, messaging clarity, and local relevance that differentiate your business
                   </p>
                 </div>
 

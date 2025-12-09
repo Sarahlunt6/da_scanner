@@ -80,7 +80,7 @@ export default function HowItWorksPage() {
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">Fill Out the Form</h3>
                   <p className="text-gray-600">
-                    Enter your practice details in our simple 2-minute form. We'll need your practice name, website, and location.
+                    Enter your business details in our simple 2-minute form. We'll need your business name, website, and location.
                   </p>
                 </div>
               </div>
@@ -159,7 +159,7 @@ export default function HowItWorksPage() {
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">Accessibility & Discoverability</h3>
                     <p className="text-gray-600">
-                      Check NAP consistency, directory presence across top platforms, and how easily patients can find your practice online.
+                      Check NAP consistency, directory presence across top platforms, and how easily customers can find your business online.
                     </p>
                   </div>
                 </div>
@@ -175,7 +175,7 @@ export default function HowItWorksPage() {
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">Digital Authority Score</h3>
                     <p className="text-gray-600">
-                      Get a comprehensive Digital Authority score from 0-100 based on your practice's performance across all TAPS pillars.
+                      Get a comprehensive Digital Authority score from 0-100 based on your business's performance across all TAPS pillars.
                     </p>
                   </div>
                 </div>

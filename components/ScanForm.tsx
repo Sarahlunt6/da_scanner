@@ -173,10 +173,10 @@ export default function ScanForm() {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Practice Name */}
+          {/* Business Name */}
           <div>
             <label className="block text-sm font-bold text-gray-900 mb-2">
-              Practice Name
+              Business Name
             </label>
             <input
               ref={practiceNameInputRef}
@@ -185,7 +185,7 @@ export default function ScanForm() {
               value={formData.practiceName}
               onChange={(e) => setFormData({ ...formData, practiceName: e.target.value })}
               className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2C5F7C] focus:border-[#2C5F7C] transition-all outline-none text-gray-900 placeholder-gray-400 hover:border-gray-300"
-              placeholder="Main Street Dental"
+              placeholder="Acme Corporation"
               autoComplete="off"
             />
           </div>
@@ -254,7 +254,7 @@ export default function ScanForm() {
           {/* Address */}
           <div>
             <label className="block text-sm font-bold text-gray-900 mb-2">
-              Practice Address
+              Business Address
             </label>
             <input
               type="text"
