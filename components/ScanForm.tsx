@@ -38,9 +38,19 @@ export default function ScanForm() {
 
   // Initialize Google Places Autocomplete
   useEffect(() => {
-    if (!isGoogleLoaded || !practiceNameInputRef.current) return;
+    if (!isGoogleLoaded || !practiceNameInputRef.current) {
+      console.log("Waiting for Google to load...", { isGoogleLoaded, hasInput: !!practiceNameInputRef.current });
+      return;
+    }
+
+    // Double check that google.maps.places is available
+    if (typeof google === 'undefined' || !google.maps || !google.maps.places) {
+      console.error("Google Places API not loaded properly");
+      return;
+    }
 
     try {
+      console.log("Initializing Google Places Autocomplete...");
       autocompleteRef.current = new google.maps.places.Autocomplete(
         practiceNameInputRef.current,
         {
@@ -51,7 +61,12 @@ export default function ScanForm() {
 
       autocompleteRef.current.addListener("place_changed", () => {
         const place = autocompleteRef.current?.getPlace();
-        if (!place || !place.address_components) return;
+        console.log("Place selected:", place);
+
+        if (!place || !place.address_components) {
+          console.log("No address components found");
+          return;
+        }
 
         // Extract address components
         let streetNumber = "";
@@ -87,7 +102,11 @@ export default function ScanForm() {
           city: city || formData.city,
           state: state || formData.state,
         });
+
+        console.log("Form data updated with place details");
       });
+
+      console.log("Google Places Autocomplete initialized successfully");
     } catch (error) {
       console.error("Error initializing Google Places:", error);
     }
@@ -130,8 +149,14 @@ export default function ScanForm() {
       {/* Load Google Maps JavaScript API */}
       <Script
         src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY}&libraries=places`}
-        onLoad={() => setIsGoogleLoaded(true)}
-        strategy="lazyOnload"
+        onLoad={() => {
+          console.log("Google Maps script loaded");
+          setIsGoogleLoaded(true);
+        }}
+        onError={(e) => {
+          console.error("Error loading Google Maps script:", e);
+        }}
+        strategy="afterInteractive"
       />
 
       <div className="bg-white rounded-3xl p-8 shadow-2xl border-2 border-[#2C5F7C]/20 relative overflow-hidden">
