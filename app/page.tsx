@@ -357,7 +357,7 @@ export default function HomePage() {
                           onChange={(e) => handlePracticeNameChange(e.target.value)}
                           className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900 placeholder-gray-400 hover:border-gray-300"
                           placeholder="Acme Corporation"
-                          autoComplete="off"
+                          autoComplete="organization"
                         />
                         {isSearching && (
                           <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
@@ -396,12 +396,13 @@ export default function HomePage() {
                         Website URL
                       </label>
                       <input
-                        type="text"
+                        type="url"
                         required
                         value={formData.websiteUrl}
                         onChange={(e) => setFormData({ ...formData, websiteUrl: e.target.value })}
                         className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900 placeholder-gray-400 hover:border-gray-300"
                         placeholder="yourpractice.com"
+                        autoComplete="url"
                       />
                     </div>
 
@@ -418,6 +419,7 @@ export default function HomePage() {
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900 placeholder-gray-400 hover:border-gray-300"
                           placeholder="your@email.com"
+                          autoComplete="email"
                         />
                       </div>
 
@@ -432,6 +434,7 @@ export default function HomePage() {
                           className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900 placeholder-gray-400 hover:border-gray-300"
                           placeholder="(555) 123-4567"
                           maxLength={14}
+                          autoComplete="tel"
                         />
                       </div>
                     </div>
@@ -448,6 +451,7 @@ export default function HomePage() {
                         onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                         className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900 placeholder-gray-400 hover:border-gray-300"
                         placeholder="123 Main Street"
+                        autoComplete="street-address"
                       />
                     </div>
 
@@ -464,6 +468,7 @@ export default function HomePage() {
                           onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                           className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900 placeholder-gray-400 hover:border-gray-300"
                           placeholder="Austin"
+                          autoComplete="address-level2"
                         />
                       </div>
 
@@ -544,6 +549,7 @@ export default function HomePage() {
                         onChange={(e) => setFormData({ ...formData, contactName: e.target.value })}
                         className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900 placeholder-gray-400 hover:border-gray-300"
                         placeholder="Dr. John Smith"
+                        autoComplete="name"
                       />
                     </div>
 
