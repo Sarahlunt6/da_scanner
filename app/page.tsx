@@ -171,10 +171,10 @@ export default function HomePage() {
                 How It Works
               </a>
               <a
-                href="/about-hr4sight"
+                href="/about-taps"
                 className="text-sm font-medium text-gray-700 hover:text-primary transition-all duration-200"
               >
-                About HR4Sight
+                About TAPS
               </a>
               <button
                 onClick={() => {
