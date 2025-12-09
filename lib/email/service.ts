@@ -4,7 +4,7 @@
  * The webhook is triggered in process-scan route, this just logs
  */
 
-import { supabaseAdmin } from "../supabase";
+import { sql } from "@vercel/postgres";
 
 interface SendResultsParams {
   scanId: string;
@@ -26,12 +26,17 @@ interface SendResultsParams {
 export async function sendResultsEmail(params: SendResultsParams): Promise<boolean> {
   try {
     // Log email in database
-    await supabaseAdmin.from("email_log").insert({
-      scan_id: params.scanId,
-      email_type: "results",
-      recipient_email: params.email,
-      sent_at: new Date().toISOString(),
-    });
+    await sql`
+      INSERT INTO email_logs (scan_id, email_to, subject, status, provider, created_at)
+      VALUES (
+        ${params.scanId},
+        ${params.email},
+        'Your HR Compliance Assessment Results',
+        'sent',
+        'ghl_webhook',
+        NOW()
+      )
+    `;
 
     console.log(`Email send logged for: ${params.email}`);
     return true;

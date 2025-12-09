@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { supabaseAdmin } from "@/lib/supabase";
+import { db } from "@/lib/db";
+import { sql } from "@vercel/postgres";
 import { performScan } from "@/lib/scanner";
 import { sendResultsEmail } from "@/lib/email/service";
 import crypto from "crypto";
@@ -22,38 +23,31 @@ async function processScanInBackground(scan: any) {
     });
 
     // Update scan in database with results
-    const { error: updateError } = await supabaseAdmin
-      .from("scans")
-      .update({
-        status: "completed",
-        overall_score: scanResult.overallScore,
-        phase1_score: scanResult.phase1Score,
-        phase2_score: scanResult.phase2Score,
-        phase3_score: scanResult.phase3Score,
-        results_json: scanResult,
-      })
-      .eq("id", scan.id);
-
-    if (updateError) {
-      console.error("Error updating scan:", updateError);
-    }
+    await sql`
+      UPDATE scans
+      SET status = 'completed',
+          overall_score = ${scanResult.overallScore},
+          phase1_score = ${scanResult.phase1Score},
+          phase2_score = ${scanResult.phase2Score},
+          phase3_score = ${scanResult.phase3Score},
+          results_json = ${JSON.stringify(scanResult)},
+          updated_at = NOW()
+      WHERE id = ${scan.id}
+    `;
 
     // Insert module details
-    const moduleInserts = scanResult.modules.map((module) => ({
-      scan_id: scan.id,
-      module_name: module.name,
-      score: module.score,
-      status: module.status,
-      gap_message: module.gapMessage,
-      data_json: module.data,
-    }));
-
-    const { error: moduleError } = await supabaseAdmin
-      .from("scan_details")
-      .insert(moduleInserts);
-
-    if (moduleError) {
-      console.error("Error inserting modules:", moduleError);
+    for (const module of scanResult.modules) {
+      await sql`
+        INSERT INTO scan_details (scan_id, module_name, score, status, gap_message, data_json)
+        VALUES (
+          ${scan.id},
+          ${module.name},
+          ${module.score},
+          ${module.status},
+          ${module.gapMessage || null},
+          ${JSON.stringify(module.data)}
+        )
+      `;
     }
 
     // Send results to GHL webhook
@@ -103,10 +97,12 @@ async function processScanInBackground(scan: any) {
     console.error("Error in background scan processing:", error);
 
     // Mark scan as failed
-    await supabaseAdmin
-      .from("scans")
-      .update({ status: "failed" })
-      .eq("id", scan.id);
+    await sql`
+      UPDATE scans
+      SET status = 'failed',
+          updated_at = NOW()
+      WHERE id = ${scan.id}
+    `;
   }
 }
 
@@ -127,25 +123,23 @@ export async function POST(request: Request) {
     const uniqueToken = crypto.randomBytes(32).toString("hex");
 
     // Insert scan into database
-    const { data: scan, error } = await supabaseAdmin
-      .from("scans")
-      .insert({
-        practice_name: practiceName,
-        website_url: websiteUrl,
-        email,
-        phone: phone || "",
-        contact_name: contactName,
-        address,
-        city,
-        state,
-        unique_token: uniqueToken,
-        status: "processing",
-      })
-      .select()
-      .single();
+    const result = await sql`
+      INSERT INTO scans (
+        practice_name, website_url, email, phone, contact_name,
+        address, city, state, unique_token, status, created_at, updated_at, expires_at
+      )
+      VALUES (
+        ${practiceName}, ${websiteUrl}, ${email}, ${phone || ''},
+        ${contactName}, ${address}, ${city}, ${state}, ${uniqueToken},
+        'processing', NOW(), NOW(), NOW() + INTERVAL '7 days'
+      )
+      RETURNING *
+    `;
 
-    if (error) {
-      console.error("Database error:", error);
+    const scan = result.rows[0];
+
+    if (!scan) {
+      console.error("Failed to create scan");
       return NextResponse.json(
         { error: "Failed to create scan" },
         { status: 500 }

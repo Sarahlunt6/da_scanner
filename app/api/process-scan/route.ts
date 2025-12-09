@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { supabaseAdmin } from "@/lib/supabase";
+import { sql } from "@vercel/postgres";
 import { performScan } from "@/lib/scanner/index";
 import { sendResultsEmail } from "@/lib/email/service";
 
@@ -17,13 +17,13 @@ export async function POST(request: Request) {
     }
 
     // Fetch scan from database
-    const { data: scan, error: fetchError } = await supabaseAdmin
-      .from("scans")
-      .select("*")
-      .eq("id", scanId)
-      .single();
+    const result = await sql`
+      SELECT * FROM scans WHERE id = ${scanId} LIMIT 1
+    `;
 
-    if (fetchError || !scan) {
+    const scan = result.rows[0];
+
+    if (!scan) {
       console.error('❌ Scan not found in database for scanId:', scanId);
       return NextResponse.json({ error: "Scan not found" }, { status: 404 });
     }
@@ -44,47 +44,34 @@ export async function POST(request: Request) {
     });
 
     // Update scan in database with results
-    // NOTE: Database still has phase columns - mapping area scores to them temporarily
-    // TODO: Migrate database schema to area_scores
-    const { error: updateError } = await supabaseAdmin
-      .from("scans")
-      .update({
-        status: "completed",
-        overall_score: scanResult.overallScore,
-        // Map 5 area scores to 3 phase columns temporarily
-        phase1_score: scanResult.areaScores.technicalSEO,
-        phase2_score: scanResult.areaScores.strategicSEO,
-        phase3_score: scanResult.areaScores.technicalSite,
-        // Store full results including all 5 area scores in JSON
-        results_json: scanResult,
-      })
-      .eq("id", scanId);
-
-    if (updateError) {
-      console.error("Error updating scan:", updateError);
-      return NextResponse.json({ error: "Failed to update scan" }, { status: 500 });
-    }
+    await sql`
+      UPDATE scans
+      SET status = 'completed',
+          overall_score = ${scanResult.overallScore},
+          phase1_score = ${scanResult.areaScores.technicalSEO},
+          phase2_score = ${scanResult.areaScores.strategicSEO},
+          phase3_score = ${scanResult.areaScores.technicalSite},
+          results_json = ${JSON.stringify(scanResult)},
+          updated_at = NOW()
+      WHERE id = ${scanId}
+    `;
 
     // Insert module details
-    const moduleInserts = scanResult.modules.map((module) => ({
-      scan_id: scanId,
-      module_name: module.name,
-      score: module.score,
-      status: module.status,
-      gap_message: module.gapMessage,
-      data_json: {
-        ...module.data,
-        description: module.description, // Include description in data_json for results page
-      },
-    }));
-
-    const { error: moduleError } = await supabaseAdmin
-      .from("scan_details")
-      .insert(moduleInserts);
-
-    if (moduleError) {
-      console.error("Error inserting modules:", moduleError);
-      // Don't fail the whole operation if module insert fails
+    for (const module of scanResult.modules) {
+      await sql`
+        INSERT INTO scan_details (scan_id, module_name, score, status, gap_message, data_json)
+        VALUES (
+          ${scanId},
+          ${module.name},
+          ${module.score},
+          ${module.status},
+          ${module.gapMessage || null},
+          ${JSON.stringify({
+            ...module.data,
+            description: module.description
+          })}
+        )
+      `;
     }
 
     // Send results to GHL webhook

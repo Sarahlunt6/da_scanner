@@ -1,4 +1,4 @@
-import { supabase } from "@/lib/supabase";
+import { sql } from "@vercel/postgres";
 import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
 import CalendarWidget from "@/components/CalendarWidget";
@@ -13,22 +13,24 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
   const { token } = await params;
 
   // Fetch scan results and module details
-  const { data: scan, error } = await supabase
-    .from("scans")
-    .select("*")
-    .eq("unique_token", token)
-    .single();
+  const scanResult = await sql`
+    SELECT * FROM scans WHERE unique_token = ${token} LIMIT 1
+  `;
 
-  if (error || !scan) {
+  const scan = scanResult.rows[0];
+
+  if (!scan) {
     notFound();
   }
 
   // Fetch module details
-  const { data: modules } = await supabase
-    .from("scan_details")
-    .select("*")
-    .eq("scan_id", scan.id)
-    .order("created_at", { ascending: true });
+  const modulesResult = await sql`
+    SELECT * FROM scan_details
+    WHERE scan_id = ${scan.id}
+    ORDER BY created_at ASC
+  `;
+
+  const modules = modulesResult.rows;
 
   // If scan is still processing, show processing message
   if (scan.status === "processing") {

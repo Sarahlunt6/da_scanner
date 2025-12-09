@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { supabaseAdmin } from "@/lib/supabase";
+import { sql } from "@vercel/postgres";
 
 /**
  * Cleanup API endpoint for deleting scan_details of expired scans (>90 days old)
@@ -22,23 +22,14 @@ export async function GET(request: Request) {
       );
     }
 
-    // Calculate the cutoff date (90 days ago)
-    const ninetyDaysAgo = new Date();
-    ninetyDaysAgo.setDate(ninetyDaysAgo.getDate() - 90);
-
     // Find scans older than 90 days
-    const { data: expiredScans, error: findError } = await supabaseAdmin
-      .from("scans")
-      .select("id, practice_name, created_at")
-      .lt("created_at", ninetyDaysAgo.toISOString());
+    const expiredScansResult = await sql`
+      SELECT id, practice_name, created_at
+      FROM scans
+      WHERE created_at < NOW() - INTERVAL '90 days'
+    `;
 
-    if (findError) {
-      console.error("Error finding expired scans:", findError);
-      return NextResponse.json(
-        { error: "Failed to find expired scans" },
-        { status: 500 }
-      );
-    }
+    const expiredScans = expiredScansResult.rows;
 
     if (!expiredScans || expiredScans.length === 0) {
       return NextResponse.json({
@@ -51,26 +42,18 @@ export async function GET(request: Request) {
     // Delete scan_details for expired scans (keeping scan summary)
     const scanIds = expiredScans.map(scan => scan.id);
 
-    const { error: deleteError, count } = await supabaseAdmin
-      .from("scan_details")
-      .delete()
-      .in("scan_id", scanIds);
+    const deleteResult = await sql`
+      DELETE FROM scan_details
+      WHERE scan_id = ANY(${scanIds})
+    `;
 
-    if (deleteError) {
-      console.error("Error deleting scan details:", deleteError);
-      return NextResponse.json(
-        { error: "Failed to delete scan details" },
-        { status: 500 }
-      );
-    }
-
-    console.log(`Successfully cleaned up ${count} scan_details records for ${expiredScans.length} expired scans`);
+    console.log(`Successfully cleaned up ${deleteResult.rowCount} scan_details records for ${expiredScans.length} expired scans`);
 
     return NextResponse.json({
       success: true,
       message: `Cleaned up scan details for ${expiredScans.length} expired scans`,
       scansProcessed: expiredScans.length,
-      detailsDeleted: count || 0,
+      detailsDeleted: deleteResult.rowCount || 0,
       scans: expiredScans.map(s => ({
         id: s.id,
         practice_name: s.practice_name,
