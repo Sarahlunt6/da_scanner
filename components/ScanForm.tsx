@@ -51,6 +51,9 @@ export default function ScanForm() {
 
     try {
       console.log("Initializing Google Places Autocomplete...");
+
+      // Use the legacy Autocomplete for now (works with current API setup)
+      // @ts-ignore - suppress deprecation warning
       autocompleteRef.current = new google.maps.places.Autocomplete(
         practiceNameInputRef.current,
         {
