@@ -56,7 +56,7 @@ export default function HowItWorksPage() {
               How It Works
             </h1>
             <p className="text-2xl text-gray-600 max-w-2xl mx-auto">
-              Get your HR Compliance Score in three simple steps
+              Get your Digital Authority Score in three simple steps
             </p>
           </div>
 
@@ -80,7 +80,7 @@ export default function HowItWorksPage() {
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">Fill Out the Form</h3>
                   <p className="text-gray-600">
-                    Enter your company details in our simple 2-minute form. We'll need your company name, website, and location.
+                    Enter your practice details in our simple 2-minute form. We'll need your practice name, website, and location.
                   </p>
                 </div>
               </div>
@@ -100,9 +100,9 @@ export default function HowItWorksPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">We Analyze Compliance</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">We Analyze Your Digital Presence</h3>
                   <p className="text-gray-600">
-                    Our system automatically reviews your organization against current federal and state employment laws and regulations.
+                    Our system automatically scans 47 data points across your online presence, including Google Business Profile, reviews, directories, and website authority.
                   </p>
                 </div>
               </div>
@@ -122,7 +122,7 @@ export default function HowItWorksPage() {
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">Get Your Results</h3>
                   <p className="text-gray-600">
-                    Receive your detailed HR Compliance Score and actionable recommendations via email.
+                    Receive your detailed Digital Authority Score and TAPS framework breakdown via email with actionable recommendations.
                   </p>
                 </div>
               </div>
@@ -141,9 +141,9 @@ export default function HowItWorksPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Federal Compliance</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Trust & Credibility</h3>
                     <p className="text-gray-600">
-                      Review your compliance with federal employment laws including FMLA, ADA, FLSA, and Title VII requirements.
+                      Analyze your Google Business Profile, review velocity, ratings, and online reputation signals that build patient trust.
                     </p>
                   </div>
                 </div>
@@ -153,13 +153,13 @@ export default function HowItWorksPage() {
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 flex-shrink-0 rounded-lg bg-blue-50 flex items-center justify-center">
                     <svg className="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">State Regulations</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Accessibility & Discoverability</h3>
                     <p className="text-gray-600">
-                      Check your adherence to state-specific employment laws and regulations across all 50 states.
+                      Check NAP consistency, directory presence across top platforms, and how easily patients can find your practice online.
                     </p>
                   </div>
                 </div>
@@ -173,9 +173,9 @@ export default function HowItWorksPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Compliance Score</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Digital Authority Score</h3>
                     <p className="text-gray-600">
-                      Get a comprehensive HR compliance score from 0-100 based on your organization's adherence to current laws.
+                      Get a comprehensive Digital Authority score from 0-100 based on your practice's performance across all TAPS pillars.
                     </p>
                   </div>
                 </div>
@@ -185,13 +185,13 @@ export default function HowItWorksPage() {
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 flex-shrink-0 rounded-lg bg-yellow-50 flex items-center justify-center">
                     <svg className="w-7 h-7 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Risk Mitigation</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Actionable Recommendations</h3>
                     <p className="text-gray-600">
-                      Receive specific recommendations on what to address to reduce employer risk and stay compliant.
+                      Receive specific, prioritized recommendations on how to improve your online presence and attract more patients.
                     </p>
                   </div>
                 </div>
