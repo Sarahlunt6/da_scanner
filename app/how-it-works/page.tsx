@@ -66,11 +66,11 @@ export default function HowItWorksPage() {
               {/* Step 1 */}
               <div className="text-center group">
                 <div className="relative mb-6">
-                  <div className="w-20 h-20 mx-auto bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-xl transform group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#1e2654] to-[#29377f] rounded-full flex items-center justify-center text-white text-4xl font-extrabold shadow-xl transform group-hover:scale-110 transition-transform duration-300 border-2 border-white">
                     1
                   </div>
                   {/* Connector Line */}
-                  <div className="hidden md:block absolute top-10 left-[60%] w-full h-0.5 bg-gradient-to-r from-[#2C5F7C] to-[#F5C842]"></div>
+                  <div className="hidden md:block absolute top-10 left-[60%] w-full h-0.5 bg-gradient-to-r from-secondary to-secondary/50"></div>
                 </div>
                 <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                   <div className="w-12 h-12 mx-auto mb-4 rounded-lg bg-blue-50 flex items-center justify-center">
@@ -88,11 +88,11 @@ export default function HowItWorksPage() {
               {/* Step 2 */}
               <div className="text-center group">
                 <div className="relative mb-6">
-                  <div className="w-20 h-20 mx-auto bg-gradient-to-br from-secondary to-secondary/80 rounded-full flex items-center justify-center text-gray-900 text-3xl font-bold shadow-xl transform group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-20 h-20 mx-auto bg-gradient-to-br from-secondary to-secondary/80 rounded-full flex items-center justify-center text-gray-900 text-4xl font-extrabold shadow-xl transform group-hover:scale-110 transition-transform duration-300 border-2 border-white">
                     2
                   </div>
                   {/* Connector Line */}
-                  <div className="hidden md:block absolute top-10 left-[60%] w-full h-0.5 bg-gradient-to-r from-[#F5C842] to-[#2C5F7C]"></div>
+                  <div className="hidden md:block absolute top-10 left-[60%] w-full h-0.5 bg-gradient-to-r from-secondary to-secondary/50"></div>
                 </div>
                 <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                   <div className="w-12 h-12 mx-auto mb-4 rounded-lg bg-yellow-50 flex items-center justify-center">
@@ -110,7 +110,7 @@ export default function HowItWorksPage() {
               {/* Step 3 */}
               <div className="text-center group">
                 <div className="relative mb-6">
-                  <div className="w-20 h-20 mx-auto bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-xl transform group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#1e2654] to-[#29377f] rounded-full flex items-center justify-center text-white text-4xl font-extrabold shadow-xl transform group-hover:scale-110 transition-transform duration-300 border-2 border-white">
                     3
                   </div>
                 </div>
