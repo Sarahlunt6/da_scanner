@@ -4,15 +4,15 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState, Suspense } from "react";
 
 const scanSteps = [
-  { label: "Google Business Profile Analysis", delay: 0 },
-  { label: "Review Velocity & Rating Check", delay: 2000 },
-  { label: "NAP Consistency Verification", delay: 4000 },
-  { label: "Top 7 Directory Presence Scan", delay: 6000 },
-  { label: "Website Authority Analysis", delay: 8000 },
-  { label: "Technical Trust Signals", delay: 10000 },
-  { label: "Competitive Positioning", delay: 12000 },
-  { label: "Content Quality Assessment", delay: 14000 },
-  { label: "Calculating TAPS Score", delay: 16000 },
+  { label: "Federal Employment Law Compliance", delay: 0 },
+  { label: "State-Specific Regulations Review", delay: 2000 },
+  { label: "FMLA & Leave Policy Assessment", delay: 4000 },
+  { label: "FLSA & Wage Compliance Check", delay: 6000 },
+  { label: "ADA Accessibility Requirements", delay: 8000 },
+  { label: "Title VII & EEO Compliance", delay: 10000 },
+  { label: "OSHA Safety Standards Review", delay: 12000 },
+  { label: "Multi-State Compliance Analysis", delay: 14000 },
+  { label: "Calculating HR Compliance Score", delay: 16000 },
 ];
 
 function ProcessingContent() {
@@ -72,10 +72,10 @@ function ProcessingContent() {
               </svg>
             </div>
             <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">
-              Analyzing Your Digital Authority...
+              Analyzing Your HR Compliance...
             </h1>
             <p className="text-lg text-gray-600">
-              We're scanning <span className="font-bold text-primary">47 data points</span> across your online presence
+              We're reviewing <span className="font-bold text-primary">key compliance areas</span> across federal and state employment laws
             </p>
           </div>
 
