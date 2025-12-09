@@ -36,7 +36,7 @@ export default function AboutTAPSPage() {
               </Link>
               <Link
                 href="/"
-                className="bg-[#fbab3f] hover:bg-[#e89a2d] text-gray-900 font-bold py-2 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                className="bg-[#fbab3f] hover:bg-[#e89a2d] text-gray-900 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-sm"
               >
                 FREE SCAN
               </Link>

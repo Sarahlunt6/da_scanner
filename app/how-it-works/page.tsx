@@ -29,16 +29,16 @@ export default function HowItWorksPage() {
                 How It Works
               </Link>
               <Link
-                href="/about-hr4sight"
+                href="/about-taps"
                 className="text-sm font-medium text-gray-700 hover:text-primary transition-all duration-200"
               >
-                About HR4Sight
+                About TAPS
               </Link>
               <Link
                 href="/"
-                className="bg-secondary hover:bg-secondary/90 text-gray-900 font-bold py-2 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                className="bg-[#fbab3f] hover:bg-[#e89a2d] text-gray-900 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-sm"
               >
-                FREE ASSESSMENT
+                FREE SCAN
               </Link>
             </div>
           </div>

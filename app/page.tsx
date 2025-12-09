@@ -210,23 +210,23 @@ export default function HomePage() {
             {/* Left Column - Content */}
             <div className="order-2 lg:order-1">
               <div className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold mb-6">
-                FREE HR COMPLIANCE ASSESSMENT
+                FREE DIGITAL AUTHORITY SCAN
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
-                Is Your Company{" "}
+                Is Your Practice{" "}
                 <span className="text-primary relative inline-block">
-                  Fully Compliant
+                  Invisible
                   <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 200 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 8C40 4 80 2 120 4C160 6 180 8 200 7" stroke="#fbab3f" strokeWidth="4" strokeLinecap="round"/>
                   </svg>
                 </span>{" "}
-                With Employment Laws?
+                to New Patients Online?
               </h1>
 
               <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-                Get your <span className="font-bold text-gray-900">HR Compliance Score</span> and discover if{" "}
-                <span className="font-bold text-primary">your organization is at risk</span> from the ever-changing landscape of federal and state employment laws.
+                Get your <span className="font-bold text-gray-900">Digital Authority Score</span> and discover if{" "}
+                <span className="font-bold text-primary">your practice is losing patients</span> to competitors with stronger online visibility.
               </p>
 
               {/* Benefits List */}
