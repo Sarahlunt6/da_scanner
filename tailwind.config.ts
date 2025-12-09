@@ -9,12 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#2C5F7C", // Opkie navy blue
-        secondary: "#FFD147", // Opkie yellow
-        accent: "#FFD147", // Opkie yellow accent
+        primary: "#29377f", // HR4Sight navy blue
+        secondary: "#fbab3f", // HR4Sight yellow/orange
+        accent: "#279dd8", // HR4Sight light blue
+        danger: "#ef402c", // HR4Sight red
+        navy: "#29377f", // HR4Sight navy blue
+        lightBlue: "#279dd8", // HR4Sight light blue
         success: "#16a34a",
-        warning: "#eab308",
-        danger: "#dc2626",
+        warning: "#fbab3f",
       },
     },
   },

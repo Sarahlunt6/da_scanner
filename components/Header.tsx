@@ -8,18 +8,13 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-3">
             <Image
-              src="/opkie-logo.png"
-              alt="Opkie"
-              width={120}
-              height={40}
-              className="h-10 w-auto"
+              src="/hr4sight-logo.png"
+              alt="HR4Sight"
+              width={200}
+              height={50}
+              className="h-12 w-auto"
               priority
             />
-            <div className="hidden sm:block border-l border-gray-300 pl-3">
-              <span className="text-sm font-medium text-gray-600">
-                Digital Authority Scanner
-              </span>
-            </div>
           </Link>
 
           <nav className="flex items-center space-x-6">
@@ -30,12 +25,12 @@ export default function Header() {
               About TAPS
             </a>
             <a
-              href="https://opkie.com"
+              href="https://hr4sight.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-semibold text-primary hover:text-secondary transition-colors"
             >
-              Visit Opkie.com
+              Visit HR4Sight.com
             </a>
           </nav>
         </div>

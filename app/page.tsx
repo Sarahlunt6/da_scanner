@@ -156,13 +156,12 @@ export default function HomePage() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 group">
               <Image
-                src="/opkie-logo.png"
-                alt="Opkie"
-                width={120}
-                height={40}
-                className="h-10 w-auto transform group-hover:scale-105 transition-transform duration-300"
+                src="/hr4sight-logo.png"
+                alt="HR4Sight"
+                width={200}
+                height={50}
+                className="h-12 w-auto transform group-hover:scale-105 transition-transform duration-300"
               />
-              <span className="text-sm text-gray-600 hidden sm:inline border-l pl-3 border-gray-300">Digital Authority Scanner</span>
             </div>
             <div className="flex items-center gap-6">
               <a

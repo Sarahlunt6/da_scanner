@@ -4,7 +4,6 @@
 import { ScanInput, ScanResult, ModuleResult, AreaType } from "../types/scan";
 import * as scoring from "./scoring";
 import { checkNAPConsistency } from "../scraping/nap-consistency";
-import { searchGooglePlaces } from "../scraping/google-places-api";
 import { analyzeWebsitePerformance } from "../scraping/pagespeed-api";
 import { crawlWebsiteForCore30 } from "../scraping/website-crawler";
 
@@ -15,10 +14,14 @@ import { crawlWebsiteForCore30 } from "../scraping/website-crawler";
 export async function performScan(input: ScanInput): Promise<ScanResult> {
   console.log(`🚀 SCANNER V3 (5-Area System): Starting scan for ${input.practiceName}...`);
 
-  // Fetch Google Places data once for all Google-related modules
-  console.log('Fetching Google Places data...');
-  const googleData = await searchGooglePlaces(input.practiceName, input.city, input.state);
-  console.log('✅ Google Places data fetched');
+  // Mock Google Places data - API integration removed
+  const googleData = {
+    listed: false,
+    name: '',
+    address: '',
+    phone: '',
+    error: 'Google Places API integration removed'
+  };
 
   // Fetch website performance data
   console.log('Fetching website performance data...');
