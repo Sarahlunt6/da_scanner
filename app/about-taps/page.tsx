@@ -61,7 +61,7 @@ export default function AboutTAPSPage() {
           <section className="mb-12 text-center max-w-4xl mx-auto">
             <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-blue-100">
               <p className="text-xl text-gray-700 leading-relaxed">
-                TAPS is a comprehensive framework designed to <span className="font-semibold text-[#2C5F7C]">measure and improve your dental practice's digital authority</span>. It evaluates your online presence across five critical areas to help you <span className="font-semibold text-[#F5C842]">attract more high-value patients</span>.
+                TAPS is a comprehensive framework designed to <span className="font-semibold text-primary">measure and improve your dental practice's digital authority</span>. It evaluates your online presence across five critical areas to help you <span className="font-semibold text-secondary">attract more high-value patients</span>.
               </p>
             </div>
           </section>
@@ -72,9 +72,9 @@ export default function AboutTAPSPage() {
             <div className="grid md:grid-cols-3 gap-6 mb-6">
               {/* Area 1: Technical SEO */}
               <div className="group">
-                <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full">
+                <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full">
                   <div className="flex flex-col items-center text-center mb-4">
-                    <div className="bg-gradient-to-br from-[#2C5F7C] to-[#1e4459] text-white rounded-full w-14 h-14 flex items-center justify-center text-xl font-bold shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3">
+                    <div className="bg-gradient-to-br from-primary to-primary/80 text-white rounded-full w-14 h-14 flex items-center justify-center text-xl font-bold shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3">
                       1
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900">Technical SEO</h2>
@@ -86,19 +86,19 @@ export default function AboutTAPSPage() {
                     <h3 className="font-bold text-gray-900 mb-3 text-sm">What We Check:</h3>
                     <ul className="space-y-2 text-gray-700 text-sm">
                       <li className="flex items-start gap-2">
-                        <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
+                        <span className="text-primary mt-0.5 text-lg font-bold">✓</span>
                         <span>Review Velocity</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
+                        <span className="text-primary mt-0.5 text-lg font-bold">✓</span>
                         <span>GBP Primary Category</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
+                        <span className="text-primary mt-0.5 text-lg font-bold">✓</span>
                         <span>NAP Consistency</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
+                        <span className="text-primary mt-0.5 text-lg font-bold">✓</span>
                         <span>Images</span>
                       </li>
                     </ul>
@@ -108,9 +108,9 @@ export default function AboutTAPSPage() {
 
               {/* Area 2: Strategic SEO */}
               <div className="group">
-                <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full">
+                <div className="bg-gradient-to-br from-secondary/20 to-secondary/30 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full">
                   <div className="flex flex-col items-center text-center mb-4">
-                    <div className="bg-gradient-to-br from-[#F5C842] to-[#d4ab1f] text-gray-900 rounded-full w-14 h-14 flex items-center justify-center text-xl font-bold shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3">
+                    <div className="bg-gradient-to-br from-secondary to-secondary/90 text-gray-900 rounded-full w-14 h-14 flex items-center justify-center text-xl font-bold shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3">
                       2
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900">Strategic SEO</h2>
@@ -122,19 +122,19 @@ export default function AboutTAPSPage() {
                     <h3 className="font-bold text-gray-900 mb-3 text-sm">What We Check:</h3>
                     <ul className="space-y-2 text-gray-700 text-sm">
                       <li className="flex items-start gap-2">
-                        <span className="text-[#F5C842] mt-0.5 text-lg font-bold">✓</span>
+                        <span className="text-secondary mt-0.5 text-lg font-bold">✓</span>
                         <span>Review Sentiment</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-[#F5C842] mt-0.5 text-lg font-bold">✓</span>
+                        <span className="text-secondary mt-0.5 text-lg font-bold">✓</span>
                         <span>Citations</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-[#F5C842] mt-0.5 text-lg font-bold">✓</span>
+                        <span className="text-secondary mt-0.5 text-lg font-bold">✓</span>
                         <span>Content Activity</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-[#F5C842] mt-0.5 text-lg font-bold">✓</span>
+                        <span className="text-secondary mt-0.5 text-lg font-bold">✓</span>
                         <span>GBP Services</span>
                       </li>
                     </ul>
@@ -144,9 +144,9 @@ export default function AboutTAPSPage() {
 
               {/* Area 3: Technical Site */}
               <div className="group">
-                <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full">
+                <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full">
                   <div className="flex flex-col items-center text-center mb-4">
-                    <div className="bg-gradient-to-br from-[#2C5F7C] to-[#1e4459] text-white rounded-full w-14 h-14 flex items-center justify-center text-xl font-bold shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3">
+                    <div className="bg-gradient-to-br from-primary to-primary/80 text-white rounded-full w-14 h-14 flex items-center justify-center text-xl font-bold shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3">
                       3
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900">Technical Site</h2>
@@ -158,15 +158,15 @@ export default function AboutTAPSPage() {
                     <h3 className="font-bold text-gray-900 mb-3 text-sm">What We Check:</h3>
                     <ul className="space-y-2 text-gray-700 text-sm">
                       <li className="flex items-start gap-2">
-                        <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
+                        <span className="text-primary mt-0.5 text-lg font-bold">✓</span>
                         <span>Site Speed</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
+                        <span className="text-primary mt-0.5 text-lg font-bold">✓</span>
                         <span>Mobile Optimization</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
+                        <span className="text-primary mt-0.5 text-lg font-bold">✓</span>
                         <span>Video Content</span>
                       </li>
                     </ul>
@@ -179,9 +179,9 @@ export default function AboutTAPSPage() {
             <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
               {/* Area 4: Market Understanding */}
               <div className="group">
-                <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full">
+                <div className="bg-gradient-to-br from-secondary/20 to-secondary/30 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full">
                   <div className="flex flex-col items-center text-center mb-4">
-                    <div className="bg-gradient-to-br from-[#F5C842] to-[#d4ab1f] text-gray-900 rounded-full w-14 h-14 flex items-center justify-center text-xl font-bold shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3">
+                    <div className="bg-gradient-to-br from-secondary to-secondary/90 text-gray-900 rounded-full w-14 h-14 flex items-center justify-center text-xl font-bold shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3">
                       4
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900">Market Understanding</h2>
@@ -193,15 +193,15 @@ export default function AboutTAPSPage() {
                     <h3 className="font-bold text-gray-900 mb-3 text-sm">What We Check:</h3>
                     <ul className="space-y-2 text-gray-700 text-sm">
                       <li className="flex items-start gap-2">
-                        <span className="text-[#F5C842] mt-0.5 text-lg font-bold">✓</span>
+                        <span className="text-secondary mt-0.5 text-lg font-bold">✓</span>
                         <span>Messaging Clarity</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-[#F5C842] mt-0.5 text-lg font-bold">✓</span>
+                        <span className="text-secondary mt-0.5 text-lg font-bold">✓</span>
                         <span>Local Messages</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-[#F5C842] mt-0.5 text-lg font-bold">✓</span>
+                        <span className="text-secondary mt-0.5 text-lg font-bold">✓</span>
                         <span>Messaging Integrity</span>
                       </li>
                     </ul>
@@ -211,9 +211,9 @@ export default function AboutTAPSPage() {
 
               {/* Area 5: Strategic Site */}
               <div className="group">
-                <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full">
+                <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full">
                   <div className="flex flex-col items-center text-center mb-4">
-                    <div className="bg-gradient-to-br from-[#2C5F7C] to-[#1e4459] text-white rounded-full w-14 h-14 flex items-center justify-center text-xl font-bold shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3">
+                    <div className="bg-gradient-to-br from-primary to-primary/80 text-white rounded-full w-14 h-14 flex items-center justify-center text-xl font-bold shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3">
                       5
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900">Strategic Site</h2>
@@ -225,11 +225,11 @@ export default function AboutTAPSPage() {
                     <h3 className="font-bold text-gray-900 mb-3 text-sm">What We Check:</h3>
                     <ul className="space-y-2 text-gray-700 text-sm">
                       <li className="flex items-start gap-2">
-                        <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
+                        <span className="text-primary mt-0.5 text-lg font-bold">✓</span>
                         <span>Semantic Analysis</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-[#2C5F7C] mt-0.5 text-lg font-bold">✓</span>
+                        <span className="text-primary mt-0.5 text-lg font-bold">✓</span>
                         <span>High Value Content</span>
                       </li>
                     </ul>
@@ -243,9 +243,9 @@ export default function AboutTAPSPage() {
           <section className="mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-10 text-center">Why TAPS Matters</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-transparent hover:border-[#2C5F7C]">
-                <div className="w-12 h-12 mb-4 rounded-lg bg-blue-50 flex items-center justify-center">
-                  <svg className="w-7 h-7 text-[#2C5F7C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-transparent hover:border-primary">
+                <div className="w-12 h-12 mb-4 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <svg className="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
@@ -254,9 +254,9 @@ export default function AboutTAPSPage() {
                   A strong digital authority score helps you attract patients seeking premium dental services, not just price shoppers.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-transparent hover:border-[#2C5F7C]">
-                <div className="w-12 h-12 mb-4 rounded-lg bg-blue-50 flex items-center justify-center">
-                  <svg className="w-7 h-7 text-[#2C5F7C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-transparent hover:border-primary">
+                <div className="w-12 h-12 mb-4 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <svg className="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
@@ -265,9 +265,9 @@ export default function AboutTAPSPage() {
                   Consistent, accurate information across platforms builds credibility before patients even contact you.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-transparent hover:border-[#F5C842]">
-                <div className="w-12 h-12 mb-4 rounded-lg bg-yellow-50 flex items-center justify-center">
-                  <svg className="w-7 h-7 text-[#F5C842]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-transparent hover:border-secondary">
+                <div className="w-12 h-12 mb-4 rounded-lg bg-secondary/20 flex items-center justify-center">
+                  <svg className="w-7 h-7 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
                 </div>
@@ -276,9 +276,9 @@ export default function AboutTAPSPage() {
                   Know exactly where you stand compared to other practices in your area and what to improve.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-transparent hover:border-[#F5C842]">
-                <div className="w-12 h-12 mb-4 rounded-lg bg-yellow-50 flex items-center justify-center">
-                  <svg className="w-7 h-7 text-[#F5C842]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-transparent hover:border-secondary">
+                <div className="w-12 h-12 mb-4 rounded-lg bg-secondary/20 flex items-center justify-center">
+                  <svg className="w-7 h-7 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                   </svg>
                 </div>
