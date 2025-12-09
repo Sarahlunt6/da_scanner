@@ -20,7 +20,7 @@ export default function Footer() {
 
           {/* Links */}
           <div>
-            <h4 className="text-sm font-semibold mb-4 text-secondary">>
+            <h4 className="text-sm font-semibold mb-4 text-secondary">
               Legal
             </h4>
             <ul className="space-y-3">
@@ -63,7 +63,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-sm font-semibold mb-4 text-secondary">>Contact</h4>
+            <h4 className="text-sm font-semibold mb-4 text-secondary">Contact</h4>
             <a
               href="mailto:support@hr4sight.com"
               className="text-sm inline-flex items-center gap-2 py-2 px-3 -ml-3 rounded-lg transition-all duration-200"
