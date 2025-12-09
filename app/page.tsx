@@ -158,9 +158,9 @@ export default function HomePage() {
               <Image
                 src="/hr4sight-logo.png"
                 alt="HR4Sight"
-                width={200}
-                height={50}
-                className="h-12 w-auto transform group-hover:scale-105 transition-transform duration-300"
+                width={240}
+                height={60}
+                className="h-14 w-auto transform group-hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="flex items-center gap-6">
@@ -180,7 +180,7 @@ export default function HomePage() {
                 onClick={() => {
                   document.getElementById('scan-form')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="text-sm font-bold px-6 py-3 rounded-lg shadow-lg transform transition-all duration-200 hover:shadow-xl hover:scale-105 relative overflow-hidden group bg-secondary text-gray-900"
+                className="text-sm font-bold px-6 py-3 rounded-lg shadow-lg transform transition-all duration-200 hover:shadow-xl hover:scale-105 relative overflow-hidden group bg-[#fbab3f] text-gray-900"
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'scale(1.05) translateY(-2px)';
                   e.currentTarget.style.boxShadow = '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)';
