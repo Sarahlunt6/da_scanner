@@ -250,8 +250,8 @@ export default function HomePage() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-bold text-gray-900 text-lg group-hover:text-primary transition-colors duration-300">Comprehensive Compliance Check</p>
-                    <p className="text-gray-600">Analysis across federal and state employment laws</p>
+                    <p className="font-bold text-gray-900 text-lg group-hover:text-primary transition-colors duration-300">Complete Online Presence Analysis</p>
+                    <p className="text-gray-600">Scan 47 data points across your digital footprint</p>
                   </div>
                 </div>
 
@@ -275,7 +275,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <p className="font-bold text-gray-900 text-lg group-hover:text-primary transition-colors duration-300">Results in Minutes</p>
-                    <p className="text-gray-600">Get your detailed compliance report delivered via email</p>
+                    <p className="text-gray-600">Get your detailed Digital Authority report delivered via email</p>
                   </div>
                 </div>
 
@@ -298,8 +298,8 @@ export default function HomePage() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-bold text-gray-900 text-lg group-hover:text-primary transition-colors duration-300">Risk Mitigation Guidance</p>
-                    <p className="text-gray-600">Know exactly what needs attention to reduce employer risk</p>
+                    <p className="font-bold text-gray-900 text-lg group-hover:text-primary transition-colors duration-300">Actionable Improvement Plan</p>
+                    <p className="text-gray-600">Know exactly what to fix to attract more patients</p>
                   </div>
                 </div>
               </div>
@@ -317,16 +317,16 @@ export default function HomePage() {
                 }}
               >
                 <div className="text-center transition-transform duration-300 hover:scale-110">
-                  <div className="text-5xl font-extrabold mb-2 text-white transition-colors duration-300 group-hover:text-secondary">100K+</div>
-                  <div className="text-sm font-medium text-white/90">Bills & Regulations Tracked</div>
+                  <div className="text-5xl font-extrabold mb-2 text-white transition-colors duration-300 group-hover:text-secondary">47</div>
+                  <div className="text-sm font-medium text-white/90">Data Points Analyzed</div>
                 </div>
                 <div className="text-center border-x border-white/30 transition-transform duration-300 hover:scale-110">
-                  <div className="text-5xl font-extrabold mb-2 text-white transition-colors duration-300 group-hover:text-secondary">50+</div>
-                  <div className="text-sm font-medium text-white/90">State Jurisdictions</div>
+                  <div className="text-5xl font-extrabold mb-2 text-white transition-colors duration-300 group-hover:text-secondary">5</div>
+                  <div className="text-sm font-medium text-white/90">TAPS Framework Pillars</div>
                 </div>
                 <div className="text-center transition-transform duration-300 hover:scale-110">
-                  <div className="text-5xl font-extrabold mb-2 text-white transition-colors duration-300 group-hover:text-secondary">24/7</div>
-                  <div className="text-sm font-medium text-white/90">Compliance Monitoring</div>
+                  <div className="text-5xl font-extrabold mb-2 text-white transition-colors duration-300 group-hover:text-secondary">10min</div>
+                  <div className="text-sm font-medium text-white/90">To Complete Analysis</div>
                 </div>
               </div>
             </div>
