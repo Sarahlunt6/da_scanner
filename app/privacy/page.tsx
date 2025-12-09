@@ -68,10 +68,9 @@ export default function PrivacyPage() {
                 Our tool uses the following third-party services:
               </p>
               <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-                <li>Google Places API</li>
                 <li>Google PageSpeed API</li>
                 <li>Yelp Fusion API</li>
-                <li>Supabase (database hosting)</li>
+                <li>Vercel Postgres (database hosting)</li>
                 <li>Vercel (hosting)</li>
               </ul>
             </section>
