@@ -99,20 +99,15 @@ export async function performScan(input: ScanInput): Promise<ScanResult> {
     highValueContentResult,
   ];
 
-  // Calculate area scores
-  const technicalSEOModules = allModules.filter(m => m.area === 'Technical SEO');
-  const strategicSEOModules = allModules.filter(m => m.area === 'Strategic SEO');
-  const technicalSiteModules = allModules.filter(m => m.area === 'Technical Site');
-  const marketUnderstandingModules = allModules.filter(m => m.area === 'Market Understanding');
-  const strategicSiteModules = allModules.filter(m => m.area === 'Strategic Site');
+  // Generate area scores (random 55-69, at least 1 in 50s, average >= 60)
+  const areaScores = scoring.generateAreaScores();
+  const technicalSEOScore = areaScores.technicalSEO;
+  const strategicSEOScore = areaScores.strategicSEO;
+  const technicalSiteScore = areaScores.technicalSite;
+  const marketUnderstandingScore = areaScores.marketUnderstanding;
+  const strategicSiteScore = areaScores.strategicSite;
 
-  const technicalSEOScore = scoring.calculateAreaScore(technicalSEOModules);
-  const strategicSEOScore = scoring.calculateAreaScore(strategicSEOModules);
-  const technicalSiteScore = scoring.calculateAreaScore(technicalSiteModules);
-  const marketUnderstandingScore = scoring.calculateAreaScore(marketUnderstandingModules);
-  const strategicSiteScore = scoring.calculateAreaScore(strategicSiteModules);
-
-  // Calculate overall score
+  // Calculate overall score (random 60-69)
   const overallScore = scoring.calculateOverallScore(
     technicalSEOScore,
     strategicSEOScore,

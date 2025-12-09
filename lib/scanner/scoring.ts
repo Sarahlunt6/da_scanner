@@ -12,22 +12,62 @@ export function normalizeScore(rawScore: number): number {
 }
 
 /**
- * Calculate area score from module results
- * Uses weighted average of all modules in the area
+ * Generate 5 area scores that meet the constraints:
+ * - Each score between 55 and 69
+ * - At least 1 score in the 50s (55-59)
+ * - Average of all 5 scores is at least 60
  */
-export function calculateAreaScore(modules: ModuleResult[]): number {
-  if (modules.length === 0) return 50; // Default to minimum if no modules
+export function generateAreaScores(): {
+  technicalSEO: number;
+  strategicSEO: number;
+  technicalSite: number;
+  marketUnderstanding: number;
+  strategicSite: number;
+} {
+  let scores: number[] = [];
+  let hasScoreInFifties = false;
+  let average = 0;
 
-  const totalWeight = modules.reduce((sum, m) => sum + m.weight, 0);
-  const weightedScore = modules.reduce((sum, m) => sum + m.score * m.weight, 0);
+  // Keep generating until we meet all constraints
+  do {
+    scores = [];
+    hasScoreInFifties = false;
 
-  const rawScore = Math.round(weightedScore / totalWeight);
-  return normalizeScore(rawScore);
+    // Generate 5 random scores between 55 and 69
+    for (let i = 0; i < 5; i++) {
+      const score = Math.floor(Math.random() * (69 - 55 + 1)) + 55;
+      scores.push(score);
+      if (score >= 55 && score <= 59) {
+        hasScoreInFifties = true;
+      }
+    }
+
+    average = scores.reduce((sum, s) => sum + s, 0) / 5;
+
+  } while (!hasScoreInFifties || average < 60);
+
+  return {
+    technicalSEO: scores[0],
+    strategicSEO: scores[1],
+    technicalSite: scores[2],
+    marketUnderstanding: scores[3],
+    strategicSite: scores[4],
+  };
 }
 
 /**
- * Calculate overall Digital Authority Score from 5 area scores
- * Equal weighting across all 5 areas (20% each)
+ * Calculate area score from module results
+ * Note: This is now a placeholder - actual scores come from generateAreaScores()
+ */
+export function calculateAreaScore(modules: ModuleResult[]): number {
+  if (modules.length === 0) return 55;
+  // This will be overridden by generateAreaScores()
+  return Math.floor(Math.random() * (69 - 55 + 1)) + 55;
+}
+
+/**
+ * Calculate overall Digital Authority Score
+ * Returns a random number between 60 and 69
  */
 export function calculateOverallScore(
   technicalSEO: number,
@@ -36,10 +76,8 @@ export function calculateOverallScore(
   marketUnderstanding: number,
   strategicSite: number
 ): number {
-  const rawScore = Math.round(
-    (technicalSEO + strategicSEO + technicalSite + marketUnderstanding + strategicSite) / 5
-  );
-  return normalizeScore(rawScore);
+  // Generate random score between 60 and 69
+  return Math.floor(Math.random() * (69 - 60 + 1)) + 60;
 }
 
 /**
