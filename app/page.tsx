@@ -166,13 +166,13 @@ export default function HomePage() {
             <div className="flex items-center gap-6">
               <a
                 href="/how-it-works"
-                className="text-sm font-medium text-gray-700 hover:text-[#2C5F7C] transition-all duration-200"
+                className="text-sm font-medium text-gray-700 hover:text-primary transition-all duration-200"
               >
                 How It Works
               </a>
               <a
                 href="/about-taps"
-                className="text-sm font-medium text-gray-700 hover:text-[#2C5F7C] transition-all duration-200"
+                className="text-sm font-medium text-gray-700 hover:text-primary transition-all duration-200"
               >
                 About TAPS
               </a>
@@ -180,8 +180,7 @@ export default function HomePage() {
                 onClick={() => {
                   document.getElementById('scan-form')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="text-sm font-bold px-6 py-3 rounded-lg shadow-lg transform transition-all duration-200 hover:shadow-xl hover:scale-105 relative overflow-hidden group"
-                style={{ backgroundColor: '#FFD147', color: '#1a1a1a' }}
+                className="text-sm font-bold px-6 py-3 rounded-lg shadow-lg transform transition-all duration-200 hover:shadow-xl hover:scale-105 relative overflow-hidden group bg-secondary text-gray-900"
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'scale(1.05) translateY(-2px)';
                   e.currentTarget.style.boxShadow = '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)';
@@ -219,7 +218,7 @@ export default function HomePage() {
                 <span className="text-primary relative inline-block">
                   High-Value Patients
                   <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 200 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 8C40 4 80 2 120 4C160 6 180 8 200 7" stroke="#FFD147" strokeWidth="4" strokeLinecap="round"/>
+                    <path d="M0 8C40 4 80 2 120 4C160 6 180 8 200 7" stroke="#fbab3f" strokeWidth="4" strokeLinecap="round"/>
                   </svg>
                 </span>{" "}
                 From Finding You?
@@ -308,8 +307,7 @@ export default function HomePage() {
 
               {/* Social Proof Stats */}
               <div
-                style={{ backgroundColor: '#2C5F7C', color: '#FFFFFF' }}
-                className="grid grid-cols-3 gap-6 p-8 rounded-2xl shadow-xl group cursor-default"
+                className="bg-primary text-white grid grid-cols-3 gap-6 p-8 rounded-2xl shadow-xl group cursor-default"
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-4px)';
                   e.currentTarget.style.boxShadow = '0 25px 50px -12px rgb(0 0 0 / 0.25)';
@@ -554,8 +552,7 @@ export default function HomePage() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      style={{ backgroundColor: '#2C5F7C', color: '#FFFFFF' }}
-                      className="w-full font-bold py-4 px-6 rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg text-lg relative overflow-hidden group"
+                      className="w-full font-bold py-4 px-6 rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg text-lg relative overflow-hidden group bg-primary text-white"
                       onMouseEnter={(e) => {
                         if (!isSubmitting) {
                           e.currentTarget.style.transform = 'translateY(-2px)';
@@ -625,13 +622,13 @@ export default function HomePage() {
               {/* Step 1 */}
               <div className="text-center group cursor-default">
                 <div
-                  style={{ backgroundColor: '#2C5F7C', width: '64px', height: '64px' }}
+                  style={{ backgroundColor: '#29377f', width: '64px', height: '64px' }}
                   className="rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#FFD147';
+                    e.currentTarget.style.backgroundColor = '#fbab3f';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#2C5F7C';
+                    e.currentTarget.style.backgroundColor = '#29377f';
                   }}
                 >
                   <span style={{ color: '#FFFFFF' }} className="text-3xl font-bold transition-transform duration-300 group-hover:scale-110">1</span>
@@ -645,13 +642,13 @@ export default function HomePage() {
               {/* Step 2 */}
               <div className="text-center group cursor-default">
                 <div
-                  style={{ backgroundColor: '#2C5F7C', width: '64px', height: '64px' }}
+                  style={{ backgroundColor: '#29377f', width: '64px', height: '64px' }}
                   className="rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#FFD147';
+                    e.currentTarget.style.backgroundColor = '#fbab3f';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#2C5F7C';
+                    e.currentTarget.style.backgroundColor = '#29377f';
                   }}
                 >
                   <span style={{ color: '#FFFFFF' }} className="text-3xl font-bold transition-transform duration-300 group-hover:scale-110">2</span>
@@ -665,13 +662,13 @@ export default function HomePage() {
               {/* Step 3 */}
               <div className="text-center group cursor-default">
                 <div
-                  style={{ backgroundColor: '#2C5F7C', width: '64px', height: '64px' }}
+                  style={{ backgroundColor: '#29377f', width: '64px', height: '64px' }}
                   className="rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#FFD147';
+                    e.currentTarget.style.backgroundColor = '#fbab3f';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#2C5F7C';
+                    e.currentTarget.style.backgroundColor = '#29377f';
                   }}
                 >
                   <span style={{ color: '#FFFFFF' }} className="text-3xl font-bold transition-transform duration-300 group-hover:scale-110">3</span>
@@ -726,7 +723,7 @@ export default function HomePage() {
                   className="bg-white rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-default"
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'scale(1.05) translateY(-8px)';
-                    e.currentTarget.style.borderColor = '#2C5F7C';
+                    e.currentTarget.style.borderColor = '#29377f';
                     e.currentTarget.style.borderWidth = '2px';
                   }}
                   onMouseLeave={(e) => {
@@ -764,7 +761,7 @@ export default function HomePage() {
                   className="bg-white rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-default"
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'scale(1.05) translateY(-8px)';
-                    e.currentTarget.style.borderColor = '#2C5F7C';
+                    e.currentTarget.style.borderColor = '#29377f';
                     e.currentTarget.style.borderWidth = '2px';
                   }}
                   onMouseLeave={(e) => {
@@ -802,7 +799,7 @@ export default function HomePage() {
                   className="bg-white rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-default"
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'scale(1.05) translateY(-8px)';
-                    e.currentTarget.style.borderColor = '#2C5F7C';
+                    e.currentTarget.style.borderColor = '#29377f';
                     e.currentTarget.style.borderWidth = '2px';
                   }}
                   onMouseLeave={(e) => {
@@ -839,7 +836,7 @@ export default function HomePage() {
                   className="bg-white rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-default"
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'scale(1.05) translateY(-8px)';
-                    e.currentTarget.style.borderColor = '#2C5F7C';
+                    e.currentTarget.style.borderColor = '#29377f';
                     e.currentTarget.style.borderWidth = '2px';
                   }}
                   onMouseLeave={(e) => {
@@ -873,7 +870,7 @@ export default function HomePage() {
                   className="bg-white rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-default"
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'scale(1.05) translateY(-8px)';
-                    e.currentTarget.style.borderColor = '#2C5F7C';
+                    e.currentTarget.style.borderColor = '#29377f';
                     e.currentTarget.style.borderWidth = '2px';
                   }}
                   onMouseLeave={(e) => {
@@ -906,8 +903,7 @@ export default function HomePage() {
                 <a
                   href="#"
                   onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  style={{ backgroundColor: '#2C5F7C', color: '#FFFFFF' }}
-                  className="inline-block hover:opacity-90 font-bold py-4 px-8 rounded-xl transition-opacity shadow-lg text-lg"
+                  className="inline-block hover:opacity-90 font-bold py-4 px-8 rounded-xl transition-opacity shadow-lg text-lg bg-primary text-white"
                 >
                   Get Your Free Score Now
                 </a>

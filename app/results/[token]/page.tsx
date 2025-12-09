@@ -105,7 +105,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
     <>
       <div className="min-h-screen bg-gray-50">
         {/* Branded Header */}
-        <div style={{ backgroundColor: '#2C5F7C' }} className="shadow-lg">
+        <div className="bg-primary shadow-lg">
           <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 max-w-6xl">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div className="flex items-center gap-4">
@@ -132,7 +132,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
               {/* "The Internet Sees You As..." Tagline */}
               <div className="text-center mb-6 sm:mb-8">
                 <p className="text-lg sm:text-xl text-gray-600 mb-2">The internet sees you as...</p>
-                <h3 className="text-2xl sm:text-4xl font-black text-[#2C5F7C] mb-2">{tier.label}</h3>
+                <h3 className="text-2xl sm:text-4xl font-black text-primary mb-2">{tier.label}</h3>
                 <p className="text-sm sm:text-base text-gray-600 italic max-w-2xl mx-auto">{tier.subtext}</p>
               </div>
 
@@ -154,7 +154,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                         cx="80"
                         cy="80"
                         r="70"
-                        stroke="#FFD147"
+                        stroke="#fbab3f"
                         strokeWidth="16"
                         fill="none"
                         strokeDasharray={`${(scan.overall_score / 100) * 439.82} 439.82`}
@@ -174,7 +174,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                         cx="112"
                         cy="112"
                         r="100"
-                        stroke="#FFD147"
+                        stroke="#fbab3f"
                         strokeWidth="20"
                         fill="none"
                         strokeDasharray={`${(scan.overall_score / 100) * 628.32} 628.32`}
@@ -261,7 +261,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
 
           {/* Technical SEO Area */}
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
-            <div style={{ backgroundColor: '#2C5F7C' }} className="px-4 sm:px-8 py-4 sm:py-6">
+            <div className="bg-primary px-4 sm:px-8 py-4 sm:py-6">
               <div className="flex items-center justify-between">
                 <div className="flex-1">
                   <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Technical SEO</h3>
@@ -269,7 +269,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                 </div>
                 {scan.results_json?.areaScores?.technicalSEO && (
                   <div className="ml-4 flex-shrink-0">
-                    <div className="text-4xl sm:text-5xl font-black" style={{ color: '#FFD147' }}>{scan.results_json.areaScores.technicalSEO}</div>
+                    <div className="text-4xl sm:text-5xl font-black text-secondary">{scan.results_json.areaScores.technicalSEO}</div>
                   </div>
                 )}
               </div>
@@ -292,7 +292,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
 
           {/* Strategic SEO Area */}
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
-            <div style={{ backgroundColor: '#2C5F7C' }} className="px-4 sm:px-8 py-4 sm:py-6">
+            <div className="bg-primary px-4 sm:px-8 py-4 sm:py-6">
               <div className="flex items-center justify-between">
                 <div className="flex-1">
                   <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Strategic SEO</h3>
@@ -300,7 +300,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                 </div>
                 {scan.results_json?.areaScores?.strategicSEO && (
                   <div className="ml-4 flex-shrink-0">
-                    <div className="text-4xl sm:text-5xl font-black" style={{ color: '#FFD147' }}>{scan.results_json.areaScores.strategicSEO}</div>
+                    <div className="text-4xl sm:text-5xl font-black text-secondary">{scan.results_json.areaScores.strategicSEO}</div>
                   </div>
                 )}
               </div>
@@ -323,7 +323,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
 
           {/* Technical Site Area */}
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
-            <div style={{ backgroundColor: '#2C5F7C' }} className="px-4 sm:px-8 py-4 sm:py-6">
+            <div className="bg-primary px-4 sm:px-8 py-4 sm:py-6">
               <div className="flex items-center justify-between">
                 <div className="flex-1">
                   <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Technical Site</h3>
@@ -331,7 +331,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                 </div>
                 {scan.results_json?.areaScores?.technicalSite && (
                   <div className="ml-4 flex-shrink-0">
-                    <div className="text-4xl sm:text-5xl font-black" style={{ color: '#FFD147' }}>{scan.results_json.areaScores.technicalSite}</div>
+                    <div className="text-4xl sm:text-5xl font-black text-secondary">{scan.results_json.areaScores.technicalSite}</div>
                   </div>
                 )}
               </div>
@@ -354,7 +354,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
 
           {/* Market Understanding Area */}
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
-            <div style={{ backgroundColor: '#2C5F7C' }} className="px-4 sm:px-8 py-4 sm:py-6">
+            <div className="bg-primary px-4 sm:px-8 py-4 sm:py-6">
               <div className="flex items-center justify-between">
                 <div className="flex-1">
                   <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Market Understanding</h3>
@@ -362,7 +362,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                 </div>
                 {scan.results_json?.areaScores?.marketUnderstanding && (
                   <div className="ml-4 flex-shrink-0">
-                    <div className="text-4xl sm:text-5xl font-black" style={{ color: '#FFD147' }}>{scan.results_json.areaScores.marketUnderstanding}</div>
+                    <div className="text-4xl sm:text-5xl font-black text-secondary">{scan.results_json.areaScores.marketUnderstanding}</div>
                   </div>
                 )}
               </div>
@@ -385,7 +385,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
 
           {/* Strategic Site Area */}
           <div className="bg-white rounded-xl shadow-lg mb-6 sm:mb-8 overflow-hidden border border-gray-200">
-            <div style={{ backgroundColor: '#2C5F7C' }} className="px-4 sm:px-8 py-4 sm:py-6">
+            <div className="bg-primary px-4 sm:px-8 py-4 sm:py-6">
               <div className="flex items-center justify-between">
                 <div className="flex-1">
                   <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Strategic Site</h3>
@@ -393,7 +393,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                 </div>
                 {scan.results_json?.areaScores?.strategicSite && (
                   <div className="ml-4 flex-shrink-0">
-                    <div className="text-4xl sm:text-5xl font-black" style={{ color: '#FFD147' }}>{scan.results_json.areaScores.strategicSite}</div>
+                    <div className="text-4xl sm:text-5xl font-black text-secondary">{scan.results_json.areaScores.strategicSite}</div>
                   </div>
                 )}
               </div>
@@ -415,7 +415,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
           </div>
 
           {/* Call to Action */}
-          <div style={{ backgroundColor: '#2C5F7C' }} className="rounded-xl shadow-2xl overflow-hidden border-2 sm:border-4 border-secondary">
+          <div className="bg-primary rounded-xl shadow-2xl overflow-hidden border-2 sm:border-4 border-secondary">
             <div className="px-4 sm:px-8 py-8 sm:py-12 text-center">
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4" style={{ color: '#FFFFFF' }}>
                 Ready to Improve Your Score?
@@ -430,24 +430,24 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
 
               <div className="grid sm:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
                 <div className="flex flex-col items-center">
-                  <div style={{ backgroundColor: '#FFD147' }} className="w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-lg">
-                    <svg className="w-8 h-8 sm:w-10 sm:h-10" style={{ color: '#2C5F7C' }} fill="currentColor" viewBox="0 0 20 20">
+                  <div className="bg-secondary w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-lg">
+                    <svg className="w-8 h-8 sm:w-10 sm:h-10 text-primary" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
                   <div className="font-bold text-base sm:text-lg" style={{ color: '#FFFFFF' }}>No Long-Term Contracts</div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <div style={{ backgroundColor: '#FFD147' }} className="w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-lg">
-                    <svg className="w-8 h-8 sm:w-10 sm:h-10" style={{ color: '#2C5F7C' }} fill="currentColor" viewBox="0 0 20 20">
+                  <div className="bg-secondary w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-lg">
+                    <svg className="w-8 h-8 sm:w-10 sm:h-10 text-primary" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
                   <div className="font-bold text-base sm:text-lg" style={{ color: '#FFFFFF' }}>2X ROI Guarantee</div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <div style={{ backgroundColor: '#FFD147' }} className="w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-lg">
-                    <svg className="w-8 h-8 sm:w-10 sm:h-10" style={{ color: '#2C5F7C' }} fill="currentColor" viewBox="0 0 20 20">
+                  <div className="bg-secondary w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-lg">
+                    <svg className="w-8 h-8 sm:w-10 sm:h-10 text-primary" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
