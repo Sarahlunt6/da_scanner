@@ -710,20 +710,20 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* HR4Sight Features */}
+            {/* TAPS Framework */}
             <div className="bg-gradient-to-br from-blue-50 to-white rounded-3xl p-8 md:p-12 border-2 border-gray-100">
               <div className="text-center mb-10">
                 <h3 className="text-3xl font-extrabold text-gray-900 mb-4">
-                  HR4Sight™ Features
+                  The TAPS Framework
                 </h3>
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                  The all-in-one source for current HR and employment laws, as well as upcoming and proposed changes
+                  A comprehensive 5-pillar system that measures your practice's digital authority and online visibility
                 </p>
               </div>
 
               {/* Features Grid */}
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-                {/* proTRACK */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
+                {/* Trust */}
                 <div
                   className="bg-white rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-default"
                   onMouseEnter={(e) => {
@@ -738,14 +738,14 @@ export default function HomePage() {
                   }}
                 >
                   <div className="mb-4">
-                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">proTRACK™</h4>
+                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Trust</h4>
                   </div>
                   <p className="text-sm text-gray-600">
-                    Track 100,000+ federal and state bills and regulations with our HR-specific legislative tracker built on NexisLexis StateNet.
+                    Google reviews, ratings, review velocity, and sentiment analysis that build credibility and patient confidence
                   </p>
                 </div>
 
-                {/* proCOMPLY */}
+                {/* Accessibility */}
                 <div
                   className="bg-white rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-default"
                   onMouseEnter={(e) => {
@@ -760,14 +760,14 @@ export default function HomePage() {
                   }}
                 >
                   <div className="mb-4">
-                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">proCOMPLY™</h4>
+                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Accessibility</h4>
                   </div>
                   <p className="text-sm text-gray-600">
-                    Get members-only email alerts for new employment law bills and laws with essential dates and deadlines.
+                    NAP consistency, directory presence, and GBP optimization that make it easy for patients to find you
                   </p>
                 </div>
 
-                {/* proSHARE */}
+                {/* Positioning */}
                 <div
                   className="bg-white rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-default"
                   onMouseEnter={(e) => {
@@ -782,14 +782,14 @@ export default function HomePage() {
                   }}
                 >
                   <div className="mb-4">
-                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">proSHARE™</h4>
+                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Positioning</h4>
                   </div>
                   <p className="text-sm text-gray-600">
-                    Edit, print, save to PDF, and email directly from webpages and posts to get information in the right hands fast.
+                    GBP categories, services, messaging clarity, and local relevance that differentiate your practice
                   </p>
                 </div>
 
-                {/* proSEARCH */}
+                {/* Site Authority */}
                 <div
                   className="bg-white rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-default"
                   onMouseEnter={(e) => {
@@ -804,24 +804,46 @@ export default function HomePage() {
                   }}
                 >
                   <div className="mb-4">
-                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">proSEARCH™</h4>
+                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Site Authority</h4>
                   </div>
                   <p className="text-sm text-gray-600">
-                    Find the right information fast with our exclusive search functionality and links to source government websites.
+                    Technical SEO, page speed, mobile optimization, and content quality that boost search rankings
+                  </p>
+                </div>
+
+                {/* Strategic SEO */}
+                <div
+                  className="bg-white rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-default"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.05) translateY(-8px)';
+                    e.currentTarget.style.borderColor = '#29377f';
+                    e.currentTarget.style.borderWidth = '2px';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = '';
+                    e.currentTarget.style.borderColor = '';
+                    e.currentTarget.style.borderWidth = '';
+                  }}
+                >
+                  <div className="mb-4">
+                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Strategic SEO</h4>
+                  </div>
+                  <p className="text-sm text-gray-600">
+                    High-value content, semantic analysis, and service pages that attract patients searching for profitable procedures
                   </p>
                 </div>
               </div>
 
               <div className="mt-10 text-center">
                 <p className="text-gray-600 mb-6">
-                  Get started today and reduce your compliance risk
+                  Discover your Digital Authority Score and see where you rank
                 </p>
                 <a
                   href="#"
                   onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
                   className="inline-block font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg text-lg bg-secondary text-gray-900 hover:bg-secondary/90 hover:shadow-xl transform hover:scale-105"
                 >
-                  Get Your Free Assessment Now
+                  Get Your Free Scan Now
                 </a>
               </div>
             </div>
