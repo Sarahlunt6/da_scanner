@@ -1,0 +1,154 @@
+<table style="background-color: #f3f4f6; padding: 20px;" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1" align="center">
+        <table style="max-width: 600px; width: 100%; background-color: #ffffff; border-radius: 12px;" width="600" cellpadding="0" cellspacing="0" border="0">
+          <tbody>
+            <tr>
+              <td colspan="1" rowspan="1" style="padding: 30px 20px;">
+
+                <!-- Greeting -->
+                <h2 style="padding-left: 0px!important;margin: 0 0 10px 0;padding: 0;color: #333333;font-size: 24px;">Hi {{inboundWebhookRequest.contact_name}},</h2>
+                <p style="margin:0px; line-height: 1.5;padding-left: 0px!important;margin: 0px;padding: 0;color: #333333;font-size: 16px;">Thank you for scanning <strong style="color: #333333;">{{inboundWebhookRequest.business_name}}</strong>!</p>
+
+                <!-- Score Card -->
+                <table class="score-card" style="background: linear-gradient(135deg, #29377f 0%, #1e2654 100%); border-radius: 12px; margin: 20px 0;" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td colspan="1" rowspan="1" style="padding: 40px 20px; text-align: center; border-radius: 12px;">
+                        <div style="padding-left: 0px!important;; padding-left: 0px!important;; color: #fbab3f; font-size: 16px; font-weight: 600; letter-spacing: 2px; margin-bottom: 15px; text-transform: uppercase;" class="score-label">
+                          <p style="margin:0px; padding-left: 0px!important;margin: 0px;"><strong>YOUR DIGITAL AUTHORITY SCORE</strong></p>
+                        </div>
+                        <div style="padding-left: 0px!important;; padding-left: 0px!important;; margin: 10px 0;">
+                          <p style="margin:0px; padding-left: 0px!important;margin: 0px;">
+                            <strong><span style="font-size: 72px; color: rgb(255, 255, 255)">{{inboundWebhookRequest.da_score}}</span></strong>
+                            <span class="score-out-of" style="color: #B8D4E6;font-size: 36px;font-weight: normal;">/100</span>
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <!-- Why Your Score Matters -->
+                <table style="background-color: #f8f9fa; border-radius: 8px; margin: 25px 0; border-left: 4px solid #fbab3f;" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td colspan="1" rowspan="1" style="padding: 25px;">
+                        <h3 style="padding-left: 0px!important;margin: 0 0 15px 0;padding: 0;color: #29377f;font-size: 20px;">Why Your Score Matters</h3>
+                        <p style="margin:0px; line-height: 1.6;padding-left: 0px!important;margin: 0px;padding: 0;color: #333333;font-size: 15px;">Your Digital Authority Score measures how easily potential customers can find your business online and how much they trust you before ever making contact. This score directly impacts:</p>
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td colspan="1" rowspan="1" style="padding: 5px 0;">
+                                <p style="margin:0px; padding-left: 0px!important;margin: 0px;">
+                                  <strong><span style="font-size: 15px; color: rgb(51, 51, 51)">• Local Search Rankings:</span></strong>
+                                  <span style="font-size: 15px; color: rgb(51, 51, 51)"> Higher scores mean more visibility when customers search for services in your area</span>
+                                </p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="1" rowspan="1" style="padding: 5px 0;">
+                                <p style="margin:0px; padding-left: 0px!important;margin: 0px;">
+                                  <strong><span style="font-size: 15px; color: rgb(51, 51, 51)">• Customer Trust:</span></strong>
+                                  <span style="font-size: 15px; color: rgb(51, 51, 51)"> Consistent, accurate information across the web builds credibility before the first contact</span>
+                                </p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="1" rowspan="1" style="padding: 5px 0;">
+                                <p style="margin:0px; padding-left: 0px!important;margin: 0px;">
+                                  <strong><span style="font-size: 15px; color: rgb(51, 51, 51)">• Competitive Edge:</span></strong>
+                                  <span style="font-size: 15px; color: rgb(51, 51, 51)"> Businesses with stronger digital authority attract more high-value customers and fewer price shoppers</span>
+                                </p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <!-- CTA Button -->
+                <table style="margin: 35px 0;" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td colspan="1" rowspan="1" align="center">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td colspan="1" rowspan="1" class="cta-button" style="background: linear-gradient(135deg, #fbab3f 0%, #e89a2d 100%); border-radius: 8px; padding: 18px 45px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                                <p style="margin:0px; padding-left: 0px!important;margin: 0px;">
+                                  <a target="_blank" rel="noopener noreferrer nofollow" href="{{inboundWebhookRequest.report_url}}" style="color: #1e2654; text-decoration: none; font-size: 16px;">
+                                    <strong>View Your Full Report →</strong>
+                                  </a>
+                                </p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <!-- What's in Your Report -->
+                <table style="background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; margin: 25px 0;" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td colspan="1" rowspan="1" style="padding: 20px;">
+                        <h3 style="padding-left: 0px!important;margin: 0 0 15px 0;padding: 0;color: #333333;font-size: 18px;">📊 What's in Your Report:</h3>
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td colspan="1" rowspan="1" style="padding: 3px 0;">
+                                <p style="margin:0px; padding-left: 0px!important;margin: 0px;">
+                                  <span style="font-size: 14px; color: rgb(102, 102, 102)">• Detailed analysis across all 5 TAPS pillars of digital authority</span>
+                                </p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="1" rowspan="1" style="padding: 3px 0;">
+                                <p style="margin:0px; padding-left: 0px!important;margin: 0px;">
+                                  <span style="font-size: 14px; color: rgb(102, 102, 102)">• Specific gaps holding back your online visibility</span>
+                                </p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="1" rowspan="1" style="padding: 3px 0;">
+                                <p style="margin:0px; padding-left: 0px!important;margin: 0px;">
+                                  <span style="font-size: 14px; color: rgb(102, 102, 102)">• Actionable next steps to improve your score</span>
+                                </p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="1" rowspan="1" style="padding: 3px 0;">
+                                <p style="margin:0px; padding-left: 0px!important;margin: 0px;">
+                                  <span style="font-size: 14px; color: rgb(102, 102, 102)">• How you compare to top-performing businesses in your area</span>
+                                </p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <!-- Footer -->
+                <p style="margin:0px; line-height: 1.6;padding-left: 0px!important;margin: 0px;padding: 0;color: #666666;font-size: 14px;">Questions about your results? Reply to this email and we'll help you understand your score and create a plan to improve it.</p>
+                <p style="margin:0px; line-height: 1.6;padding-left: 0px!important;margin: 15px 0 0 0;padding: 0;color: #999999;font-size: 12px;">
+                  Best,<br>
+                  The HR4Sight Team<br>
+                  <span style="color: #29377f">Digital Authority Experts</span>
+                </p>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
