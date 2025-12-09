@@ -813,7 +813,7 @@ export default function HomePage() {
                 <a
                   href="#"
                   onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  className="inline-block font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg text-lg bg-secondary text-gray-900 hover:bg-primary hover:text-white hover:shadow-xl transform hover:scale-105"
+                  className="inline-block font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg text-lg bg-secondary text-gray-900 hover:bg-secondary/90 hover:shadow-xl transform hover:scale-105"
                 >
                   Get Your Free Assessment Now
                 </a>
