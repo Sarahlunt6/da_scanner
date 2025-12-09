@@ -210,24 +210,23 @@ export default function HomePage() {
             {/* Left Column - Content */}
             <div className="order-2 lg:order-1">
               <div className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold mb-6">
-                FREE DIGITAL AUTHORITY SCAN
+                FREE HR COMPLIANCE ASSESSMENT
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
-                What's Blocking{" "}
+                Is Your Company{" "}
                 <span className="text-primary relative inline-block">
-                  High-Value Patients
+                  Fully Compliant
                   <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 200 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 8C40 4 80 2 120 4C160 6 180 8 200 7" stroke="#fbab3f" strokeWidth="4" strokeLinecap="round"/>
                   </svg>
                 </span>{" "}
-                From Finding You?
+                With Employment Laws?
               </h1>
 
               <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-                Find out your <span className="font-bold text-gray-900">Digital Authority Score</span> and discover why{" "}
-                <span className="font-bold text-primary">95% of dental practices</span> are invisible to patients
-                searching for implants, veneers, and Invisalign.
+                Get your <span className="font-bold text-gray-900">HR Compliance Score</span> and discover if{" "}
+                <span className="font-bold text-primary">your organization is at risk</span> from the ever-changing landscape of federal and state employment laws.
               </p>
 
               {/* Benefits List */}
@@ -251,8 +250,8 @@ export default function HomePage() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-bold text-gray-900 text-lg group-hover:text-primary transition-colors duration-300">47 Data Points Analyzed</p>
-                    <p className="text-gray-600">Comprehensive scan across Google, reviews, and directories</p>
+                    <p className="font-bold text-gray-900 text-lg group-hover:text-primary transition-colors duration-300">Comprehensive Compliance Check</p>
+                    <p className="text-gray-600">Analysis across federal and state employment laws</p>
                   </div>
                 </div>
 
@@ -261,7 +260,7 @@ export default function HomePage() {
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'scale(1.02)';
                     e.currentTarget.style.boxShadow = '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)';
-                    e.currentTarget.style.borderColor = 'rgba(44, 95, 124, 0.3)';
+                    e.currentTarget.style.borderColor = 'rgba(41, 55, 127, 0.3)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = '';
@@ -275,8 +274,8 @@ export default function HomePage() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-bold text-gray-900 text-lg group-hover:text-primary transition-colors duration-300">Results in 5-10 Minutes</p>
-                    <p className="text-gray-600">Get your detailed report delivered via email</p>
+                    <p className="font-bold text-gray-900 text-lg group-hover:text-primary transition-colors duration-300">Results in Minutes</p>
+                    <p className="text-gray-600">Get your detailed compliance report delivered via email</p>
                   </div>
                 </div>
 
@@ -285,7 +284,7 @@ export default function HomePage() {
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'scale(1.02)';
                     e.currentTarget.style.boxShadow = '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)';
-                    e.currentTarget.style.borderColor = 'rgba(44, 95, 124, 0.3)';
+                    e.currentTarget.style.borderColor = 'rgba(41, 55, 127, 0.3)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = '';
@@ -299,8 +298,8 @@ export default function HomePage() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-bold text-gray-900 text-lg group-hover:text-primary transition-colors duration-300">Actionable Recommendations</p>
-                    <p className="text-gray-600">Know exactly what to fix to attract more patients</p>
+                    <p className="font-bold text-gray-900 text-lg group-hover:text-primary transition-colors duration-300">Risk Mitigation Guidance</p>
+                    <p className="text-gray-600">Know exactly what needs attention to reduce employer risk</p>
                   </div>
                 </div>
               </div>
@@ -318,16 +317,16 @@ export default function HomePage() {
                 }}
               >
                 <div className="text-center transition-transform duration-300 hover:scale-110">
-                  <div className="text-5xl font-extrabold mb-2 transition-colors duration-300 group-hover:text-secondary">200+</div>
-                  <div className="text-sm font-medium">Practices Scanned</div>
+                  <div className="text-5xl font-extrabold mb-2 transition-colors duration-300 group-hover:text-secondary">100K+</div>
+                  <div className="text-sm font-medium">Bills & Regulations Tracked</div>
                 </div>
                 <div className="text-center border-x border-white/30 transition-transform duration-300 hover:scale-110">
-                  <div className="text-5xl font-extrabold mb-2 transition-colors duration-300 group-hover:text-secondary">95%</div>
-                  <div className="text-sm font-medium">Score Below 80%</div>
+                  <div className="text-5xl font-extrabold mb-2 transition-colors duration-300 group-hover:text-secondary">50+</div>
+                  <div className="text-sm font-medium">State Jurisdictions</div>
                 </div>
                 <div className="text-center transition-transform duration-300 hover:scale-110">
-                  <div className="text-5xl font-extrabold mb-2 transition-colors duration-300 group-hover:text-secondary">2.4x</div>
-                  <div className="text-sm font-medium">Higher Conversion</div>
+                  <div className="text-5xl font-extrabold mb-2 transition-colors duration-300 group-hover:text-secondary">24/7</div>
+                  <div className="text-sm font-medium">Compliance Monitoring</div>
                 </div>
               </div>
             </div>
@@ -340,15 +339,15 @@ export default function HomePage() {
 
                 <div className="relative">
                   <div className="text-center mb-8">
-                    <h2 className="text-3xl font-extrabold text-gray-900 mb-2">Get Your Free Scan</h2>
+                    <h2 className="text-3xl font-extrabold text-gray-900 mb-2">Get Your Free Assessment</h2>
                     <p className="text-gray-600 font-medium">No credit card required • 2-minute form</p>
                   </div>
 
                   <form onSubmit={handleSubmit} className="space-y-5">
-                    {/* Practice Name with Autocomplete */}
+                    {/* Company Name */}
                     <div className="relative" ref={suggestionsRef}>
                       <label className="block text-sm font-bold text-gray-900 mb-2">
-                        Practice Name
+                        Company Name
                       </label>
                       <div className="relative">
                         <input
@@ -357,7 +356,7 @@ export default function HomePage() {
                           value={formData.practiceName}
                           onChange={(e) => handlePracticeNameChange(e.target.value)}
                           className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900 placeholder-gray-400 hover:border-gray-300"
-                          placeholder="Main Street Dental"
+                          placeholder="Acme Corporation"
                           autoComplete="off"
                         />
                         {isSearching && (
@@ -440,7 +439,7 @@ export default function HomePage() {
                     {/* Address */}
                     <div>
                       <label className="block text-sm font-bold text-gray-900 mb-2">
-                        Practice Address
+                        Company Address
                       </label>
                       <input
                         type="text"
@@ -565,7 +564,7 @@ export default function HomePage() {
                       }}
                     >
                       <span className="relative z-10 flex items-center justify-center gap-2">
-                        {isSubmitting ? "Analyzing Your Practice..." : "Get My Free Scan Now"}
+                        {isSubmitting ? "Analyzing Your Company..." : "Get My Free Assessment Now"}
                         {!isSubmitting && (
                           <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -614,7 +613,7 @@ export default function HomePage() {
                 How It Works
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Our Digital Authority Scanner analyzes 47 data points across the proven TAPS framework to measure your practice's online visibility
+                Our HR Compliance Assessment analyzes your organization's readiness across federal and state employment laws
               </p>
             </div>
 
@@ -635,7 +634,7 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3 transition-colors duration-300 group-hover:text-primary">Enter Your Info</h3>
                 <p className="text-gray-600">
-                  Fill out the simple form with your practice name, website, and contact details. Takes less than 2 minutes.
+                  Fill out the simple form with your company name, website, and contact details. Takes less than 2 minutes.
                 </p>
               </div>
 
@@ -653,9 +652,9 @@ export default function HomePage() {
                 >
                   <span style={{ color: '#FFFFFF' }} className="text-3xl font-bold transition-transform duration-300 group-hover:scale-110">2</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 transition-colors duration-300 group-hover:text-primary">We Scan Your Presence</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 transition-colors duration-300 group-hover:text-primary">We Analyze Compliance</h3>
                 <p className="text-gray-600">
-                  Our system analyzes your Google Business Profile, reviews, website, and directory listings in real-time.
+                  Our system reviews your organization against current federal and state employment laws and regulations.
                 </p>
               </div>
 
@@ -675,7 +674,7 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3 transition-colors duration-300 group-hover:text-primary">Get Your Report</h3>
                 <p className="text-gray-600">
-                  Receive your Digital Authority Score and detailed breakdown via email in 5-10 minutes with actionable next steps.
+                  Receive your HR Compliance Score and detailed breakdown via email with actionable recommendations.
                 </p>
               </div>
             </div>
@@ -684,18 +683,18 @@ export default function HomePage() {
             <div className="mb-16">
               <div className="text-center mb-8">
                 <h3 className="text-3xl font-extrabold text-gray-900 mb-4">
-                  See How TAPS Works
+                  See How HR4Sight Works
                 </h3>
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                  Watch this short video to understand how the TAPS framework can transform your practice's digital authority
+                  Watch this short video to understand how HR4Sight keeps you ahead of changing employment laws
                 </p>
               </div>
               <div className="max-w-4xl mx-auto">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl" style={{ paddingBottom: '56.25%' }}>
                   <iframe
                     className="absolute top-0 left-0 w-full h-full"
-                    src="https://www.youtube.com/embed/mSFPaeFZR7g?si=rad5NJyshMqLa4pu"
-                    title="TAPS Framework Explanation"
+                    src="https://www.youtube.com/embed/en4BUemNH0c?si=3fdg0i7Fza6mfS2O"
+                    title="HR4Sight Explanation"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerPolicy="strict-origin-when-cross-origin"
@@ -705,20 +704,20 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* TAPS Framework */}
+            {/* HR4Sight Features */}
             <div className="bg-gradient-to-br from-blue-50 to-white rounded-3xl p-8 md:p-12 border-2 border-gray-100">
               <div className="text-center mb-10">
                 <h3 className="text-3xl font-extrabold text-gray-900 mb-4">
-                  The TAPS Framework
+                  HR4Sight™ Features
                 </h3>
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                  Trusted Authority Profile System - The proven methodology used by the top 5% of dental practices
+                  The all-in-one source for current HR and employment laws, as well as upcoming and proposed changes
                 </p>
               </div>
 
-              {/* First Row - 3 areas */}
-              <div className="grid md:grid-cols-3 gap-8 mb-8">
-                {/* Area 1: Technical SEO */}
+              {/* Features Grid */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                {/* proTRACK */}
                 <div
                   className="bg-white rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-default"
                   onMouseEnter={(e) => {
@@ -733,30 +732,14 @@ export default function HomePage() {
                   }}
                 >
                   <div className="mb-4">
-                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Technical SEO</h4>
+                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">proTRACK™</h4>
                   </div>
-                  <h5 className="font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">Foundation & Discoverability</h5>
-                  <ul className="space-y-2 text-sm text-gray-600">
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>Review Velocity</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>GBP Primary Category</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>NAP Consistency</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>Images</span>
-                    </li>
-                  </ul>
+                  <p className="text-sm text-gray-600">
+                    Track 100,000+ federal and state bills and regulations with our HR-specific legislative tracker built on NexisLexis StateNet.
+                  </p>
                 </div>
 
-                {/* Area 2: Strategic SEO */}
+                {/* proCOMPLY */}
                 <div
                   className="bg-white rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-default"
                   onMouseEnter={(e) => {
@@ -771,30 +754,14 @@ export default function HomePage() {
                   }}
                 >
                   <div className="mb-4">
-                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Strategic SEO</h4>
+                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">proCOMPLY™</h4>
                   </div>
-                  <h5 className="font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">Authority & Trust Signals</h5>
-                  <ul className="space-y-2 text-sm text-gray-600">
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>Review Sentiment</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>Citations</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>Content Activity</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>GBP Services</span>
-                    </li>
-                  </ul>
+                  <p className="text-sm text-gray-600">
+                    Get members-only email alerts for new employment law bills and laws with essential dates and deadlines.
+                  </p>
                 </div>
 
-                {/* Area 3: Technical Site */}
+                {/* proSHARE */}
                 <div
                   className="bg-white rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-default"
                   onMouseEnter={(e) => {
@@ -809,63 +776,14 @@ export default function HomePage() {
                   }}
                 >
                   <div className="mb-4">
-                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Technical Site</h4>
+                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">proSHARE™</h4>
                   </div>
-                  <h5 className="font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">Performance & User Experience</h5>
-                  <ul className="space-y-2 text-sm text-gray-600">
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>Site Speed</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>Mobile Optimization</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>Video Content</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* Second Row - 2 areas (centered) */}
-              <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                {/* Area 4: Market Understanding */}
-                <div
-                  className="bg-white rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-default"
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'scale(1.05) translateY(-8px)';
-                    e.currentTarget.style.borderColor = '#29377f';
-                    e.currentTarget.style.borderWidth = '2px';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = '';
-                    e.currentTarget.style.borderColor = '';
-                    e.currentTarget.style.borderWidth = '';
-                  }}
-                >
-                  <div className="mb-4">
-                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Market Understanding</h4>
-                  </div>
-                  <h5 className="font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">Local Relevance & Messaging</h5>
-                  <ul className="space-y-2 text-sm text-gray-600">
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>Messaging Clarity</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>Local Messages</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>Messaging Integrity</span>
-                    </li>
-                  </ul>
+                  <p className="text-sm text-gray-600">
+                    Edit, print, save to PDF, and email directly from webpages and posts to get information in the right hands fast.
+                  </p>
                 </div>
 
-                {/* Area 5: Strategic Site */}
+                {/* proSEARCH */}
                 <div
                   className="bg-white rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-default"
                   onMouseEnter={(e) => {
@@ -880,32 +798,24 @@ export default function HomePage() {
                   }}
                 >
                   <div className="mb-4">
-                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Strategic Site</h4>
+                    <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">proSEARCH™</h4>
                   </div>
-                  <h5 className="font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">Content Authority & Depth</h5>
-                  <ul className="space-y-2 text-sm text-gray-600">
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>Semantic Analysis</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>High Value Content</span>
-                    </li>
-                  </ul>
+                  <p className="text-sm text-gray-600">
+                    Find the right information fast with our exclusive search functionality and links to source government websites.
+                  </p>
                 </div>
               </div>
 
               <div className="mt-10 text-center">
                 <p className="text-gray-600 mb-6">
-                  Your score is calculated by measuring performance across all five areas
+                  Get started today and reduce your compliance risk
                 </p>
                 <a
                   href="#"
                   onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
                   className="inline-block hover:opacity-90 font-bold py-4 px-8 rounded-xl transition-opacity shadow-lg text-lg bg-primary text-white"
                 >
-                  Get Your Free Score Now
+                  Get Your Free Assessment Now
                 </a>
               </div>
             </div>

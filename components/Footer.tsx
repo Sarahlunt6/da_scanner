@@ -14,7 +14,7 @@ export default function Footer() {
           <div>
             <h3 className="text-3xl font-bold mb-4 text-secondary">HR4Sight</h3>
             <p className="text-sm text-gray-200 leading-relaxed">
-              Helping dental practices attract high-value patients through the TAPS framework.
+              The all-in-one source for current HR and employment laws, helping you stay compliant and reduce employer risk.
             </p>
           </div>
 
@@ -65,7 +65,7 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-semibold mb-4 text-secondary">>Contact</h4>
             <a
-              href="mailto:opkie@opkie.com"
+              href="mailto:support@hr4sight.com"
               className="text-sm inline-flex items-center gap-2 py-2 px-3 -ml-3 rounded-lg transition-all duration-200"
               style={{ color: '#FFFFFF' }}
               onMouseEnter={(e) => {
@@ -85,7 +85,7 @@ export default function Footer() {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
-              opkie@opkie.com
+              support@hr4sight.com
             </a>
           </div>
         </div>
