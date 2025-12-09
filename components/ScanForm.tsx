@@ -196,7 +196,7 @@ export default function ScanForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-[#F5C842] hover:bg-[#d4ab1f] text-gray-900 font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none text-lg"
+            className="w-full bg-[#fbab3f] hover:bg-[#e89a2d] text-gray-900 font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none text-lg"
           >
             {isSubmitting ? "Submitting..." : "Get My Free Score →"}
           </button>
