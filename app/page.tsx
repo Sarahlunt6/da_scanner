@@ -306,7 +306,7 @@ export default function HomePage() {
 
               {/* Social Proof Stats */}
               <div
-                className="bg-primary text-white grid grid-cols-3 gap-6 p-8 rounded-2xl shadow-xl group cursor-default"
+                className="bg-gradient-to-br from-[#1e2654] to-[#29377f] text-white grid grid-cols-3 gap-6 p-8 rounded-2xl shadow-xl group cursor-default border-2 border-secondary/30"
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-4px)';
                   e.currentTarget.style.boxShadow = '0 25px 50px -12px rgb(0 0 0 / 0.25)';
@@ -317,16 +317,16 @@ export default function HomePage() {
                 }}
               >
                 <div className="text-center transition-transform duration-300 hover:scale-110">
-                  <div className="text-5xl font-extrabold mb-2 transition-colors duration-300 group-hover:text-secondary">100K+</div>
-                  <div className="text-sm font-medium">Bills & Regulations Tracked</div>
+                  <div className="text-5xl font-extrabold mb-2 text-white transition-colors duration-300 group-hover:text-secondary">100K+</div>
+                  <div className="text-sm font-medium text-white/90">Bills & Regulations Tracked</div>
                 </div>
                 <div className="text-center border-x border-white/30 transition-transform duration-300 hover:scale-110">
-                  <div className="text-5xl font-extrabold mb-2 transition-colors duration-300 group-hover:text-secondary">50+</div>
-                  <div className="text-sm font-medium">State Jurisdictions</div>
+                  <div className="text-5xl font-extrabold mb-2 text-white transition-colors duration-300 group-hover:text-secondary">50+</div>
+                  <div className="text-sm font-medium text-white/90">State Jurisdictions</div>
                 </div>
                 <div className="text-center transition-transform duration-300 hover:scale-110">
-                  <div className="text-5xl font-extrabold mb-2 transition-colors duration-300 group-hover:text-secondary">24/7</div>
-                  <div className="text-sm font-medium">Compliance Monitoring</div>
+                  <div className="text-5xl font-extrabold mb-2 text-white transition-colors duration-300 group-hover:text-secondary">24/7</div>
+                  <div className="text-sm font-medium text-white/90">Compliance Monitoring</div>
                 </div>
               </div>
             </div>
