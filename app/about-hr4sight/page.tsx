@@ -235,9 +235,9 @@ export default function AboutHR4SightPage() {
                 href="https://hr4sight.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-secondary hover:bg-secondary/90 text-gray-900 font-bold py-4 px-10 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-lg"
+                className="inline-block bg-secondary hover:bg-secondary/90 text-gray-900 font-extrabold py-4 px-12 rounded-xl transition-all duration-300 transform hover:scale-110 hover:shadow-2xl text-xl shadow-xl border-2 border-white/30"
               >
-                Visit HR4Sight.com
+                Visit HR4Sight.com →
               </a>
             </div>
           </section>
