@@ -44,7 +44,7 @@ export async function GET(request: Request) {
 
     const deleteResult = await sql`
       DELETE FROM scan_details
-      WHERE scan_id = ANY(${scanIds})
+      WHERE scan_id = ANY(ARRAY[${sql.raw(scanIds.join(','))}])
     `;
 
     console.log(`Successfully cleaned up ${deleteResult.rowCount} scan_details records for ${expiredScans.length} expired scans`);
