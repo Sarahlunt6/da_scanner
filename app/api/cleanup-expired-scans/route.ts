@@ -40,20 +40,24 @@ export async function GET(request: Request) {
     }
 
     // Delete scan_details for expired scans (keeping scan summary)
-    const scanIds = expiredScans.map(scan => scan.id);
+    // Delete them one by one to avoid array type issues
+    let totalDeleted = 0;
 
-    const deleteResult = await sql`
-      DELETE FROM scan_details
-      WHERE scan_id = ANY(ARRAY[${sql.raw(scanIds.join(','))}])
-    `;
+    for (const scan of expiredScans) {
+      const deleteResult = await sql`
+        DELETE FROM scan_details
+        WHERE scan_id = ${scan.id}
+      `;
+      totalDeleted += deleteResult.rowCount || 0;
+    }
 
-    console.log(`Successfully cleaned up ${deleteResult.rowCount} scan_details records for ${expiredScans.length} expired scans`);
+    console.log(`Successfully cleaned up ${totalDeleted} scan_details records for ${expiredScans.length} expired scans`);
 
     return NextResponse.json({
       success: true,
       message: `Cleaned up scan details for ${expiredScans.length} expired scans`,
       scansProcessed: expiredScans.length,
-      detailsDeleted: deleteResult.rowCount || 0,
+      detailsDeleted: totalDeleted,
       scans: expiredScans.map(s => ({
         id: s.id,
         practice_name: s.practice_name,
