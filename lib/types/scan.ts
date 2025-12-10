@@ -16,11 +16,11 @@ export type AreaType = 'Technical SEO' | 'Strategic SEO' | 'Technical Site' | 'M
 export interface ScanResult {
   overallScore: number;
   areaScores: {
-    technicalSEO: number;
-    strategicSEO: number;
-    technicalSite: number;
-    marketUnderstanding: number;
-    strategicSite: number;
+    trust_score: number;
+    accessibility_score: number;
+    positioning_score: number;
+    site_authority_score: number;
+    strategic_seo_score: number;
   };
   modules: ModuleResult[];
   timestamp: string;
