@@ -143,7 +143,7 @@ export default function HowItWorksPage() {
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">Trust & Credibility</h3>
                     <p className="text-gray-600">
-                      Analyze your Google Business Profile, review velocity, ratings, and online reputation signals that build patient trust.
+                      Analyze your Google Business Profile, review velocity, ratings, and online reputation signals that build client trust.
                     </p>
                   </div>
                 </div>
@@ -191,7 +191,7 @@ export default function HowItWorksPage() {
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">Actionable Recommendations</h3>
                     <p className="text-gray-600">
-                      Receive specific, prioritized recommendations on how to improve your online presence and attract more patients.
+                      Receive specific, prioritized recommendations on how to improve your online presence and attract more high-value clients.
                     </p>
                   </div>
                 </div>
