@@ -266,11 +266,11 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
 
           {/* Technical SEO Area */}
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
-            <div className="bg-primary px-4 sm:px-8 py-4 sm:py-6">
+            <div className="bg-gradient-to-br from-[#1e2654] to-[#29377f] px-4 sm:px-8 py-4 sm:py-6">
               <div className="flex items-center justify-between">
                 <div className="flex-1">
-                  <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Technical SEO</h3>
-                  <p style={{ color: '#E0E7EE' }} className="mt-2 text-sm sm:text-base">Foundational elements that help Google find and rank your practice</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Technical SEO</h3>
+                  <p className="mt-2 text-sm sm:text-base text-white/80">Foundational elements that help Google find and rank your practice</p>
                 </div>
                 {scan.results_json?.areaScores?.technicalSEO && (
                   <div className="ml-4 flex-shrink-0">
@@ -297,11 +297,11 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
 
           {/* Strategic SEO Area */}
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
-            <div className="bg-primary px-4 sm:px-8 py-4 sm:py-6">
+            <div className="bg-gradient-to-br from-[#1e2654] to-[#29377f] px-4 sm:px-8 py-4 sm:py-6">
               <div className="flex items-center justify-between">
                 <div className="flex-1">
-                  <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Strategic SEO</h3>
-                  <p style={{ color: '#E0E7EE' }} className="mt-2 text-sm sm:text-base">Strategic signals that demonstrate authority and trustworthiness</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Strategic SEO</h3>
+                  <p className="mt-2 text-sm sm:text-base text-white/80">Strategic signals that demonstrate authority and trustworthiness</p>
                 </div>
                 {scan.results_json?.areaScores?.strategicSEO && (
                   <div className="ml-4 flex-shrink-0">
@@ -328,11 +328,11 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
 
           {/* Technical Site Area */}
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
-            <div className="bg-primary px-4 sm:px-8 py-4 sm:py-6">
+            <div className="bg-gradient-to-br from-[#1e2654] to-[#29377f] px-4 sm:px-8 py-4 sm:py-6">
               <div className="flex items-center justify-between">
                 <div className="flex-1">
-                  <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Technical Site</h3>
-                  <p style={{ color: '#E0E7EE' }} className="mt-2 text-sm sm:text-base">Technical performance and user experience factors</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Technical Site</h3>
+                  <p className="mt-2 text-sm sm:text-base text-white/80">Technical performance and user experience factors</p>
                 </div>
                 {scan.results_json?.areaScores?.technicalSite && (
                   <div className="ml-4 flex-shrink-0">
@@ -359,11 +359,11 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
 
           {/* Market Understanding Area */}
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
-            <div className="bg-primary px-4 sm:px-8 py-4 sm:py-6">
+            <div className="bg-gradient-to-br from-[#1e2654] to-[#29377f] px-4 sm:px-8 py-4 sm:py-6">
               <div className="flex items-center justify-between">
                 <div className="flex-1">
-                  <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Market Understanding</h3>
-                  <p style={{ color: '#E0E7EE' }} className="mt-2 text-sm sm:text-base">How well your practice speaks to local patient needs</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Market Understanding</h3>
+                  <p className="mt-2 text-sm sm:text-base text-white/80">How well your practice speaks to local patient needs</p>
                 </div>
                 {scan.results_json?.areaScores?.marketUnderstanding && (
                   <div className="ml-4 flex-shrink-0">
@@ -390,11 +390,11 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
 
           {/* Strategic Site Area */}
           <div className="bg-white rounded-xl shadow-lg mb-6 sm:mb-8 overflow-hidden border border-gray-200">
-            <div className="bg-primary px-4 sm:px-8 py-4 sm:py-6">
+            <div className="bg-gradient-to-br from-[#1e2654] to-[#29377f] px-4 sm:px-8 py-4 sm:py-6">
               <div className="flex items-center justify-between">
                 <div className="flex-1">
-                  <h3 style={{ color: '#FFFFFF' }} className="text-xl sm:text-2xl font-bold">Strategic Site</h3>
-                  <p style={{ color: '#E0E7EE' }} className="mt-2 text-sm sm:text-base">High-value content that establishes topical authority</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Strategic Site</h3>
+                  <p className="mt-2 text-sm sm:text-base text-white/80">High-value content that establishes topical authority</p>
                 </div>
                 {scan.results_json?.areaScores?.strategicSite && (
                   <div className="ml-4 flex-shrink-0">
