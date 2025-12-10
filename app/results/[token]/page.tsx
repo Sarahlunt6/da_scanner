@@ -420,43 +420,43 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
           </div>
 
           {/* Call to Action */}
-          <div className="bg-gradient-to-br from-[#1e2654] to-[#29377f] rounded-xl shadow-2xl overflow-hidden border-2 sm:border-4 border-secondary">
-            <div className="px-4 sm:px-8 py-8 sm:py-12 text-center">
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4 text-white">
+          <div className="bg-gradient-to-br from-[#1e2654] to-[#29377f] rounded-xl shadow-2xl overflow-hidden border-4 border-[#fbab3f]">
+            <div className="px-4 sm:px-8 py-10 sm:py-14 text-center">
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-black mb-6 text-white">
                 Ready to Improve Your Score?
               </h3>
-              <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-10 max-w-3xl mx-auto font-medium text-white/80">
+              <p className="text-lg sm:text-xl md:text-2xl mb-10 sm:mb-12 max-w-3xl mx-auto font-medium text-white">
                 Schedule a complimentary 15-minute strategy session to receive a personalized action plan for dominating your local market.
               </p>
 
-              <div className="bg-white rounded-xl p-4 sm:p-8 mb-8 sm:mb-10 max-w-2xl mx-auto shadow-2xl">
+              <div className="bg-white rounded-2xl p-6 sm:p-10 mb-10 sm:mb-12 max-w-2xl mx-auto shadow-2xl">
                 <CalendarWidget className="text-center" />
               </div>
 
-              <div className="grid sm:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
+              <div className="grid sm:grid-cols-3 gap-8 sm:gap-10 max-w-4xl mx-auto">
                 <div className="flex flex-col items-center">
-                  <div className="bg-secondary w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-lg">
-                    <svg className="w-8 h-8 sm:w-10 sm:h-10 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="bg-[#fbab3f] w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center mb-4 sm:mb-5 shadow-xl">
+                    <svg className="w-10 h-10 sm:w-12 sm:h-12 text-[#1e2654]" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <div className="font-bold text-base sm:text-lg text-white">No Long-Term Contracts</div>
+                  <div className="font-bold text-lg sm:text-xl text-white">No Long-Term Contracts</div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <div className="bg-secondary w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-lg">
-                    <svg className="w-8 h-8 sm:w-10 sm:h-10 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="bg-[#fbab3f] w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center mb-4 sm:mb-5 shadow-xl">
+                    <svg className="w-10 h-10 sm:w-12 sm:h-12 text-[#1e2654]" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <div className="font-bold text-base sm:text-lg text-white">2X ROI Guarantee</div>
+                  <div className="font-bold text-lg sm:text-xl text-white">2X ROI Guarantee</div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <div className="bg-secondary w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-lg">
-                    <svg className="w-8 h-8 sm:w-10 sm:h-10 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="bg-[#fbab3f] w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center mb-4 sm:mb-5 shadow-xl">
+                    <svg className="w-10 h-10 sm:w-12 sm:h-12 text-[#1e2654]" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <div className="font-bold text-base sm:text-lg text-white">Exclusive Territory</div>
+                  <div className="font-bold text-lg sm:text-xl text-white">Exclusive Territory</div>
                 </div>
               </div>
             </div>
