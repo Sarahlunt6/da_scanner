@@ -595,7 +595,7 @@ export default function HomePage() {
                 How It Works
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Our HR Compliance Assessment analyzes your organization's readiness across federal and state employment laws
+                Our Digital Authority Assessment analyzes your business's online presence across all key platforms and ranking factors
               </p>
             </div>
 
@@ -634,9 +634,9 @@ export default function HomePage() {
                 >
                   <span style={{ color: '#FFFFFF' }} className="text-3xl font-bold transition-transform duration-300 group-hover:scale-110">2</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 transition-colors duration-300 group-hover:text-primary">We Analyze Compliance</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 transition-colors duration-300 group-hover:text-primary">We Analyze Your Digital Presence</h3>
                 <p className="text-gray-600">
-                  Our system reviews your organization against current federal and state employment laws and regulations.
+                  Our system scans 47 data points across your online presence, including Google Business Profile, reviews, directories, and website authority.
                 </p>
               </div>
 
@@ -656,7 +656,7 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3 transition-colors duration-300 group-hover:text-primary">Get Your Report</h3>
                 <p className="text-gray-600">
-                  Receive your HR Compliance Score and detailed breakdown via email with actionable recommendations.
+                  Receive your Digital Authority Score and detailed TAPS framework breakdown via email with actionable recommendations.
                 </p>
               </div>
             </div>
