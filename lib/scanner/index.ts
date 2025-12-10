@@ -46,7 +46,7 @@ export async function performScan(input: ScanInput): Promise<ScanResult> {
   console.log('✅ Review Sentiment completed');
   const citationsResult = await scanCitations(input.practiceName);
   console.log('✅ Citations completed');
-  const contentActivityResult = createPlaceholderModule('Content Activity', 'Strategic SEO', 'Regular Google Business Profile Content Updates that target high value keywords and patient questions and consistent response to patient reviews.');
+  const contentActivityResult = createPlaceholderModule('Content Activity', 'Strategic SEO', 'Regular Google Business Profile updates that target high-value keywords and client questions, with consistent responses to customer reviews.');
   console.log('✅ Content Activity (placeholder) completed');
   const gbpServicesResult = await scanGBPServices(googleData);
   console.log('✅ GBP Services completed');
@@ -58,14 +58,14 @@ export async function performScan(input: ScanInput): Promise<ScanResult> {
   console.log('✅ Site Speed completed');
   const mobileOptimizationResult = await scanMobileOptimization(perfData);
   console.log('✅ Mobile Optimization completed');
-  const videoContentResult = createPlaceholderModule('Video Content', 'Technical Site', 'Educational videos embedded on your site to increase engagement and time-on-page.');
+  const videoContentResult = createPlaceholderModule('Video Content', 'Technical Site', 'Professional videos embedded on your site to increase engagement and time-on-page.');
   console.log('✅ Video Content (placeholder) completed');
   console.log('=== TECHNICAL SITE: Complete ===');
 
   // === MARKET UNDERSTANDING AREA ===
   console.log('=== MARKET UNDERSTANDING: Starting ===');
-  const messagingClarityResult = createPlaceholderModule('Messaging Clarity', 'Market Understanding', 'Clear value proposition that communicates what makes your practice different and why patients should choose you.');
-  const localMessagesResult = createPlaceholderModule('Local Messages', 'Market Understanding', 'Location-specific content that targets your service area and local patient concerns.');
+  const messagingClarityResult = createPlaceholderModule('Messaging Clarity', 'Market Understanding', 'Clear value proposition that communicates what makes your business different and why clients should choose you.');
+  const localMessagesResult = createPlaceholderModule('Local Messages', 'Market Understanding', 'Location-specific content that targets your service area and local client needs.');
   const messagingIntegrityResult = createPlaceholderModule('Messaging Integrity', 'Market Understanding', 'Consistent brand messaging across all platforms and touchpoints.');
   console.log('✅ Market Understanding (all placeholders) completed');
   console.log('=== MARKET UNDERSTANDING: Complete ===');
@@ -74,7 +74,7 @@ export async function performScan(input: ScanInput): Promise<ScanResult> {
   console.log('=== STRATEGIC SITE: Starting ===');
   const semanticAnalysisResult = await scanSemanticAnalysis(input.websiteUrl);
   console.log('✅ Semantic Analysis completed');
-  const highValueContentResult = createPlaceholderModule('High Value Content', 'Strategic Site', 'Content focused on high-value procedures like implants and cosmetic dentistry that attracts profitable patients.');
+  const highValueContentResult = createPlaceholderModule('High Value Content', 'Strategic Site', 'Content focused on high-value services and expertise that attracts qualified clients.');
   console.log('=== STRATEGIC SITE: Complete ===');
 
   // Combine all modules
@@ -175,8 +175,8 @@ async function scanReviewVelocity(googleData: any): Promise<ModuleResult> {
       score: 0,
       status: 'urgent',
       weight: 10,
-      description: 'Measures how frequently you receive new Google reviews. Google favors practices with consistent review velocity (3+ per month).',
-      gapMessage: 'Practice not found on Google. Cannot analyze review velocity.',
+      description: 'Measures how frequently you receive new Google reviews. Google favors businesses with consistent review velocity (3+ per month).',
+      gapMessage: 'Business not found on Google. Cannot analyze review velocity.',
       data: {
         recentCount30Days: 0,
         source: 'google_places'
@@ -202,7 +202,7 @@ async function scanReviewVelocity(googleData: any): Promise<ModuleResult> {
     score,
     status: scoring.getStatus(score),
     weight: 10,
-    description: 'Measures how frequently you receive new Google reviews. Google favors practices with consistent review velocity (3+ per month).',
+    description: 'Measures how frequently you receive new Google reviews. Google favors businesses with consistent review velocity (3+ per month).',
     gapMessage,
     data: {
       recentCount30Days,
@@ -223,8 +223,8 @@ async function scanGBPPrimaryCategory(googleData: any): Promise<ModuleResult> {
       score: 0,
       status: 'urgent',
       weight: 10,
-      description: 'Your Google Business Profile primary category determines which searches you appear in. "Dentist" with high-value secondary categories like "Cosmetic Dentist" and "Dental Implants Periodontist" is optimal.',
-      gapMessage: 'Practice not found on Google. Cannot analyze categories.',
+      description: 'Your Google Business Profile primary category determines which searches you appear in. Choose categories that align with your expertise and the high-value services you offer.',
+      gapMessage: 'Business not found on Google. Cannot analyze categories.',
       data: {
         primaryCategory: '',
         secondaryCategories: [],
@@ -234,11 +234,10 @@ async function scanGBPPrimaryCategory(googleData: any): Promise<ModuleResult> {
     };
   }
 
-  const primaryCategory = googleData.primaryCategory || 'dentist';
+  const primaryCategory = googleData.primaryCategory || '';
   const categories = googleData.categories || [];
   const secondaryCategories = categories.filter((cat: string) =>
-    cat !== primaryCategory &&
-    (cat.includes('dentist') || cat.includes('dental'))
+    cat !== primaryCategory
   );
 
   const { score, gapMessage } = scoring.calculateGBPPrimaryCategoryScore(primaryCategory, secondaryCategories);
@@ -249,7 +248,7 @@ async function scanGBPPrimaryCategory(googleData: any): Promise<ModuleResult> {
     score,
     status: scoring.getStatus(score),
     weight: 10,
-    description: 'Your Google Business Profile primary category determines which searches you appear in. "Dentist" with high-value secondary categories like "Cosmetic Dentist" and "Dental Implants Periodontist" is optimal.',
+    description: 'Your Google Business Profile primary category determines which searches you appear in. Choose categories that align with your expertise and the high-value services you offer.',
     gapMessage,
     data: {
       primaryCategory,
@@ -320,8 +319,8 @@ async function scanReviewSentiment(googleData: any): Promise<ModuleResult> {
       score: 0,
       status: 'urgent',
       weight: 15,
-      description: 'What your patients are highlighting. The services your patients mention and way they talk about you in your reviews let\'s Google know what kinds of searches and what kind of searcher profiles to focus on when deciding when to show your practice.',
-      gapMessage: 'Practice not found on Google. Cannot analyze reviews.',
+      description: 'What your customers are highlighting. The services and expertise your customers mention in reviews helps Google understand what you offer and when to show your business in relevant searches.',
+      gapMessage: 'Business not found on Google. Cannot analyze reviews.',
       data: {
         rating: 0,
         totalReviews: 0,
@@ -341,7 +340,7 @@ async function scanReviewSentiment(googleData: any): Promise<ModuleResult> {
     score,
     status: scoring.getStatus(score),
     weight: 15,
-    description: 'What your patients are highlighting. The services your patients mention and way they talk about you in your reviews let\'s Google know what kinds of searches and what kind of searcher profiles to focus on when deciding when to show your practice.',
+    description: 'What your customers are highlighting. The services and expertise your customers mention in reviews helps Google understand what you offer and when to show your business in relevant searches.',
     gapMessage,
     data: {
       rating,
@@ -367,7 +366,7 @@ async function scanCitations(practiceName: string): Promise<ModuleResult> {
     score,
     status: scoring.getStatus(score),
     weight: 10,
-    description: 'Your presence on key online directories (Healthgrades, Zocdoc, Yelp, etc.). More citations = more visibility and authority in local search.',
+    description: 'Your presence on key online directories and business listing sites. More citations = more visibility and authority in local search.',
     gapMessage,
     data: {
       presentCount,
@@ -465,7 +464,7 @@ async function scanSemanticAnalysis(websiteUrl: string): Promise<ModuleResult> {
       score: 0,
       status: 'urgent',
       weight: 20,
-      description: 'The Core 30 authority pages that every dental practice needs. Complete sites with 27+ pages convert 2.4x more visitors into patients.',
+      description: 'Comprehensive content pages covering your services and expertise. Complete sites with 27+ pages convert 2.4x more visitors into clients.',
       gapMessage: 'No website URL provided',
       data: {
         foundPages: 0,
@@ -487,7 +486,7 @@ async function scanSemanticAnalysis(websiteUrl: string): Promise<ModuleResult> {
       score,
       status: scoring.getStatus(score),
       weight: 20,
-      description: 'The Core 30 authority pages that every dental practice needs. Complete sites with 27+ pages convert 2.4x more visitors into patients.',
+      description: 'Comprehensive content pages covering your services and expertise. Complete sites with 27+ pages convert 2.4x more visitors into clients.',
       gapMessage,
       data: {
         foundPages,
@@ -505,7 +504,7 @@ async function scanSemanticAnalysis(websiteUrl: string): Promise<ModuleResult> {
       score: 0,
       status: 'urgent',
       weight: 20,
-      description: 'The Core 30 authority pages that every dental practice needs. Complete sites with 27+ pages convert 2.4x more visitors into patients.',
+      description: 'Comprehensive content pages covering your services and expertise. Complete sites with 27+ pages convert 2.4x more visitors into clients.',
       gapMessage: 'Unable to crawl website',
       data: {
         foundPages: 0,
@@ -528,8 +527,8 @@ async function scanGBPServices(googleData: any): Promise<ModuleResult> {
       score: 0,
       status: 'urgent',
       weight: 10,
-      description: 'Services listed on your Google Business Profile. Practices with 15+ services listed appear in more searches and attract high-value patients.',
-      gapMessage: 'Practice not found on Google. Cannot analyze services.',
+      description: 'Services listed on your Google Business Profile. Businesses with 15+ services listed appear in more searches and attract high-value clients.',
+      gapMessage: 'Business not found on Google. Cannot analyze services.',
       data: {
         servicesCount: 0,
         source: 'google_places'
@@ -548,7 +547,7 @@ async function scanGBPServices(googleData: any): Promise<ModuleResult> {
     score,
     status: scoring.getStatus(score),
     weight: 10,
-    description: 'Services listed on your Google Business Profile. Practices with 15+ services listed appear in more searches and attract high-value patients.',
+    description: 'Services listed on your Google Business Profile. Businesses with 15+ services listed appear in more searches and attract high-value clients.',
     gapMessage: gapMessage || `Found ${servicesCount} category types. Note: Full service count requires Google Business Profile access.`,
     data: {
       servicesCount,
