@@ -107,16 +107,19 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
     <>
       <div className="min-h-screen bg-gray-50">
         {/* Branded Header */}
-        <div className="bg-primary shadow-lg">
+        <div className="bg-gradient-to-br from-[#1e2654] to-[#29377f] shadow-lg">
           <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 max-w-6xl">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div className="flex items-center gap-4">
-                <img src="/opkie-logo-white.svg" alt="Opkie" className="h-16 sm:h-20" />
-                <h1 className="text-2xl sm:text-3xl font-extrabold" style={{ color: '#FFFFFF' }}>Digital Authority Report</h1>
+                <img src="/hr4sight-logo.png" alt="HR4Sight" className="h-12 sm:h-14 w-auto" />
+                <div>
+                  <h1 className="text-xl sm:text-2xl font-extrabold text-white">Digital Authority Report</h1>
+                  <p className="text-sm text-white/80 mt-0.5">Powered by TAPS Framework</p>
+                </div>
               </div>
               <div className="sm:text-right">
-                <div className="text-xs sm:text-sm font-medium mb-1" style={{ color: '#E0E7EE' }}>Practice Name</div>
-                <div className="font-bold text-lg sm:text-xl" style={{ color: '#FFFFFF' }}>{scan.practice_name}</div>
+                <div className="text-xs sm:text-sm font-medium mb-1 text-white/70">Business Name</div>
+                <div className="font-bold text-base sm:text-lg text-white">{scan.practice_name}</div>
               </div>
             </div>
           </div>
