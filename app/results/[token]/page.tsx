@@ -229,52 +229,52 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
             </div>
           </div>
 
-          {/* Area Scores Breakdown */}
+          {/* TAPS Scores Breakdown */}
           {scan.results_json?.areaScores && (
             <div className="bg-white rounded-xl shadow-lg mb-6 sm:mb-8 overflow-hidden border border-gray-200">
               <div className="border-b-4 border-secondary px-4 sm:px-8 py-4 sm:py-6 bg-gradient-to-r from-gray-50 to-white">
-                <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Area Scores</h2>
-                <p className="text-gray-600 mt-1 text-sm sm:text-base">Performance breakdown across all 5 areas</p>
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900">TAPS Framework Breakdown</h2>
+                <p className="text-gray-600 mt-1 text-sm sm:text-base">Performance scores across all 5 TAPS pillars</p>
               </div>
 
               <div className="p-4 sm:p-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
                   <div className="text-center p-4 sm:p-6 rounded-lg border-2 border-gray-200 bg-gradient-to-br from-blue-50 to-white hover:shadow-lg transition-all">
-                    <div className="text-4xl sm:text-5xl font-black text-primary mb-2">{scan.results_json.areaScores.technicalSEO}</div>
-                    <div className="text-xs sm:text-sm font-bold text-gray-900">Technical SEO</div>
+                    <div className="text-4xl sm:text-5xl font-black text-primary mb-2">{scan.results_json.areaScores.trust_score}</div>
+                    <div className="text-xs sm:text-sm font-bold text-gray-900">Trust & Credibility</div>
                   </div>
                   <div className="text-center p-4 sm:p-6 rounded-lg border-2 border-gray-200 bg-gradient-to-br from-blue-50 to-white hover:shadow-lg transition-all">
-                    <div className="text-4xl sm:text-5xl font-black text-primary mb-2">{scan.results_json.areaScores.strategicSEO}</div>
+                    <div className="text-4xl sm:text-5xl font-black text-primary mb-2">{scan.results_json.areaScores.accessibility_score}</div>
+                    <div className="text-xs sm:text-sm font-bold text-gray-900">Accessibility & Discoverability</div>
+                  </div>
+                  <div className="text-center p-4 sm:p-6 rounded-lg border-2 border-gray-200 bg-gradient-to-br from-blue-50 to-white hover:shadow-lg transition-all">
+                    <div className="text-4xl sm:text-5xl font-black text-primary mb-2">{scan.results_json.areaScores.positioning_score}</div>
+                    <div className="text-xs sm:text-sm font-bold text-gray-900">Positioning</div>
+                  </div>
+                  <div className="text-center p-4 sm:p-6 rounded-lg border-2 border-gray-200 bg-gradient-to-br from-blue-50 to-white hover:shadow-lg transition-all">
+                    <div className="text-4xl sm:text-5xl font-black text-primary mb-2">{scan.results_json.areaScores.site_authority_score}</div>
+                    <div className="text-xs sm:text-sm font-bold text-gray-900">Site Authority</div>
+                  </div>
+                  <div className="text-center p-4 sm:p-6 rounded-lg border-2 border-gray-200 bg-gradient-to-br from-blue-50 to-white hover:shadow-lg transition-all">
+                    <div className="text-4xl sm:text-5xl font-black text-primary mb-2">{scan.results_json.areaScores.strategic_seo_score}</div>
                     <div className="text-xs sm:text-sm font-bold text-gray-900">Strategic SEO</div>
-                  </div>
-                  <div className="text-center p-4 sm:p-6 rounded-lg border-2 border-gray-200 bg-gradient-to-br from-blue-50 to-white hover:shadow-lg transition-all">
-                    <div className="text-4xl sm:text-5xl font-black text-primary mb-2">{scan.results_json.areaScores.technicalSite}</div>
-                    <div className="text-xs sm:text-sm font-bold text-gray-900">Technical Site</div>
-                  </div>
-                  <div className="text-center p-4 sm:p-6 rounded-lg border-2 border-gray-200 bg-gradient-to-br from-blue-50 to-white hover:shadow-lg transition-all">
-                    <div className="text-4xl sm:text-5xl font-black text-primary mb-2">{scan.results_json.areaScores.marketUnderstanding}</div>
-                    <div className="text-xs sm:text-sm font-bold text-gray-900">Market Understanding</div>
-                  </div>
-                  <div className="text-center p-4 sm:p-6 rounded-lg border-2 border-gray-200 bg-gradient-to-br from-blue-50 to-white hover:shadow-lg transition-all">
-                    <div className="text-4xl sm:text-5xl font-black text-primary mb-2">{scan.results_json.areaScores.strategicSite}</div>
-                    <div className="text-xs sm:text-sm font-bold text-gray-900">Strategic Site</div>
                   </div>
                 </div>
               </div>
             </div>
           )}
 
-          {/* Technical SEO Area */}
+          {/* Trust & Credibility */}
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
             <div className="bg-gradient-to-br from-[#1e2654] to-[#29377f] px-4 sm:px-8 py-4 sm:py-6">
               <div className="flex items-center justify-between">
                 <div className="flex-1">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white">Technical SEO</h3>
-                  <p className="mt-2 text-sm sm:text-base text-white/80">Foundational elements that help Google find and rank your practice</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Trust & Credibility</h3>
+                  <p className="mt-2 text-sm sm:text-base text-white/80">Google reviews, ratings, and customer sentiment that build credibility</p>
                 </div>
-                {scan.results_json?.areaScores?.technicalSEO && (
+                {scan.results_json?.areaScores?.trust_score && (
                   <div className="ml-4 flex-shrink-0">
-                    <div className="text-4xl sm:text-5xl font-black text-secondary">{scan.results_json.areaScores.technicalSEO}</div>
+                    <div className="text-4xl sm:text-5xl font-black text-secondary">{scan.results_json.areaScores.trust_score}</div>
                   </div>
                 )}
               </div>
@@ -295,17 +295,17 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
             </div>
           </div>
 
-          {/* Strategic SEO Area */}
+          {/* Accessibility & Discoverability */}
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
             <div className="bg-gradient-to-br from-[#1e2654] to-[#29377f] px-4 sm:px-8 py-4 sm:py-6">
               <div className="flex items-center justify-between">
                 <div className="flex-1">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white">Strategic SEO</h3>
-                  <p className="mt-2 text-sm sm:text-base text-white/80">Strategic signals that demonstrate authority and trustworthiness</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Accessibility & Discoverability</h3>
+                  <p className="mt-2 text-sm sm:text-base text-white/80">NAP consistency, directory presence, and GBP optimization</p>
                 </div>
-                {scan.results_json?.areaScores?.strategicSEO && (
+                {scan.results_json?.areaScores?.accessibility_score && (
                   <div className="ml-4 flex-shrink-0">
-                    <div className="text-4xl sm:text-5xl font-black text-secondary">{scan.results_json.areaScores.strategicSEO}</div>
+                    <div className="text-4xl sm:text-5xl font-black text-secondary">{scan.results_json.areaScores.accessibility_score}</div>
                   </div>
                 )}
               </div>
@@ -326,17 +326,17 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
             </div>
           </div>
 
-          {/* Technical Site Area */}
+          {/* Positioning */}
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
             <div className="bg-gradient-to-br from-[#1e2654] to-[#29377f] px-4 sm:px-8 py-4 sm:py-6">
               <div className="flex items-center justify-between">
                 <div className="flex-1">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white">Technical Site</h3>
-                  <p className="mt-2 text-sm sm:text-base text-white/80">Technical performance and user experience factors</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Positioning</h3>
+                  <p className="mt-2 text-sm sm:text-base text-white/80">GBP categories, services, messaging, and local relevance</p>
                 </div>
-                {scan.results_json?.areaScores?.technicalSite && (
+                {scan.results_json?.areaScores?.positioning_score && (
                   <div className="ml-4 flex-shrink-0">
-                    <div className="text-4xl sm:text-5xl font-black text-secondary">{scan.results_json.areaScores.technicalSite}</div>
+                    <div className="text-4xl sm:text-5xl font-black text-secondary">{scan.results_json.areaScores.positioning_score}</div>
                   </div>
                 )}
               </div>
@@ -357,17 +357,17 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
             </div>
           </div>
 
-          {/* Market Understanding Area */}
+          {/* Site Authority */}
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-200">
             <div className="bg-gradient-to-br from-[#1e2654] to-[#29377f] px-4 sm:px-8 py-4 sm:py-6">
               <div className="flex items-center justify-between">
                 <div className="flex-1">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white">Market Understanding</h3>
-                  <p className="mt-2 text-sm sm:text-base text-white/80">How well your practice speaks to local patient needs</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Site Authority</h3>
+                  <p className="mt-2 text-sm sm:text-base text-white/80">Technical SEO, page speed, mobile optimization, and content quality</p>
                 </div>
-                {scan.results_json?.areaScores?.marketUnderstanding && (
+                {scan.results_json?.areaScores?.site_authority_score && (
                   <div className="ml-4 flex-shrink-0">
-                    <div className="text-4xl sm:text-5xl font-black text-secondary">{scan.results_json.areaScores.marketUnderstanding}</div>
+                    <div className="text-4xl sm:text-5xl font-black text-secondary">{scan.results_json.areaScores.site_authority_score}</div>
                   </div>
                 )}
               </div>
@@ -388,17 +388,17 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
             </div>
           </div>
 
-          {/* Strategic Site Area */}
+          {/* Strategic SEO */}
           <div className="bg-white rounded-xl shadow-lg mb-6 sm:mb-8 overflow-hidden border border-gray-200">
             <div className="bg-gradient-to-br from-[#1e2654] to-[#29377f] px-4 sm:px-8 py-4 sm:py-6">
               <div className="flex items-center justify-between">
                 <div className="flex-1">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white">Strategic Site</h3>
-                  <p className="mt-2 text-sm sm:text-base text-white/80">High-value content that establishes topical authority</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Strategic SEO</h3>
+                  <p className="mt-2 text-sm sm:text-base text-white/80">High-value content and semantic analysis that attracts qualified clients</p>
                 </div>
-                {scan.results_json?.areaScores?.strategicSite && (
+                {scan.results_json?.areaScores?.strategic_seo_score && (
                   <div className="ml-4 flex-shrink-0">
-                    <div className="text-4xl sm:text-5xl font-black text-secondary">{scan.results_json.areaScores.strategicSite}</div>
+                    <div className="text-4xl sm:text-5xl font-black text-secondary">{scan.results_json.areaScores.strategic_seo_score}</div>
                   </div>
                 )}
               </div>
