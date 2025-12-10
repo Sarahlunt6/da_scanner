@@ -74,7 +74,7 @@ export default function AboutTAPSPage() {
               <div className="group">
                 <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full">
                   <div className="flex flex-col items-center text-center mb-4">
-                    <div className="bg-gradient-to-br from-primary to-primary/80 text-white rounded-full w-20 h-20 flex items-center justify-center text-3xl font-black shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3 border-4 border-primary">
+                    <div className="bg-[#1a1f4d] text-white rounded-full w-20 h-20 flex items-center justify-center text-3xl font-black shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3 border-4 border-secondary">
                       1
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900">Technical SEO</h2>
@@ -110,7 +110,7 @@ export default function AboutTAPSPage() {
               <div className="group">
                 <div className="bg-gradient-to-br from-secondary/20 to-secondary/30 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full">
                   <div className="flex flex-col items-center text-center mb-4">
-                    <div className="bg-gradient-to-br from-secondary to-secondary/90 text-gray-900 rounded-full w-20 h-20 flex items-center justify-center text-3xl font-black shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3 border-4 border-primary">
+                    <div className="bg-gradient-to-br from-secondary to-secondary/90 text-gray-900 rounded-full w-20 h-20 flex items-center justify-center text-3xl font-black shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3 border-4 border-secondary">
                       2
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900">Strategic SEO</h2>
@@ -146,7 +146,7 @@ export default function AboutTAPSPage() {
               <div className="group">
                 <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full">
                   <div className="flex flex-col items-center text-center mb-4">
-                    <div className="bg-gradient-to-br from-primary to-primary/80 text-white rounded-full w-20 h-20 flex items-center justify-center text-3xl font-black shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3 border-4 border-primary">
+                    <div className="bg-[#1a1f4d] text-white rounded-full w-20 h-20 flex items-center justify-center text-3xl font-black shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3 border-4 border-secondary">
                       3
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900">Technical Site</h2>
@@ -181,7 +181,7 @@ export default function AboutTAPSPage() {
               <div className="group">
                 <div className="bg-gradient-to-br from-secondary/20 to-secondary/30 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full">
                   <div className="flex flex-col items-center text-center mb-4">
-                    <div className="bg-gradient-to-br from-secondary to-secondary/90 text-gray-900 rounded-full w-20 h-20 flex items-center justify-center text-3xl font-black shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3 border-4 border-primary">
+                    <div className="bg-gradient-to-br from-secondary to-secondary/90 text-gray-900 rounded-full w-20 h-20 flex items-center justify-center text-3xl font-black shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3 border-4 border-secondary">
                       4
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900">Market Understanding</h2>
@@ -213,7 +213,7 @@ export default function AboutTAPSPage() {
               <div className="group">
                 <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full">
                   <div className="flex flex-col items-center text-center mb-4">
-                    <div className="bg-gradient-to-br from-primary to-primary/80 text-white rounded-full w-20 h-20 flex items-center justify-center text-3xl font-black shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3 border-4 border-primary">
+                    <div className="bg-[#1a1f4d] text-white rounded-full w-20 h-20 flex items-center justify-center text-3xl font-black shadow-lg transform group-hover:scale-110 transition-transform duration-300 mb-3 border-4 border-secondary">
                       5
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900">Strategic Site</h2>
