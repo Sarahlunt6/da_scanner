@@ -104,37 +104,37 @@ export async function performScan(input: ScanInput): Promise<ScanResult> {
 
   // Generate area scores (random 55-69, at least 1 in 50s, average >= 60)
   const areaScores = scoring.generateAreaScores();
-  const technicalSEOScore = areaScores.technicalSEO;
-  const strategicSEOScore = areaScores.strategicSEO;
-  const technicalSiteScore = areaScores.technicalSite;
-  const marketUnderstandingScore = areaScores.marketUnderstanding;
-  const strategicSiteScore = areaScores.strategicSite;
+  const trustScore = areaScores.trust_score;
+  const accessibilityScore = areaScores.accessibility_score;
+  const positioningScore = areaScores.positioning_score;
+  const siteAuthorityScore = areaScores.site_authority_score;
+  const strategicSEOScore = areaScores.strategic_seo_score;
 
   // Calculate overall score (random 60-69)
   const overallScore = scoring.calculateOverallScore(
-    technicalSEOScore,
-    strategicSEOScore,
-    technicalSiteScore,
-    marketUnderstandingScore,
-    strategicSiteScore
+    trustScore,
+    accessibilityScore,
+    positioningScore,
+    siteAuthorityScore,
+    strategicSEOScore
   );
 
   console.log(`📊 Final Scores:`);
   console.log(`  Overall: ${overallScore}`);
-  console.log(`  Technical SEO: ${technicalSEOScore}`);
+  console.log(`  Trust: ${trustScore}`);
+  console.log(`  Accessibility: ${accessibilityScore}`);
+  console.log(`  Positioning: ${positioningScore}`);
+  console.log(`  Site Authority: ${siteAuthorityScore}`);
   console.log(`  Strategic SEO: ${strategicSEOScore}`);
-  console.log(`  Technical Site: ${technicalSiteScore}`);
-  console.log(`  Market Understanding: ${marketUnderstandingScore}`);
-  console.log(`  Strategic Site: ${strategicSiteScore}`);
 
   return {
     overallScore,
     areaScores: {
-      technicalSEO: technicalSEOScore,
-      strategicSEO: strategicSEOScore,
-      technicalSite: technicalSiteScore,
-      marketUnderstanding: marketUnderstandingScore,
-      strategicSite: strategicSiteScore,
+      trust_score: trustScore,
+      accessibility_score: accessibilityScore,
+      positioning_score: positioningScore,
+      site_authority_score: siteAuthorityScore,
+      strategic_seo_score: strategicSEOScore,
     },
     modules: allModules,
     timestamp: new Date().toISOString(),
