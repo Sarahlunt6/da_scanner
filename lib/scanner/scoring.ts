@@ -18,11 +18,11 @@ export function normalizeScore(rawScore: number): number {
  * - Average of all 5 scores is at least 60
  */
 export function generateAreaScores(): {
-  technicalSEO: number;
-  strategicSEO: number;
-  technicalSite: number;
-  marketUnderstanding: number;
-  strategicSite: number;
+  trust_score: number;
+  accessibility_score: number;
+  positioning_score: number;
+  site_authority_score: number;
+  strategic_seo_score: number;
 } {
   let scores: number[] = [];
   let hasScoreInFifties = false;
@@ -47,11 +47,11 @@ export function generateAreaScores(): {
   } while (!hasScoreInFifties || average < 60);
 
   return {
-    technicalSEO: scores[0],
-    strategicSEO: scores[1],
-    technicalSite: scores[2],
-    marketUnderstanding: scores[3],
-    strategicSite: scores[4],
+    trust_score: scores[0],
+    accessibility_score: scores[1],
+    positioning_score: scores[2],
+    site_authority_score: scores[3],
+    strategic_seo_score: scores[4],
   };
 }
 
