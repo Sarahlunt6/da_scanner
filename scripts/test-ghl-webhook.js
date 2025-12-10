@@ -28,7 +28,7 @@ const samplePayload = {
 
   // Metadata
   scan_date: new Date().toISOString(),
-  report_url: "https://your-app.vercel.app/results/sample-token-12345",
+  report_url: "https://da-scanner.vercel.app/results/sample-token-12345",
 
   // Status
   status: "completed"
