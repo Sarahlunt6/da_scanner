@@ -48,9 +48,9 @@ export async function POST(request: Request) {
       UPDATE scans
       SET status = 'completed',
           overall_score = ${scanResult.overallScore},
-          phase1_score = ${scanResult.areaScores.technicalSEO},
-          phase2_score = ${scanResult.areaScores.strategicSEO},
-          phase3_score = ${scanResult.areaScores.technicalSite},
+          phase1_score = ${scanResult.areaScores.trust_score},
+          phase2_score = ${scanResult.areaScores.accessibility_score},
+          phase3_score = ${scanResult.areaScores.positioning_score},
           results_json = ${JSON.stringify(scanResult)},
           updated_at = NOW()
       WHERE id = ${scanId}
@@ -80,28 +80,23 @@ export async function POST(request: Request) {
 
     if (ghlWebhookUrl) {
       const webhookData = {
+        business_name: scan.practice_name,
+        website: scan.website_url,
         email: scan.email,
-        first_name: scan.contact_name.split(' ')[0],
-        last_name: scan.contact_name.split(' ').slice(1).join(' ') || '',
         phone: scan.phone,
-        practice_name: scan.practice_name,
-        website_url: scan.website_url,
+        contact_name: scan.contact_name,
         address: scan.address,
         city: scan.city,
         state: scan.state,
         da_score: scanResult.overallScore,
-        // Send area scores (5 areas)
-        technical_seo_score: scanResult.areaScores.technicalSEO,
-        strategic_seo_score: scanResult.areaScores.strategicSEO,
-        technical_site_score: scanResult.areaScores.technicalSite,
-        market_understanding_score: scanResult.areaScores.marketUnderstanding,
-        strategic_site_score: scanResult.areaScores.strategicSite,
-        // Legacy phase scores for backwards compatibility
-        phase1_score: scanResult.areaScores.technicalSEO,
-        phase2_score: scanResult.areaScores.strategicSEO,
-        phase3_score: scanResult.areaScores.technicalSite,
-        scan_token: scan.unique_token,
-        results_url: `${process.env.NEXT_PUBLIC_APP_URL}/results/${scan.unique_token}`,
+        trust_score: scanResult.areaScores.trust_score,
+        accessibility_score: scanResult.areaScores.accessibility_score,
+        positioning_score: scanResult.areaScores.positioning_score,
+        site_authority_score: scanResult.areaScores.site_authority_score,
+        strategic_seo_score: scanResult.areaScores.strategic_seo_score,
+        scan_date: new Date().toISOString(),
+        report_url: `${process.env.NEXT_PUBLIC_APP_URL}/results/${scan.unique_token}`,
+        status: 'completed'
       };
 
       console.log('Sending webhook to GHL:', JSON.stringify(webhookData, null, 2));
@@ -134,9 +129,9 @@ export async function POST(request: Request) {
       overallScore: scanResult.overallScore,
       token: scan.unique_token,
       // Map area scores to phase scores for email compatibility
-      phase1Score: scanResult.areaScores.technicalSEO,
-      phase2Score: scanResult.areaScores.strategicSEO,
-      phase3Score: scanResult.areaScores.technicalSite,
+      phase1Score: scanResult.areaScores.trust_score,
+      phase2Score: scanResult.areaScores.accessibility_score,
+      phase3Score: scanResult.areaScores.positioning_score,
       websiteUrl: scan.website_url,
     }).then(() => {
       console.log('✅ Email logged successfully');
@@ -149,16 +144,11 @@ export async function POST(request: Request) {
       scanId,
       scores: {
         overall: scanResult.overallScore,
-        // Return area scores
-        technicalSEO: scanResult.areaScores.technicalSEO,
-        strategicSEO: scanResult.areaScores.strategicSEO,
-        technicalSite: scanResult.areaScores.technicalSite,
-        marketUnderstanding: scanResult.areaScores.marketUnderstanding,
-        strategicSite: scanResult.areaScores.strategicSite,
-        // Legacy phase scores for backwards compatibility
-        phase1: scanResult.areaScores.technicalSEO,
-        phase2: scanResult.areaScores.strategicSEO,
-        phase3: scanResult.areaScores.technicalSite,
+        trust_score: scanResult.areaScores.trust_score,
+        accessibility_score: scanResult.areaScores.accessibility_score,
+        positioning_score: scanResult.areaScores.positioning_score,
+        site_authority_score: scanResult.areaScores.site_authority_score,
+        strategic_seo_score: scanResult.areaScores.strategic_seo_score,
       },
     });
   } catch (error) {
