@@ -40,6 +40,7 @@ export default function HomePage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isGoogleLoaded, setIsGoogleLoaded] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const practiceNameInputRef = useRef<HTMLInputElement>(null);
   const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null);
 
@@ -157,18 +158,21 @@ export default function HomePage() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-yellow-50/30">
       {/* Navigation */}
       <nav className="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-4 py-3 sm:py-4">
           <div className="flex items-center justify-between">
+            {/* Logo */}
             <div className="flex items-center gap-3 group">
               <Image
                 src="/hr4sight-logo.png"
                 alt="HR4Sight"
-                width={240}
-                height={60}
-                className="h-14 w-auto transform group-hover:scale-105 transition-transform duration-300"
+                width={180}
+                height={45}
+                className="h-10 sm:h-12 w-auto transform group-hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <div className="flex items-center gap-6">
+
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center gap-4 lg:gap-6">
               <a
                 href="/how-it-works"
                 className="text-sm font-medium text-gray-700 hover:text-primary transition-all duration-200"
@@ -185,15 +189,7 @@ export default function HomePage() {
                 onClick={() => {
                   document.getElementById('scan-form')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="text-sm font-bold px-6 py-3 rounded-lg shadow-lg transform transition-all duration-200 hover:shadow-xl hover:scale-105 relative overflow-hidden group bg-[#fbab3f] text-gray-900"
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'scale(1.05) translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = '';
-                  e.currentTarget.style.boxShadow = '';
-                }}
+                className="text-sm font-bold px-4 lg:px-6 py-2.5 lg:py-3 rounded-lg shadow-lg transform transition-all duration-200 hover:shadow-xl hover:scale-105 relative overflow-hidden group bg-[#fbab3f] text-gray-900"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   FREE SCAN
@@ -201,10 +197,55 @@ export default function HomePage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </span>
-                <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-200"></div>
               </button>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden p-2 text-gray-700 hover:text-primary transition-colors"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
           </div>
+
+          {/* Mobile Menu */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden mt-4 pb-4 space-y-3 border-t border-gray-200 pt-4">
+              <a
+                href="/how-it-works"
+                className="block text-base font-medium text-gray-700 hover:text-primary transition-all duration-200 py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                How It Works
+              </a>
+              <a
+                href="/about-taps"
+                className="block text-base font-medium text-gray-700 hover:text-primary transition-all duration-200 py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                About TAPS
+              </a>
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  document.getElementById('scan-form')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="w-full text-base font-bold px-6 py-3 rounded-lg shadow-lg bg-[#fbab3f] text-gray-900 hover:bg-[#e89a2d] transition-all"
+              >
+                FREE SCAN →
+              </button>
+            </div>
+          )}
         </div>
       </nav>
 
