@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { sql } from "@vercel/postgres";
 import { performScan } from "@/lib/scanner/index";
 import { sendResultsEmail } from "@/lib/email/service";
+import { getAppUrl } from "@/lib/utils/env";
 
 // Extend timeout to 5 minutes for long-running scans
 export const maxDuration = 300;
@@ -79,6 +80,7 @@ export async function POST(request: Request) {
     console.log(`GHL_WEBHOOK_URL configured: ${ghlWebhookUrl ? 'YES' : 'NO'}`);
 
     if (ghlWebhookUrl) {
+      const appUrl = getAppUrl();
       const webhookData = {
         business_name: scan.practice_name,
         website: scan.website_url,
@@ -95,7 +97,7 @@ export async function POST(request: Request) {
         site_authority_score: scanResult.areaScores.site_authority_score,
         strategic_seo_score: scanResult.areaScores.strategic_seo_score,
         scan_date: new Date().toISOString(),
-        report_url: `${process.env.NEXT_PUBLIC_APP_URL}/results/${scan.unique_token}`,
+        report_url: `${appUrl}/results/${scan.unique_token}`,
         status: 'completed'
       };
 
