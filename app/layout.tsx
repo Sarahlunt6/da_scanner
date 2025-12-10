@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Digital Authority Scanner | Opkie",
-  description: "Find out why high-value patients aren't finding you—and what the top 5% of practices do differently.",
+  title: "Digital Authority Scanner | HR4Sight",
+  description: "Discover why 95% of businesses are invisible online—and what the top 5% do differently to attract high-value clients.",
   other: {
     'cache-control': 'no-cache, no-store, must-revalidate',
   },

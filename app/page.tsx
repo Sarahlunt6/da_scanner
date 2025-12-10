@@ -311,7 +311,7 @@ export default function HomePage() {
 
               {/* Social Proof Stats */}
               <div
-                className="bg-gradient-to-br from-[#1e2654] to-[#29377f] text-white grid grid-cols-3 gap-6 p-8 rounded-2xl shadow-xl group cursor-default border-2 border-secondary/30"
+                className="bg-gradient-to-br from-[#1e2654] to-[#29377f] text-white grid grid-cols-3 gap-3 sm:gap-6 p-4 sm:p-8 rounded-2xl shadow-xl group cursor-default border-2 border-secondary/30"
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-4px)';
                   e.currentTarget.style.boxShadow = '0 25px 50px -12px rgb(0 0 0 / 0.25)';
@@ -322,16 +322,16 @@ export default function HomePage() {
                 }}
               >
                 <div className="text-center transition-transform duration-300 hover:scale-110">
-                  <div className="text-5xl font-extrabold mb-2 text-white transition-colors duration-300 group-hover:text-secondary">200+</div>
-                  <div className="text-sm font-medium text-white/90">Businesses Scanned</div>
+                  <div className="text-3xl sm:text-5xl font-extrabold mb-1 sm:mb-2 text-white transition-colors duration-300 group-hover:text-secondary">200+</div>
+                  <div className="text-xs sm:text-sm font-medium text-white/90 leading-tight">Businesses Scanned</div>
                 </div>
                 <div className="text-center border-x border-white/30 transition-transform duration-300 hover:scale-110">
-                  <div className="text-5xl font-extrabold mb-2 text-white transition-colors duration-300 group-hover:text-secondary">95%</div>
-                  <div className="text-sm font-medium text-white/90">Score Below 80%</div>
+                  <div className="text-3xl sm:text-5xl font-extrabold mb-1 sm:mb-2 text-white transition-colors duration-300 group-hover:text-secondary">95%</div>
+                  <div className="text-xs sm:text-sm font-medium text-white/90 leading-tight">Score Below 80%</div>
                 </div>
                 <div className="text-center transition-transform duration-300 hover:scale-110">
-                  <div className="text-5xl font-extrabold mb-2 text-white transition-colors duration-300 group-hover:text-secondary">2.4x</div>
-                  <div className="text-sm font-medium text-white/90">Higher Conversion</div>
+                  <div className="text-3xl sm:text-5xl font-extrabold mb-1 sm:mb-2 text-white transition-colors duration-300 group-hover:text-secondary">2.4x</div>
+                  <div className="text-xs sm:text-sm font-medium text-white/90 leading-tight">Higher Conversion</div>
                 </div>
               </div>
             </div>
