@@ -274,7 +274,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                 </div>
                 {scan.results_json?.areaScores?.trust_score && (
                   <div className="ml-4 flex-shrink-0">
-                    <div className="text-4xl sm:text-5xl font-black text-secondary">{scan.results_json.areaScores.trust_score}</div>
+                    <div className="text-4xl sm:text-5xl font-black text-white">{scan.results_json.areaScores.trust_score}</div>
                   </div>
                 )}
               </div>
@@ -305,7 +305,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                 </div>
                 {scan.results_json?.areaScores?.accessibility_score && (
                   <div className="ml-4 flex-shrink-0">
-                    <div className="text-4xl sm:text-5xl font-black text-secondary">{scan.results_json.areaScores.accessibility_score}</div>
+                    <div className="text-4xl sm:text-5xl font-black text-white">{scan.results_json.areaScores.accessibility_score}</div>
                   </div>
                 )}
               </div>
@@ -336,7 +336,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                 </div>
                 {scan.results_json?.areaScores?.positioning_score && (
                   <div className="ml-4 flex-shrink-0">
-                    <div className="text-4xl sm:text-5xl font-black text-secondary">{scan.results_json.areaScores.positioning_score}</div>
+                    <div className="text-4xl sm:text-5xl font-black text-white">{scan.results_json.areaScores.positioning_score}</div>
                   </div>
                 )}
               </div>
@@ -367,7 +367,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                 </div>
                 {scan.results_json?.areaScores?.site_authority_score && (
                   <div className="ml-4 flex-shrink-0">
-                    <div className="text-4xl sm:text-5xl font-black text-secondary">{scan.results_json.areaScores.site_authority_score}</div>
+                    <div className="text-4xl sm:text-5xl font-black text-white">{scan.results_json.areaScores.site_authority_score}</div>
                   </div>
                 )}
               </div>
@@ -398,7 +398,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                 </div>
                 {scan.results_json?.areaScores?.strategic_seo_score && (
                   <div className="ml-4 flex-shrink-0">
-                    <div className="text-4xl sm:text-5xl font-black text-secondary">{scan.results_json.areaScores.strategic_seo_score}</div>
+                    <div className="text-4xl sm:text-5xl font-black text-white">{scan.results_json.areaScores.strategic_seo_score}</div>
                   </div>
                 )}
               </div>
@@ -420,12 +420,12 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
           </div>
 
           {/* Call to Action */}
-          <div className="bg-primary rounded-xl shadow-2xl overflow-hidden border-2 sm:border-4 border-secondary">
+          <div className="bg-gradient-to-br from-[#1e2654] to-[#29377f] rounded-xl shadow-2xl overflow-hidden border-2 sm:border-4 border-secondary">
             <div className="px-4 sm:px-8 py-8 sm:py-12 text-center">
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4" style={{ color: '#FFFFFF' }}>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4 text-white">
                 Ready to Improve Your Score?
               </h3>
-              <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-10 max-w-3xl mx-auto font-medium" style={{ color: '#E0E7EE' }}>
+              <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-10 max-w-3xl mx-auto font-medium text-white/80">
                 Schedule a complimentary 15-minute strategy session to receive a personalized action plan for dominating your local market.
               </p>
 
@@ -440,7 +440,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <div className="font-bold text-base sm:text-lg" style={{ color: '#FFFFFF' }}>No Long-Term Contracts</div>
+                  <div className="font-bold text-base sm:text-lg text-white">No Long-Term Contracts</div>
                 </div>
                 <div className="flex flex-col items-center">
                   <div className="bg-secondary w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-lg">
@@ -448,7 +448,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <div className="font-bold text-base sm:text-lg" style={{ color: '#FFFFFF' }}>2X ROI Guarantee</div>
+                  <div className="font-bold text-base sm:text-lg text-white">2X ROI Guarantee</div>
                 </div>
                 <div className="flex flex-col items-center">
                   <div className="bg-secondary w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-lg">
@@ -456,7 +456,7 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <div className="font-bold text-base sm:text-lg" style={{ color: '#FFFFFF' }}>Exclusive Territory</div>
+                  <div className="font-bold text-base sm:text-lg text-white">Exclusive Territory</div>
                 </div>
               </div>
             </div>
