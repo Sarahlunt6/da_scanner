@@ -219,19 +219,19 @@ export default function HomePage() {
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
-                Is Your Business{" "}
+                What's{" "}
                 <span className="text-primary relative inline-block">
-                  Invisible
+                  Blocking
                   <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 200 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 8C40 4 80 2 120 4C160 6 180 8 200 7" stroke="#fbab3f" strokeWidth="4" strokeLinecap="round"/>
                   </svg>
                 </span>{" "}
-                to New Customers Online?
+                High-Value Clients From Finding You?
               </h1>
 
               <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-                Get your <span className="font-bold text-gray-900">Digital Authority Score</span> and discover if{" "}
-                <span className="font-bold text-primary">your business is losing customers</span> to competitors with stronger online visibility.
+                Find out your <span className="font-bold text-gray-900">Digital Authority Score</span> and discover why{" "}
+                <span className="font-bold text-primary">95% of businesses</span> are invisible to clients searching for their expertise, certifications, and authority online.
               </p>
 
               {/* Benefits List */}
@@ -304,7 +304,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <p className="font-bold text-gray-900 text-lg group-hover:text-primary transition-colors duration-300">Actionable Improvement Plan</p>
-                    <p className="text-gray-600">Know exactly what to fix to attract more patients</p>
+                    <p className="text-gray-600">Know exactly what to fix to attract more high-value clients</p>
                   </div>
                 </div>
               </div>
@@ -322,16 +322,16 @@ export default function HomePage() {
                 }}
               >
                 <div className="text-center transition-transform duration-300 hover:scale-110">
-                  <div className="text-5xl font-extrabold mb-2 text-white transition-colors duration-300 group-hover:text-secondary">47</div>
-                  <div className="text-sm font-medium text-white/90">Data Points Analyzed</div>
+                  <div className="text-5xl font-extrabold mb-2 text-white transition-colors duration-300 group-hover:text-secondary">200+</div>
+                  <div className="text-sm font-medium text-white/90">Businesses Scanned</div>
                 </div>
                 <div className="text-center border-x border-white/30 transition-transform duration-300 hover:scale-110">
-                  <div className="text-5xl font-extrabold mb-2 text-white transition-colors duration-300 group-hover:text-secondary">5</div>
-                  <div className="text-sm font-medium text-white/90">TAPS Framework Pillars</div>
+                  <div className="text-5xl font-extrabold mb-2 text-white transition-colors duration-300 group-hover:text-secondary">95%</div>
+                  <div className="text-sm font-medium text-white/90">Score Below 80%</div>
                 </div>
                 <div className="text-center transition-transform duration-300 hover:scale-110">
-                  <div className="text-5xl font-extrabold mb-2 text-white transition-colors duration-300 group-hover:text-secondary">10min</div>
-                  <div className="text-sm font-medium text-white/90">To Complete Analysis</div>
+                  <div className="text-5xl font-extrabold mb-2 text-white transition-colors duration-300 group-hover:text-secondary">2.4x</div>
+                  <div className="text-sm font-medium text-white/90">Higher Conversion</div>
                 </div>
               </div>
             </div>
